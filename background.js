@@ -5,7 +5,7 @@
 /**
  * Returns a handler which will open a new window when activated.
  */
-function getClickHandler() {
+function getStoreClickHandler() {
   return function(info, tab) {
 
     // The srcUrl property is only available for image elements.
@@ -30,6 +30,6 @@ chrome.contextMenus.create({
   "id": "todoContextMenuGetPage",
   "title" : "Store this page", 
   "type" : "normal", //"normal", "checkbox", "radio", or "separator"
-  "onclick" : getClickHandler(),
+  "onclick" : getStoreClickHandler(),
   "contexts": ["all"]
 });
