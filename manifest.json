@@ -1,0 +1,21 @@
+{
+  "name" : "todolater",
+  "version" : "0.0.1",
+  "description" : "have yourself",
+  "background" : { "scripts": ["background.js"]},
+  "permissions" : [
+    "contextMenus",
+    "storage",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+   ],
+  "minimum_chrome_version" : "6.0.0.0",
+  "icons" : {
+    "16": "Latte_16.png",
+    "32": "Latte_32.png",
+    "48": "Latte_48.png",
+   "128": "Latte_128.png"
+    },
+  "manifest_version": 2
+}
