@@ -28,7 +28,7 @@ function getClickHandler() {
  */
 chrome.contextMenus.create({
   "id": "todoContextMenuGetPage",
-  "title" : "Get this page", 
+  "title" : "Store this page", 
   "type" : "normal", //"normal", "checkbox", "radio", or "separator"
   "onclick" : getClickHandler(),
   "contexts": ["all"]
