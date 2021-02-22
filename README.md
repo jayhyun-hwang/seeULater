@@ -7,5 +7,5 @@ Store pages you are interested in! And manage.
 
 ## Using
 
-<chrome://extensions/>.
+<chrome://extensions/>
 
