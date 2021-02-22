@@ -1,5 +1,5 @@
 {
-  "name" : "todolater",
+  "name" : "seeUlater",
   "version" : "0.0.1",
   "description" : "have yourself",
   "background" : { "scripts": ["background.js"]},
