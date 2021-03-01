@@ -5,21 +5,31 @@
 /**
  * Returns a handler which will open a new window when activated.
  */
+chrome.commands.onCommand.addListener(function(command) {
+  console.log('onCommand event received for message: ', command);
+});
 function getStoreClickHandler() {
   return function(info, tab) {
 
     // The srcUrl property is only available for image elements.
     //var url = 'info.html#' + info.srcUrl;
-    var title = 'info.html#' + tab.title;
-    var url = 'info.html#' + tab.url;
+    var title = tab.title;
+    var url = tab.url;
 
     // Create a new window to the info page.
     //console.log("title= "+title);
     //console.log("url= "+url);
     //alert(title+"/"+url);
-    alert("stored!");
+    //alert("stored!");
 
-    chrome.windows.create({ url: url, width: 520, height: 660 });
+    chrome.storage.sync.set({title : url}, function(){
+      alert('settings saved');
+    });
+    chrome.storage.sync.get([title], function(result){
+      alert(result.id);
+    })
+    alert(chrome.loginState.SessionState);
+    //chrome.windows.create({ url: url, width: 520, height: 660 });
   };
 };
 
@@ -28,7 +38,7 @@ function getStoreClickHandler() {
  */
 chrome.contextMenus.create({
   "id": "storePage",
-  "title" : "Store this page", 
+  "title" : "Store this page",
   "type" : "normal", //"normal", "checkbox", "radio", or "separator"
   "onclick" : getStoreClickHandler(),
   "contexts": ["all"]

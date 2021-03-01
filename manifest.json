@@ -7,9 +7,28 @@
     "contextMenus",
     "storage",
     "tabs",
+    "loginState",
     "http://*/*",
     "https://*/*"
    ],
+   "browser_action": {
+    "default_popup": "browser_action.html"
+  },
+  "commands": {
+    "toggle-feature": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "MacCtrl+Shift+Y"
+       },
+      "description": "Send a 'toggle-feature' event to the extension"
+    },
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "MacCtrl+Shift+F"
+      }
+    }
+  },
   "minimum_chrome_version" : "6.0.0.0",
   "icons" : {
     "16": "Latte_16.png",
