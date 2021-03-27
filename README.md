@@ -3,7 +3,7 @@ chrome extensions
 
 ## Statement
 
-Store page Us you are interested in! And manage.
+Store page URLs you are interested in! And manage.
 
 ## Using
 
