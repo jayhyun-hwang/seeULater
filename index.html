@@ -76,7 +76,7 @@
             document.querySelector('.username').innerText = name
             app.container = document.querySelector('.container')
             //여기서 아이피 주소 설정
-            app.ws = new WebSocket("ws://192.168.123.5:8080/ws?username=" + name)
+            app.ws = new WebSocket("ws://127.0.0.1:8080/ws?username=" + name)
             app.ws.onopen = function () {
                 var message = '<b>'+name+'</b>: connected'
                 app.print(message)

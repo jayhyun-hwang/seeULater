@@ -3,7 +3,7 @@
 - store url permanently
 - make url list - page
 - make a managing page
-  - CRUD url
+  - CRUD urls
   - enable to make tree directory(category folder structure)
 - when click extension icon, show managing menu
   - move to a managing page
