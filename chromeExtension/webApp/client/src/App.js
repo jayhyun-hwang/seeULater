@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <div className="black-nav">
-        SeeUrLater
+        SeeULater
       </div>
       <h4>{bibibibi}</h4>
       {test1()}
