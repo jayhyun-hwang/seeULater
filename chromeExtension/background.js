@@ -23,11 +23,11 @@ function getStoreClickHandler() {
     //alert("stored!");
 
     chrome.storage.sync.set({title : url}, function(){
-      alert('settings saved');
+      alert('settings saved'+url);
     });
-    chrome.storage.sync.get([title], function(result){
-      alert(result.id);
-    })
+    //chrome.storage.sync.get([title], function(result){
+    //  alert(result.id);
+    //})
     alert(chrome.loginState.SessionState);
     //chrome.windows.create({ url: url, width: 520, height: 660 });
   };
@@ -39,7 +39,7 @@ function getStoreClickHandler() {
 chrome.contextMenus.create({
   "id": "storePage",
   "title" : "Store this page",
-  "type" : "normal", //"normal", "checkbox", "radio", or "separator"
+  "type" : "separator", //"normal", "checkbox", "radio", or "separator"
   "onclick" : getStoreClickHandler(),
   "contexts": ["all"]
 });
