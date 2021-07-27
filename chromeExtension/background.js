@@ -39,7 +39,7 @@ function getStoreClickHandler() {
 chrome.contextMenus.create({
   "id": "storePage",
   "title" : "Store this page",
-  "type" : "separator", //"normal", "checkbox", "radio", or "separator"
+  "type" : "normal", //"normal", "checkbox", "radio", or "separator"
   "onclick" : getStoreClickHandler(),
   "contexts": ["all"]
 });
