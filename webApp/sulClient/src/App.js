@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
+import Axios from 'axios';
 //Importing Components
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
@@ -10,7 +11,11 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
+  
 
+  const [url, setUrl] = useState("");
+  const [urls, setUrls] = useState([]);
+  
   //RUN ONCE when the app start
   useEffect(() => {
     getLocalTodos();
