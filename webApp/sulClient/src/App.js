@@ -1,51 +1,52 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
+import Axios from 'axios';
 //Importing Components
 import Form from "./components/Form";
-import TodoList from "./components/TodoList";
+import UrlList from "./components/UrlList";
 
 function App() {
   //State stuff
   const [inputText, setInputText] = useState("");
-  const [todos, setTodos] = useState([]);
+  const [urls, setUrls] = useState([]);
   const [status, setStatus] = useState("all");
-  const [filteredTodos, setFilteredTodos] = useState([]);
-
+  const [filteredUrls, setFilteredUrls] = useState([]);
+  
   //RUN ONCE when the app start
   useEffect(() => {
-    getLocalTodos();
+    getLocalUrls();
   }, []);
   //USE EFFECT
   //핸들러가 실행될 때 마다 실행하는 함수.
   useEffect(() => {
     // console.log('hey');
     filterHandler();
-    saveLocalTodos();
-  }, [todos, status]);
+    saveLocalUrls();
+  }, [urls, status]);
   //Functions
   const filterHandler = () => {
     switch (status) {
       case 'completed':
-        setFilteredTodos(todos.filter((todo) => todo.completed === true));
+        setFilteredUrls(urls.filter((url) => url.completed === true));
         break;
       case 'uncompleted':
-        setFilteredTodos(todos.filter((todo) => todo.completed === false));
+        setFilteredUrls(urls.filter((url) => url.completed === false));
         break;
       default:
-        setFilteredTodos(todos);
+        setFilteredUrls(urls);
         break;
     }
   };
   //Save to Local
-  const saveLocalTodos = () => {
-    localStorage.setItem('todos', JSON.stringify(todos));
+  const saveLocalUrls = () => {
+    localStorage.setItem('urls', JSON.stringify(urls));
   };
-  const getLocalTodos = () => {
-    if (localStorage.getItem('todos') === null) {
-      localStorage.setItem('todos', JSON.stringify([]));
+  const getLocalUrls = () => {
+    if (localStorage.getItem('urls') === null) {
+      localStorage.setItem('urls', JSON.stringify([]));
     } else {
-      let todoLocal = JSON.parse(localStorage.getItem("todos"));
-      setTodos(todoLocal);
+      let urlLocal = JSON.parse(localStorage.getItem("urls"));
+      setUrls(urlLocal);
     }
   }
   return (
@@ -56,16 +57,16 @@ function App() {
       <div className="Body">
         <Form
           inputText={inputText}
-          todos={todos}
-          setTodos={setTodos}
+          urls={urls}
+          setUrls={setUrls}
           setInputText={setInputText}
           setStatus={setStatus}
 
         />
-        <TodoList
-          filteredTodos={filteredTodos}
-          setTodos={setTodos}
-          todos={todos}
+        <UrlList
+          filteredUrls={filteredUrls}
+          setUrls={setUrls}
+          urls={urls}
         />
       </div>
     </div>
