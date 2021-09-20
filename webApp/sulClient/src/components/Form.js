@@ -9,14 +9,14 @@ const Form = ({ setInputText, urls, setUrls, inputText, setStatus }) => {
     };
     const submitUrlHandler = (e) => {
         e.preventDefault();
-        setUrls([
-            ...urls, {text: inputText, completed: false, id: Math.random() * 1000 },
-        ]);
-        Axios.post('http://localhost:3001/url', {
+        Axios.post('http://127.0.0.1:3001/url', {
             userID: 1,  //set userid
             url: inputText
         }).then(() => {
             setInputText("");
+            setUrls([
+                ...urls, {text: inputText, completed: false, id: Math.random() * 1000 },
+            ]);
             alert("store success.");
         });
     };
