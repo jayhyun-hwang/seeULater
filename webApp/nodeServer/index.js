@@ -1,3 +1,4 @@
+
 //import express
 const express = require('express');
 //assign express to app
@@ -8,6 +9,8 @@ const mysql = require('mysql');
 const cors = require('cors');
 //import path == provides utilities for working with file and directory paths
 const path = require('path');
+//import util js
+const utils = require('./utils');
 
 //add cors modules to app
 app.use(cors());
@@ -36,17 +39,18 @@ app.get("/", (req, res) => {
 
 
 //make router, req handlers
-app.post('/employees', (req, res) => {
+app.post('/url', (req, res) => {
     console.log(req.body);
-    const name = req.body.name;
-    const age = req.body.age;
-    const country = req.body.country;
-    const position = req.body.position;
-    const wage = req.body.wage;
+    const userID = req.body.userID;
+    const url = req.body.url;
+    const regdate = utils.getDatetime();
+
+    //check
+    console.log("post url, time: "+regdate);
 
     db.query(
-        'INSERT INTO employees (name, age, country, position, wage) VALUES (?,?,?,?,?)',
-        [name, age, country, position, wage],
+        'INSERT INTO urls (user_id, url, regdate) VALUES (?,?,?)',
+        [userID, url, regdate],
         (err, result) => {
             if (err) {
                 console.log(err);

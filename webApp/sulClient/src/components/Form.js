@@ -1,32 +1,39 @@
+import Axios from 'axios';
 import React from "react";
 
-const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
+const Form = ({ setInputText, urls, setUrls, inputText, setStatus }) => {
     //Here I can write javascript code and function
     const inputTextHandler = (e) => {
         console.log(e.target.value);
         setInputText(e.target.value);
     };
-    const submitTodoHandler = (e) => {
+    const submitUrlHandler = (e) => {
         e.preventDefault();
-        setTodos([
-            ...todos, {text: inputText, completed: false, id: Math.random() * 1000 },
+        setUrls([
+            ...urls, {text: inputText, completed: false, id: Math.random() * 1000 },
         ]);
-        setInputText("");
+        Axios.post('http://localhost:3001/url', {
+            userID: 1,  //set userid
+            url: inputText
+        }).then(() => {
+            setInputText("");
+            alert("store success.");
+        });
     };
     const statusHandler = (e) => {
         setStatus(e.target.value);
     }
     return (
         <form>
-            <input value={inputText} onChange={inputTextHandler} type="text" className="todo-input" />
-            <button onClick={submitTodoHandler} className="todo-button" type="submit">
+            <input value={inputText} onChange={inputTextHandler} type="text" className="url-input" />
+            <button onClick={submitUrlHandler} className="url-button" type="submit">
                 <i className="fas fa-plus-square"></i>
             </button>
             <div className="select">
-                <select onChange={statusHandler} name="todos" className="filter-todo">
+                <select onChange={statusHandler} name="urls" className="filter-url">
                     <option value="all">All</option>
-                    <option value="completed">Completed</option>
-                    <option value="uncompleted">Uncompleted</option>
+                    <option value="completed">Read</option>
+                    <option value="uncompleted">Unread</option>
                 </select>
             </div>
         </form>
