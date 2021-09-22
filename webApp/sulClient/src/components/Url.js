@@ -1,6 +1,36 @@
 import React from "react";
+import LinkPreview from '@ashwamegh/react-link-preview';
+import LoadingImg from './img/loading.png'
 
-const Url = ({ text, url, setUrls, urls }) => {
+function CustomComponent({ loading, preview }) {
+    return loading
+        ? (
+            <div className="preview-wrapper">
+                <div className="img-div">
+                    <img src={LoadingImg} alt="..." />
+                </div>
+                <div className="p-div">
+                    <p>&nbsp;</p>
+                    <p>Loading... </p>
+                    <p className="p-description">&nbsp;</p>
+                </div>
+            </div>
+        )
+        : (
+            <div className="preview-wrapper">
+                <div className="img-div">
+                    <img src={preview.img} alt={preview.title} />
+                </div>
+                <div className="p-div">
+                    <p>{preview.domain}</p>
+                    <p>{preview.title}</p>
+                    <p className="p-description">{preview.description}</p>
+                </div>
+            </div>
+        )
+}
+
+const Url = ({ url, setUrls, urls }) => {
     //Events
     const deleteHandler = () => {
         console.log(url);
@@ -21,13 +51,18 @@ const Url = ({ text, url, setUrls, urls }) => {
     };
     return (
         <div className="url">
-            <li className={`url-item ${url.completed ? "completed" : ""}`}>{text}</li>
-            <button onClick={completeHandler} className="complete-btn">
-                <i className="fas fa-check"></i>
-            </button>
-            <button onClick={deleteHandler} className="trash-btn">
-                <i className="fas fa-trash"></i>
-            </button>
+            <li className={`url-item ${url.completed ? "completed" : ""}`}>{url.url}</li>
+            <div className="url-preview-button">
+                <LinkPreview url={url.url} render={CustomComponent} />
+                <div className="url-button-div">
+                    <button onClick={completeHandler} className="complete-btn">
+                        <i className="fas fa-check"></i>
+                    </button>
+                    <button onClick={deleteHandler} className="trash-btn">
+                        <i className="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     );
 };

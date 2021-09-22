@@ -10,10 +10,9 @@ const UrlList = ({urls, setUrls, filteredUrls}) => {
                 {filteredUrls.map((url) => (
                     <Url 
                     setUrls={setUrls}
-                    urls={urls} 
-                    text={url.text}
-                    url={url} 
-                    key={url.id}
+                    urls={urls}
+                    url={url}
+                    urlID={url.urlID}
                     />
                 ))}
             </ul>

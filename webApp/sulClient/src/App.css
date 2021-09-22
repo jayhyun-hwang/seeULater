@@ -3,41 +3,45 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   background-color: #a4e7ca;
   color: #ffffff;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
 }
+
 header {
   font-size: 2rem;
 }
 
-header,
-form {
+header, form {
   min-height: 20vh;
   display: flex;
   justify-content: left;
   align-items: center;
   margin-left: 20px;
 }
-form input,
-form button {
+
+form input, form button {
   padding: 0.5rem;
   font-size: 2rem;
   border: none;
   background: white;
 }
+
 form button {
   color: #00d6c0;
   background: #f7fffe;
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 form button:hover {
   background: #00d6c0;
   color: white;
 }
+
 .url-container {
   display: flex;
   justify-content: left;
@@ -46,29 +50,40 @@ form button:hover {
 }
 
 .url-list {
-  min-width: 50%;
+  width: 100%;
+  max-width: 900px;
+  min-width: 470px;
   list-style: none;
+}
+
+.url-preview-button {
+  display: flex;
+  justify-content: space-between;
 }
 
 .url {
   margin: 0.5rem;
   background: white;
   font-size: 1.5rem;
-  color: black;
-  display: flex;
+  color: grey;
+  border-radius: 10px;
+  padding: 10px;
+  display: block;
+  /* display: flex; */
   justify-content: space-between;
   align-items: center;
   transition: all 1s ease;
 }
+
 .filter-url {
   padding: 1rem;
 }
+
 .url li {
   flex: 1;
 }
 
-.trash-btn,
-.complete-btn {
+.trash-btn, .complete-btn {
   background: #005963;
   color: white;
   border: none;
@@ -76,15 +91,18 @@ form button:hover {
   cursor: pointer;
   font-size: 1rem;
 }
+
 .complete-btn {
   background: rgb(11, 212, 162);
 }
+
 .url-item {
-  padding: 0rem 0.5rem;
+  margin: 0 0 0.5rem 0.5rem;
+  font-size: 0.9em;
+  color: #00acb2;
 }
 
-.fa-trash,
-.fa-check {
+.fa-trash, .fa-check {
   pointer-events: none;
 }
 
@@ -99,6 +117,7 @@ form button:hover {
 }
 
 /*CUSTOM SELECTOR */
+
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -111,18 +130,22 @@ select {
 }
 
 /* Custom Select */
+
 .select {
   margin: 1rem;
   position: relative;
   overflow: hidden;
 }
+
 select {
   color: #00d6c0;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
   width: 12rem;
 }
+
 /* Arrow */
+
 .select::after {
   content: "\25BC";
   position: absolute;
@@ -133,3 +156,38 @@ select {
   cursor: pointer;
   pointer-events: none;
 }
+
+.preview-wrapper {
+  display: flex;
+}
+
+.preview-wrapper p {
+  font-size: 0.8em;
+  margin: 5px 0 0 5px;
+}
+
+.p-description {
+  font-size: 0.6em !important;
+  color: #71a2a8;
+  margin-top: 13px !important;
+}
+
+.preview-wrapper img {
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 5px;
+}
+
+.img-div {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.url-button-div {
+  display: flex;
+  align-items: flex-end;
+}
+

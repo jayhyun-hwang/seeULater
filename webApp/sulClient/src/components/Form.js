@@ -3,6 +3,8 @@ import React from "react";
 
 const Form = ({ setInputText, urls, setUrls, inputText, setStatus }) => {
     //Here I can write javascript code and function
+    
+    // 이벤트를 파라미터로 함수 만들기, onChange 이벤트 등록
     const inputTextHandler = (e) => {
         console.log(e.target.value);
         setInputText(e.target.value);
@@ -20,6 +22,8 @@ const Form = ({ setInputText, urls, setUrls, inputText, setStatus }) => {
             alert("store success.");
         });
     };
+
+    // onChange 등록, all, complete, uncomplete 바뀔 때 상태 등록
     const statusHandler = (e) => {
         setStatus(e.target.value);
     }

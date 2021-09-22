@@ -61,8 +61,8 @@ app.post('/url', (req, res) => {
     );
 });
 
-app.get("/employees", (req, res) => {
-    db.query("SELECT * FROM employees", (err, result) => {
+app.get("/urls", (req, res) => {
+    db.query("SELECT * FROM urls WHERE deldate IS NULL", (err, result) => {
         if (err) {
             console.log(err)
         }else{

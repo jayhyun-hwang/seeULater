@@ -1,7 +1,9 @@
 # Major(step)
 
-- store url permanently
-- make url list - page
+- **caching preview information to localstorage**
+
+- ~~store url permanently~~
+- ~~make url list - page~~
 - make a managing page
   - CRUD urls
   - enable to make tree directory(category folder structure)
