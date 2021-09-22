@@ -1,6 +1,6 @@
 import React from "react";
 import LinkPreview from '@ashwamegh/react-link-preview';
-import LoadingImg from './img/loading.png'
+import LoadingImg from './img/loading.png';
 
 function CustomComponent({ loading, preview }) {
     return loading
@@ -19,7 +19,7 @@ function CustomComponent({ loading, preview }) {
         : (
             <div className="preview-wrapper">
                 <div className="img-div">
-                    <img src={preview.img} alt={preview.title} />
+                    <img src={preview.img} /*alt={preview.title}*/ />
                 </div>
                 <div className="p-div">
                     <p>{preview.domain}</p>
@@ -32,6 +32,9 @@ function CustomComponent({ loading, preview }) {
 
 const Url = ({ url, setUrls, urls }) => {
     //Events
+    const LinkHandler = () => {
+        window.open(url.url, '_blank');
+    }
     const deleteHandler = () => {
         console.log(url);
         setUrls(urls.filter((el) => el.id !== url.id));
@@ -51,9 +54,11 @@ const Url = ({ url, setUrls, urls }) => {
     };
     return (
         <div className="url">
-            <li className={`url-item ${url.completed ? "completed" : ""}`}>{url.url}</li>
+            <li className={`url-item ${url.completed ? "completed" : ""}`} onClick={LinkHandler}>{url.url}</li>
             <div className="url-preview-button">
-                <LinkPreview url={url.url} render={CustomComponent} />
+                <div onClick={LinkHandler}>
+                <LinkPreview url={url.url} render={CustomComponent}/>
+                </div>
                 <div className="url-button-div">
                     <button onClick={completeHandler} className="complete-btn">
                         <i className="fas fa-check"></i>

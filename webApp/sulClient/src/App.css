@@ -81,6 +81,7 @@ form button:hover {
 
 .url li {
   flex: 1;
+  cursor: pointer;
 }
 
 .trash-btn, .complete-btn {
@@ -159,6 +160,7 @@ select {
 
 .preview-wrapper {
   display: flex;
+  cursor: pointer;
 }
 
 .preview-wrapper p {
@@ -182,6 +184,8 @@ select {
   width: 100px;
   height: 100px;
   display: flex;
+  background: #e5eeef;
+  border-radius: 5px;
   align-items: center;
   justify-content: center;
 }
