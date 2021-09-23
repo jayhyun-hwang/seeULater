@@ -32,6 +32,7 @@ function App() {
     // console.log('hey');
     filterHandler();
     saveLocalUrls();
+    getLocalUrls();
   }, [urls, status]); //urls, status값이 바뀔 때마다 실행된다.
   //Functions
   const filterHandler = () => {
