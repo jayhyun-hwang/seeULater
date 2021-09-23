@@ -28,9 +28,9 @@ const db = getConnection();
 function getConnection(){
     try {
         const fileData = fs.readFileSync('dbConfig.json');
-        console.log(fileData)
+        // console.log(fileData)
         const config = JSON.parse(fileData);
-        console.log(config);
+        // console.log(config);
         const connection = mysql.createConnection({
             user: config.user,
             host: config.host,
@@ -78,17 +78,8 @@ app.post('/url', (req, res) => {
     );
 });
 
-// app.get("/urls", (req, res) => {
-//     db.query("SELECT * FROM urls WHERE deldate IS NULL", (err, result) => {
-//         if (err) {
-//             console.log(err)
-//         }else{
-//             res.send(result)
-//         }
-//     })
-// })
 app.get("/urls", (req, res) => {
-    db.query("SELECT * FROM urls", (err, result) => {
+    db.query("SELECT * FROM urls WHERE deldate IS NULL", (err, result) => {
         if (err) {
             console.log(err)
         }else{
@@ -96,6 +87,7 @@ app.get("/urls", (req, res) => {
         }
     })
 })
+
 
 app.put("/employees", (req, res)=> {
     const id = req.body.id;
