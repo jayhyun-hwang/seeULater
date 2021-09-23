@@ -11,6 +11,9 @@ const cors = require('cors');
 const path = require('path');
 //import util js
 const utils = require('./utils');
+//file system to read config file
+const fs = require('fs')
+
 
 //add cors modules to app
 app.use(cors());
@@ -20,12 +23,26 @@ app.use(express.json());
 app.use(express.static("build"));
 
 //make database connection, assign db
-const db = mysql.createConnection({
-    user: 'root',
-    host: '127.0.0.1',
-    password: 'wogus0501',
-    database: 'seeulater'
-});
+const db = getConnection();
+
+function getConnection(){
+    try {
+        const fileData = fs.readFileSync('dbConfig.json');
+        console.log(fileData)
+        const config = JSON.parse(fileData);
+        console.log(config);
+        const connection = mysql.createConnection({
+            user: config.user,
+            host: config.host,
+            password: config.password,
+            database: config.database
+        });
+        return connection;
+    } catch (err) {
+        console.error(err);
+        return;
+    }
+}
 
 //set listening port
 app.listen(3001, () => {
@@ -61,8 +78,17 @@ app.post('/url', (req, res) => {
     );
 });
 
+// app.get("/urls", (req, res) => {
+//     db.query("SELECT * FROM urls WHERE deldate IS NULL", (err, result) => {
+//         if (err) {
+//             console.log(err)
+//         }else{
+//             res.send(result)
+//         }
+//     })
+// })
 app.get("/urls", (req, res) => {
-    db.query("SELECT * FROM urls WHERE deldate IS NULL", (err, result) => {
+    db.query("SELECT * FROM urls", (err, result) => {
         if (err) {
             console.log(err)
         }else{
