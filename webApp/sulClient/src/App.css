@@ -54,6 +54,7 @@ form button:hover {
   max-width: 900px;
   min-width: 470px;
   list-style: none;
+  margin-bottom: 10vh;
 }
 
 .url-preview-button {
@@ -195,3 +196,6 @@ select {
   align-items: flex-end;
 }
 
+.inputForm{
+  min-height: 80px;
+}

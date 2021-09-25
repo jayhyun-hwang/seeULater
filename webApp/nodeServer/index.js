@@ -56,7 +56,7 @@ app.get("/", (req, res) => {
 
 
 //make router, req handlers
-app.post('/url', (req, res) => {
+app.post('/urls', (req, res) => {
     console.log(req.body);
     const userID = req.body.userID;
     const url = req.body.url;
@@ -88,7 +88,6 @@ app.get("/urls", (req, res) => {
     })
 })
 
-
 app.put("/employees", (req, res)=> {
     const id = req.body.id;
     const wage = req.body.wage;
@@ -103,9 +102,11 @@ app.put("/employees", (req, res)=> {
     });
 });
 
-app.delete("/employees/:id", (req, res) => {
-    const id = req.params.id;
-    db.query("delete from employees where id = ?", id, (err, result) => {
+app.delete("/urls/:url_id", (req, res) => {
+    const url_id = req.params.url_id;
+    const deldate = utils.getDatetime();
+
+    db.query("UPDATE urls SET deldate = ? WHERE url_id = ?", [deldate, url_id], (err, result) => {
         if (err) {
             console.log(err);
         } else {

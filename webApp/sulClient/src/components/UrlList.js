@@ -3,6 +3,8 @@ import React from 'react';
 import Url from './Url';
 
 const UrlList = ({urls, setUrls, filteredUrls}) => {
+    console.log("tt");
+    console.log(urls);
     console.log(filteredUrls);
     return (
         <div className="url-container">

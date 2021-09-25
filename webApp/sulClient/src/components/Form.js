@@ -11,7 +11,7 @@ const Form = ({ setInputText, urls, setUrls, inputText, setStatus }) => {
     };
     const submitUrlHandler = (e) => {
         e.preventDefault();
-        Axios.post('http://127.0.0.1:3001/url', {
+        Axios.post('http://127.0.0.1:3001/urls', {
             userID: 1,  //set userid
             url: inputText
         }).then(() => {
@@ -28,7 +28,7 @@ const Form = ({ setInputText, urls, setUrls, inputText, setStatus }) => {
         setStatus(e.target.value);
     }
     return (
-        <form>
+        <form className="inputForm">
             <input value={inputText} onChange={inputTextHandler} type="text" className="url-input" />
             <button onClick={submitUrlHandler} className="url-button" type="submit">
                 <i className="fas fa-plus-square"></i>

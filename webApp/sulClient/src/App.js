@@ -24,7 +24,7 @@ function App() {
 
   //RUN ONCE when the app start 
   useEffect(() => {
-    getLocalUrls();
+    getUrls();
   }, []); // , [] 컴포넌트가 마운트 될 때(렌더링) 한번 실행한다. 
   //USE EFFECT
   //핸들러가 실행될 때 마다 실행하는 함수.
@@ -32,7 +32,7 @@ function App() {
     // console.log('hey');
     filterHandler();
     saveLocalUrls();
-    getLocalUrls();
+    // getUrls();
   }, [urls, status]); //urls, status값이 바뀔 때마다 실행된다.
   //Functions
   const filterHandler = () => {
@@ -53,7 +53,7 @@ function App() {
   const saveLocalUrls = () => {
     localStorage.setItem('urls', JSON.stringify(urls));
   };
-  const getLocalUrls = () => {
+  const getUrls = () => {
     // if (localStorage.getItem('urls') === null) {
     //   localStorage.setItem('urls', JSON.stringify([]));
     // } else {

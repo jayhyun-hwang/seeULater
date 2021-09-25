@@ -1,6 +1,7 @@
 import React from "react";
 import LinkPreview from '@ashwamegh/react-link-preview';
 import LoadingImg from './img/loading.png';
+import Axios from 'axios';
 
 function CustomComponent({ loading, preview }) {
     return loading
@@ -35,9 +36,17 @@ const Url = ({ url, setUrls, urls }) => {
     const LinkHandler = () => {
         window.open(url.url, '_blank');
     }
-    const deleteHandler = () => {
-        console.log(url);
-        setUrls(urls.filter((el) => el.id !== url.id));
+    const deleteHandler = (e) => {
+        console.log("url= "+url.url);
+        console.log("url.urlID= "+url.urlID);
+        Axios.delete(`http://localhost:3001/urls/${url.urlID}`)
+            .then((response) => {
+                //getEmployees()
+                setUrls(urls.filter((val) => {
+                    return val.urlID == url.urlID
+                }))
+                alert("delete!");
+            })
     };
     const completeHandler = () => {
         setUrls(
@@ -57,7 +66,7 @@ const Url = ({ url, setUrls, urls }) => {
             <li className={`url-item ${url.completed ? "completed" : ""}`} onClick={LinkHandler}>{url.url}</li>
             <div className="url-preview-button">
                 <div onClick={LinkHandler}>
-                <LinkPreview url={url.url} render={CustomComponent}/>
+                    <LinkPreview url={url.url} render={CustomComponent} />
                 </div>
                 <div className="url-button-div">
                     <button onClick={completeHandler} className="complete-btn">
