@@ -38,12 +38,12 @@ const Url = ({ url, setUrls, urls }) => {
     }
     const deleteHandler = (e) => {
         console.log("url= "+url.url);
-        console.log("url.urlID= "+url.urlID);
-        Axios.delete(`http://localhost:3001/urls/${url.urlID}`)
+        console.log("url.urlID= "+url.url_id);
+        Axios.delete(`http://localhost:3001/urls/${url.url_id}`)
             .then((response) => {
-                //getEmployees()
+                // 삭제한 url_id와 다른 것들만 urls에 세팅
                 setUrls(urls.filter((val) => {
-                    return val.urlID == url.urlID
+                    return val.url_id !== url.url_id
                 }))
                 alert("delete!");
             })

@@ -14,7 +14,7 @@ const UrlList = ({urls, setUrls, filteredUrls}) => {
                     setUrls={setUrls}
                     urls={urls}
                     url={url}
-                    urlID={url.urlID}
+                    urlID={url.url_id}
                     />
                 ))}
             </ul>

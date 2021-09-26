@@ -166,7 +166,7 @@ select {
 
 .preview-wrapper p {
   font-size: 0.8em;
-  margin: 5px 0 0 5px;
+  margin: 5px 0 0 10px;
 }
 
 .p-description {
@@ -185,10 +185,15 @@ select {
   width: 100px;
   height: 100px;
   display: flex;
-  background: #e5eeef;
+  background: #f3f3f3;
+  border: #e4e4e4 solid 2px;
   border-radius: 5px;
   align-items: center;
   justify-content: center;
+}
+
+.img-div img {
+  padding: 5px;
 }
 
 .url-button-div {
