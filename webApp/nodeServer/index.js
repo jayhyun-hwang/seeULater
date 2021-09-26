@@ -25,7 +25,7 @@ app.use(express.static("build"));
 //make database connection, assign db
 const db = getConnection();
 
-function getConnection(){
+function getConnection() {
     try {
         const fileData = fs.readFileSync('dbConfig.json');
         // console.log(fileData)
@@ -57,13 +57,14 @@ app.get("/", (req, res) => {
 
 //make router, req handlers
 app.post('/urls', (req, res) => {
+    console.log(req);
     console.log(req.body);
     const userID = req.body.userID;
     const url = req.body.url;
     const regdate = utils.getDatetime();
 
     //check
-    console.log("post url, time: "+regdate);
+    console.log("post url, time: " + regdate);
 
     db.query(
         'INSERT INTO urls (user_id, url, regdate) VALUES (?,?,?)',
@@ -78,28 +79,53 @@ app.post('/urls', (req, res) => {
     );
 });
 
+app.get('/getChromeEx', (req, res) => {
+    
+    // const userID = req.body.userID;
+    // todo: 쿠키값으로 사용자 확인해야함
+    const userID = 1;
+    // const url = req.body.url;
+    const url = req.query.url
+    const regdate = utils.getDatetime();
+
+    //check
+    console.log("getChromeEx post url, time: " + regdate);
+
+    db.query(
+        'INSERT INTO urls (user_id, url, regdate) VALUES (?,?,?)',
+        [userID, url, regdate],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(200);
+            }
+        }
+    );
+});
+
 app.get("/urls", (req, res) => {
     db.query("SELECT * FROM urls WHERE deldate IS NULL", (err, result) => {
         if (err) {
             console.log(err)
-        }else{
+        } else {
             res.send(result)
         }
     })
 })
 
-app.put("/employees", (req, res)=> {
+app.put("/employees", (req, res) => {
     const id = req.body.id;
     const wage = req.body.wage;
 
     db.query("UPDATE employees SET wage = ? WHERE id = ?",
-    [wage, id], (err, result) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.send(result);
-        }
-    });
+        [wage, id], (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        });
 });
 
 app.delete("/urls/:url_id", (req, res) => {
