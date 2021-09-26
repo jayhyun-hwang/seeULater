@@ -1,7 +1,7 @@
 # Major(step)
 
 - **caching preview information to localstorage**
-
+- 로고 악어로 바꾸기
 - ~~store url permanently~~
 - ~~make url list - page~~
 - make a managing page
@@ -15,3 +15,4 @@
 
 - when stored, popup at right bottom of the page(tab) - instead alert
 
+- 
