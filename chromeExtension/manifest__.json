@@ -9,9 +9,16 @@
   },
   "permissions": [
     "contextMenus",
+    "storage",
     "tabs",
+    "webRequest",
+    "storage",
+    "activeTab",
     "cookies",
-    "http://*/*"
+    "*://*.google.com/",
+    "http://*/*",
+    "https://*/*",
+    "http://127.0.0.1:3001/*"
   ],
   "browser_action": {
     "default_popup": "browser_action.html"

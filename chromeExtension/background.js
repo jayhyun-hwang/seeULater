@@ -34,7 +34,7 @@ function getStoreClickHandler() {
     
     req.onreadystatechange = function () { // Call a function when the state changes.
       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-        console.log("Got response 200!");
+        alert("Got response 200!");
       }
     }
     // var urlParams = "userID=1&url=" + url;
