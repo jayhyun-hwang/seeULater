@@ -9,6 +9,8 @@ body {
   color: #ffffff;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
+  min-width: 60vh;
+  max-width: 225vh;
 }
 
 header {
@@ -208,8 +210,11 @@ select {
 
 .inputForm{
   min-height: 80px;
+  width: 100%;
+  max-width: 913px;
+  min-width: 480px;
 }
 
 .url-input{
-    width: 50.6%;
+    width: 69%;
 }
