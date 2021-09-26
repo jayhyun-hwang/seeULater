@@ -134,7 +134,7 @@ select {
 /* Custom Select */
 
 .select {
-  margin: 1rem;
+  margin: 1rem 8px 1rem 1rem;
   position: relative;
   overflow: hidden;
 }
@@ -201,6 +201,15 @@ select {
   align-items: flex-end;
 }
 
+.input-addbutton-wrapper{
+  min-width: 50%;
+  display: contents;
+}
+
 .inputForm{
   min-height: 80px;
+}
+
+.url-input{
+    width: 50.6%;
 }

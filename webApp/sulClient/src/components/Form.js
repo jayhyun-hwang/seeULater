@@ -3,7 +3,7 @@ import React from "react";
 
 const Form = ({ setInputText, urls, setUrls, inputText, setStatus }) => {
     //Here I can write javascript code and function
-    
+
     // 이벤트를 파라미터로 함수 만들기, onChange 이벤트 등록
     const inputTextHandler = (e) => {
         console.log(e.target.value);
@@ -17,7 +17,7 @@ const Form = ({ setInputText, urls, setUrls, inputText, setStatus }) => {
         }).then(() => {
             setInputText("");
             setUrls([
-                ...urls, {text: inputText, completed: false, id: Math.random() * 1000 },
+                ...urls, { text: inputText, completed: false, id: Math.random() * 1000 },
             ]);
             alert("store success.");
         });
@@ -29,10 +29,12 @@ const Form = ({ setInputText, urls, setUrls, inputText, setStatus }) => {
     }
     return (
         <form className="inputForm">
-            <input value={inputText} onChange={inputTextHandler} type="text" className="url-input" />
-            <button onClick={submitUrlHandler} className="url-button" type="submit">
-                <i className="fas fa-plus-square"></i>
-            </button>
+            <div className="input-addbutton-wrapper">
+                <input value={inputText} onChange={inputTextHandler} type="text" className="url-input" />
+                <button onClick={submitUrlHandler} className="url-button" type="submit">
+                    <i className="fas fa-plus-square"></i>
+                </button>
+            </div>
             <div className="select">
                 <select onChange={statusHandler} name="urls" className="filter-url">
                     <option value="all">All</option>
