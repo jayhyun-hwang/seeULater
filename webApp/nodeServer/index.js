@@ -98,7 +98,7 @@ app.get('/getChromeEx', (req, res) => {
             if (err) {
                 console.log(err);
             } else {
-                res.status(200).send('OK');
+                res.send(result);
             }
         }
     );
