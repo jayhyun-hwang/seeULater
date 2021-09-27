@@ -15,10 +15,10 @@ const Form = ({ setInputText, urls, setUrls, inputText, setStatus }) => {
             userID: 1,  //set userid
             url: inputText
         }).then(() => {
-            setInputText("");
             setUrls([
-                ...urls, { text: inputText, completed: false, id: Math.random() * 1000 },
+                ...urls, { url: inputText, completed: false, id: Math.random() * 1000 },
             ]);
+            setInputText("");
             alert("store success.");
         });
     };

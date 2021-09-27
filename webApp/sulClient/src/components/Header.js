@@ -22,4 +22,9 @@ function Header() {
     );
 }
 
+{/* <Menu>
+   <MenuItem component={Link} to={'/first'}>Team 1</MenuItem>
+   <MenuItem component={Link} to={'/second'}>Team 2</MenuItem>
+</Menu> */}
+
 export default Header;

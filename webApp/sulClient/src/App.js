@@ -71,11 +71,6 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      {/* <header>
-          <div className="main-header">
-            <h1>seeULater</h1><img className="main-logo-img" src={LogoAlligator} alt="seeULater" />
-          </div>
-      </header> */}
       <div className="Body">
         <Form
           inputText={inputText}
