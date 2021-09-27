@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import './App.css';
 import Axios from 'axios';
 //Importing Components
+import Header from "./components/Header";
 import Form from "./components/Form";
 import UrlList from "./components/UrlList";
+// import LogoAlligator from './components/img/alligator.png';
+import { useHistory } from 'react-router-dom';
 
 function App() {
   //State stuff
-  
+
   //사용할 변수들과 상태를 설정한다.(초기값)
   const [urls, setUrls] = useState([]);
   const [urlID, setUrlID] = useState("");
@@ -17,7 +20,7 @@ function App() {
   const [memo, setMemo] = useState("");
   const [directory, setDirectory] = useState("");
   const [regdate, setRegdate] = useState("");
-  
+
   const [inputText, setInputText] = useState("");
   const [status, setStatus] = useState("all");
   const [filteredUrls, setFilteredUrls] = useState([]);
@@ -68,9 +71,12 @@ function App() {
   }
   return (
     <div className="App">
-      <header>
-        <h1>seeULater</h1>
-      </header>
+      <Header/>
+      {/* <header>
+          <div className="main-header">
+            <h1>seeULater</h1><img className="main-logo-img" src={LogoAlligator} alt="seeULater" />
+          </div>
+      </header> */}
       <div className="Body">
         <Form
           inputText={inputText}
@@ -78,11 +84,11 @@ function App() {
           setUrls={setUrls}
           setInputText={setInputText}
           setStatus={setStatus}
-          // inputText={inputText}
-          // urls={urls}
-          // setUrls={setUrls}
-          // setInputText={setInputText}
-          // setStatus={setStatus}
+        // inputText={inputText}
+        // urls={urls}
+        // setUrls={setUrls}
+        // setInputText={setInputText}
+        // setStatus={setStatus}
         />
         <UrlList
           filteredUrls={filteredUrls}

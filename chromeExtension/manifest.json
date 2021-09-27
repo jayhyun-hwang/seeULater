@@ -33,9 +33,9 @@
   },
   "minimum_chrome_version": "6.0.0.0",
   "icons": {
-    "16": "alligator_16.png",
-    "32": "alligator_32.png",
-    "48": "alligator_48.png",
+    "16": "alligator_128.png",
+    "32": "alligator_128.png",
+    "48": "alligator_128.png",
     "128": "alligator_128.png"
   },
   "manifest_version": 2

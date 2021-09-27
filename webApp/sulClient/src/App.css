@@ -218,3 +218,12 @@ select {
 .url-input{
     width: 69%;
 }
+
+.main-header {
+  display: contents;
+}
+
+img.main-logo-img {
+  width: 2em;
+  margin: 0.5em;
+}
