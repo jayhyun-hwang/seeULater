@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #a4e7ca;
+  background-color: #92e7c2;
   color: #ffffff;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
@@ -72,7 +72,7 @@ form button:hover {
   border-radius: 10px;
   padding: 10px;
   display: block;
-  /* display: flex; */
+  overflow: auto;
   justify-content: space-between;
   align-items: center;
   transition: all 1s ease;
@@ -203,20 +203,20 @@ select {
   align-items: flex-end;
 }
 
-.input-addbutton-wrapper{
+.input-addbutton-wrapper {
   min-width: 50%;
   display: contents;
 }
 
-.inputForm{
+.inputForm {
   min-height: 80px;
   width: 100%;
   max-width: 913px;
   min-width: 480px;
 }
 
-.url-input{
-    width: 69%;
+.url-input {
+  width: 69%;
 }
 
 .main-header {
@@ -225,8 +225,9 @@ select {
 }
 
 img.main-logo-img {
-  width: 2em;
-  margin: 0.5em;
+  width: 2.5em;
+  height: 2em;
+  margin: 0 0 0.5em 0.5em;
 }
 
 /* a{
