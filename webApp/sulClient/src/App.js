@@ -5,7 +5,6 @@ import Axios from 'axios';
 import Header from "./components/Header";
 import Form from "./components/Form";
 import UrlList from "./components/UrlList";
-// import LogoAlligator from './components/img/alligator.png';
 import { useHistory } from 'react-router-dom';
 
 function App() {

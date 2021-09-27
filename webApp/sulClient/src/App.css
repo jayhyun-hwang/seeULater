@@ -221,6 +221,7 @@ select {
 
 .main-header {
   display: contents;
+  cursor: pointer;
 }
 
 img.main-logo-img {
