@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (max-width: 940px), (max-height: 600px) {
+  .App {
+    display: block;
+  }
+}
 body {
   background-color: #92e7c2;
   color: #ffffff;
