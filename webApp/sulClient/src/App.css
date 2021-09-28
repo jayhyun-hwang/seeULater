@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items: center;
 }
-@media (max-width: 940px), (max-height: 600px) {
+@media (max-width: 940px), (max-height: 400px) {
   .App {
     display: block;
   }
@@ -19,20 +19,24 @@ body {
   color: #ffffff;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
-  min-width: 60vh;
+  /* min-width: 60vh; */
   max-width: 225vh;
-}
-
-header {
-  font-size: 2rem;
 }
 
 header, form {
   min-height: 20vh;
   display: flex;
-  justify-content: left;
   align-items: center;
-  margin-left: 20px;
+  margin: 0 1vh;
+}
+
+header {
+  font-size: 2rem;
+  justify-content: center;
+}
+
+form {
+  justify-content: left;
 }
 
 form input, form button {
@@ -58,7 +62,6 @@ form button:hover {
   display: flex;
   justify-content: left;
   align-items: center;
-  margin-left: 12px;
 }
 
 .url-list {
@@ -75,7 +78,7 @@ form button:hover {
 }
 
 .url {
-  margin: 0.5rem;
+  margin: 1vh;
   background: white;
   font-size: 1.5rem;
   color: grey;
@@ -155,7 +158,7 @@ select {
   color: #00d6c0;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
-  width: 12rem;
+  width: 199px;
 }
 
 /* Arrow */
