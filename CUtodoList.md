@@ -21,6 +21,6 @@
 # minor
 
 - when stored, popup at right bottom of the page(tab) - instead alert
-
 - ~~메인로고에 악어 넣기, 메인으로 이동~~
 - 로그 수정 및 정리하기
+- 저장하기 단축키 설정, Ctrl + Shift + S

@@ -12,8 +12,10 @@ const path = require('path');
 //import util js
 const utils = require('./utils');
 //file system to read config file
-const fs = require('fs')
-
+const fs = require('fs');
+//body parser
+// const multer = require('multer');
+// const upload = multer();
 
 //add cors modules to app
 app.use(cors());
@@ -21,6 +23,10 @@ app.use(cors());
 app.use(express.json());
 //add using static file modules to app
 app.use(express.static("build"));
+//for parse x-www-form-unlencoded
+// app.use(express.urlencoded({ extended: true }));
+//for parsing form data
+// app.use(upload.array());
 
 //make database connection, assign db
 const db = getConnection();
@@ -79,13 +85,10 @@ app.post('/urls', (req, res) => {
     );
 });
 
-app.get('/getChromeEx', (req, res) => {
-    
-    // const userID = req.body.userID;
-    // todo: 쿠키값으로 사용자 확인해야함
+app.post('/getChromeEx', (req, res) => {
     const userID = 1;
-    // const url = req.body.url;
-    const url = req.query.url
+    const url = req.body.url;
+    // const url = req.query.url
     const regdate = utils.getDatetime();
 
     //check
@@ -103,6 +106,30 @@ app.get('/getChromeEx', (req, res) => {
         }
     );
 });
+// app.get('/getChromeEx', (req, res) => {
+    
+//     // const userID = req.body.userID;
+//     // todo: 쿠키값으로 사용자 확인해야함
+//     const userID = 1;
+//     // const url = req.body.url;
+//     const url = req.query.url
+//     const regdate = utils.getDatetime();
+
+//     //check
+//     console.log("getChromeEx post url, time: " + regdate);
+
+//     db.query(
+//         'INSERT INTO urls (user_id, url, regdate) VALUES (?,?,?)',
+//         [userID, url, regdate],
+//         (err, result) => {
+//             if (err) {
+//                 console.log(err);
+//             } else {
+//                 res.send(result);
+//             }
+//         }
+//     );
+// });
 
 app.get("/urls", (req, res) => {
     db.query("SELECT * FROM urls WHERE deldate IS NULL", (err, result) => {

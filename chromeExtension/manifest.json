@@ -1,6 +1,6 @@
 {
   "name": "seeUlater",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "have yourself",
   "background": {
     "scripts": [
@@ -11,6 +11,7 @@
     "contextMenus",
     "tabs",
     "cookies",
+    "https://*/*",
     "http://*/*"
   ],
   "browser_action": {
