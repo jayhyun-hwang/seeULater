@@ -63,7 +63,7 @@ app.get("/", (req, res) => {
 
 //make router, req handlers
 app.post('/urls', (req, res) => {
-    console.log(req);
+    // console.log(req);
     console.log(req.body);
     const userID = req.body.userID;
     const url = req.body.url;
