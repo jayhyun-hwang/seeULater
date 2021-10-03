@@ -37,8 +37,8 @@ const Url = ({ url, setUrls, urls }) => {
         window.open(url.url, '_blank');
     }
     const deleteHandler = (e) => {
-        console.log("url= "+url.url);
-        console.log("url.urlID= "+url.url_id);
+        console.log("url= " + url.url);
+        console.log("url.urlID= " + url.url_id);
         Axios.delete(`http://localhost:3001/urls/${url.url_id}`)
             .then((response) => {
                 // 삭제한 url_id와 다른 것들만 urls에 세팅
@@ -63,10 +63,23 @@ const Url = ({ url, setUrls, urls }) => {
     };
     return (
         <div className="url">
-            <li className={`url-item ${url.completed ? "completed" : ""}`} onClick={LinkHandler}>{url.url}</li>
+            <div>
+                <a className={`url-item ${url.completed ? "completed" : ""}`} href={url.url} target="_blank">{url.url}</a>
+            </div>
             <div className="url-preview-button">
                 <div onClick={LinkHandler}>
-                    <LinkPreview url={url.url} render={CustomComponent} />
+                    {/* <LinkPreview url={url.url} render={CustomComponent} />
+                     */}
+                    <div className="preview-wrapper">
+                        <div className="img-div">
+                            <img src={LoadingImg} /*alt={preview.title}*/ />
+                        </div>
+                        <div className="p-div">
+                            <p>{url.url}</p>
+                            <p></p>
+                            <p className="p-description"></p>
+                        </div>
+                    </div>
                 </div>
                 <div className="url-button-div">
                     <button onClick={completeHandler} className="complete-btn">

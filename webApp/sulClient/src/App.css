@@ -95,9 +95,9 @@ form button:hover {
   padding: 1rem;
 }
 
-.url li {
+.url a {
   flex: 1;
-  cursor: pointer;
+  text-decoration: none;
 }
 
 .trash-btn, .complete-btn {
