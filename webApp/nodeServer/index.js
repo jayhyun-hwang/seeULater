@@ -16,6 +16,7 @@ const fs = require('fs');
 //body parser
 // const multer = require('multer');
 // const upload = multer();
+const define = require('./define');
 
 //add cors modules to app
 app.use(cors());
@@ -51,8 +52,8 @@ function getConnection() {
 }
 
 //set listening port
-app.listen(3001, () => {
-    console.log("Hello Server, port is 3001");
+app.listen(define.PORT, () => {
+    console.log("Hello Server, port is "+define.PORT);
 });
 
 //set index file as static built react file 
@@ -144,7 +145,6 @@ app.get("/urls", (req, res) => {
 app.put("/employees", (req, res) => {
     const id = req.body.id;
     const wage = req.body.wage;
-
     db.query("UPDATE employees SET wage = ? WHERE id = ?",
         [wage, id], (err, result) => {
             if (err) {
