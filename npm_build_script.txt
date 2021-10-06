@@ -1,0 +1,4 @@
+$ cd webApp/nodeServer
+$ rm -r build/
+$ cd ../sulClient
+$ npm run build
