@@ -26,7 +26,7 @@ function getStoreClickHandler() {
     // }
 
     var req = new XMLHttpRequest();
-    var baseUrl = "http://127.0.0.1:3001/urls";
+    var baseUrl = "http://3.36.36.62:3001/urls";
     // var params = "url=" + url;
 
     // req.open("GET", baseUrl + params, true);

@@ -62,7 +62,7 @@ function App() {
     //   let urlLocal = JSON.parse(localStorage.getItem("urls"));
     //   setUrls(urlLocal);
     // }
-    Axios.get('http://127.0.0.1:3001/urls').then((response) => {
+    Axios.get('http://3.36.36.62:3001/urls').then((response) => {
       console.log(response.data);
       setUrls(response.data);
       // console.log(response);
