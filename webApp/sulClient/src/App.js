@@ -7,6 +7,8 @@ import Form from "./components/Form";
 import UrlList from "./components/UrlList";
 import { useHistory } from 'react-router-dom';
 
+const define = require("./define/define");
+
 function App() {
   //State stuff
 
@@ -62,7 +64,7 @@ function App() {
     //   let urlLocal = JSON.parse(localStorage.getItem("urls"));
     //   setUrls(urlLocal);
     // }
-    Axios.get('http://3.36.36.62:3001/urls').then((response) => {
+    Axios.get(define.URL+"/urls").then((response) => {
       console.log(response.data);
       setUrls(response.data);
       // console.log(response);

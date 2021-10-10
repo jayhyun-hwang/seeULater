@@ -1,0 +1,43 @@
+{
+  "name": "seeULater",
+  "version": "1.0.1",
+  "description": "have yourself",
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "cookies",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "browser_action": {
+    "default_popup": "browser_action.html"
+  },
+  "commands": {
+    "toggle-feature": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "MacCtrl+Shift+Y"
+      },
+      "description": "Send a 'toggle-feature' event to the extension"
+    },
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "MacCtrl+Shift+F"
+      }
+    }
+  },
+  "minimum_chrome_version": "6.0.0.0",
+  "icons": {
+    "16": "alligator_128.png",
+    "32": "alligator_128.png",
+    "48": "alligator_128.png",
+    "128": "alligator_128.png"
+  },
+  "manifest_version": 2
+}

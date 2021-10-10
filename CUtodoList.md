@@ -1,6 +1,7 @@
 # Major(step)
 
-- aws에 저장소 올려놓기
+- ~~aws에 저장소 올려놓기~~
+- 개발모드 branch와 define 만들기
 - **유닛테스트 작성**
 - **깃 푸시 시 유닛테스트 실행하고, static 웹 spa폴더 새로고침(제거 및 새로빌드 후 이동)해서 푸시 - git flow**
 - url, title, icon 모두 저장. 보여주기
