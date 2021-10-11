@@ -2,12 +2,12 @@
 
 - ~~aws에 저장소 올려놓기~~
 - react에서 url, port를 context로 global변수화
-- 개발모드 branch와 define 만들기
+- ~~개발모드 branch, define, command 만들기~~
   - ~~chrome extension~~
   - ~~client~~
-  - node server
-- **watchdog 서버 제작**
-- **로그, 모니터링 제작**
+  - ~~node server~~
+- ~~**watchdog 서버 제작**~~
+- **로그, ~~모니터링~~ 제작**
 - **유닛테스트 작성**
 - **깃 푸시 시 유닛테스트 실행하고, static 웹 spa폴더 새로고침(제거 및 새로빌드 후 이동)해서 푸시 - git flow**
 - url, title, icon 모두 저장. 보여주기
@@ -23,7 +23,7 @@
 - ~~store url permanently~~
 - ~~make url list - page~~
 - ~~make a managing page~~
-  - CRUD urls, **read 상태 업데이트 관리 남음**
+  - CRUD urls, **read 상태 업데이트 관리 남음**, memo 기능
   - enable to make tree directory(category folder structure)
 - ~~when click extension icon, show managing menu~~
   - move to a managing page
