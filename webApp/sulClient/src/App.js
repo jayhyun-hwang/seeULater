@@ -21,6 +21,7 @@ function setBaseUrl() {
   }
   baseurl = baseurl + ":" + define.PORT;
 }
+
 function App() {
 
   setBaseUrl();

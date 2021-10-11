@@ -1,7 +1,13 @@
 # Major(step)
 
 - ~~aws에 저장소 올려놓기~~
+- react에서 url, port를 context로 global변수화
 - 개발모드 branch와 define 만들기
+  - ~~chrome extension~~
+  - ~~client~~
+  - node server
+- **watchdog 서버 제작**
+- **로그, 모니터링 제작**
 - **유닛테스트 작성**
 - **깃 푸시 시 유닛테스트 실행하고, static 웹 spa폴더 새로고침(제거 및 새로빌드 후 이동)해서 푸시 - git flow**
 - url, title, icon 모두 저장. 보여주기
@@ -32,5 +38,4 @@
 - UrlList에 index 추가, 총 count도 받아오기
 - 포트 변수화
 - url 변수화
-- 
 

@@ -29,13 +29,32 @@ app.use(express.static("build"));
 //for parsing form data
 // app.use(upload.array());
 
+function getServerMode(){
+    const argsv = process.argv.slice();
+    var mode;
+    if (argsv.length > 2) {
+        console.log(process.argv);
+        mode = argsv[2];
+    } else {
+        mode = "prod";
+    }
+    return mode;
+}
+function getFileData(){
+    const serverMode = getServerMode();
+    var configFile = "./define/dbConfig.json";
+    if (serverMode === "dev") {
+        configFile = "./define/dbConfig_dev.json";
+    }
+    return fs.readFileSync(configFile);
+}
+
 //make database connection, assign db
 const db = getConnection();
 
 function getConnection() {
     try {
-        // const fileData = fs.readFileSync('./define/dbConfig.json');
-        const fileData = fs.readFileSync('./define/dbConfig_dev.json');
+        const fileData = getFileData();
         console.log(fileData)
         const config = JSON.parse(fileData);
         console.log(config);
@@ -55,6 +74,10 @@ function getConnection() {
 //set listening port
 app.listen(define.PORT, () => {
     console.log("Hello Server, port is "+define.PORT);
+    var v1 = process.argv.slice(2);
+
+    console.log("args len= " + process.argv.slice().length);
+    console.log("args = " + process.argv.slice());
 });
 
 //set index file as static built react file 
@@ -140,8 +163,8 @@ app.get("/urls", (req, res) => {
         } else {
             res.send(result)
         }
-    })
-})
+    });
+});
 
 app.put("/employees", (req, res) => {
     const id = req.body.id;
