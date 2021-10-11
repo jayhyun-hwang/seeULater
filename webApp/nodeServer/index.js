@@ -16,7 +16,7 @@ const fs = require('fs');
 //body parser
 // const multer = require('multer');
 // const upload = multer();
-const define = require('./define');
+const define = require('./define/define');
 
 //add cors modules to app
 app.use(cors());
@@ -34,10 +34,11 @@ const db = getConnection();
 
 function getConnection() {
     try {
-        const fileData = fs.readFileSync('dbConfig.json');
-        // console.log(fileData)
+        // const fileData = fs.readFileSync('./define/dbConfig.json');
+        const fileData = fs.readFileSync('./define/dbConfig_dev.json');
+        console.log(fileData)
         const config = JSON.parse(fileData);
-        // console.log(config);
+        console.log(config);
         const connection = mysql.createConnection({
             user: config.user,
             host: config.host,

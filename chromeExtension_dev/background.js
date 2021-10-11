@@ -9,7 +9,8 @@ chrome.commands.onCommand.addListener(function (command) {
   console.log('onCommand event received for message: ', command);
 });
 
-const baseUrl = "http://3.36.36.62:3001";
+// const baseUrl = "http://3.36.36.62:3001";
+const baseUrl = "http://127.0.0.1:3001";
 
 function getStoreClickHandler() {
   return function (info, tab) {
@@ -79,7 +80,7 @@ function getStoreClickHandler() {
  */
 chrome.contextMenus.create({
   "id": "storePage",
-  "title": "Store this page",
+  "title": "Store this page_dev",
   "type": "normal", //"normal", "checkbox", "radio", or "separator"
   "onclick": getStoreClickHandler(),
   "contexts": ["all"]

@@ -9,9 +9,21 @@ import { useHistory } from 'react-router-dom';
 
 const define = require("./define/define");
 
+// npm run start:dev로 실행 시 process.env.REACT_APP_MODE = dev
+const argMode = process.env.REACT_APP_MODE;
+var baseurl;
+// dev/prod 모드 설정
+function setBaseUrl() {
+  if (argMode === "dev") {
+    baseurl = "http://127.0.0.1";
+  } else {
+    baseurl = define.URL;
+  }
+  baseurl = baseurl + ":" + define.PORT;
+}
 function App() {
-  //State stuff
 
+  setBaseUrl();
   //사용할 변수들과 상태를 설정한다.(초기값)
   const [urls, setUrls] = useState([]);
   const [urlID, setUrlID] = useState("");
@@ -64,7 +76,8 @@ function App() {
     //   let urlLocal = JSON.parse(localStorage.getItem("urls"));
     //   setUrls(urlLocal);
     // }
-    Axios.get(define.URL+"/urls").then((response) => {
+    console.log(baseurl);
+    Axios.get(baseurl + "/urls").then((response) => {
       console.log(response.data);
       setUrls(response.data);
       // console.log(response);
@@ -72,7 +85,8 @@ function App() {
   }
   return (
     <div className="App">
-      <Header/>
+      <h1>{argMode}</h1>
+      <Header />
       <div className="Body">
         <Form
           inputText={inputText}
