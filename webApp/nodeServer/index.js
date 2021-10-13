@@ -54,6 +54,7 @@ const db = getConnection();
 
 function getConnection() {
     try {
+        // todo 동기화 처리
         const fileData = getFileData();
         console.log(fileData)
         const config = JSON.parse(fileData);
