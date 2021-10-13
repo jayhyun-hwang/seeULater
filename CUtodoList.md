@@ -41,3 +41,8 @@
 - 포트 변수화
 - url 변수화
 
+# later
+
+- http2로 포팅
+- NestJS로 포팅 + Typescript
+- gRPC 사용
