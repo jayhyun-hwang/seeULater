@@ -1,3 +1,12 @@
+const define = {
+  // URL : "http://127.0.0.1",
+  URL: "http://3.36.36.62",
+  PORT: 3001
+};
+//----------------------------------------set dev mode-----------------------------------------------
+
+// const baseUrl = "http://3.36.36.62:3001";
+const baseUrl = define.URL + ':' + define.PORT;
 // Copyright (c) 2011 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -5,11 +14,12 @@
 /**
  * Returns a handler which will open a new window when activated.
  */
- chrome.commands.onCommand.addListener(function (command) {
+
+chrome.commands.onCommand.addListener(function (command) {
   console.log('onCommand event received for message: ', command);
 });
 
-const baseUrl = "http://3.36.36.62:3001";
+
 
 function getStoreClickHandler() {
   return function (info, tab) {
@@ -18,7 +28,7 @@ function getStoreClickHandler() {
     //var url = 'info.html#' + info.srcUrl;
     const title = tab.title;
     const url = tab.url;
-    const icon = tab.favIconUrl;
+    const iconImg = tab.favIconUrl;
 
     //object 확인
     // alert(JSON.stringify(tab));
@@ -28,8 +38,8 @@ function getStoreClickHandler() {
     //   url: url
     // }
 
-    var req = new XMLHttpRequest();
-    
+    let req = new XMLHttpRequest();
+
     // var params = "url=" + url;
 
     // req.open("GET", baseUrl + params, true);
@@ -39,9 +49,13 @@ function getStoreClickHandler() {
     req.setRequestHeader("Content-type", "application/json");
     // alert(req);
     // alert(JSON.stringify(req));
-    req.send(JSON.stringify({ userID: 1, url: url }));
+    req.send(JSON.stringify({
+      url: url,
+      iconImg: iconImg,
+      title: title
+    }));
     // req.send("userID=1&url=" + url);
-    
+
     req.onreadystatechange = function () { // Call a function when the state changes.
       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
         alert("Got response 200!");

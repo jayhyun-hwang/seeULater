@@ -2,6 +2,7 @@
   "name": "seeULater_dev",
   "version": "1.0.999",
   "description": "have yourself",
+  "homepage_url": "http://127.0.0.1:3000/",
   "background": {
     "scripts": [
       "background.js"

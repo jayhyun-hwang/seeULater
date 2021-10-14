@@ -11,7 +11,7 @@ const define = require("./define/define");
 
 // npm run start:dev로 실행 시 process.env.REACT_APP_MODE = dev
 const argMode = process.env.REACT_APP_MODE;
-var baseurl;
+let baseurl;
 // dev/prod 모드 설정
 function setBaseUrl() {
   if (argMode === "dev") {

@@ -31,7 +31,7 @@ app.use(express.static("build"));
 
 function getServerMode(){
     const argsv = process.argv.slice();
-    var mode;
+    let mode;
     if (argsv.length > 2) {
         console.log(process.argv);
         mode = argsv[2];
@@ -42,7 +42,7 @@ function getServerMode(){
 }
 function getFileData(){
     const serverMode = getServerMode();
-    var configFile = "./define/dbConfig.json";
+    let configFile = "./define/dbConfig.json";
     if (serverMode === "dev") {
         configFile = "./define/dbConfig_dev.json";
     }
@@ -75,7 +75,7 @@ function getConnection() {
 //set listening port
 app.listen(define.PORT, () => {
     console.log("Hello Server, port is "+define.PORT);
-    var v1 = process.argv.slice(2);
+    // let v1 = process.argv.slice(2);
 
     console.log("args len= " + process.argv.slice().length);
     console.log("args = " + process.argv.slice());
@@ -91,16 +91,20 @@ app.get("/", (req, res) => {
 app.post('/urls', (req, res) => {
     // console.log(req);
     console.log(req.body);
-    const userID = req.body.userID;
+    // 사용자는 쿠키로 확인
+    // const userID = req.body.userID;
+    const userID = 1;   // dev
     const url = req.body.url;
+    const title = req.body.title;
+    const iconImg = req.body.iconImg;
     const regdate = utils.getDatetime();
 
     //check
     console.log("post url, time: " + regdate);
 
     db.query(
-        'INSERT INTO urls (user_id, url, regdate) VALUES (?,?,?)',
-        [userID, url, regdate],
+        'INSERT INTO urls (user_id, url, title, icon_img, regdate) VALUES (?,?,?,?,?)',
+        [userID, url, title, iconImg, regdate],
         (err, result) => {
             if (err) {
                 console.log(err);
@@ -167,18 +171,18 @@ app.get("/urls", (req, res) => {
     });
 });
 
-app.put("/employees", (req, res) => {
-    const id = req.body.id;
-    const wage = req.body.wage;
-    db.query("UPDATE employees SET wage = ? WHERE id = ?",
-        [wage, id], (err, result) => {
-            if (err) {
-                console.log(err);
-            } else {
-                res.send(result);
-            }
-        });
-});
+// app.put("/employees", (req, res) => {
+//     const id = req.body.id;
+//     const wage = req.body.wage;
+//     db.query("UPDATE employees SET wage = ? WHERE id = ?",
+//         [wage, id], (err, result) => {
+//             if (err) {
+//                 console.log(err);
+//             } else {
+//                 res.send(result);
+//             }
+//         });
+// });
 
 app.delete("/urls/:url_id", (req, res) => {
     const url_id = req.params.url_id;
