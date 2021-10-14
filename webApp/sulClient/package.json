@@ -20,7 +20,7 @@
     "start": "react-scripts start",
     "start:dev": "set \"REACT_APP_MODE=dev\" && react-scripts start",
     "start:prod": "set \"REACT_APP_MODE=prod\" && react-scripts start",
-    "build": "react-scripts build && mv build ../nodeServer || move build ../nodeServer",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

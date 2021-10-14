@@ -205,7 +205,7 @@ select {
   min-height: 100px;
   display: flex;
   background: #ffffff;
-  border: #dadada solid 2px;
+  border: #dadada solid 1px;
   border-radius: 5px;
   align-items: center;
   justify-content: center;
