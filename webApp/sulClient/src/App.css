@@ -83,6 +83,10 @@ form button:hover {
   padding: 10px 0 0 0;
 }
 
+.p-div {
+  max-width: 60vh;
+}
+
 .url {
   margin: 1vh;
   background: white;
@@ -246,7 +250,3 @@ img.main-logo-img {
   height: 2em;
   margin: 0 0 0.5em 0.5em;
 }
-
-/* a{
-  text-decoration: none;
-} */

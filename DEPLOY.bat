@@ -1,5 +1,14 @@
 cd .\webApp\nodeServer\
-rmdir \build
+rmdir /s /q build
 cd ..\sulClient\
-npm run build
-pause
+call npm run build
+move build ..\nodeServer\
+
+@echo ===================
+@echo build react-app success!!
+@echo ===================
+@timeout /t 1
+
+git add --all
+git commit -m "build app for deployee"
+git push
