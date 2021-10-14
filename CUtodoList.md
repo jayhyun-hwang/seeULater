@@ -6,16 +6,18 @@
   - ~~chrome extension~~
   - ~~client~~
   - ~~node server~~
-- ~~**watchdog 서버 제작**~~
+- ~~**watchdog 서버**~~
 - **로그, ~~모니터링~~ 제작**
 - 계정기능, 쿠키값으로 사용자 식별 (jwt 사용), chrome extension에서 프록시 사용
+  - 알파벳 52 + 숫자 10 == 62, 12자
+  - 해시, 양방향, DB에 id로 저장
 - url, title, icon 모두 저장. 보여주기
 - aws https 로드밸런서 사용
 - 도커 컨테이너 화(dockerfile 빌드)
 - db 커넥션 풀 추가
+- 컴포넌트 구조 정리하기
 - **유닛테스트 작성**
 - **깃 푸시 시 유닛테스트 실행하고, static 웹 spa폴더 새로고침(제거 및 새로빌드 후 이동)해서 푸시 - git flow**
-- 컴포넌트 구조 정리하기
 - **로그 생성 및 수정하기**
 - **caching preview information to localstorage**
 - 크롬 확장기능을 통해 저장했을 때, 소켓으로 페이지 새로고침하기. (websocket 사용)

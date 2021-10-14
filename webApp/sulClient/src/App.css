@@ -72,9 +72,15 @@ form button:hover {
   margin-bottom: 10vh;
 }
 
-.url-preview-button {
+.url-upper {
+  margin: 0 0 10px 5px;
+}
+
+.url-preview-and-button {
   display: flex;
   justify-content: space-between;
+  border-top: 1px solid #dadada;
+  padding: 10px 0 0 0;
 }
 
 .url {
@@ -95,11 +101,6 @@ form button:hover {
   padding: 1rem;
 }
 
-.url a {
-  flex: 1;
-  text-decoration: none;
-}
-
 .trash-btn, .complete-btn {
   background: #005963;
   color: white;
@@ -113,8 +114,9 @@ form button:hover {
   background: rgb(11, 212, 162);
 }
 
-.url-item {
-  margin: 0 0 0.5rem 0.5rem;
+.url_a {
+  flex: 1;
+  text-decoration: none;
   font-size: 0.9em;
   color: #00acb2;
 }

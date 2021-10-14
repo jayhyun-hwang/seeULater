@@ -3,14 +3,14 @@ import React from 'react';
 import Url from './Url';
 
 const UrlList = ({urls, setUrls, filteredUrls}) => {
-    console.log("tt");
-    console.log(urls);
-    console.log(filteredUrls);
+    // console.log("tt");
+    // console.log(urls);
+    // console.log(filteredUrls);
     return (
         <div className="url-container">
             <ul className="url-list">
                 {filteredUrls.map((url) => (
-                    <Url 
+                    <Url key={url.url_id}
                     setUrls={setUrls}
                     urls={urls}
                     url={url}

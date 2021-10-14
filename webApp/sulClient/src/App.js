@@ -79,7 +79,7 @@ function App() {
     // }
     console.log(baseurl);
     Axios.get(baseurl + "/urls").then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       setUrls(response.data);
       // console.log(response);
     });

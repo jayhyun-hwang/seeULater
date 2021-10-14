@@ -6,7 +6,7 @@ const Form = ({ setInputText, urls, setUrls, inputText, setStatus }) => {
 
     // 이벤트를 파라미터로 함수 만들기, onChange 이벤트 등록
     const inputTextHandler = (e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setInputText(e.target.value);
     };
     const submitUrlHandler = (e) => {

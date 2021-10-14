@@ -3,33 +3,33 @@ import LinkPreview from '@ashwamegh/react-link-preview';
 import LoadingImg from './img/loading.png';
 import Axios from 'axios';
 
-function CustomComponent({ loading, preview }) {
-    return loading
-        ? (
-            <div className="preview-wrapper">
-                <div className="img-div">
-                    <img src={LoadingImg} alt="..." />
-                </div>
-                <div className="p-div">
-                    <p>&nbsp;</p>
-                    <p>Loading... </p>
-                    <p className="p-description">&nbsp;</p>
-                </div>
-            </div>
-        )
-        : (
-            <div className="preview-wrapper">
-                <div className="img-div">
-                    <img src={preview.img} /*alt={preview.title}*/ />
-                </div>
-                <div className="p-div">
-                    <p>{preview.domain}</p>
-                    <p>{preview.title}</p>
-                    <p className="p-description">{preview.description}</p>
-                </div>
-            </div>
-        )
-}
+// function CustomComponent({ loading, preview }) {
+//     return loading
+//         ? (
+//             <div className="preview-wrapper">
+//                 <div className="img-div">
+//                     <img src={LoadingImg} alt="..." />
+//                 </div>
+//                 <div className="p-div">
+//                     <p>&nbsp;</p>
+//                     <p>Loading... </p>
+//                     <p className="p-description">&nbsp;</p>
+//                 </div>
+//             </div>
+//         )
+//         : (
+//             <div className="preview-wrapper">
+//                 <div className="img-div">
+//                     <img src={preview.img} /*alt={preview.title}*/ />
+//                 </div>
+//                 <div className="p-div">
+//                     <p>{preview.domain}</p>
+//                     <p>{preview.title}</p>
+//                     <p className="p-description">{preview.description}</p>
+//                 </div>
+//             </div>
+//         )
+// }
 
 const Url = ({ url, setUrls, urls }) => {
     //Events
@@ -37,8 +37,8 @@ const Url = ({ url, setUrls, urls }) => {
         window.open(url.url, '_blank');
     }
     const deleteHandler = (e) => {
-        console.log("url= " + url.url);
-        console.log("url.urlID= " + url.url_id);
+        // console.log("url= " + url.url);
+        // console.log("url.urlID= " + url.url_id);
         Axios.delete(`http://3.36.36.62:3001/urls/${url.url_id}`)
             .then((response) => {
                 // 삭제한 url_id와 다른 것들만 urls에 세팅
@@ -63,16 +63,15 @@ const Url = ({ url, setUrls, urls }) => {
     };
     return (
         <div className="url">
-            <div>
-                <a className={`url-item ${url.completed ? "completed" : ""}`} href={url.url} target="_blank">{url.url}</a>
+            <div className='url-upper'>
+                <a className={`url_a ${url.completed ? "completed" : ""}`} href={url.url} target="_blank">{url.title ? url.title : url.url}</a>
             </div>
-            <div className="url-preview-button">
+            <div className="url-preview-and-button">
                 <div onClick={LinkHandler}>
-                    {/* <LinkPreview url={url.url} render={CustomComponent} />
-                     */}
+                    {/* <LinkPreview url={url.url} render={CustomComponent} /> */}
                     <div className="preview-wrapper">
                         <div className="img-div">
-                            <img src={LoadingImg} /*alt={preview.title}*/ />
+                            <img src={url.icon_img ? url.icon_img : LoadingImg} alt={url.title} />
                         </div>
                         <div className="p-div">
                             <p>{url.url}</p>
