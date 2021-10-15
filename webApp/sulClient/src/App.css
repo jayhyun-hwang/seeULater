@@ -203,8 +203,8 @@ select {
 }
 
 .preview-wrapper img {
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 90px;
+  max-height: 90px;
   border-radius: 5px;
 }
 
