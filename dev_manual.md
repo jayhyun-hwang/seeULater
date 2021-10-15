@@ -24,7 +24,7 @@
   - set \"REACT_APP_MODE=dev\" && react-scripts start
   - REACT_APP_MODE=dev로 설정 후 실행.
 
-# 또는 runDevMode.bat 배치파일 실행
+# 또는 devMode.bat 배치파일 실행
 
 
 
