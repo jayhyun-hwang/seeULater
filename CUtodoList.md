@@ -38,7 +38,7 @@
 # minor
 - ~~리스트 스택으로(order by regdate desc)~~
 - 아이콘 이미지 꽉 채우기
-- no image 이미지
+e- no image 이미지
 - regist at 추가
 - when stored, popup at right bottom of the page(tab) - instead alert
 - ~~메인로고에 악어 넣기, 메인으로 이동~~
