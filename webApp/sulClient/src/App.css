@@ -223,6 +223,8 @@ select {
 
 .img-div img {
   padding: 5px;
+  min-width: 60px;
+  min-height: 60px;
 }
 
 .url-button-div {
