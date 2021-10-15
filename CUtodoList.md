@@ -11,7 +11,7 @@
 - 계정기능, 쿠키값으로 사용자 식별 (jwt 사용), chrome extension에서 프록시 사용
   - 알파벳 52 + 숫자 10 == 62, 12자
   - 해시, 양방향, DB에 id로 저장
-- url, title, icon 모두 저장. 보여주기
+- ~~url, title, icon 모두 저장. 보여주기~~
 - aws https 로드밸런서 사용
 - 도커 컨테이너 화(dockerfile 빌드)
 - db 커넥션 풀 추가
@@ -36,13 +36,16 @@
 - 간단한 메모 팝업 후 제출, UrlList에서도 메모 조회 가능
 
 # minor
-
+- ~~리스트 스택으로(order by regdate desc)~~
+- 아이콘 이미지 꽉 채우기
+- regist at 추가
 - when stored, popup at right bottom of the page(tab) - instead alert
 - ~~메인로고에 악어 넣기, 메인으로 이동~~
-- 저장하기 단축키 설정, Ctrl + Shift + S
+- ~~저장하기 단축키 설정, Ctrl + Shift + S~~
 - UrlList에 index 추가, 총 count도 받아오기
-- 포트 변수화
-- url 변수화
+- 포트 변수화, url 변수화
+  - ~~node server~~
+  - react - context 사용
 
 # later
 

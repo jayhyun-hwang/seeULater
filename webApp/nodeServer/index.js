@@ -162,7 +162,8 @@ app.post('/getChromeEx', (req, res) => {
 // });
 
 app.get("/urls", (req, res) => {
-    db.query("SELECT * FROM urls WHERE deldate IS NULL", (err, result) => {
+    //TODO: add search condition(desc, folder ...etc)
+    db.query("SELECT * FROM urls WHERE deldate IS NULL ORDER BY regdate DESC", (err, result) => {
         if (err) {
             console.log(err)
         } else {
