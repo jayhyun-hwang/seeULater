@@ -70,10 +70,11 @@ form button:hover {
   min-width: 470px;
   list-style: none;
   margin-bottom: 10vh;
+  word-break: break-all;
 }
 
 .url-upper {
-  margin: 0 0 10px 5px;
+  margin: 0 0 5px 5px;
 }
 
 .url-preview-and-button {
@@ -84,8 +85,13 @@ form button:hover {
 }
 
 .p-div {
-  max-width: 60vh;
+  max-width: 80%;
 }
+/* @media (max-width: 820px), (max-height: 400px) {
+  .p-div {
+    max-width: 30vh;
+  }
+} */
 
 .url {
   margin: 1vh;
@@ -186,7 +192,7 @@ select {
 }
 
 .preview-wrapper p {
-  font-size: 0.8em;
+  font-size: 0.7em;
   margin: 5px 0 0 10px;
 }
 
