@@ -1,9 +1,9 @@
 // import { BrowserRouter as Router, Link, Route } from "react-router-dom";
-import LogoAlligator from './img/alligator.png';
+import LogoAlligator from '../img/alligator.png';
 
 function Header() {
     const handlerClick = () => {
-        window.location.href="/";
+        window.location.href="/main";
     }
     return (
         <header>

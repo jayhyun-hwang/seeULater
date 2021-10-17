@@ -86,6 +86,13 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
+app.post('/login',(req, res) => {
+    console.log(req.body);
+    console.log(utils.getDatetime());
+    res.send({
+        token: 'test123'
+    });
+});
 
 //make router, req handlers
 app.post('/urls', (req, res) => {

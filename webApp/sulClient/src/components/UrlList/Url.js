@@ -1,6 +1,7 @@
 import React from "react";
 import LinkPreview from '@ashwamegh/react-link-preview';
-import LoadingImg from './img/loading.png';
+import LoadingImg from '../img/loading.png';
+import NoImg from '../img/no-image-icon.png';
 import Axios from 'axios';
 
 // function CustomComponent({ loading, preview }) {
@@ -71,7 +72,7 @@ const Url = ({ url, setUrls, urls }) => {
                     {/* <LinkPreview url={url.url} render={CustomComponent} /> */}
                     <div className="preview-wrapper">
                         <div className="img-div">
-                            <img src={url.icon_img ? url.icon_img : LoadingImg} alt={url.title} />
+                            <img src={url.icon_img ? url.icon_img : NoImg} alt={url.title} />
                         </div>
                         <div className="p-div">
                             <p>{url.url}</p>
