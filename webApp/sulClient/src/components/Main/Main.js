@@ -89,7 +89,7 @@ function Main() {
       <h1>{argMode}</h1>
       <Header />
       <div className="Body">
-        <Form
+        {/* <Form
           inputText={inputText}
           urls={urls}
           setUrls={setUrls}
@@ -100,7 +100,7 @@ function Main() {
         // setUrls={setUrls}
         // setInputText={setInputText}
         // setStatus={setStatus}
-        />
+        /> */}
         <UrlList
           filteredUrls={filteredUrls}
           setUrls={setUrls}

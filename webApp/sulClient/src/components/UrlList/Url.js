@@ -1,5 +1,5 @@
 import React from "react";
-import LinkPreview from '@ashwamegh/react-link-preview';
+// import LinkPreview from '@ashwamegh/react-link-preview';
 import LoadingImg from '../img/loading.png';
 import NoImg from '../img/no-image-icon.png';
 import Axios from 'axios';
@@ -43,6 +43,10 @@ const Url = ({ url, setUrls, urls }) => {
         Axios.delete(`http://3.36.36.62:3001/urls/${url.url_id}`)
             .then((response) => {
                 // 삭제한 url_id와 다른 것들만 urls에 세팅
+                if (response.status == 200) {
+                    alert("oops, error");
+                    return
+                }
                 setUrls(urls.filter((val) => {
                     return val.url_id !== url.url_id
                 }))
@@ -75,9 +79,14 @@ const Url = ({ url, setUrls, urls }) => {
                             <img src={url.icon_img ? url.icon_img : NoImg} alt={url.title} />
                         </div>
                         <div className="p-div">
-                            <p>{url.url}</p>
-                            <p></p>
-                            <p className="p-description"></p>
+                            <div>
+                                <p className="url-url-p">{url.url}</p>
+                                <p></p>
+                                <p className="url-description-p"></p>
+                            </div>
+                            <div>
+                                <p className="url-regist-p">{url.regdate.slice(0,16).replace("T", "\t")}</p>
+                            </div>
                         </div>
                     </div>
                 </div>

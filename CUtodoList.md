@@ -15,7 +15,7 @@
 - ~~url, title, icon 모두 저장. 보여주기~~
 - 도커 컨테이너 화(dockerfile 빌드)
 - db 커넥션 풀 추가
-- 컴포넌트 구조 정리하기
+- ~~React 컴포넌트 구조 정리하기~~ / 노드 서버 추가
 - **유닛테스트 작성**
 - **깃 푸시 시 유닛테스트 실행하고, static 웹 spa폴더 새로고침(제거 및 새로빌드 후 이동)해서 푸시 - git flow**
 - **로그 생성 및 수정하기**
@@ -37,9 +37,10 @@
 
 # minor
 - ~~리스트 스택으로(order by regdate desc)~~
-- 아이콘 이미지 꽉 채우기
-e- no image 이미지
-- regist at 추가
+- ~~아이콘 이미지 꽉 채우기~~
+- ~~no image 이미지~~
+- ~~UrlList에 regist at 추가~~
+- 클릭 시 새 탭으로 여는 이벤트 수정. div 이벤트 제거. img, title 클릭 이벤트 추가
 - when stored, popup at right bottom of the page(tab) - instead alert
 - ~~메인로고에 악어 넣기, 메인으로 이동~~
 - ~~저장하기 단축키 설정, Ctrl + Shift + S~~
