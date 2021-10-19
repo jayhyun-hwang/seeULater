@@ -22,6 +22,14 @@ function setBaseUrl() {
   baseurl = baseurl + ":" + define.PORT;
 }
 
+function displayMode(){
+  if (argMode?.length > 0) {
+    return (
+    <h1>{argMode}</h1>
+    )
+  }
+}
+
 function Main() {
 
   setBaseUrl();
@@ -86,7 +94,7 @@ function Main() {
   }
   return (
     <div className="Main">
-      <h1>{argMode}</h1>
+      {displayMode()}
       <Header />
       <div className="Body">
         {/* <Form
