@@ -4,6 +4,7 @@ import "./Login.css";
 import define from "../../define/define"
 import Axios from "axios";
 
+
 async function loginUser(credentials) {
     return Axios.post(define.REQURL + "/login", {
         credentials
@@ -14,13 +15,14 @@ export default function Login({ setToken }) {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
 
-    const handlerSubmit = async e => {
+    const handlerSubmit = async (e) => {
         e.preventDefault();
         const token = await loginUser({
             username,
             password
         });
         setToken(token.data);
+        window.location.replace("/");
     }
     return (
         <div className="login-wrapper">

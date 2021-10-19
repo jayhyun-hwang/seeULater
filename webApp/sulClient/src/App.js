@@ -30,7 +30,7 @@ function App() {
       <h1>Application</h1>
       <BrowserRouter>
         <Switch>
-          <Route path = "/Main">
+          <Route path = "/">
             <Main />
           </Route>
         </Switch>
