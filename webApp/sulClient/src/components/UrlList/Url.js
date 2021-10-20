@@ -32,6 +32,10 @@ import Axios from 'axios';
 //         )
 // }
 
+const getDateTime = (url) => {
+    return url.regdate.slice(0,16).replace("T", "\t")
+}
+
 const Url = ({ url, setUrls, urls }) => {
     //Events
     const LinkHandler = () => {
@@ -85,7 +89,7 @@ const Url = ({ url, setUrls, urls }) => {
                                 <p className="url-description-p"></p>
                             </div>
                             <div>
-                                <p className="url-regist-p">{url.regdate.slice(0,16).replace("T", "\t")}</p>
+                                <p className="url-regist-p">{getDateTime(url)}</p>
                             </div>
                         </div>
                     </div>
