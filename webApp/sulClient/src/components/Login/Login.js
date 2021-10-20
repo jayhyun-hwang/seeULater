@@ -27,7 +27,7 @@ export default function Login({ setToken }) {
     return (
         <div className="login-wrapper">
             <h1>Please Log In</h1>
-            <form onSubmit={handlerSubmit}>
+            <form className="login-form" onSubmit={handlerSubmit}>
                 <label>
                     <p>User name</p>
                     <input type="text" onChange={e => setUserName(e.target.value)} />
@@ -36,8 +36,9 @@ export default function Login({ setToken }) {
                     <p>Password</p>
                     <input type="password" onChange={e => setPassword(e.target.value)} />
                 </label>
-                <div>
-                    <button type="submit">Submit</button>
+                <div className = "login-button"> 
+                    <button type="submit">Log In</button>
+                    <button type="submit">Regist</button>
                 </div>
             </form>
         </div>

@@ -268,3 +268,15 @@ img.main-logo-img {
   height: 2em;
   margin: 0 0 0.5em 0.5em;
 }
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.login-button{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
