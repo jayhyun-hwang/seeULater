@@ -37,6 +37,7 @@
 
 # minor
 - ~~리스트 스택으로(order by regdate desc)~~
+- ~~로그인 시 새로고침~~
 - ~~아이콘 이미지 꽉 채우기~~
 - ~~no image 이미지~~
 - ~~UrlList에 regist at 추가~~
