@@ -1,9 +1,9 @@
 # Major(step)
 
-- react에서 url, port를 context로 global변수화
 - 계정기능, 쿠키값으로 사용자 식별 (jwt 사용), chrome extension에서 프록시 사용
   - 알파벳 52 + 숫자 10 == 62, 12자
   - 해시, 양방향, DB에 id로 저장
+- react에서 url, port를 context로 global변수화
 - aws https 로드밸런서 사용
 - **로그, ~~모니터링~~ 제작**
 - 도커 컨테이너 화(dockerfile 빌드)

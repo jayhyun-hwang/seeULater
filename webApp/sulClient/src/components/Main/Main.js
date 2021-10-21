@@ -22,10 +22,10 @@ function setBaseUrl() {
   baseurl = baseurl + ":" + define.PORT;
 }
 
-function displayMode(){
-  if (argMode?.length > 0) {
+const displayMode = () => {
+  if (argMode) {
     return (
-    <h1>{argMode}</h1>
+      <h1>{argMode}</h1>
     )
   }
 }
