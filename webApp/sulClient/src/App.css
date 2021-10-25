@@ -213,12 +213,6 @@ select {
   color:#aaaaaa;
 }
 
-.preview-wrapper img {
-  max-width: 90px;
-  max-height: 90px;
-  border-radius: 5px;
-}
-
 .img-div {
   width: 100px;
   height: 100px;
@@ -236,6 +230,9 @@ select {
   padding: 5px;
   min-width: 60px;
   min-height: 60px;
+  max-width: 90px;
+  max-height: 90px;
+  border-radius: 5px;
 }
 
 .url-button-div {

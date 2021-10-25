@@ -8,9 +8,9 @@ import useToken from "./components/useToken";
 const define = require("./define/define");
 
 function App() {
-  
-  const {token, setToken} = useToken();
-  
+
+  const { token, setToken } = useToken();
+
   if (!token) {
     return <Login setToken={setToken} />
   }
@@ -20,7 +20,7 @@ function App() {
       <h1>Application</h1>
       <BrowserRouter>
         <Switch>
-          <Route path = "/">
+          <Route path="/">
             <Main />
           </Route>
         </Switch>

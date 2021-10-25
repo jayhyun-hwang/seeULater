@@ -15,4 +15,22 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-top: 10%;
+}
+
+.login-button button {
+    margin-top: 5%;
+}
+
+.login-form label {
+    margin: 3% 0 3% 0;
+}
+
+.login-form p {
+    font-size: 1.2em;
+}
+
+.login-form input,
+button {
+    border-radius: 2px;
 }
