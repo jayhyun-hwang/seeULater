@@ -1,6 +1,7 @@
 # Major(step)
 
 - 계정기능, 쿠키값으로 사용자 식별 (jwt 사용), chrome extension에서 프록시 사용
+  - 로그인 상태 시 로그인 페이지 접근 불가
   - 알파벳 52 + 숫자 10 == 62, 12자
   - 해시, 양방향, DB에 id로 저장
 - react에서 url, port를 context로 global변수화

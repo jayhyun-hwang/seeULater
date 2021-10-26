@@ -34,3 +34,8 @@
 button {
     border-radius: 2px;
 }
+
+a {
+    display: contents;
+    text-decoration: none;
+}

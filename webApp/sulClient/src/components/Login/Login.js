@@ -3,7 +3,7 @@ import ProTypes from 'prop-types';
 import "./Login.css";
 import define from "../../define/define"
 import Axios from "axios";
-
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 
 async function loginUser(credentials) {
     return Axios.post(define.REQURL + "/login", {
@@ -38,7 +38,11 @@ export default function Login({ setToken }) {
                 </label>
                 <div className="login-button">
                     <button type="submit" className="button-login">Log In</button>
-                    <button type="submit" className="button-regist">Regist</button>
+                    <BrowserRouter>
+                        <Link to="/register">
+                            <button type="submit" className="button-regist">Regist</button>
+                        </Link>
+                    </BrowserRouter>
                 </div>
             </form>
         </div>

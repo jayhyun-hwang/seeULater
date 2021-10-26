@@ -73,7 +73,7 @@ const Url = ({ url, setUrls, urls }) => {
     return (
         <div className="url">
             <div className='url-upper'>
-                <a className={`url_a ${url.completed ? "completed" : ""}`} href={url.url} target="_blank">{url.title ? url.title : url.url}</a>
+                <a className={`url_a ${url.completed ? "completed" : ""}`} href={url.url} target="_blank" rel="noreferrer">{url.title ? url.title : url.url}</a>
             </div>
             <div className="url-preview-and-button">
                 <div onClick={LinkHandler}>
