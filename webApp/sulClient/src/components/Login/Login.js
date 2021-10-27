@@ -3,7 +3,7 @@ import ProTypes from 'prop-types';
 import "./Login.css";
 import define from "../../define/define"
 import Axios from "axios";
-import Link from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 async function loginUser(credentials) {
     return Axios.post(define.REQURL + "/login", {
