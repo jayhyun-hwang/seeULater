@@ -21,3 +21,6 @@ pm2 show seeulater
 
 모니터링
 pm2 momit
+
+로그 보기
+pm2 logs --lines 100
