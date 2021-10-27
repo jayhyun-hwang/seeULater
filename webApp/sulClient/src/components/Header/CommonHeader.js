@@ -1,4 +1,5 @@
 import LogoAlligator from '../img/alligator.png';
+import Logout from '../img/logout.png';
 import "./CommonHeader.css";
 
 function CommonHeader() {
@@ -15,10 +16,12 @@ function CommonHeader() {
         <div className="common-header-div">
             <header className="common-header">
                 <div onClick={handlerClick}>
-                    div1
+                    seeULater&nbsp;
+                    <img id="home-img" src={LogoAlligator} alt="seeULater"/>
                 </div>
-                <div onClick={logoutClick}>
-                    div2
+                <div id="logout-div" onClick={logoutClick}>
+                    Logout&nbsp;
+                    <img id="logout-img" src={Logout} alt="logout"/>
                 </div>
             </header>
         </div>

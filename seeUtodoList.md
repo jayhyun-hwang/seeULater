@@ -37,6 +37,7 @@
   - Store this url (when the page blocked using right click)
 
 # minor
+- url 리스트 15개만 보여주기, 더 보기 기능 만들어서 추가 select
 - 클릭 시 새 탭으로 여는 이벤트 수정. div 이벤트 제거. img, title 클릭 이벤트 추가
 - when stored, popup at right bottom of the page(tab) - instead alert
 - 포트 변수화, url 변수화
