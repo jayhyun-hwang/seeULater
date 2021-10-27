@@ -1,0 +1,13 @@
+.common-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 0;
+    width: 100%;
+}
+.common-header-div {
+    position: fixed;
+    width: 100%;
+    background: #0bd4a2;
+    padding: 1vh 3vh;
+}

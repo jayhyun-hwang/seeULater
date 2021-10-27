@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import '../../App.css';
 import Axios from 'axios';
 //Importing Components
-import Header from "../Header/Header";
+import MainHeader from "../Header/MainHeader";
 import Form from "../Form/Form";
 import UrlList from "../UrlList/UrlList";
-import { useHistory } from 'react-router-dom';
 
 const define = require("../../define/define");
 
@@ -95,7 +94,7 @@ function Main() {
   return (
     <div className="Main">
       {displayMode()}
-      <Header />
+      <MainHeader />
       <div className="Body">
         {/* <Form
           inputText={inputText}

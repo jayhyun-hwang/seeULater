@@ -1,6 +1,6 @@
 import LogoAlligator from '../img/alligator.png';
 
-function Header() {
+function MainHeader() {
     const handlerClick = () => {
         window.location.href="/";
     }
@@ -13,4 +13,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default MainHeader;

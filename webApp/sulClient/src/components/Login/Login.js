@@ -39,7 +39,7 @@ export default function Login({ setToken }) {
                 <div className="login-button">
                     <button type="submit" className="button-login">Log In</button>
                     <Link to="/register">
-                        <button type="submit" className="button-regist">Regist</button>
+                        <button type="submit" className="button-regist">Register</button>
                     </Link>
                 </div>
             </form>

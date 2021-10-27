@@ -3,6 +3,7 @@ import './App.css';
 import useToken from "./components/useToken";
 import Router from "./components/Router";
 import PreRouter from "./components/preRouter";
+import CommonHeader from "./components/Header/CommonHeader";
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
 
   return (
     <div className="wrapper">
-      <h1>Header</h1>
+      <CommonHeader/>
       <Router />
       {/* <BrowserRouter>
         <Switch>

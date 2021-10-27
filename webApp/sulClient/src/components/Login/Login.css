@@ -39,3 +39,7 @@ a {
     display: contents;
     text-decoration: none;
 }
+
+form button {
+    font-weight: bold;
+}
