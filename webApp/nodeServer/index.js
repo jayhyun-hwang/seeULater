@@ -55,10 +55,12 @@ const db = getConnection();
 function getConnection() {
     try {
         // todo 동기화 처리
+        console.log("==getConnection===="+Date());
         const fileData = getFileData();
-        console.log(fileData)
+        // console.log(fileData)
         const config = JSON.parse(fileData);
-        console.log(config);
+        // console.log(config);
+
         const connection = mysql.createConnection({
             user: config.user,
             host: config.host,

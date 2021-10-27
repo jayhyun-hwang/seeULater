@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import './App.css';
-import Login from "./components/Login/Login";
-import Main from "./components/Main/Main";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import useToken from "./components/useToken";
 import Router from "./components/Router";
-
-const define = require("./define/define");
+import PreRouter from "./components/preRouter";
 
 function App() {
 
@@ -14,14 +10,14 @@ function App() {
 
   if (!token) {
     return (
-      <Login setToken={setToken} />
+      <PreRouter setToken={setToken}/>
     )
   }
 
   return (
     <div className="wrapper">
-      <h1>Application</h1>
-      <Router/>
+      <h1>Header</h1>
+      <Router />
       {/* <BrowserRouter>
         <Switch>
           <Route exact path='/' component={Main}></Route>

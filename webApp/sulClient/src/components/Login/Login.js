@@ -3,7 +3,7 @@ import ProTypes from 'prop-types';
 import "./Login.css";
 import define from "../../define/define"
 import Axios from "axios";
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import Link from 'react-router-dom';
 
 async function loginUser(credentials) {
     return Axios.post(define.REQURL + "/login", {
@@ -12,13 +12,13 @@ async function loginUser(credentials) {
 }
 
 export default function Login({ setToken }) {
-    const [username, setUserName] = useState();
+    const [userID, setUserID] = useState();
     const [password, setPassword] = useState();
 
     const handlerSubmit = async (e) => {
         e.preventDefault();
         const token = await loginUser({
-            username,
+            userID,
             password
         });
         setToken(token.data);
@@ -30,7 +30,7 @@ export default function Login({ setToken }) {
             <form className="login-form" onSubmit={handlerSubmit}>
                 <label>
                     <p>ID</p>
-                    <input type="text" onChange={e => setUserName(e.target.value)} />
+                    <input type="text" onChange={e => setUserID(e.target.value)} />
                 </label>
                 <label>
                     <p>Password</p>
@@ -38,11 +38,9 @@ export default function Login({ setToken }) {
                 </label>
                 <div className="login-button">
                     <button type="submit" className="button-login">Log In</button>
-                    <BrowserRouter>
-                        <Link to="/register">
-                            <button type="submit" className="button-regist">Regist</button>
-                        </Link>
-                    </BrowserRouter>
+                    <Link to="/register">
+                        <button type="submit" className="button-regist">Regist</button>
+                    </Link>
                 </div>
             </form>
         </div>
