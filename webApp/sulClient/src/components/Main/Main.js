@@ -8,17 +8,6 @@ import UrlList from "../UrlList/UrlList";
 
 const define = require("../../define/define");
 
-// npm run start:dev로 실행 시 process.env.REACT_APP_MODE = dev
-const argMode = process.env.REACT_APP_MODE;
-
-const displayMode = () => {
-  if (argMode) {
-    return (
-      <h1>{argMode}</h1>
-    )
-  }
-}
-
 function Main() {
 
   //사용할 변수들과 상태를 설정한다.(초기값)
@@ -82,7 +71,6 @@ function Main() {
   }
   return (
     <div className="Main">
-      {displayMode()}
       <MainHeader />
       <div className="Body">
         {/* <Form
