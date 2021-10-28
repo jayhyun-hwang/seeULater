@@ -11,7 +11,7 @@ const Form = ({ setInputText, urls, setUrls, inputText, setStatus }) => {
     };
     const submitUrlHandler = (e) => {
         e.preventDefault();
-        Axios.post('http://3.36.36.62:3001/urls', {
+        Axios.post('http://3.36.36.62/urls', {
             userID: 1,  //set userid
             url: inputText
         }).then(() => {

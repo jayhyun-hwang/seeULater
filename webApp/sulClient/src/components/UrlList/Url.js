@@ -44,7 +44,7 @@ const Url = ({ url, setUrls, urls }) => {
     const deleteHandler = (e) => {
         // console.log("url= " + url.url);
         // console.log("url.urlID= " + url.url_id);
-        Axios.delete(`http://3.36.36.62:3001/urls/${url.url_id}`)
+        Axios.delete(`http://3.36.36.62/urls/${url.url_id}`)
             .then((response) => {
                 // 삭제한 url_id와 다른 것들만 urls에 세팅
                 if (response.status !== 200) {
