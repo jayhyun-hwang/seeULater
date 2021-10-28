@@ -40,11 +40,21 @@ function getServerMode(){
     }
     return mode;
 }
+
+let HOST;
+let PORT;
+
 function getFileData(){
     const serverMode = getServerMode();
-    let configFile = "./define/dbConfig.json";
+    let configFile;
+    
     if (serverMode === "dev") {
         configFile = "./define/dbConfig_dev.json";
+        HOST = define.URLDEV;
+        PORT = define.PORTDEV;
+    } else {
+        configFile = "./define/dbConfig.json";
+        PORT = define.PORT;
     }
     return fs.readFileSync(configFile);
 }
@@ -55,7 +65,7 @@ const db = getConnection();
 function getConnection() {
     try {
         // todo 동기화 처리
-        console.log("==getConnection===="+Date());
+        console.log("# getConnection()===="+Date());
         const fileData = getFileData();
         // console.log(fileData)
         const config = JSON.parse(fileData);
@@ -75,8 +85,8 @@ function getConnection() {
 }
 
 //set listening port
-app.listen(define.PORT, () => {
-    console.log("Hello Server, port is "+define.PORT);
+app.listen(PORT, () => {
+    console.log("Hello Server, port is "+PORT);
     // let v1 = process.argv.slice(2);
 
     console.log("args len= " + process.argv.slice().length);
@@ -145,30 +155,6 @@ app.post('/getChromeEx', (req, res) => {
         }
     );
 });
-// app.get('/getChromeEx', (req, res) => {
-    
-//     // const userID = req.body.userID;
-//     // todo: 쿠키값으로 사용자 확인해야함
-//     const userID = 1;
-//     // const url = req.body.url;
-//     const url = req.query.url
-//     const regdate = utils.getDatetime();
-
-//     //check
-//     console.log("getChromeEx post url, time: " + regdate);
-
-//     db.query(
-//         'INSERT INTO urls (user_id, url, regdate) VALUES (?,?,?)',
-//         [userID, url, regdate],
-//         (err, result) => {
-//             if (err) {
-//                 console.log(err);
-//             } else {
-//                 res.send(result);
-//             }
-//         }
-//     );
-// });
 
 app.get("/urls", (req, res) => {
     //TODO: add search condition(desc, folder ...etc)

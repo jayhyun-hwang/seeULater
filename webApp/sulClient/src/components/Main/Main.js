@@ -10,16 +10,6 @@ const define = require("../../define/define");
 
 // npm run start:dev로 실행 시 process.env.REACT_APP_MODE = dev
 const argMode = process.env.REACT_APP_MODE;
-let baseurl;
-// dev/prod 모드 설정
-function setBaseUrl() {
-  if (argMode === "dev") {
-    baseurl = "http://127.0.0.1";
-  } else {
-    baseurl = define.URL;
-  }
-  baseurl = baseurl + ":" + define.PORT;
-}
 
 const displayMode = () => {
   if (argMode) {
@@ -31,18 +21,17 @@ const displayMode = () => {
 
 function Main() {
 
-  setBaseUrl();
   //사용할 변수들과 상태를 설정한다.(초기값)
   const [urls, setUrls] = useState([]);
-  const [urlID, setUrlID] = useState("");
-  const [userID, setUserID] = useState("");
-  const [url, setUrl] = useState("");
-  const [description, setDescription] = useState("");
-  const [memo, setMemo] = useState("");
-  const [directory, setDirectory] = useState("");
-  const [regdate, setRegdate] = useState("");
+  // const [urlID, setUrlID] = useState("");
+  // const [userID, setUserID] = useState("");
+  // const [url, setUrl] = useState("");
+  // const [description, setDescription] = useState("");
+  // const [memo, setMemo] = useState("");
+  // const [directory, setDirectory] = useState("");
+  // const [regdate, setRegdate] = useState("");
 
-  const [inputText, setInputText] = useState("");
+  // const [inputText, setInputText] = useState("");
   const [status, setStatus] = useState("all");
   const [filteredUrls, setFilteredUrls] = useState([]);
 
@@ -84,8 +73,8 @@ function Main() {
     //   let urlLocal = JSON.parse(localStorage.getItem("urls"));
     //   setUrls(urlLocal);
     // }
-    console.log(baseurl);
-    Axios.get(baseurl + "/urls").then((response) => {
+    console.log(define.URL);
+    Axios.get(define.URL + "/urls").then((response) => {
       // console.log(response.data);
       setUrls(response.data);
       // console.log(response);

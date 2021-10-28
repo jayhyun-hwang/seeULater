@@ -19,11 +19,6 @@ function App() {
     <div className="wrapper">
       <CommonHeader/>
       <Router />
-      {/* <BrowserRouter>
-        <Switch>
-          <Route exact path='/' component={Main}></Route>
-        </Switch>
-      </BrowserRouter> */}
     </div>
   );
 }

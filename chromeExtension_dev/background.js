@@ -5,7 +5,7 @@ const define = {
   URL : "http://127.0.0.1",
   id: "storePage_dev",
   title: "Store this page_dev",
-  PORT: 3001
+  PORT: 80
 };
 //----------------------------------------set mode-----------------------------------------------
 

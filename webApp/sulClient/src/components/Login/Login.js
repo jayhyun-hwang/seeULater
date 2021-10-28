@@ -6,7 +6,7 @@ import Axios from "axios";
 import {Link} from 'react-router-dom';
 
 async function loginUser(credentials) {
-    return Axios.post(define.REQURL + "/login", {
+    return Axios.post(define.URL + "/login", {
         credentials
     }).then()
 }

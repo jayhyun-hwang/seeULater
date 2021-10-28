@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import React from "react";
+import define from '../../define/define';
 
 const Form = ({ setInputText, urls, setUrls, inputText, setStatus }) => {
     //Here I can write javascript code and function
@@ -11,7 +12,7 @@ const Form = ({ setInputText, urls, setUrls, inputText, setStatus }) => {
     };
     const submitUrlHandler = (e) => {
         e.preventDefault();
-        Axios.post('http://3.36.36.62/urls', {
+        Axios.post(define.URL, {
             userID: 1,  //set userid
             url: inputText
         }).then(() => {
