@@ -108,8 +108,8 @@ app.post('/login',(req, res) => {
 
 //make router, req handlers
 app.post('/urls', (req, res) => {
-    console.log(req);
-    console.log(req.body);
+    // console.log(req);
+    // console.log(req.body);
     // 사용자는 쿠키로 확인
     // const userID = req.body.userID;
     const userID = 1;   // dev
