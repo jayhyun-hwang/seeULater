@@ -45,7 +45,7 @@ const Url = ({ url, setUrls, urls }) => {
     const deleteHandler = (e) => {
         // console.log("url= " + url.url);
         // console.log("url.urlID= " + url.url_id);
-        Axios.delete(`${define.URL+url.url_id}`)
+        Axios.delete(`${define.URL}/urls/${url.url_id}`)
             .then((response) => {
                 // 삭제한 url_id와 다른 것들만 urls에 세팅
                 if (response.status !== 200) {
