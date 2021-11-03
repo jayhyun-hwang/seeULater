@@ -23,9 +23,9 @@ function getStoreClickHandler() {
 
     // The srcUrl property is only available for image elements.
     //var url = 'info.html#' + info.srcUrl;
-    submitPostUrls(tab);
     // //object 확인
     // // alert(JSON.stringify(tab));
+    submitPostUrls(tab);
   };
 };
 /**
@@ -67,7 +67,7 @@ function submitPostUrls(tab) {
   req.onreadystatechange = function () { // Call a function when the state changes.
     // if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
     if (this.readyState === XMLHttpRequest.DONE) {
-      alert("Got response "+this.statusText);
+      alert("Got response "+ this.status+": "+this.statusText);
     }
   }
 }

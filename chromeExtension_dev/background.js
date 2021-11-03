@@ -65,8 +65,9 @@ function submitPostUrls(tab) {
   }));
 
   req.onreadystatechange = function () { // Call a function when the state changes.
-    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-      alert("Got response 200!");
+    // if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+    if (this.readyState === XMLHttpRequest.DONE) {
+      alert("Got response "+ this.status+": "+this.statusText);
     }
   }
 }

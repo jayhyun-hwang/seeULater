@@ -128,7 +128,9 @@ app.post('/urls', (req, res) => {
             if (err) {
                 console.log(err);
             } else {
-                res.send("Values Inserted");
+                res.status(200);
+                res.statusMessage = "value inserted";
+                res.send();
             }
         }
     );
