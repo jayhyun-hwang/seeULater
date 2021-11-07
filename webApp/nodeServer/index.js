@@ -75,7 +75,8 @@ function getConnection() {
             user: config.user,
             host: config.host,
             password: config.password,
-            database: config.database
+            database: config.database,
+            charset: "utf8mb4"
         });
         return connection;
     } catch (err) {
