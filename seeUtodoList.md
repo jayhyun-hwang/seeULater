@@ -44,6 +44,7 @@
   - ~~node server~~
   - **react - context 사용** - 표현식 자바스크립트 함수화
 - UrlList에 index 추가, 총 count도 받아오기
+- ~~title, url에 특수문자(emoji - 4byte, utf8mb4) 사용 가능하게 하기~~
 - ~~got response 로직 수정. 메세지 보내기~~
 - ~~메인로고에 악어 넣기, 메인으로 이동~~
 - ~~저장하기 단축키 설정, Ctrl + Shift + S~~
