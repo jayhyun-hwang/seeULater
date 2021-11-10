@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import '../../App.css';
 import Axios from 'axios';
-//Importing Components
-import MainHeader from "../Header/MainHeader";
+//Importing Componentssrc/components
+import MainHeader from "src/components/Header/MainHeader";
 import Form from "../Form/Form";
 import UrlList from "../UrlList/UrlList";
 
-const define = require("../../define/define");
+// const define = require("../../define/define");
+
+import define from "src/define/define";
 
 function Main() {
 

@@ -1,4 +1,12 @@
 
+global.base_dir = __dirname;
+global.abs_path = function(path) {
+  return base_dir + path;
+}
+global.include = function(file) {
+  return require(abs_path('/' + file));
+}
+
 //import express
 const express = require('express');
 //assign express to app
@@ -17,7 +25,7 @@ const fs = require('fs');
 //body parser
 // const multer = require('multer');
 // const upload = multer();
-const define = require('./define/define');
+const define = include('define/define');
 
 //add cors modules to app
 app.use(cors());
