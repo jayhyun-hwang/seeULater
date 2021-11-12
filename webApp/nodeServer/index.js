@@ -172,7 +172,7 @@ app.post('/getChromeEx', (req, res) => {
 
 app.get("/urls", (req, res) => {
     //TODO: add search condition(desc, folder ...etc)
-    db.query("SELECT * FROM urls WHERE deldate IS NULL ORDER BY regdate DESC", (err, result) => {
+    db.query("SELECT * FROM urls WHERE deldate IS NULL ORDER BY regdate DESC LIMIT 15", (err, result) => {
         if (err) {
             console.log(err)
         } else {
@@ -197,7 +197,6 @@ app.get("/urls", (req, res) => {
 app.delete("/urls/:url_id", (req, res) => {
     const url_id = req.params.url_id;
     const deldate = utils.getDatetime();
-
     db.query("UPDATE urls SET deldate = ? WHERE url_id = ?", [deldate, url_id], (err, result) => {
         if (err) {
             console.log(err);

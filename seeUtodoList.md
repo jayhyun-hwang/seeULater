@@ -1,9 +1,13 @@
 # Major(step)
 
-- 계정기능, 쿠키값으로 사용자 식별 (jwt 사용), chrome extension에서 프록시 사용
+- **계정기능**, 쿠키값으로 사용자 식별 (jwt 사용), chrome extension에서 프록시 사용
   - 로그인 상태 시 로그인 페이지 접근 불가
   - 알파벳 52 + 숫자 10 == 62, 12자
   - 해시, 양방향, DB에 id로 저장
+- **그룹기능**
+- **더보기 구현(15개)**
+  - result 객체 뎁스 늘려서 count 추가하기
+  - 또는 백엔드에서 계산해서 show more, close 플래그만 보내기
 - react에서 url, port를 context로 global변수화
 - aws https 로드밸런서 사용
 - **로그, ~~모니터링~~ 제작**
@@ -37,7 +41,6 @@
   - Store this url (when the page blocked using right click)
 
 # minor
-- url 리스트 15개만 보여주기, 더 보기 기능 만들어서 추가 select
 - 클릭 시 새 탭으로 여는 이벤트 수정. div 이벤트 제거. img, title 클릭 이벤트 추가
 - when stored, popup at right bottom of the page(tab) - instead alert
 - 포트 변수화, url 변수화
