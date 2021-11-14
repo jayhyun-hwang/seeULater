@@ -172,10 +172,25 @@ app.post('/getChromeEx', (req, res) => {
 
 app.get("/urls", (req, res) => {
     //TODO: add search condition(desc, folder ...etc)
-    db.query("SELECT * FROM urls WHERE deldate IS NULL ORDER BY regdate DESC LIMIT 15", (err, result) => {
+    let result = new Object;
+
+    db.query("SELECT count(*) AS count FROM urls WHERE deldate IS NULL", (err, rows, fields) => {
+        if (err){
+            console.log(err)
+        }else{
+            // console.log("@@##", rows);
+            // console.log("@@##", fields);
+            // console.log("@@##", rows);
+            result.count = rows[0].count;
+        }
+    })
+    db.query("SELECT * FROM urls WHERE deldate IS NULL ORDER BY regdate DESC LIMIT 15", (err, rows, fields) => {
         if (err) {
             console.log(err)
         } else {
+            // console.log("rows = ", rows);
+            // console.log("fields = ", fields);
+            result.rows = rows;
             res.send(result)
         }
     });

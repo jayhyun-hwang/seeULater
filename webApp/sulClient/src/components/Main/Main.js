@@ -14,6 +14,7 @@ function Main() {
 
   //사용할 변수들과 상태를 설정한다.(초기값)
   const [urls, setUrls] = useState([]);
+  const [count, setCount] = useState(0);
   // const [urlID, setUrlID] = useState("");
   // const [userID, setUserID] = useState("");
   // const [url, setUrl] = useState("");
@@ -67,7 +68,8 @@ function Main() {
     console.log(define.URL);
     Axios.get(define.URL + "/urls").then((response) => {
       // console.log(response.data);
-      setUrls(response.data);
+      setCount(response.data.count);
+      setUrls(response.data.rows);
       // console.log(response);
     });
   }
@@ -88,6 +90,7 @@ function Main() {
         // setStatus={setStatus}
         /> */}
         <UrlList
+          count = {count}
           filteredUrls={filteredUrls}
           setUrls={setUrls}
           urls={urls}
