@@ -17,6 +17,7 @@ const mysql = require('mysql');
 const cors = require('cors');
 
 const helmet = require("helmet");
+const csp = require("helmet-csp");
 
 //import path == provides utilities for working with file and directory paths
 const path = require('path');
