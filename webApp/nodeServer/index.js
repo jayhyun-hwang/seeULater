@@ -33,14 +33,6 @@ const define = include('define/define');
 app.use(cors());
 
 app.use(helmet());
-app.use(
-    helmet.contentSecurityPolicy({
-      directives: {
-        defaultSrc: ["'self'"],
-        imgSrc: null
-      },
-    })
-  );
 app.disable("x-powered-by");
 
 //add json modules to app
