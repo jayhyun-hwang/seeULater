@@ -15,7 +15,9 @@ const app = express();
 const mysql = require('mysql');
 //import cors
 const cors = require('cors');
-const helmet = require("helmet");
+
+// const helmet = require("helmet");
+
 //import path == provides utilities for working with file and directory paths
 const path = require('path');
 //import util js
@@ -29,8 +31,10 @@ const define = include('define/define');
 
 //add cors modules to app
 app.use(cors());
-app.use(helmet());
-app.disable("x-powered-by");
+
+// app.use(helmet());
+// app.disable("x-powered-by");
+
 //add json modules to app
 app.use(express.json());
 //add using static file modules to app
