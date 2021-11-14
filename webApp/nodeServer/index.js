@@ -37,7 +37,7 @@ app.use(
     helmet.contentSecurityPolicy({
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "'sha256-NEp4TlsFgOGJgvPsqH6O0F/hhMZ7cN9GcHlDHJuQKao='"]
+        imgSrc: null
       },
     })
   );
