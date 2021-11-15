@@ -188,6 +188,7 @@ app.get("/urls", (req, res) => {
             result.count = rows[0].count;
         }
     })
+    // LIMIT += 15개씩 더해서 셀렉트 개수 추가
     db.query("SELECT * FROM urls WHERE deldate IS NULL ORDER BY regdate DESC LIMIT 15", (err, rows, fields) => {
         if (err) {
             console.log(err)
