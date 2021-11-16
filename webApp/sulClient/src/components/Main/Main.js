@@ -15,6 +15,7 @@ function Main() {
   //사용할 변수들과 상태를 설정한다.(초기값)
   const [urls, setUrls] = useState([]);
   const [count, setCount] = useState(0);
+  const [offset, setOffset] = useState(0);
   // const [urlID, setUrlID] = useState("");
   // const [userID, setUserID] = useState("");
   // const [url, setUrl] = useState("");
@@ -69,6 +70,8 @@ function Main() {
     Axios.get(define.URL + "/urls").then((response) => {
       // console.log(response.data);
       setCount(response.data.count);
+      // todo offset을 파라미터로 설정, 받아온 offset 세팅
+      setOffset(offset +  18);
       setUrls(response.data.rows);
       // console.log(response);
     });
@@ -91,6 +94,7 @@ function Main() {
         /> */}
         <UrlList
           count = {count}
+          offset = {offset}
           filteredUrls={filteredUrls}
           setUrls={setUrls}
           urls={urls}
