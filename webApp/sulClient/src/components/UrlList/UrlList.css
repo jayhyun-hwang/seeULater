@@ -1,0 +1,28 @@
+.listButton-wrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.button-showMore{
+    width: 100%;
+    background-color: #0bd4a2;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 1.2em;
+    min-height: 4vh;
+    cursor: pointer;
+    font-weight: bold;
+}
+.button-fold{
+    width: 100%;
+    background-color: #0bd4a2;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 1.2em;
+    min-height: 4vh;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 0.5vh;
+}

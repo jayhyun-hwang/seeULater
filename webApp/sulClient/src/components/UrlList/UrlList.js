@@ -1,19 +1,30 @@
+import "./UrlList.css";
 import React from 'react';
 //Import components
 import Url from './Url';
 
-function listButton(count, offset) {
-    return (count > offset)
-        ?
+function listButton(count, limit) {
+
+    let fold = (15 < limit) ?
         (
-            <button className="button-showMore">show more
+            <button className="button-fold">close &nbsp;
+                <i class="fa fa-angle-up" aria-hidden="true"></i>
+            </button>
+        ) :
+        null
+
+    let more = (count > limit) ?
+        (
+            <button className="button-showMore">more &nbsp;&nbsp;
                 <i class="fa fa-angle-down" aria-hidden="true"></i>
             </button>
-        ):
+        ) :
         null
+
+    return [fold, more];
 }
 
-const UrlList = ({ count, offset, urls, setUrls, filteredUrls }) => {
+const UrlList = ({ count, limit, urls, setUrls, filteredUrls }) => {
     // console.log("tt");
     // console.log(urls);
     // console.log(filteredUrls);
@@ -29,7 +40,9 @@ const UrlList = ({ count, offset, urls, setUrls, filteredUrls }) => {
                         urlID={url.url_id}
                     />
                 ))}
-                {listButton(count, offset)}
+                <div className="listButton-wrapper">
+                    {listButton(count, limit)}
+                </div>
             </ul>
             {/* 더보기 버튼 생성, 조건부 생성  */}
         </div>
