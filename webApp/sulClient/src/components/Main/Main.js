@@ -43,10 +43,9 @@ function Main() {
   
   //page 이동 시 실행
   useEffect(() => {
-    // console.log('hey');
     getUrls();
-    // getUrls();
   }, [page]);
+  
   //Functions
   const filterHandler = () => {
     switch (status) {
@@ -105,7 +104,6 @@ function Main() {
           filteredUrls={filteredUrls}
           setUrls={setUrls}
           urls={urls}
-          getUrls = {getUrls}
         />
       </div>
     </div>

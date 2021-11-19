@@ -2,7 +2,7 @@ import "./UrlList.css";
 import React, { useEffect } from 'react';
 //Import components
 import Url from './Url';
-const UrlList = ({ count, page, setPage, urls, setUrls, filteredUrls }) => {
+const UrlList = ({ count, page, setPage, filteredUrls, setUrls, urls }) => {
 
     useEffect(() => {
         listButton();
