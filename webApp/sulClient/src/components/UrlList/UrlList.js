@@ -1,30 +1,42 @@
 import "./UrlList.css";
-import React from 'react';
+import React, { useEffect } from 'react';
 //Import components
 import Url from './Url';
+const UrlList = ({ count, page, setPage, urls, setUrls, filteredUrls }) => {
 
-function listButton(count, limit) {
+    useEffect(() => {
+        listButton();
+    }, [page]); // page 값이 바뀔 때마다 실행된다.
 
-    let fold = (15 < limit) ?
-        (
-            <button className="button-fold">close &nbsp;
-                <i class="fa fa-angle-up" aria-hidden="true"></i>
-            </button>
-        ) :
-        null
+    const clickCloseHandler = () => {
+        if (page < 1) {
+            return;
+        }
+        setPage(page - 1)
+    };
+    const clickMoreHandler = () => {
+        setPage(page + 1)
+    };
+    const listButton = (count, page) => {
 
-    let more = (count > limit) ?
-        (
-            <button className="button-showMore">more &nbsp;&nbsp;
-                <i class="fa fa-angle-down" aria-hidden="true"></i>
-            </button>
-        ) :
-        null
+        let close = (1 < page) ?
+            (
+                <button onClick={clickCloseHandler} className="button-close">close &nbsp;
+                    <i class="fa fa-angle-up" aria-hidden="true"></i>
+                </button>
+            ) :
+            null
 
-    return [fold, more];
-}
+        let more = (count > page * 15) ?
+            (
+                <button onClick={clickMoreHandler} className="button-showMore">more &nbsp;&nbsp;
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                </button>
+            ) :
+            null
 
-const UrlList = ({ count, limit, urls, setUrls, filteredUrls }) => {
+        return [close, more];
+    }
     // console.log("tt");
     // console.log(urls);
     // console.log(filteredUrls);
@@ -41,7 +53,7 @@ const UrlList = ({ count, limit, urls, setUrls, filteredUrls }) => {
                     />
                 ))}
                 <div className="listButton-wrapper">
-                    {listButton(count, limit)}
+                    {listButton(count, page)}
                 </div>
             </ul>
             {/* 더보기 버튼 생성, 조건부 생성  */}

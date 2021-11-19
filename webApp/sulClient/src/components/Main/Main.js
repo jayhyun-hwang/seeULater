@@ -15,7 +15,7 @@ function Main() {
   //사용할 변수들과 상태를 설정한다.(초기값)
   const [urls, setUrls] = useState([]);
   const [count, setCount] = useState(0);
-  const [limit, setLimit] = useState(18);
+  const [page, setPage] = useState(1);
   // const [urlID, setUrlID] = useState("");
   // const [userID, setUserID] = useState("");
   // const [url, setUrl] = useState("");
@@ -40,6 +40,13 @@ function Main() {
     saveLocalUrls();
     // getUrls();
   }, [urls, status]); //urls, status값이 바뀔 때마다 실행된다.
+  
+  //page 이동 시 실행
+  useEffect(() => {
+    // console.log('hey');
+    getUrls();
+    // getUrls();
+  }, [page]);
   //Functions
   const filterHandler = () => {
     switch (status) {
@@ -67,7 +74,7 @@ function Main() {
     //   setUrls(urlLocal);
     // }
     console.log(define.URL);
-    Axios.get(define.URL + "/urls").then((response) => {
+    Axios.get(`${define.URL}/urls/${page}`).then((response) => {
       // console.log(response.data);
       setCount(response.data.count);
       // todo offset을 파라미터로 설정, 받아온 offset 세팅
@@ -93,10 +100,12 @@ function Main() {
         /> */}
         <UrlList
           count = {count}
-          limit = {limit}
+          page = {page}
+          setPage = {setPage}
           filteredUrls={filteredUrls}
           setUrls={setUrls}
           urls={urls}
+          getUrls = {getUrls}
         />
       </div>
     </div>

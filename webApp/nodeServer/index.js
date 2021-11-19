@@ -174,10 +174,11 @@ app.post('/getChromeEx', (req, res) => {
     );
 });
 
-app.get("/urls", (req, res) => {
+app.get("/urls/:page", (req, res) => {
     //TODO: add search condition(desc, folder ...etc)
     let result = new Object;
-
+    const page = req.params.page;
+    const limit = page * 15;
     db.query("SELECT count(*) AS count FROM urls WHERE deldate IS NULL", (err, rows, fields) => {
         if (err){
             console.log(err)
@@ -189,7 +190,7 @@ app.get("/urls", (req, res) => {
         }
     })
     // LIMIT += 15개씩 더해서 셀렉트 개수 추가
-    db.query("SELECT * FROM urls WHERE deldate IS NULL ORDER BY regdate DESC LIMIT 15", (err, rows, fields) => {
+    db.query("SELECT * FROM urls WHERE deldate IS NULL ORDER BY regdate DESC LIMIT ?", limit, (err, rows, fields) => {
         if (err) {
             console.log(err)
         } else {

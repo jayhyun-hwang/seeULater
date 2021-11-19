@@ -6,7 +6,7 @@
 }
 .button-showMore{
     width: 100%;
-    background-color: #0bd4a2;
+    background-color: #005963;
     color: white;
     border: none;
     border-radius: 3px;
@@ -15,7 +15,7 @@
     cursor: pointer;
     font-weight: bold;
 }
-.button-fold{
+.button-close{
     width: 100%;
     background-color: #0bd4a2;
     color: white;
