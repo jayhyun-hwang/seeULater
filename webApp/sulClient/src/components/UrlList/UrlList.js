@@ -1,13 +1,7 @@
 import "./UrlList.css";
-import React, { useEffect } from 'react';
 //Import components
 import Url from './Url';
 const UrlList = ({ count, page, setPage, filteredUrls, setUrls, urls }) => {
-
-    useEffect(() => {
-        listButton();
-    }, [page]); // page 값이 바뀔 때마다 실행된다.
-
     const clickCloseHandler = () => {
         if (page < 1) {
             return;
@@ -17,8 +11,7 @@ const UrlList = ({ count, page, setPage, filteredUrls, setUrls, urls }) => {
     const clickMoreHandler = () => {
         setPage(page + 1)
     };
-    const listButton = (count, page) => {
-
+    const listButton = () => {
         let close = (1 < page) ?
             (
                 <button onClick={clickCloseHandler} className="button-close">close &nbsp;
@@ -34,12 +27,9 @@ const UrlList = ({ count, page, setPage, filteredUrls, setUrls, urls }) => {
                 </button>
             ) :
             null
-
         return [close, more];
-    }
-    // console.log("tt");
-    // console.log(urls);
-    // console.log(filteredUrls);
+    };
+
     return (
         <div className="url-container">
             <ul className="url-list">
@@ -56,7 +46,6 @@ const UrlList = ({ count, page, setPage, filteredUrls, setUrls, urls }) => {
                     {listButton(count, page)}
                 </div>
             </ul>
-            {/* 더보기 버튼 생성, 조건부 생성  */}
         </div>
 
     );
