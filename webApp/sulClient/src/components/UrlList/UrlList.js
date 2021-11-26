@@ -1,41 +1,45 @@
 import "./UrlList.css";
 //Import components
 import Url from './Url';
-const UrlList = ({ count, page, setPage, filteredUrls, setUrls, urls }) => {
-    const clickCloseHandler = () => {
-        if (page < 1) {
-            return;
-        }
-        setPage(page - 1)
-    };
-    const clickMoreHandler = () => {
-        setPage(page + 1)
-    };
-    const listButton = () => {
-        let close = (1 < page) ?
-            (
-                <button onClick={clickCloseHandler} className="button-close">close &nbsp;
-                    <i class="fa fa-angle-up" aria-hidden="true"></i>
-                </button>
-            ) :
-            null
+import ListButton from './ListButton';
 
-        let more = (count > page * 15) ?
-            (
-                <button onClick={clickMoreHandler} className="button-showMore">more &nbsp;&nbsp;
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                </button>
-            ) :
-            null
-        return [close, more];
-    };
+const UrlList = ({ count, page, setPage, filteredUrls, setUrls, urls }) => {
+    // const clickCloseHandler = () => {
+    //     if (page < 1) {
+    //         return;
+    //     }
+    //     setPage(page - 1)
+    // };
+    // const clickMoreHandler = () => {
+    //     setPage(page + 1)
+    // };
+    // const listButton = () => {
+    //     console.log(`const listButton = () => {${count}, ${page}}`);
+    //     let close = (1 < page) ?
+    //         (
+    //             <button onClick={clickCloseHandler} className="button-close">close &nbsp;
+    //                 <i class="fa fa-angle-up" aria-hidden="true"></i>
+    //             </button>
+    //         ) :
+    //         null;
+
+    //     let more = (count > page * 15) ?
+    //         (
+    //             <button onClick={clickMoreHandler} className="button-showMore">more &nbsp;&nbsp;
+    //                 <i class="fa fa-angle-down" aria-hidden="true"></i>
+    //             </button>
+    //         ) :
+    //         null;
+    //     return [close, more];
+    // };
 
     return (
         <div className="url-container">
             <ul className="url-list">
                 <h2>Total &nbsp; {count}</h2>
-                {filteredUrls.map((url) => (
+                {filteredUrls.map((url, index) => (
                     <Url key={url.url_id}
+                        index={index}
                         setUrls={setUrls}
                         urls={urls}
                         url={url}
@@ -43,7 +47,11 @@ const UrlList = ({ count, page, setPage, filteredUrls, setUrls, urls }) => {
                     />
                 ))}
                 <div className="listButton-wrapper">
-                    {listButton(count, page)}
+                    <ListButton
+                        count={count}
+                        page={page}
+                        setPage={setPage}
+                    />
                 </div>
             </ul>
         </div>

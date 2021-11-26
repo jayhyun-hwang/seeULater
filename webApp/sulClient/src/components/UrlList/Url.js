@@ -1,9 +1,11 @@
 import React from "react";
+import "./UrlList.css";
 // import LinkPreview from '@ashwamegh/react-link-preview';
 import LoadingImg from '../img/loading.png';
 import NoImg from '../img/no-image-icon.png';
 import Axios from 'axios';
 import define from "../../define/define";
+
 
 // function CustomComponent({ loading, preview }) {
 //     return loading
@@ -37,7 +39,7 @@ const getDateTime = (url) => {
     return url.regdate.slice(0,16).replace("T", "\t")
 }
 
-const Url = ({ url, setUrls, urls }) => {
+const Url = ({ index, url, setUrls, urls }) => {
     //Events
     const LinkHandler = () => {
         window.open(url.url, '_blank');
@@ -74,7 +76,9 @@ const Url = ({ url, setUrls, urls }) => {
     return (
         <div className="url">
             <div className='url-upper'>
-                <a className={`url_a ${url.completed ? "completed" : ""}`} href={url.url} target="_blank" rel="noreferrer">{url.title ? url.title : url.url}</a>
+                <p className="url_a-index">{index+1}</p>
+                <a className={`url_a ${url.completed ? "completed" : ""}`} href={url.url} target="_blank" rel="noreferrer">{url.title ? url.title : url.url}
+                </a>
             </div>
             <div className="url-preview-and-button">
                 <div onClick={LinkHandler}>

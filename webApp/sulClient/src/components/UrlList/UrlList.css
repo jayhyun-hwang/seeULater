@@ -1,10 +1,11 @@
-.listButton-wrapper{
+.listButton-wrapper {
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin: 1vh;
 }
-.button-showMore{
+
+.button-showMore {
     width: 100%;
     background-color: #005963;
     color: white;
@@ -15,7 +16,8 @@
     cursor: pointer;
     font-weight: bold;
 }
-.button-close{
+
+.button-close {
     width: 100%;
     background-color: #0bd4a2;
     color: white;
@@ -26,4 +28,10 @@
     cursor: pointer;
     font-weight: bold;
     margin-bottom: 0.5vh;
+}
+
+.url_a-index {
+    color: #005963;
+    font-size: 0.9em;
+    font-weight: 900;
 }

@@ -16,15 +16,7 @@ function Main() {
   const [urls, setUrls] = useState([]);
   const [count, setCount] = useState(0);
   const [page, setPage] = useState(1);
-  // const [urlID, setUrlID] = useState("");
-  // const [userID, setUserID] = useState("");
-  // const [url, setUrl] = useState("");
-  // const [description, setDescription] = useState("");
-  // const [memo, setMemo] = useState("");
-  // const [directory, setDirectory] = useState("");
-  // const [regdate, setRegdate] = useState("");
 
-  // const [inputText, setInputText] = useState("");
   const [status, setStatus] = useState("all");
   const [filteredUrls, setFilteredUrls] = useState([]);
 
@@ -43,6 +35,7 @@ function Main() {
   
   //page 이동 시 실행
   useEffect(() => {
+    console.log("useEffect(() => { getUrls();}, [page]);")
     getUrls();
   }, [page]);
   
@@ -97,7 +90,7 @@ function Main() {
         // setInputText={setInputText}
         // setStatus={setStatus}
         /> */}
-        <UrlList
+        <UrlList key="url list"
           count = {count}
           page = {page}
           setPage = {setPage}

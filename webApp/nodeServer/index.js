@@ -1,10 +1,10 @@
 
 global.base_dir = __dirname;
-global.abs_path = function(path) {
-  return base_dir + path;
+global.abs_path = function (path) {
+    return base_dir + path;
 }
-global.include = function(file) {
-  return require(abs_path('/' + file));
+global.include = function (file) {
+    return require(abs_path('/' + file));
 }
 
 //import express
@@ -44,7 +44,7 @@ app.use(express.static("build"));
 //for parsing form data
 // app.use(upload.array());
 
-function getServerMode(){
+function getServerMode() {
     const argsv = process.argv.slice();
     let mode;
     if (argsv.length > 2) {
@@ -59,10 +59,10 @@ function getServerMode(){
 let HOST;
 let PORT;
 
-function getFileData(){
+function getFileData() {
     const serverMode = getServerMode();
     let configFile;
-    
+
     if (serverMode === "dev") {
         configFile = "./define/dbConfig_dev.json";
         HOST = define.URLDEV;
@@ -80,7 +80,7 @@ const db = getConnection();
 function getConnection() {
     try {
         // todo 동기화 처리
-        console.log("# getConnection()===="+Date());
+        console.log("# getConnection()====" + Date());
         const fileData = getFileData();
         // console.log(fileData)
         const config = JSON.parse(fileData);
@@ -102,7 +102,7 @@ function getConnection() {
 
 //set listening port
 app.listen(PORT, () => {
-    console.log("Hello Server, port is "+PORT);
+    console.log("Hello Server, port is " + PORT);
     // let v1 = process.argv.slice(2);
 
     console.log("args len= " + process.argv.slice().length);
@@ -114,7 +114,7 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
-app.post('/login',(req, res) => {
+app.post('/login', (req, res) => {
     console.log(req.body);
     console.log(utils.getDatetime());
     res.send({
@@ -179,10 +179,12 @@ app.get("/urls/:page", (req, res) => {
     let result = new Object;
     const page = req.params.page;
     const limit = page * 15;
+    // for null check
+    // db.query("SELECT count(*) AS count FROM urls WHERE deldate IS NULL AND url_id=0", (err, rows, fields) => {
     db.query("SELECT count(*) AS count FROM urls WHERE deldate IS NULL", (err, rows, fields) => {
-        if (err){
+        if (err) {
             console.log(err)
-        }else{
+        } else {
             // console.log("@@##", rows);
             // console.log("@@##", fields);
             // console.log("@@##", rows);
@@ -190,6 +192,8 @@ app.get("/urls/:page", (req, res) => {
         }
     })
     // LIMIT += 15개씩 더해서 셀렉트 개수 추가
+    //for null check
+    // db.query("SELECT * FROM urls WHERE deldate IS NULL AND url_id=0 ORDER BY regdate DESC LIMIT ?", limit, (err, rows, fields) => {
     db.query("SELECT * FROM urls WHERE deldate IS NULL ORDER BY regdate DESC LIMIT ?", limit, (err, rows, fields) => {
         if (err) {
             console.log(err)
