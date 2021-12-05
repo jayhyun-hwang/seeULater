@@ -179,6 +179,8 @@ app.get("/urls/:page", (req, res) => {
     let result = new Object;
     const page = req.params.page;
     const limit = page * 15;
+
+    console.log("get(/urls/:page:)" + utils.getDatetime());
     // for null check
     // db.query("SELECT count(*) AS count FROM urls WHERE deldate IS NULL AND url_id=0", (err, rows, fields) => {
     db.query("SELECT count(*) AS count FROM urls WHERE deldate IS NULL", (err, rows, fields) => {

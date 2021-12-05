@@ -19,3 +19,5 @@ RUN apt install -y curl; \
     nvm install lts/gallium; \
     npm install pm2 -g; \
     pm2 install pm2-logrotate;
+# etc
+RUN apt install screen
