@@ -20,4 +20,5 @@ RUN apt install -y curl; \
     npm install pm2 -g; \
     pm2 install pm2-logrotate;
 # etc
-RUN apt install screen
+RUN apt install -y screen; \
+    apt install -y vim;

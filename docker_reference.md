@@ -1,0 +1,10 @@
+- screen
+  - 스크린 소켓을 실행한 상태로 나가기(detach) 단축키
+    - ctrl + a, d
+  - 목록
+    - screen -ls
+  - 스크린 reattach
+    - screen -r
+    - 열린 소켓이 2개 이상인 경우, screen -r pid(아이디 지정 필수)
+  - 스크린 종료
+    - attach 해서 exit
