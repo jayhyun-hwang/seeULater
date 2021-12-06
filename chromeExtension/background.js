@@ -1,5 +1,5 @@
 const define = {
-  URL: "http://3.36.36.62",
+  URL: "http://www.seeulater.site",
   id: "storePage",
   title: "Store this page",
   // URL : "http://127.0.0.1",
@@ -9,7 +9,7 @@ const define = {
 };
 //----------------------------------------set mode-----------------------------------------------
 
-// const baseUrl = "http://3.36.36.62:3001";
+// const baseUrl = "http://www.seeulater.site:3001";
 const baseUrl = define.URL + ':' + define.PORT;
 // Copyright (c) 2011 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be

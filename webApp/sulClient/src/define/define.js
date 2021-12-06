@@ -7,7 +7,7 @@ function getUrl() {
   if (argMode === "dev") {
     baseurl = "http://127.0.0.1";
   } else {
-    baseurl = "http://3.36.36.62";
+    baseurl = "http://www.seeulater.site";
   }
   return baseurl;
 }

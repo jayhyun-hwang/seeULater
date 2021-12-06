@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:devWindow": "set \"REACT_APP_MODE=dev\" && react-scripts start",
+    "start:devWindows": "set \"REACT_APP_MODE=dev\" && react-scripts start",
     "start:devLinux": "REACT_APP_MODE=dev react-scripts start",
     "start:prod": "set \"REACT_APP_MODE=prod\" && react-scripts start",
     "start:dev80": "set \"REACT_APP_MODE=prod\" && set PORT=80 && react-scripts start",

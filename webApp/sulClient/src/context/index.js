@@ -16,7 +16,7 @@ import { GET_HOST } from "./actionTypes";
 // };
 
 const SERVICEHOST = {
-    HOST: "http://3.36.36.62/",
+    HOST: "http://www.seeulater.site/",
     HOSTDEV: "http://127.0.0.1/"
 }
 
