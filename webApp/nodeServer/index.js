@@ -31,9 +31,9 @@ const define = include('define/define');
 //add cors modules to app
 app.use(cors());
 
-// const helmet = require("helmet");
-// app.use(helmet());
-// app.disable("x-powered-by");
+const helmet = require("helmet");
+app.use(helmet());
+app.disable("x-powered-by");
 
 //add json modules to app
 app.use(express.json());
