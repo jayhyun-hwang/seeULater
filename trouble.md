@@ -35,3 +35,13 @@ passwd –d root
       })
     );
   ```
+- letsencrypt 자동갱신 crontab으로 등록
+  ```shell
+  sudo crontab -l
+  sudo crontab -e
+  # 2개월마다 1일에 인증서를 갱신하고 서버 재시작!
+  0 0 1 */2 * /usr/bin/certbot renew --renew-hook="sudo pm2 restart seeulater"
+  :wq
+  sudo crontab -l
+  view /var/log/syslog
+  ```
