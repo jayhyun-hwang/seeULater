@@ -7,6 +7,7 @@ global.include = function (file) {
     return require(abs_path('/' + file));
 }
 
+const define = include('define/define');
 //import express
 const express = require('express');
 //assign express to app
@@ -29,12 +30,12 @@ const fs = require('fs');
 //body parser
 // const multer = require('multer');
 // const upload = multer();
-const define = include('define/define');
 
-const options = isDev() ? null : { // letsencrypt로 받은 인증서 경로를 입력
-    ca: fs.readFileSync('/etc/letsencrypt/live/www.seeulater.site/fullchain.pem'),
-    key: fs.readFileSync('/etc/letsencrypt/live/www.seeulater.site/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/www.seeulater.site/cert.pem')
+
+const options = idDevMode() ? null : { // letsencrypt로 받은 인증서 경로를 입력
+    ca: fs.readFileSync(define.ca),
+    key: fs.readFileSync(define.key),
+    cert: fs.readFileSync(define.cert)
 };
 
 //add cors modules to app
@@ -64,7 +65,7 @@ function getServerMode() {
     }
     return mode;
 }
-function isDev() {
+function idDevMode() {
     const argsv = process.argv.slice();
     if (argsv.length > 2) {
         if (argsv[2] === "dev") {
