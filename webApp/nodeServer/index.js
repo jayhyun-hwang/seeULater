@@ -15,7 +15,10 @@ const app = express();
 const mysql = require('mysql');
 //import cors
 const cors = require('cors');
-
+//import http
+const http = require('http');
+//import https
+const https = require('https');
 
 //import path == provides utilities for working with file and directory paths
 const path = require('path');
@@ -27,6 +30,12 @@ const fs = require('fs');
 // const multer = require('multer');
 // const upload = multer();
 const define = include('define/define');
+
+const options = { // letsencrypt로 받은 인증서 경로를 입력
+    ca: fs.readFileSync('/etc/letsencrypt/live/www.seeulater.site/fullchain.pem'),
+    key: fs.readFileSync('/etc/letsencrypt/live/www.seeulater.site/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/www.seeulater.site/cert.pem')
+};
 
 //add cors modules to app
 app.use(cors());
@@ -101,13 +110,20 @@ function getConnection() {
 }
 
 //set listening port
-app.listen(PORT, () => {
+http.createServer(app).listen(PORT, () => {
     console.log("Hello Server, port is " + PORT);
     // let v1 = process.argv.slice(2);
-
+    
     console.log("args len= " + process.argv.slice().length);
     console.log("args = " + process.argv.slice());
 });
+
+https.createServer(options, app).listen(443, () => {
+    console.log("Hello https Server, port is " + PORT);
+    // let v1 = process.argv.slice(2);
+});
+// http.createServer(app).listen(3000);
+// https.createServer(options, app).listen(443);
 
 //set index file as static built react file 
 app.get("/", (req, res) => {
