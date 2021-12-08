@@ -44,6 +44,12 @@ app.use(cors());
 const helmet = require("helmet");
 app.use(helmet());
 app.disable("x-powered-by");
+app.use(helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+        "img-src": ["*"]
+    }
+}));
 
 //add json modules to app
 app.use(express.json());
