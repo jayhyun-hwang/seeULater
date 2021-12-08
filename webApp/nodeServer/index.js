@@ -31,7 +31,7 @@ const fs = require('fs');
 // const upload = multer();
 const define = include('define/define');
 
-const options = { // letsencrypt로 받은 인증서 경로를 입력
+const options = isDev() ? null : { // letsencrypt로 받은 인증서 경로를 입력
     ca: fs.readFileSync('/etc/letsencrypt/live/www.seeulater.site/fullchain.pem'),
     key: fs.readFileSync('/etc/letsencrypt/live/www.seeulater.site/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/www.seeulater.site/cert.pem')
@@ -63,6 +63,15 @@ function getServerMode() {
         mode = "prod";
     }
     return mode;
+}
+function isDev() {
+    const argsv = process.argv.slice();
+    if (argsv.length > 2) {
+        if (argsv[2] === "dev") {
+            return true;
+        }
+    }
+    return false;
 }
 
 let HOST;
@@ -113,12 +122,15 @@ function getConnection() {
 http.createServer(app).listen(PORT, () => {
     console.log("Hello Server, port is " + PORT);
     // let v1 = process.argv.slice(2);
-    
+
     console.log("args len= " + process.argv.slice().length);
     console.log("args = " + process.argv.slice());
 });
 
 https.createServer(options, app).listen(443, () => {
+    if (options == null){
+        return;
+    }
     console.log("Hello https Server, port is " + PORT);
     // let v1 = process.argv.slice(2);
 });
