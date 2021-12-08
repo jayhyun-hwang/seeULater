@@ -11,7 +11,7 @@ passwd root
 4. 작업을 완료한 후 다음 명령을 실행하여 루트 암호를 삭제합니다.
 passwd –d root
 
-- 
+- react에서의 CSP
 
   - \sulClient\public\index.html에서
 
@@ -19,4 +19,19 @@ passwd –d root
   <meta http-equiv="Content-Security-Policy" content="img-src * 'self'">
   ```
 
-  
+- express helmet에서의 CSP
+
+  - 내 호스트가 아닌 다른 url로부터 이미지 resource를 받아와 보여줘야 한다.("*" 옵션이 필요)
+
+  ```javascript
+  const helmet = require("helmet");
+  app.use(helmet());
+  app.use(
+      helmet.contentSecurityPolicy({
+        useDefaults: true,
+        directives: {
+          "img-src": ["*", "'self'", "data:"],
+        },
+      })
+    );
+  ```
