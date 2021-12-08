@@ -9,7 +9,7 @@ const define = {
 };
 //----------------------------------------set mode-----------------------------------------------
 
-// const baseUrl = "http://www.seeulater.site:3001";
+// const baseUrl = "http://www.seeulater.site";
 const baseUrl = define.URL + ':' + define.PORT;
 // Copyright (c) 2011 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
