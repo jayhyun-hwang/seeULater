@@ -12,3 +12,5 @@ move build ..\nodeServer\
 git add --all
 git commit -m "build app for deployee"
 git push
+
+pause
