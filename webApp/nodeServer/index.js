@@ -32,7 +32,7 @@ const fs = require('fs');
 // const upload = multer();
 
 
-const options = idDevMode() ? null : { // letsencrypt로 받은 인증서 경로를 입력
+const options = isDevMode() ? null : { // letsencrypt로 받은 인증서 경로를 입력
     ca: fs.readFileSync(define.ca),
     key: fs.readFileSync(define.key),
     cert: fs.readFileSync(define.cert)
@@ -68,15 +68,26 @@ function getServerMode() {
     if (argsv.length > 2) {
         console.log(process.argv);
         mode = argsv[2];
+        switch (mode) {
+            case "dev":
+                break;
+            case "prod":
+                break;
+            default:
+                console.log("args are wrong. Please check.");
+                process.exit(1);
+        }
     } else {
+        // set default "prod".(when no args)
         mode = "prod";
     }
     return mode;
 }
-function idDevMode() {
+function isDevMode() {
     const argsv = process.argv.slice();
     if (argsv.length > 2) {
-        if (argsv[2] === "dev") {
+        console.log("@@@getServerMode111111111111111");
+        if (getServerMode() === "dev") {
             return true;
         }
     }
@@ -87,6 +98,7 @@ let HOST;
 let PORT;
 
 function getFileData() {
+    console.log("@@@getServerMode22222222222222");
     const serverMode = getServerMode();
     let configFile;
 
@@ -105,6 +117,7 @@ function getFileData() {
 const db = getConnection();
 
 function getConnection() {
+    console.log("디비연결!!");
     try {
         // todo 동기화 처리
         console.log("# getConnection()====" + Date());
@@ -131,16 +144,16 @@ function getConnection() {
 http.createServer(app).listen(PORT, () => {
     console.log("Hello Server, port is " + PORT);
     // let v1 = process.argv.slice(2);
-
     console.log("args len= " + process.argv.slice().length);
     console.log("args = " + process.argv.slice());
 });
 
-https.createServer(options, app).listen(443, () => {
+const HTTPDPORT = 443;
+https.createServer(options, app).listen(HTTPDPORT, () => {
     if (options == null){
         return;
     }
-    console.log("Hello https Server, port is " + PORT);
+    console.log("https Server, port is " + HTTPDPORT);
     // let v1 = process.argv.slice(2);
 });
 // http.createServer(app).listen(3000);
