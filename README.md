@@ -25,4 +25,4 @@ Inspired by the lack of good book mard manager with having remote store, now we 
 How to Install
 --------------
 
-Install it on Chrome from [here](https://chrome.google.com/webstore/detail/seeulater)
+Install it on Chrome from [here](https://chrome.google.com/webstore/detail/seeulater)(2021.12.13 OPEN)
