@@ -43,3 +43,21 @@ a {
 form button {
     font-weight: bold;
 }
+.button-duplicatecheck{
+    background: #ff8993;
+    color: white;
+    border-radius: 5px;
+    height: 4vh;
+    padding: 1vh;
+    font-size: 1rem;
+}
+.button-duplicatecheck:hover{
+    background: #ff1528;
+}
+.div-duplicatecheck{
+    margin-left: auto;
+}
+.input-register::placeholder{
+    color: #afafaf;
+
+}
