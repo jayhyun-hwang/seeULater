@@ -14,6 +14,7 @@ export default function Register() {
     
     const [userID, setUserID] = useState();
     const [password, setPassword] = useState();
+    const [IDValid, setIdValid] = useState(false);
 
     const handlerSubmit = async (e) => {
         e.preventDefault();
