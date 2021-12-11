@@ -1,0 +1,3 @@
+ALTER DATABASE `seeulater` COLLATE 'utf8mb4_unicode_ci';
+
+ALTER DATABASE `seeulater` COLLATE 'utseeulaterf8_unicode_ci';

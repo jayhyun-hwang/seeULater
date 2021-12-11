@@ -1,0 +1,33 @@
+.common-header {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 0;
+    width: 100%;
+}
+
+.common-header div {
+    cursor: pointer;
+    display: flex;
+    font-weight: bold;
+}
+
+.common-header-div {
+    position: fixed;
+    width: 100%;
+    background: #0bd4a2;
+    padding: 1vh 2vh;
+}
+
+#logout-div {
+    align-items: center;
+}
+
+#home-img {
+    height: 2rem;
+}
+
+#logout-img {
+    height: 1.5rem;
+}

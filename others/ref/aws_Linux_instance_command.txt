@@ -1,0 +1,26 @@
+$ cd webApp/nodeServer
+$ rm -r build/
+$ cd ../sulClient
+$ npm run build
+
+pm2 시작
+pm2 start index.js --name "seeulater"
+
+watchdog과 함께 시작
+pm2 start index.js --name "seeulater" --watch
+
+인스턴스 리스트
+pm2 list
+
+프로세스 삭제
+pm2 stop seeulater
+pm2 delete seeulater
+
+프로세스 상태 확인
+pm2 show seeulater
+
+모니터링
+pm2 momit
+
+로그 보기
+pm2 logs --lines 100
