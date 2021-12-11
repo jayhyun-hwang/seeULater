@@ -178,10 +178,7 @@ app.post('/checkDuplicateID', (req, res) => {
     let result = new Object;
     console.log('/checkDuplicateID', utils.getDatetime());
     console.log(req.body);
-    console.log(req.body);
-    console.log(req.body);
-    console.log(req.body);
-
+    
     const id = req.body.userID;
     
     //check length
