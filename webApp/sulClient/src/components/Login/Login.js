@@ -5,7 +5,7 @@ import define from "../../define/define"
 import Axios from "axios";
 import {Link} from 'react-router-dom';
 
-async function loginUser(credentials) {
+async function smsLoginUser(credentials) {
     return Axios.post(define.URL + "/login", {
         credentials
     }).then()
@@ -15,9 +15,9 @@ export default function Login({ setToken }) {
     const [userID, setUserID] = useState();
     const [password, setPassword] = useState();
 
-    const handlerSubmit = async (e) => {
+    const onSubmitLogin = async (e) => {
         e.preventDefault();
-        const token = await loginUser({
+        const token = await smsLoginUser({
             userID,
             password
         });
@@ -27,7 +27,7 @@ export default function Login({ setToken }) {
     return (
         <div className="login-wrapper">
             <h1>Please Log In</h1>
-            <form className="login-form" onSubmit={handlerSubmit}>
+            <form className="login-form" onSubmit={onSubmitLogin}>
                 <label>
                     <p>ID</p>
                     <input type="text" onChange={e => setUserID(e.target.value)} />

@@ -27,6 +27,8 @@ const path = require('path');
 const utils = require('./utils');
 //file system to read config file
 const fs = require('fs');
+
+const error = require('./error');
 //body parser
 // const multer = require('multer');
 // const upload = multer();
@@ -46,12 +48,12 @@ app.use(helmet());
 app.disable("x-powered-by");
 app.use(
     helmet.contentSecurityPolicy({
-      useDefaults: true,
-      directives: {
-        "img-src": ["*", "'self'", "data:"],
-      },
+        useDefaults: true,
+        directives: {
+            "img-src": ["*", "'self'", "data:"],
+        },
     })
-  );
+);
 
 //add json modules to app
 app.use(express.json());
@@ -117,7 +119,6 @@ function getFileData() {
 const db = getConnection();
 
 function getConnection() {
-    console.log("디비연결!!");
     try {
         // todo 동기화 처리
         console.log("# getConnection()====" + Date());
@@ -150,7 +151,7 @@ http.createServer(app).listen(PORT, () => {
 
 const HTTPDPORT = 443;
 https.createServer(options, app).listen(HTTPDPORT, () => {
-    if (options == null){
+    if (options == null) {
         return;
     }
     console.log("https Server, port is " + HTTPDPORT);
@@ -165,11 +166,80 @@ app.get("/", (req, res) => {
 });
 
 app.post('/login', (req, res) => {
+    console.log('/login', utils.getDatetime());
     console.log(req.body);
-    console.log(utils.getDatetime());
     res.send({
         token: 'test123'
     });
+});
+
+
+app.post('/checkDuplicateID', (req, res) => {
+    let result = new Object;
+    console.log('/checkDuplicateID', utils.getDatetime());
+    console.log(req.body);
+
+    const id = req.body.userID;
+    
+    //check length
+    if (id.length < 4 || id.length > 20) {
+        error.reqError400(res);
+        return;
+    }
+    //check reg
+    const re = /^[A-Za-z0-9-_]+$/;
+    if (re.test(id) === false) {
+        error.reqError400(res);
+        return;
+    }
+
+    console.log("checkDuplicateID= ", id);
+    db.query(
+        "SELECT COUNT(id) AS count FROM users WHERE id = ?", [id], (err, rows, fields) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.status(200);
+                result.count = rows[0].count;
+                res.send(result);
+            }
+        }
+    );
+});
+
+app.post('/registerUser', (req, res) => {
+    let result = new Object;
+    console.log('/registerUser', utils.getDatetime());
+    console.log(req.body);
+
+    const userInfo = req.body.userInfo;
+
+    const id = userInfo.userID;
+    const password = userInfo.password;
+    const email = userInfo.email;
+    
+    //check length
+    if (id.length < 4 || id.length > 20) {
+        error.reqError400(res);
+        return;
+    }
+    //check reg
+    const re = /^[A-Za-z0-9-_]+$/;
+    if (re.test(id) === false) {
+        error.reqError400(res);
+        return;
+    }
+    
+    // 
+    db.query(
+        "SELECT COUNT(id) AS count FROM users WHERE id = ?", [id], (err, rows) => {
+            if (err) {
+                console.log(err);
+            } else {
+                result.count = rows[0].count;
+            }
+        }
+    );
 });
 
 //make router, req handlers
