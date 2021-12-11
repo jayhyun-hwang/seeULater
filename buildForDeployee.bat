@@ -9,8 +9,9 @@ move build ..\nodeServer\
 @echo ===================
 @timeout /t 1
 
-:: git add --all
-:: git commit -m "build app for deployee"
-:: git push
+cd .\webApp\nodeServer\
+git add --all
+git commit -m "build app for deployee"
+git push
 
 pause
