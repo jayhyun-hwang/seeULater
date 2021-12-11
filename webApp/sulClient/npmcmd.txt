@@ -1,4 +1,0 @@
-npx create-react-app .
-npm add axios
-
-npm start

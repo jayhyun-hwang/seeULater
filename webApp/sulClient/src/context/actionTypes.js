@@ -1,1 +1,0 @@
-export const GET_HOST = "GET_HOST";
