@@ -45,3 +45,37 @@ passwd –d root
   sudo crontab -l
   view /var/log/syslog
   ```
+- git ignore가 안먹을 때
+  ```shell
+  git rm -r --cached .
+  ```
+- 새 로컬 환경에서 git auth 얻기, 저장
+```bash
+git config --global user.name "{username}"
+git config --global user.email "{email}"
+git config --global credential.helper store
+```
+- git 명령어
+```bash
+# 리모트 확인
+git remote -v
+
+# 리모트 저장소 제거
+git remote remove {origin}
+
+# 리모트 추가
+git remote add origin {https://github~~}
+
+# 깃 브랜치 설정
+git branch --set-upstream-to=origin/main main
+
+# 깃 discards all
+git checkout -- .
+
+# 깃 강제 pull
+git fetch --all
+git reset --hard origin/main
+git pull
+
+# 깃 강제 push
+git push -u origin main --force
