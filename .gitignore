@@ -1,5 +1,5 @@
-webApp/nodeServer/
+webApp/sulClient/define/
 webApp/nodeServer/dbConfig.json
 webApp/nodeServer/define/
 webApp/nodeServer/public/
-webApp/sulClient/define/
+webApp/sulClient/define/ 
