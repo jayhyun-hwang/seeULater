@@ -6,9 +6,14 @@ import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
 
 async function smsRegisterUser(userInfo) {
-    return Axios.post(define.URL + "/registerUser", {
+    return Axios.post(define.URL + "/register/user", {
         userInfo
-    }).then()
+    }).then((response) => {
+        console.log(response);
+        return response;
+    }).catch((error) => {
+        return error.response;
+    });
 }
 
 async function smsCheckDuplicateID(userID) {
@@ -19,6 +24,8 @@ async function smsCheckDuplicateID(userID) {
             return true;
         }
         return false;
+    }).catch((err) => {
+        return err;
     });
 }
 
@@ -83,9 +90,10 @@ export default function Register() {
 
         //show result alert
         //go to main
-        window.location.replace("/");
-
-
+        alert(res.data);
+        if (res.status === 200) {
+            window.location.replace("/");
+        }
     }
     return (
         <div className="login-wrapper">
@@ -127,7 +135,7 @@ export default function Register() {
                     <ReactTooltip id="CheckTooltip" place="right" effect="solid"
                         disable={IDValid ? false : true}
                     >
-                        You can use your ID.
+                        You can use this ID.
                     </ReactTooltip>
                 </div>
                 <label>

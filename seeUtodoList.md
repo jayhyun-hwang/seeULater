@@ -46,13 +46,14 @@
   - Store this url (when the page blocked using right click)
 
 # minor
-- 주소 이동 후 새로고침 시 GET 요청 이슈
+- alert 창 코드레벨로 전환
 - 클릭 시 새 탭으로 여는 이벤트 수정. div 이벤트 제거. img, title 클릭 이벤트 추가
 - when stored, popup at right bottom of the page(tab) - instead alert
-- 포트 변수화, url 변수화
+- ~~포트 변수화, url 변수화~~
   - ~~node server~~
   - **react - context 사용** - 표현식 자바스크립트 함수화
 - UrlList에 index 추가, 총 count도 받아오기
+- ~~주소 이동 후 새로고침 시 GET 요청 이슈~~
 - ~~CSP 정책 수정 for 이미지 받아와서 보여주기(react, helmet 각각)~~
 - ~~예시 _define 추가~~
 - ~~도메인 주소화~~

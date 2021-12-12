@@ -11,6 +11,12 @@
             "type": "node-terminal"
         },        
         {
+            "command": "npm run start:devWindows",
+            "name": "dev start",
+            "request": "launch",
+            "type": "node-terminal"
+        },        
+        {
             "name": "Launch Package",
             "type": "go",
             "request": "launch",

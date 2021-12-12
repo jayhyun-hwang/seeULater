@@ -9,7 +9,9 @@ import UrlList from "../UrlList/UrlList";
 // const define = require("../../define/define");
 
 import define from "src/define/define";
+import { cookieClient , useCookies } from "react-cookie";
 
+Axios.defaults.withCredentials = true;
 function Main() {
 
   //사용할 변수들과 상태를 설정한다.(초기값)
@@ -19,11 +21,12 @@ function Main() {
 
   const [status, setStatus] = useState("all");
   const [filteredUrls, setFilteredUrls] = useState([]);
+  const [cookies, setCookie, removeCookie] = useCookies(['token'])
 
   //RUN ONCE when the app start 
-  useEffect(() => {
-    getUrls();
-  }, []); // , [] 컴포넌트가 마운트 될 때(렌더링) 한번 실행한다. 
+  // useEffect(() => {
+  //   getUrls();
+  // }, []); // , [] 컴포넌트가 마운트 될 때(렌더링) 한번 실행한다. 
   //USE EFFECT
   //핸들러가 실행될 때 마다 실행하는 함수.
   useEffect(() => {
@@ -32,13 +35,13 @@ function Main() {
     saveLocalUrls();
     // getUrls();
   }, [urls, status]); //urls, status값이 바뀔 때마다 실행된다.
-  
+
   //page 이동 시 실행
   useEffect(() => {
     console.log("useEffect(() => { getUrls();}, [page]);")
     getUrls();
   }, [page]);
-  
+
   //Functions
   const filterHandler = () => {
     switch (status) {
@@ -66,12 +69,25 @@ function Main() {
     //   setUrls(urlLocal);
     // }
     console.log(define.URL);
-    Axios.get(`${define.URL}/urls/${page}`).then((response) => {
-      // console.log(response.data);
+    Axios.get(`${define.URL}/urls/${page}`, {
+      withCredentials: true
+    }).then((response) => {
+      // console.log(response);
+      // if (response.status === 401) {
+      //   localStorage.removeItem("token");
+      //   window.location.href = "/";
+      // }
       setCount(response.data.count);
       // todo offset을 파라미터로 설정, 받아온 offset 세팅
       setUrls(response.data.rows);
       // console.log(response);
+    }).catch((err) => {
+      if (err.response.status === 401) {
+        localStorage.removeItem("token");
+        removeCookie("token");
+        window.location.href = "/";
+      }
+      return err.response;
     });
   }
   return (
@@ -91,9 +107,9 @@ function Main() {
         // setStatus={setStatus}
         /> */}
         <UrlList key="url list"
-          count = {count}
-          page = {page}
-          setPage = {setPage}
+          count={count}
+          page={page}
+          setPage={setPage}
           filteredUrls={filteredUrls}
           setUrls={setUrls}
           urls={urls}

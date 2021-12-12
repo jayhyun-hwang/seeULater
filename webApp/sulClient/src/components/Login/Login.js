@@ -5,9 +5,9 @@ import define from "../../define/define"
 import Axios from "axios";
 import {Link} from 'react-router-dom';
 
-async function smsLoginUser(credentials) {
+async function smsLoginUser(loginInfo) {
     return Axios.post(define.URL + "/login", {
-        credentials
+        loginInfo
     }).then()
 }
 
@@ -17,12 +17,20 @@ export default function Login({ setToken }) {
 
     const onSubmitLogin = async (e) => {
         e.preventDefault();
-        const token = await smsLoginUser({
+        const res = await smsLoginUser({
             userID,
             password
         });
-        setToken(token.data);
-        window.location.replace("/");
+        console.log(res)
+        console.log(res.data)
+        console.log(res.data.token)
+
+        if (res.data.token){
+            setToken(res.data);
+        } else {
+            alert(res.data);
+        }
+        // window.location.replace("/");
     }
     return (
         <div className="login-wrapper">
