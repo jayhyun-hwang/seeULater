@@ -10,7 +10,7 @@ const ListButton = ({ count, page, setPage }) => {
     const clickMoreHandler = () => {
         setPage(page + 1)
     };
-    console.log(`const listButton = () => {${count}, ${page}}`);
+    // console.log(`const listButton = () => {${count}, ${page}}`);
     let close = (1 < page) ?
         (
             <button onClick={clickCloseHandler} className="button-close">close &nbsp;

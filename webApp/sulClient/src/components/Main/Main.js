@@ -38,7 +38,7 @@ function Main() {
 
   //page 이동 시 실행
   useEffect(() => {
-    console.log("useEffect(() => { getUrls();}, [page]);")
+    // console.log("useEffect(() => { getUrls();}, [page]);")
     getUrls();
   }, [page]);
 
@@ -68,7 +68,7 @@ function Main() {
     //   let urlLocal = JSON.parse(localStorage.getItem("urls"));
     //   setUrls(urlLocal);
     // }
-    console.log(define.URL);
+    // console.log(define.URL);
     Axios.get(`${define.URL}/urls/${page}`, {
       withCredentials: true
     }).then((response) => {

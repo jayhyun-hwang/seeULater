@@ -21,9 +21,9 @@ export default function Login({ setToken }) {
             userID,
             password
         });
-        console.log(res)
-        console.log(res.data)
-        console.log(res.data.token)
+        // console.log(res)
+        // console.log(res.data)
+        // console.log(res.data.token)
 
         if (res.data.token){
             setToken(res.data);
