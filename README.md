@@ -25,4 +25,4 @@ Inspired by the lack of good book mark manager with having remote store, now we 
 How to Install
 --------------
 
-Install it on Chrome from [here](https://chrome.google.com/webstore/detail/seeulater)(2021. 12. 13 OPEN)
+Install it on Chrome from [here](https://chrome.google.com/webstore/detail/seeulater)~~(2021. 12. 13 OPEN)~~ Google Chrome Extension is reviewing.
