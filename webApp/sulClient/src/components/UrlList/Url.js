@@ -36,7 +36,7 @@ import define from "../../define/define";
 // }
 
 const getDateTime = (url) => {
-    return url.regdate.slice(0,16).replace("T", "\t")
+    return url.regdate.slice(0, 16).replace("T", "\t")
 }
 
 const Url = ({ index, url, setUrls, urls }) => {
@@ -47,7 +47,9 @@ const Url = ({ index, url, setUrls, urls }) => {
     const deleteHandler = (e) => {
         // console.log("url= " + url.url);
         // console.log("url.urlID= " + url.url_id);
-        Axios.delete(`${define.URL}/urls/${url.url_id}`, { withCredentials: true })
+        Axios.delete(`${define.URL}/urls/${url.url_id}`
+            // , { withCredentials: true }
+        )
             .then((response) => {
                 // 삭제한 url_id와 다른 것들만 urls에 세팅
                 if (response.status !== 200) {
@@ -76,7 +78,7 @@ const Url = ({ index, url, setUrls, urls }) => {
     return (
         <div className="url">
             <div className='url-upper'>
-                <p className="url_a-index">{index+1}</p>
+                <p className="url_a-index">{index + 1}</p>
                 <a className={`url_a ${url.completed ? "completed" : ""}`} href={url.url} target="_blank" rel="noreferrer">{url.title ? url.title : url.url}
                 </a>
             </div>

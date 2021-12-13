@@ -9,10 +9,12 @@ import UrlList from "../UrlList/UrlList";
 // const define = require("../../define/define");
 
 import define from "src/define/define";
-import { cookieClient , useCookies } from "react-cookie";
-
-Axios.defaults.withCredentials = true;
+import { cookieClient, useCookies } from "react-cookie";
+const argMode = process.env.REACT_APP_MODE;
+Axios.defaults.withCredentials = argMode ? true : false;
 function Main() {
+  console.log("Mode", argMode)
+  console.log("Mode에 따른 withcredentials", Axios.defaults.withCredentials)
 
   //사용할 변수들과 상태를 설정한다.(초기값)
   const [urls, setUrls] = useState([]);
@@ -32,8 +34,7 @@ function Main() {
   useEffect(() => {
     // console.log('hey');
     filterHandler();
-    saveLocalUrls();
-    // getUrls();
+    // saveLocalUrls();
   }, [urls, status]); //urls, status값이 바뀔 때마다 실행된다.
 
   //page 이동 시 실행
@@ -68,10 +69,10 @@ function Main() {
     //   let urlLocal = JSON.parse(localStorage.getItem("urls"));
     //   setUrls(urlLocal);
     // }
-    // console.log(define.URL);
-    Axios.get(`${define.URL}/urls/${page}`, {
-      withCredentials: true
-    }).then((response) => {
+    console.log(define.URL);
+    Axios.get(`${define.URL}/urls/${page}`
+      // , { withCredentials: true }
+    ).then((response) => {
       // console.log(response);
       // if (response.status === 401) {
       //   localStorage.removeItem("token");
@@ -94,18 +95,13 @@ function Main() {
     <div className="Main">
       <MainHeader />
       <div className="Body">
-        {/* <Form
-          inputText={inputText}
-          urls={urls}
-          setUrls={setUrls}
-          setInputText={setInputText}
-          setStatus={setStatus}
+        <Form
         // inputText={inputText}
         // urls={urls}
         // setUrls={setUrls}
         // setInputText={setInputText}
         // setStatus={setStatus}
-        /> */}
+        />
         <UrlList key="url list"
           count={count}
           page={page}

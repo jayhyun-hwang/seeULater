@@ -2,7 +2,7 @@ const define = {
   // URL: "http://www.seeulater.site",
   // id: "storePage",
   // title: "Store this page",
-  URL : "http://127.0.0.1",
+  URL : "http://localhost",
   id: "storePage_dev",
   title: "Store this page_dev",
   PORT: 80

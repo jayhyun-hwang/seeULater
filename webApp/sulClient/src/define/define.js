@@ -5,7 +5,7 @@ let baseurl;
 // dev/prod 모드 설정
 function getUrl() {
   if (argMode === "dev") {
-    baseurl = "http://127.0.0.1";
+    baseurl = "http://localhost";
   } else {
     baseurl = "https://www.seeulater.site";
   }

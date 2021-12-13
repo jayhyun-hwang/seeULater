@@ -79,3 +79,7 @@ git pull
 
 # 깃 강제 push
 git push -u origin main --force
+
+---
+리액트 초기값(상태)를 세팅할 때 - React Hook Lifecyle
+useState()안에 직접 초기값을 세팅하면, 값이 렌더링의 초기에(Render phase) 세팅된다. 하지만 useEffect([]) 의 콜백함수 안에서 값을 세팅해 주면, 그 이후(Commit phase)에 값이 세팅된다.
