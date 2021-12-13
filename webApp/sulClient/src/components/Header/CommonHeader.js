@@ -27,13 +27,12 @@ function CommonHeader() {
         // todo
         // post token to black list
         const result = await smsLogout();
-        if (result.status === 200) {
-            localStorage.removeItem("token");
-            removeCookie("token")
-            window.location.href = "/";
-        } else {
-            alert(result.data);
+        if (result.status !== 200) {
+            // alert(result.data);
         }
+        localStorage.removeItem("token");
+        removeCookie("token")
+        window.location.href = "/";
     }
     return (
         <div className="common-header-div">
