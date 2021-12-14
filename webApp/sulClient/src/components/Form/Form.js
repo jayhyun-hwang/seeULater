@@ -36,13 +36,13 @@ const Form = ({ setInputText, urls, setUrls, inputText, setStatus }) => {
                     <i className="fas fa-plus-square"></i>
                 </button>
             </div>
-            <div className="select">
+            {/* <div className="select">
                 <select onChange={statusHandler} name="urls" className="filter-url">
                     <option value="all">All</option>
                     <option value="completed">Read</option>
                     <option value="uncompleted">Unread</option>
                 </select>
-            </div>
+            </div> */}
         </form>
     );
 }
