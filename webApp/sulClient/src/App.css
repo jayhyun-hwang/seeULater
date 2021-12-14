@@ -235,27 +235,6 @@ select {
   border-radius: 5px;
 }
 
-.url-button-div {
-  display: flex;
-  align-items: flex-end;
-}
-
-.input-addbutton-wrapper {
-  min-width: 50%;
-  display: contents;
-}
-
-.inputForm {
-  min-height: 80px;
-  width: 100%;
-  max-width: 913px;
-  min-width: 480px;
-}
-
-.url-input {
-  width: 69%;
-}
-
 .main-header {
   display: contents;
   cursor: pointer;

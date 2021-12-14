@@ -20,6 +20,7 @@ function Main() {
   const [urls, setUrls] = useState([]);
   const [count, setCount] = useState(0);
   const [page, setPage] = useState(1);
+  const [editUrls, setEditUrls] = useState();
 
   const [status, setStatus] = useState("all");
   const [filteredUrls, setFilteredUrls] = useState([]);
@@ -96,6 +97,8 @@ function Main() {
       <MainHeader />
       <div className="Body">
         <Form
+          editUrls={editUrls}
+          setEditUrls={setEditUrls}
         // inputText={inputText}
         // urls={urls}
         // setUrls={setUrls}

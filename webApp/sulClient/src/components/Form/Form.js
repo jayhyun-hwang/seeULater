@@ -1,37 +1,42 @@
 import Axios from 'axios';
-import React from "react";
+import "./Form.css";
+import React, { useState } from "react";
 import define from '../../define/define';
 
-const Form = ({ setInputText, urls, setUrls, inputText, setStatus }) => {
+const Form = ({ editUrls, setEditUrls }) => {
     //Here I can write javascript code and function
+    const [inputText, setInputText] = useState()
 
     // 이벤트를 파라미터로 함수 만들기, onChange 이벤트 등록
-    const inputTextHandler = (e) => {
+    const onChangeInput = (e) => {
         // console.log(e.target.value);
         setInputText(e.target.value);
     };
     const submitUrlHandler = (e) => {
         e.preventDefault();
-        Axios.post(define.URL, {
-            userID: 1,  //set userid
-            url: inputText
-        }).then(() => {
-            setUrls([
-                ...urls, { url: inputText, completed: false, id: Math.random() * 1000 },
-            ]);
-            setInputText("");
-            alert("store success.");
-        });
+    //     Axios.post(define.URL, {
+    //         userID: 1,  //set userid
+    //         url: inputText
+    //     }).then(() => {
+    //         setUrls([
+    //             ...urls, { url: inputText, completed: false, id: Math.random() * 1000 },
+    //         ]);
+    //         setInputText("");
+    //         alert("store success.");
+    //     });
     };
 
     // onChange 등록, all, complete, uncomplete 바뀔 때 상태 등록
-    const statusHandler = (e) => {
-        setStatus(e.target.value);
-    }
+    // const statusHandler = (e) => {
+    //     setStatus(e.target.value);
+    // }
     return (
         <form className="inputForm">
             <div className="input-addbutton-wrapper">
-                <input value={inputText} onChange={inputTextHandler} type="text" className="url-input" />
+                <div className='inputs-wrapper'>
+                <input value={inputText} onChange={onChangeInput} type="text" className="url-url-input" />
+                <input value={inputText} onChange={onChangeInput} type="text" className="url-title-input" />
+                </div>
                 <button onClick={submitUrlHandler} className="url-button" type="submit">
                     <i className="fas fa-plus-square"></i>
                 </button>

@@ -1,0 +1,31 @@
+.inputForm {
+    min-height: 80px;
+    width: 100%;
+    max-width: 913px;
+    min-width: 480px;
+    margin-left: 0px;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.input-addbutton-wrapper {
+    min-width: 50%;
+    display: contents;
+}
+
+.inputs-wrapper {
+    width: 100%;
+}
+
+.url-url-input {
+    width: 100%;
+}
+
+.url-title-input {
+    width: 100%;
+}
+
+.url-button-div {
+    display: flex;
+    align-items: flex-end;
+}
