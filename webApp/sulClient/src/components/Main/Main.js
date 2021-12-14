@@ -13,8 +13,8 @@ import { cookieClient, useCookies } from "react-cookie";
 const argMode = process.env.REACT_APP_MODE;
 Axios.defaults.withCredentials = argMode ? true : false;
 function Main() {
-  console.log("Mode", argMode)
-  console.log("Mode에 따른 withcredentials", Axios.defaults.withCredentials)
+  // console.log("Mode", argMode)
+  // console.log("Mode에 따른 withcredentials", Axios.defaults.withCredentials)
 
   //사용할 변수들과 상태를 설정한다.(초기값)
   const [urls, setUrls] = useState([]);
@@ -37,12 +37,12 @@ function Main() {
     filterHandler();
     // saveLocalUrls();
   }, [urls, status]); //urls, status값이 바뀔 때마다 실행된다.
-
+  
   //page 이동 시 실행
   useEffect(() => {
-    // console.log("useEffect(() => { getUrls();}, [page]);")
+    // console.log('hey');
     getUrls();
-  }, [page]);
+  }, [page, editUrls]);
 
   //Functions
   const filterHandler = () => {
@@ -70,7 +70,7 @@ function Main() {
     //   let urlLocal = JSON.parse(localStorage.getItem("urls"));
     //   setUrls(urlLocal);
     // }
-    console.log(define.URL);
+    // console.log(define.URL);
     Axios.get(`${define.URL}/urls/${page}`
       // , { withCredentials: true }
     ).then((response) => {

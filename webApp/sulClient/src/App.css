@@ -44,6 +44,7 @@ form input, form button {
   font-size: 1rem;
   border: none;
   background: white;
+  border-radius: 3px;
 }
 
 form button {

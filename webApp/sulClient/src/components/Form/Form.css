@@ -4,6 +4,7 @@
     max-width: 913px;
     min-width: 480px;
     margin-left: 0px;
+    padding: 0 1vh 0 1vh;
     /* display: flex;
     flex-direction: column; */
 }
@@ -22,10 +23,29 @@
 }
 
 .url-title-input {
+    margin: 2vh 0 1vh 0;
     width: 100%;
+}
+
+.url-url-input::placeholder, .url-title-input::placeholder {
+    color: #b9b9b9e0
 }
 
 .url-button-div {
     display: flex;
     align-items: flex-end;
+}
+
+.url-button:hover {
+    background: #9fe9c9;
+    color: #005963;
+}
+
+.url-button {
+    padding: 0;
+    font-size: 3.4rem;
+    background: none;
+    margin-left: 1vh;
+    /* align-self: self-end; */
+    /* margin-bottom: 0.3rem; */
 }

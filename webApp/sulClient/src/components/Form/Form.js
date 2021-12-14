@@ -5,25 +5,36 @@ import define from '../../define/define';
 
 const Form = ({ editUrls, setEditUrls }) => {
     //Here I can write javascript code and function
-    const [inputText, setInputText] = useState()
+    const [inputUrl, setInputUrl] = useState()
+    const [inputTitle, setInputTitle] = useState()
 
     // 이벤트를 파라미터로 함수 만들기, onChange 이벤트 등록
-    const onChangeInput = (e) => {
-        // console.log(e.target.value);
-        setInputText(e.target.value);
+    const onChangeInputUrl = (e) => {
+        setInputUrl(e.target.value);
+    };
+    const onChangeInputTitle = (e) => {
+        setInputTitle(e.target.value);
     };
     const submitUrlHandler = (e) => {
         e.preventDefault();
-    //     Axios.post(define.URL, {
-    //         userID: 1,  //set userid
-    //         url: inputText
-    //     }).then(() => {
-    //         setUrls([
-    //             ...urls, { url: inputText, completed: false, id: Math.random() * 1000 },
-    //         ]);
-    //         setInputText("");
-    //         alert("store success.");
-    //     });
+        if (!inputUrl || inputUrl.length < 5){
+            alert("Invalid URL.");
+            return;            
+        }
+            Axios.post(define.URL+"/urls", {
+                url: inputUrl,
+                title: inputTitle
+            }).then((response) => {
+                if (response.status === 200){
+                    setEditUrls(Math.random() * 10000);
+                    setInputUrl("");
+                    setInputTitle("");
+                } else {
+                    alert("Please try again in a few minutes.");
+                }
+            }).catch((err) => {
+                alert("Please try again in a few minutes.");
+            });
     };
 
     // onChange 등록, all, complete, uncomplete 바뀔 때 상태 등록
@@ -34,8 +45,12 @@ const Form = ({ editUrls, setEditUrls }) => {
         <form className="inputForm">
             <div className="input-addbutton-wrapper">
                 <div className='inputs-wrapper'>
-                <input value={inputText} onChange={onChangeInput} type="text" className="url-url-input" />
-                <input value={inputText} onChange={onChangeInput} type="text" className="url-title-input" />
+                    <input value={inputUrl} type="text" placeholder='https://'
+                        onChange={onChangeInputUrl}
+                        className="url-url-input" />
+                    <input value={inputTitle} type="text" placeholder='title'
+                        onChange={onChangeInputTitle}
+                        className="url-title-input" />
                 </div>
                 <button onClick={submitUrlHandler} className="url-button" type="submit">
                     <i className="fas fa-plus-square"></i>
