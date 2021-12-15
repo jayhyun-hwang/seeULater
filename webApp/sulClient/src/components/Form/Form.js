@@ -17,12 +17,21 @@ const Form = ({ editUrls, setEditUrls }) => {
     };
     const submitUrlHandler = (e) => {
         e.preventDefault();
-        if (!inputUrl || inputUrl.length < 5) {
+        const dotCount = inputUrl.match(/\./g);
+        if (!dotCount || dotCount.length < 1) {
             alert("Invalid URL.");
             return;
         }
+        const sliced = inputUrl.slice(0,5)
+        let urlVal;
+        if (sliced !=="https" && sliced !=="http:") {
+            urlVal = "https://" + inputUrl
+        } else {
+            urlVal = inputUrl
+        }
+
         Axios.post(define.URL + "/urls", {
-            url: inputUrl,
+            url: urlVal,
             title: inputTitle
         }).then((response) => {
             if (response.status === 200) {
@@ -52,18 +61,20 @@ const Form = ({ editUrls, setEditUrls }) => {
                         placeholder='https://'
                         onChange={onChangeInputUrl}
                         className="url-url-input" />
-                    <input value={inputTitle}
-                        type="text"
-                        placeholder='title'
-                        onChange={onChangeInputTitle}
-                        className="url-title-input" />
+                    <div className='div-title-button'>
+                        <input value={inputTitle}
+                            type="text"
+                            placeholder='title'
+                            onChange={onChangeInputTitle}
+                            className="url-title-input" />
+                        <button onClick={submitUrlHandler}
+                            className="url-button"
+                            type="submit" >
+                            <i className="fas fa-plus-square" >
+                            </i>
+                        </button >
+                    </div>
                 </div>
-                <button onClick={submitUrlHandler}
-                    className="url-button"
-                    type="submit" >
-                    <i className="fas fa-plus-square" >
-                    </i>
-                </button >
             </div> {
                 /* <div className="select">
                                 <select onChange={statusHandler} name="urls" className="filter-url">

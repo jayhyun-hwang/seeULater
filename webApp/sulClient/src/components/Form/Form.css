@@ -23,29 +23,23 @@
 }
 
 .url-title-input {
-    margin: 2vh 0 1vh 0;
+    margin: 1vh 0 1vh 0;
     width: 100%;
+    border-radius: 3px 0 0 3px;
 }
 
 .url-url-input::placeholder, .url-title-input::placeholder {
     color: #b9b9b9e0
 }
-
+.div-title-button{
+    display: flex;
+    align-items: baseline;
+}
 .url-button-div {
     display: flex;
     align-items: flex-end;
 }
 
-.url-button:hover {
-    background: #9fe9c9;
-    color: #005963;
-}
-
 .url-button {
-    padding: 0;
-    font-size: 3.4rem;
-    background: none;
-    margin-left: 1vh;
-    /* align-self: self-end; */
-    /* margin-bottom: 0.3rem; */
+    border-radius: 0 3px 3px 0;
 }

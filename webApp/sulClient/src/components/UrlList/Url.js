@@ -42,7 +42,7 @@ const getDateTime = (url) => {
 const Url = ({ index, url, setUrls, urls }) => {
     //Events
     const LinkHandler = () => {
-        window.open(url.url, '_blank');
+        window.open(url.url, '_blank', 'noopener, noreferrer');
     }
     const deleteHandler = (e) => {
         // console.log("url= " + url.url);
