@@ -17,24 +17,26 @@ const Form = ({ editUrls, setEditUrls }) => {
     };
     const submitUrlHandler = (e) => {
         e.preventDefault();
-        if (!inputUrl || inputUrl.length < 5){
+        if (!inputUrl || inputUrl.length < 5) {
             alert("Invalid URL.");
-            return;            
+            return;
         }
-            Axios.post(define.URL+"/urls", {
-                url: inputUrl,
-                title: inputTitle
-            }).then((response) => {
-                if (response.status === 200){
-                    setEditUrls(Math.random() * 10000);
-                    setInputUrl("");
-                    setInputTitle("");
-                } else {
-                    alert("Please try again in a few minutes.");
-                }
-            }).catch((err) => {
+        Axios.post(define.URL + "/urls", {
+            url: inputUrl,
+            title: inputTitle
+        }).then((response) => {
+            if (response.status === 200) {
+                setEditUrls(Math.random() * 10000);
+                setInputUrl("");
+                setInputTitle("");
+            } else {
                 alert("Please try again in a few minutes.");
-            });
+                window.location.href = "/";
+            }
+        }).catch((err) => {
+            alert("Please try again in a few minutes.");
+            window.location.href = "/";
+        });
     };
 
     // onChange 등록, all, complete, uncomplete 바뀔 때 상태 등록
@@ -45,25 +47,32 @@ const Form = ({ editUrls, setEditUrls }) => {
         <form className="inputForm">
             <div className="input-addbutton-wrapper">
                 <div className='inputs-wrapper'>
-                    <input value={inputUrl} type="text" placeholder='https://'
+                    <input value={inputUrl}
+                        type="text"
+                        placeholder='https://'
                         onChange={onChangeInputUrl}
                         className="url-url-input" />
-                    <input value={inputTitle} type="text" placeholder='title'
+                    <input value={inputTitle}
+                        type="text"
+                        placeholder='title'
                         onChange={onChangeInputTitle}
                         className="url-title-input" />
                 </div>
-                <button onClick={submitUrlHandler} className="url-button" type="submit">
-                    <i className="fas fa-plus-square"></i>
-                </button>
-            </div>
-            {/* <div className="select">
-                <select onChange={statusHandler} name="urls" className="filter-url">
-                    <option value="all">All</option>
-                    <option value="completed">Read</option>
-                    <option value="uncompleted">Unread</option>
-                </select>
-            </div> */}
-        </form>
+                <button onClick={submitUrlHandler}
+                    className="url-button"
+                    type="submit" >
+                    <i className="fas fa-plus-square" >
+                    </i>
+                </button >
+            </div> {
+                /* <div className="select">
+                                <select onChange={statusHandler} name="urls" className="filter-url">
+                                    <option value="all">All</option>
+                                    <option value="completed">Read</option>
+                                    <option value="uncompleted">Unread</option>
+                                </select>
+                            </div> */
+            } </form>
     );
 }
 

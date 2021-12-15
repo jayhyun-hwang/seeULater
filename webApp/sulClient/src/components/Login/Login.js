@@ -3,7 +3,7 @@ import ProTypes from 'prop-types';
 import "./Login.css";
 import define from "../../define/define"
 import Axios from "axios";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 async function smsLoginUser(loginInfo) {
     return Axios.post(define.URL + "/login", {
@@ -25,7 +25,7 @@ export default function Login({ setToken }) {
         // console.log(res.data)
         // console.log(res.data.token)
 
-        if (res.data.token){
+        if (res.data.token) {
             setToken(res.data);
         } else {
             alert(res.data);

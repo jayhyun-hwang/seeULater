@@ -87,7 +87,7 @@ const Url = ({ index, url, setUrls, urls }) => {
                     {/* <LinkPreview url={url.url} render={CustomComponent} /> */}
                     <div className="preview-wrapper">
                         <div className="img-div">
-                            <img src={url.icon_img ? url.icon_img : NoImg} alt={url.title} />
+                            <img src={url.icon_img ? url.icon_img : NoImg} alt={(url.status) ? url.title : ""} />
                         </div>
                         <div className="p-div">
                             <div>
