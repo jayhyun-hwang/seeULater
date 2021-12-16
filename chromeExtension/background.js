@@ -49,7 +49,7 @@ chrome.commands.onCommand.addListener(function (command, tab) {
 });
 
 function submitPostUrls(tab) {
-  
+
   let req = new XMLHttpRequest();
 
   const title = tab.title;
@@ -67,7 +67,7 @@ function submitPostUrls(tab) {
   req.onreadystatechange = function () { // Call a function when the state changes.
     // if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
     if (this.readyState === XMLHttpRequest.DONE) {
-      alert("Got response "+ this.status+": "+this.statusText);
+      alert("Got response " + this.status + ": " + this.statusText);
     }
   }
 }
