@@ -1,25 +1,21 @@
 # Major(step)
-
-- **계정기능**, 쿠키값으로 사용자 식별 (jwt 사용), chrome extension에서 프록시 사용
-  - 로그인 상태 시 로그인 페이지 접근 불가
-  - 알파벳 52 + 숫자 10 == 62, 12자
-  - 해시, 양방향, DB에 id로 저장
+- ~~**계정기능**~~
 - **그룹기능**
-- certbot 자동갱신 예약
+- ~~certbot 자동갱신 예약~~
 - ~~**더보기 구현(15개)**~~
   - 10, 20, 30개씩 보기 옵션 추가(15를 변수화)
   - ~~result 객체 뎁스 늘려서 count 추가하기~~
   - ~~또는 백엔드에서 계산해서 show more, close 플래그만 보내기~~
 - react에서 url, port를 context로 global변수화
 - ~~aws https 로드밸런서 사용~~
-- **로그, ~~모니터링~~ 제작**
+- ~~**로그, 모니터링 제작**~~
 - ~~도커 컨테이너 화(dockerfile 빌드)~~
-  - 1차 생성, 임시 중단
+  - 1차 생성
 - ~~db 커넥션 풀 추가~~
 - ~~서버 라우터 url 핸들링 및 로그~~
 - **유닛테스트 작성**
 - **깃 푸시 시 유닛테스트 실행하고, static 웹 spa폴더 새로고침(제거 및 새로빌드 후 이동)해서 푸시 - git flow**
-- **로그 생성 및 수정하기**
+- ~~**로그 생성 및 수정하기**~~
 - **caching preview information to localstorage**
 - 크롬 확장기능을 통해 저장했을 때, 소켓으로 페이지 새로고침하기. (websocket 사용)
 - 파이어베이스 계정기능
@@ -43,13 +39,13 @@
   - CRUD urls, **read 상태 업데이트 관리 남음**, memo 기능
   - enable to make tree directory(category folder structure)
 - ~~when click extension icon, show managing menu~~
-  - move to a managing page
-  - Store this url (when the page blocked using right click)
+  - ~~move to a managing page~~
+  - ~~Store this url (when the page blocked using right click)~~
 
 # minor
-- alert 창 코드레벨로 전환
-- 클릭 시 새 탭으로 여는 이벤트 수정. div 이벤트 제거. img, title 클릭 이벤트 추가
-- when stored, popup at right bottom of the page(tab) - instead alert
+- alert 창 react코드레벨로 전환
+  - when stored, popup at right bottom of the page(tab) - instead alert
+- ~~클릭 시 새 탭으로 여는 이벤트 수정. div 이벤트 제거. img, title 클릭 이벤트 추가~~
 - ~~포트 변수화, url 변수화~~
   - ~~node server~~
   - **react - context 사용** - 표현식 자바스크립트 함수화
