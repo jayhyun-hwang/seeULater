@@ -10,7 +10,6 @@
   },
   "permissions": [
     "contextMenus",
-    "tabs",
     "https://*/*",
     "http://*/*"
   ],

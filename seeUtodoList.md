@@ -1,6 +1,9 @@
 # Major(step)
+- 확장 프로그램 Manifest V3로 포팅
+- Locale 넘겨서 지역에 맞는 시간 입력
 - ~~**계정기능**~~
 - **그룹기능**
+- 404페이지 만들기
 - ~~certbot 자동갱신 예약~~
 - ~~**더보기 구현(15개)**~~
   - 10, 20, 30개씩 보기 옵션 추가(15를 변수화)
@@ -43,6 +46,7 @@
   - ~~Store this url (when the page blocked using right click)~~
 
 # minor
+- to top, to bottom
 - alert 창 react코드레벨로 전환
   - when stored, popup at right bottom of the page(tab) - instead alert
 - ~~클릭 시 새 탭으로 여는 이벤트 수정. div 이벤트 제거. img, title 클릭 이벤트 추가~~
