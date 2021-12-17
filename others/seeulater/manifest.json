@@ -1,7 +1,8 @@
 {
-  "name": "seeUlater",
-  "version": "0.0.1",
+  "name": "seeULater",
+  "version": "1.0.1",
   "description": "have yourself",
+  "homepage_url": "https://www.seeulater.site/",
   "background": {
     "scripts": [
       "background.js"
@@ -9,15 +10,8 @@
   },
   "permissions": [
     "contextMenus",
-    "storage",
-    "tabs",
-    "webRequest",
-    "storage",
-    "activeTab",
-    "cookies",
-    "*://*.google.com/",
-    "http://*/*",
-    "https://*/*"
+    "https://*/*",
+    "http://*/*"
   ],
   "browser_action": {
     "default_popup": "browser_action.html"
@@ -40,14 +34,15 @@
       "suggested_key": {
         "default": "Ctrl+Shift+S",
         "mac": "MacCtrl+Shift+S"
-      }
+      },
+      "description": "Store this tab's url"
     }
   },
   "minimum_chrome_version": "6.0.0.0",
   "icons": {
-    "16": "alligator_16.png",
-    "32": "alligator_32.png",
-    "48": "alligator_48.png",
+    "16": "alligator_128.png",
+    "32": "alligator_128.png",
+    "48": "alligator_128.png",
     "128": "alligator_128.png"
   },
   "manifest_version": 2
