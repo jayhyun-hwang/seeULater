@@ -17,7 +17,7 @@ const Form = ({ editUrls, setEditUrls }) => {
     };
     const submitUrlHandler = (e) => {
         e.preventDefault();
-        if (!inputUrl || inputUrl.match(/\./g).length < 1) {
+        if (!inputUrl || !inputUrl.match(/\./g) || inputUrl.match(/\./g).length < 1) {
             alert("Invalid URL.");
             return;
         }
