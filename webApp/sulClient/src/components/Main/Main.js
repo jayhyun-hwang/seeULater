@@ -5,6 +5,8 @@ import Axios from 'axios';
 import MainHeader from "src/components/Header/MainHeader";
 import Form from "../Form/Form";
 import UrlList from "../UrlList/UrlList";
+import seeulater_demo from '../img/seeulater_demo.gif';
+import './Main.css'
 
 // const define = require("../../define/define");
 
@@ -105,13 +107,14 @@ function Main() {
         // setInputText={setInputText}
         // setStatus={setStatus}
         />
+          {/* <img id="img-tutorial" src={seeulater_demo} alt="seeulater demo" /> */}
         <UrlList key="url list"
-          count={count}
-          page={page}
-          setPage={setPage}
-          filteredUrls={filteredUrls}
-          setUrls={setUrls}
-          urls={urls}
+        count={count}
+        page={page}
+        setPage={setPage}
+        filteredUrls={filteredUrls}
+        setUrls={setUrls}
+        urls={urls}
         />
       </div>
     </div>

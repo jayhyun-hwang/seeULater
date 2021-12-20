@@ -24,7 +24,9 @@
     cursor: pointer;
     align-items: center;
 }
-
+#div-header-home{
+    cursor: pointer;
+}
 #home-img {
     height: 2rem;
 }
@@ -38,7 +40,7 @@
     align-items: center;
 }
 #img-extension {
-    margin-right: 0.5rem;
+    margin-right: 0.1rem;
 }
 .div-header-menu{
     cursor: default;
