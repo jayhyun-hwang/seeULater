@@ -27,4 +27,4 @@ Inspired by the lack of good book mark manager with having remote store, now we 
 How to Install
 --------------
 
-Install it on Chrome. https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp/related?hl=ko
+Install it on Chrome. [Chrome Web Store](https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp/related?hl=ko)
