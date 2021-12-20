@@ -8,7 +8,7 @@
 }
 
 .common-header div {
-    cursor: pointer;
+    /* cursor: pointer; */
     display: flex;
     font-weight: bold;
 }
@@ -20,7 +20,8 @@
     padding: 1vh 2vh;
 }
 
-#logout-div {
+#div-logout {
+    cursor: pointer;
     align-items: center;
 }
 
@@ -30,4 +31,25 @@
 
 #logout-img {
     height: 1.5rem;
+}
+#div-extension {
+    cursor: pointer;
+    margin-right: 2rem;
+    align-items: center;
+}
+#img-extension {
+    margin-right: 0.5rem;
+}
+.div-header-menu{
+    cursor: default;
+}
+.btn-toTop {
+    background: none;
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 2rem;
+    position: fixed;
+    margin-top: 3vh;
 }

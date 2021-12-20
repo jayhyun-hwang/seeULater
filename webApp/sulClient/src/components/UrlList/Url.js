@@ -102,9 +102,9 @@ const Url = ({ index, url, setUrls, urls }) => {
                     </div>
                 </div>
                 <div className="url-button-div">
-                    <button onClick={completeHandler} className="complete-btn">
+                    {/* <button onClick={completeHandler} className="complete-btn">
                         <i className="fas fa-check"></i>
-                    </button>
+                    </button> */}
                     <button onClick={deleteHandler} className="trash-btn">
                         <i className="fas fa-trash"></i>
                     </button>

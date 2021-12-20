@@ -3,6 +3,7 @@ import Axios from "axios";
 import LogoAlligator from '../img/alligator.png';
 import define from "../../define/define"
 import Logout from '../img/logout.png';
+import chrome_web_store from '../img/chrome_web_store-32.png';
 import "./CommonHeader.css";
 
 
@@ -34,6 +35,12 @@ function CommonHeader() {
         removeCookie("token")
         window.location.href = "/";
     }
+    const extensionClick = () => {
+        window.open("https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp", '_blank');
+    }
+    const toTopHandler = () => {
+        window.scrollTo(0, 0);
+    };
     return (
         <div className="common-header-div">
             <header className="common-header">
@@ -41,11 +48,20 @@ function CommonHeader() {
                     {argMode} seeULater&nbsp;
                     <img id="home-img" src={LogoAlligator} alt="seeULater" />
                 </div>
-                <div id="logout-div" onClick={logoutClick}>
-                    Logout&nbsp;
-                    <img id="logout-img" src={Logout} alt="logout" />
+                <div className='div-header-menu'>
+                    <div id="div-extension" onClick={extensionClick}>
+                        <img id="img-extension" src={chrome_web_store} alt="chrome extension" />
+                        Chrome Ex&nbsp;
+                    </div>
+                    <div id="div-logout" onClick={logoutClick}>
+                        Logout&nbsp;
+                        <img id="logout-img" src={Logout} alt="logout" />
+                    </div>
                 </div>
             </header>
+            <button onClick={toTopHandler} className="btn-toTop">
+                <i className="fas fa-arrow-up"></i>
+            </button>
         </div>
     );
 }
