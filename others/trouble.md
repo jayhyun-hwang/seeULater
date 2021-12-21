@@ -11,6 +11,11 @@ passwd root
 4. 작업을 완료한 후 다음 명령을 실행하여 루트 암호를 삭제합니다.
 passwd –d root
 
+- 도메인 구입 후, 네임서버 연결
+가비아에서 도메인 구매.
+아마존 Router 53에서 내 ec2 아이피를 도메인 명으로 등록
+가비아 내 도메인 관리에서, 네임서버에 아마존 네임서버 들을 등록
+
 - react에서의 CSP
 
   - \sulClient\public\index.html에서
