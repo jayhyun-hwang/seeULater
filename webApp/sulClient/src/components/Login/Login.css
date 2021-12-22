@@ -27,7 +27,7 @@
 }
 
 .login-form p {
-    font-size: 1.2em;
+    font-size: 1.2rem;
 }
 
 .login-form input,
@@ -69,6 +69,6 @@ form button {
     color: #afafaf;
 }
 #ID-Exclamation{
-    font-size: 1em;
-    margin-left: 0.5em;
+    font-size: 1rem;
+    margin-left: 0.5rem;
 }

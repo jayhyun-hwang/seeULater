@@ -11,7 +11,7 @@
     color: white;
     border: none;
     border-radius: 3px;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     min-height: 4vh;
     cursor: pointer;
     font-weight: bold;
@@ -23,8 +23,8 @@
     color: white;
     border: none;
     border-radius: 3px;
-    font-size: 1.2em;
-    min-height: 4vh;
+    font-size: 1.2rem;
+    min-height: 2rem;
     cursor: pointer;
     font-weight: bold;
     margin-bottom: 0.5vh;
@@ -32,6 +32,6 @@
 
 .url_a-index {
     color: #005963;
-    font-size: 0.9em;
+    font-size: 1.3rem;
     font-weight: 900;
 }
