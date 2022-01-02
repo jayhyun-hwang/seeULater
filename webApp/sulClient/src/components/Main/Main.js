@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import '../../App.css';
 import Axios from 'axios';
 //Importing Componentssrc/components
-import MainHeader from "src/components/Header/MainHeader";
+import MainHeader from "src/components/Main/MainHeader";
+import Directories from "src/components/Main/Directories";
 import Form from "../Form/Form";
 import UrlList from "../UrlList/UrlList";
 import seeulater_demo from '../img/seeulater_demo.gif';
@@ -22,6 +23,8 @@ function Main() {
   const [urls, setUrls] = useState([]);
   const [count, setCount] = useState(0);
   const [page, setPage] = useState(1);
+  const [directory, setDirectory] = useState(0);
+  const [directoryList, setDirectoryList] = useState([]);
   const [editUrls, setEditUrls] = useState();
 
   const [status, setStatus] = useState("all");
@@ -39,12 +42,12 @@ function Main() {
     filterHandler();
     // saveLocalUrls();
   }, [urls, status]); //urls, status값이 바뀔 때마다 실행된다.
-  
+
   //page 이동 시 실행
   useEffect(() => {
-    // console.log('hey');
+    console.log('hey getUrls()');
     getUrls();
-  }, [page, editUrls]);
+  }, [page, editUrls, directory]);
 
   //Functions
   const filterHandler = () => {
@@ -95,27 +98,30 @@ function Main() {
     });
   }
   return (
-    <div className="Main">
-      <MainHeader />
-      <div className="Body">
-        <Form
-          editUrls={editUrls}
-          setEditUrls={setEditUrls}
-        // inputText={inputText}
-        // urls={urls}
-        // setUrls={setUrls}
-        // setInputText={setInputText}
-        // setStatus={setStatus}
-        />
+    <div>
+      <Directories />
+      <div className="Main">
+        <MainHeader />
+        <div className="Body">
+          <Form
+            editUrls={editUrls}
+            setEditUrls={setEditUrls}
+          // inputText={inputText}
+          // urls={urls}
+          // setUrls={setUrls}
+          // setInputText={setInputText}
+          // setStatus={setStatus}
+          />
           {/* <img id="img-tutorial" src={seeulater_demo} alt="seeulater demo" /> */}
-        <UrlList key="url list"
-        count={count}
-        page={page}
-        setPage={setPage}
-        filteredUrls={filteredUrls}
-        setUrls={setUrls}
-        urls={urls}
-        />
+          <UrlList key="url list"
+            count={count}
+            page={page}
+            setPage={setPage}
+            filteredUrls={filteredUrls}
+            setUrls={setUrls}
+            urls={urls}
+          />
+        </div>
       </div>
     </div>
   );
