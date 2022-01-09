@@ -47,7 +47,7 @@ function Main() {
   useEffect(() => {
     console.log('hey getUrls()');
     getUrls();
-  }, [page, editUrls, directory]);
+  }, [page, editUrls]);
 
   //Functions
   const filterHandler = () => {
@@ -88,6 +88,7 @@ function Main() {
       // todo offset을 파라미터로 설정, 받아온 offset 세팅
       setUrls(response.data.rows);
       // console.log(response);
+      setDirectory(response.data.directory)
     }).catch((err) => {
       if (err.response.status === 401) {
         localStorage.removeItem("token");
@@ -99,7 +100,10 @@ function Main() {
   }
   return (
     <div>
-      <Directories />
+      {/* <Directories
+         directory={directory}
+         setDirectory={setDirectory}
+      /> */}
       <div className="Main">
         <MainHeader />
         <div className="Body">
