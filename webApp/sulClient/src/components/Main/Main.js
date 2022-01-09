@@ -76,7 +76,7 @@ function Main() {
     //   setUrls(urlLocal);
     // }
     // console.log(define.URL);
-    Axios.get(`${define.URL}/urls/${page}`
+    Axios.get(`${define.URL}/urls/${directory}?page=${page}`
       // , { withCredentials: true }
     ).then((response) => {
       // console.log(response);

@@ -90,3 +90,12 @@ git push -u origin main --force
 useState()안에 직접 초기값을 세팅하면, 값이 렌더링의 초기에(Render phase) 세팅된다. 하지만 useEffect([]) 의 콜백함수 안에서 값을 세팅해 주면, 그 이후(Commit phase)에 값이 세팅된다.
 
 Origin Host를 설정할 때, localhost와 127.0.0.1(loopback)는 다르다...
+
+---
+- get parameter 사용할 때, path와 query string 중 무슨 방법으로 파마리터를 전달할 것인가?
+  - 자원의 위치를 표시할 경우, /(path) 방식을 사용
+    - ex) urls/${user_id}
+  - 리소스의 필터링, 정렬을 위한 파라미터인 경우
+    - ex) urls?page=${page}&sort=${sort}
+  - **어떤 방식으로 파라미터를 전달하던 결과는 똑같지만, 다양한 경우에서의 복잡성과 가독성을 고려하면 best practice 방식을 사용하는 것이 좋다.**
+  - ex) urls/${user_id}/${directory}?page=2&sort=asc == user_id와 directory가 $$인 urls를 2 페이지의 오름차순으로 가져온 것.
