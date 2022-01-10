@@ -4,11 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
-            "command": "npm start",
-            "name": "Run npm start",
+            "command": "node . dev",
+            "name": "nodeServer dev",
             "request": "launch",
-            "type": "node-terminal"
+            "type": "node-terminal",
+            "cwd": "${workspaceFolder}\\webApp\\nodeServer"
         },        
         {
             "name": "Launch Package",
