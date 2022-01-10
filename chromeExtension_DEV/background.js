@@ -58,6 +58,10 @@ function submitPostUrls(tab) {
 
   req.open("POST", baseUrl + "/urls", true);
   req.setRequestHeader("Content-type", "application/json");
+  req.onerror = function () {
+    alert("Please try a minute later.")
+  }
+  req.timeout = 5000
   req.send(JSON.stringify({
     url: url,
     iconImg: iconImg,
