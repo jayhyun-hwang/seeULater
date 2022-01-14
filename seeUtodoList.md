@@ -1,3 +1,6 @@
+# Critical
+ - directory 컬럼 directory_id로 바꾸기(directory가 keyword이기 때문)
+  - https://dev.mysql.com/doc/refman/8.0/en/keywords.html 에서 확인해보고 이름 정할 것
 # Major(step)
 - 확장 프로그램 Manifest V3로 포팅
 - Locale 넘겨서 지역에 맞는 시간 입력
