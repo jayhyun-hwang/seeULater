@@ -57,6 +57,7 @@
 
 # minor
 - to top, to bottom
+   - ~~사이즈 작아질 시(1050px, 화살표 색깔 바꾸기(흰색과 구분))~~
 - alert 창 react코드레벨로 전환
   - when stored, popup at right bottom of the page(tab) - instead alert
 - ~~클릭 시 새 탭으로 여는 이벤트 수정. div 이벤트 제거. img, title 클릭 이벤트 추가~~

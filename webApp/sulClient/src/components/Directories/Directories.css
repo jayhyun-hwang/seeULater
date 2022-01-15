@@ -1,0 +1,36 @@
+.div-directories {
+    position: fixed;
+    margin: 30vh 3vh;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 1250px), (max-height: 400px) {
+    .div-directories {
+        display: none;
+    }
+}
+.p-directoryCount {
+    color: #4d836b;
+    font-weight: bold;
+}
+
+.div-directory {
+    background: white;
+    color: #808080;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    width: 12vw;
+    word-break: break-all;
+    border-radius: 10px;
+}
+
+.div-directory-selected {
+    background: #0bd4a2;
+    color: white;
+    font-weight: bold;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    width: 12vw;
+    word-break: break-all;
+    border-radius: 10px;
+}

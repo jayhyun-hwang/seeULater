@@ -55,3 +55,9 @@
     position: fixed;
     margin-top: 3vh;
 }
+
+@media (max-width: 1050px), (max-height: 400px) {
+    .btn-toTop {
+        color: #4d836b;
+    }
+}

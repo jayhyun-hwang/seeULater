@@ -3,7 +3,7 @@ import '../../App.css';
 import Axios from 'axios';
 //Importing Componentssrc/components
 import MainHeader from "src/components/Main/MainHeader";
-import Directories from "src/components/Main/Directories";
+import Directories from "src/components/Directories/Directories";
 import Form from "../Form/Form";
 import UrlList from "../UrlList/UrlList";
 import seeulater_demo from '../img/seeulater_demo.gif';
@@ -23,9 +23,9 @@ function Main() {
   const [urls, setUrls] = useState([]);
   const [count, setCount] = useState(0);
   const [page, setPage] = useState(1);
-  const [directory, setDirectory] = useState(0);
+  const [directoryID, setDirectoryID] = useState(0);
   const [directoryList, setDirectoryList] = useState([]);
-  const [editUrls, setEditUrls] = useState();
+  const [editUrls, setEditUrls] = useState(false);
 
   const [status, setStatus] = useState("all");
   const [filteredUrls, setFilteredUrls] = useState([]);
@@ -43,9 +43,16 @@ function Main() {
     // saveLocalUrls();
   }, [urls, status]); //urls, status값이 바뀔 때마다 실행된다.
 
+  // dir 리스트 받아오기
+  useEffect(() => {
+    console.log("getDirectories")
+    getDirectories();
+  }, []);
+
   //page 이동 시 실행
   useEffect(() => {
-    console.log('hey getUrls()');
+    // console.log('hey getUrls()');
+    console.log("editUrls, ", editUrls)
     getUrls();
   }, [page, editUrls]);
 
@@ -68,6 +75,14 @@ function Main() {
   const saveLocalUrls = () => {
     localStorage.setItem('urls', JSON.stringify(urls));
   };
+  const getDirectories = () => {
+    Axios.get(`${define.URL}/directories`
+    ).then((response) => {
+      setDirectoryList(response.data.rows);
+    }).catch((err) => {
+      return err.response;
+    });
+  }
   const getUrls = () => {
     // if (localStorage.getItem('urls') === null) {
     //   localStorage.setItem('urls', JSON.stringify([]));
@@ -76,7 +91,8 @@ function Main() {
     //   setUrls(urlLocal);
     // }
     // console.log(define.URL);
-    Axios.get(`${define.URL}/urls/${directory}?page=${page}`
+    console.log("getUrls 실행!")
+    Axios.get(`${define.URL}/urls/${directoryID}?page=${page}`
       // , { withCredentials: true }
     ).then((response) => {
       // console.log(response);
@@ -88,7 +104,7 @@ function Main() {
       // todo offset을 파라미터로 설정, 받아온 offset 세팅
       setUrls(response.data.rows);
       // console.log(response);
-      setDirectory(response.data.directory)
+      setDirectoryID(response.data.directoryID)
     }).catch((err) => {
       if (err.response.status === 401) {
         localStorage.removeItem("token");
@@ -100,10 +116,12 @@ function Main() {
   }
   return (
     <div>
-      {/* <Directories
-         directory={directory}
-         setDirectory={setDirectory}
-      /> */}
+      <Directories
+         directoryList = {directoryList}
+         setDirectoryList = {setDirectoryList}
+         directoryID={directoryID}
+         setDirectoryID={setDirectoryID}
+      />
       <div className="Main">
         <MainHeader />
         <div className="Body">

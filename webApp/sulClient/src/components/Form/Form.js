@@ -34,7 +34,7 @@ const Form = ({ editUrls, setEditUrls }) => {
             title: inputTitle
         }).then((response) => {
             if (response.status === 200) {
-                setEditUrls(Math.random() * 10000);
+                setEditUrls(!editUrls);
                 setInputUrl("");
                 setInputTitle("");
             } else {
