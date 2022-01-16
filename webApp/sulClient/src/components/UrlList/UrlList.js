@@ -3,7 +3,7 @@ import "./UrlList.css";
 import Url from './Url';
 import ListButton from './ListButton';
 
-const UrlList = ({ count, page, setPage, filteredUrls, setUrls, urls }) => {
+const UrlList = ({ count, setCount, page, setPage, filteredUrls, setUrls, urls }) => {
     // const clickCloseHandler = () => {
     //     if (page < 1) {
     //         return;
@@ -44,6 +44,8 @@ const UrlList = ({ count, page, setPage, filteredUrls, setUrls, urls }) => {
                         urls={urls}
                         url={url}
                         urlID={url.url_id}
+                        count = {count}
+                        setCount = {setCount}
                     />
                 ))}
                 <div className="listButton-wrapper">

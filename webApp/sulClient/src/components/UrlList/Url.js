@@ -39,7 +39,7 @@ const getDateTime = (url) => {
     return url.regdate.slice(0, 16).replace("T", "\t")
 }
 
-const Url = ({ index, url, setUrls, urls }) => {
+const Url = ({ index, url, setUrls, urls, count, setCount }) => {
     //Events
     const LinkHandler = () => {
         window.open(url.url, '_blank', 'noopener, noreferrer');
@@ -59,6 +59,7 @@ const Url = ({ index, url, setUrls, urls }) => {
                 setUrls(urls.filter((val) => {
                     return val.url_id !== url.url_id
                 }))
+                setCount(count - 1)
                 alert("delete!");
             })
     };

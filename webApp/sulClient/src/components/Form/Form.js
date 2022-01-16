@@ -3,7 +3,7 @@ import "./Form.css";
 import React, { useState } from "react";
 import define from '../../define/define';
 
-const Form = ({ editUrls, setEditUrls }) => {
+const Form = ({ updateUrls, setUpdateUrls }) => {
     //Here I can write javascript code and function
     const [inputUrl, setInputUrl] = useState()
     const [inputTitle, setInputTitle] = useState()
@@ -21,9 +21,9 @@ const Form = ({ editUrls, setEditUrls }) => {
             alert("Invalid URL.");
             return;
         }
-        const sliced = inputUrl.slice(0,5)
+        const sliced = inputUrl.slice(0, 5)
         let urlVal;
-        if (sliced !=="https" && sliced !=="http:") {
+        if (sliced !== "https" && sliced !== "http:") {
             urlVal = "https://" + inputUrl
         } else {
             urlVal = inputUrl
@@ -34,7 +34,7 @@ const Form = ({ editUrls, setEditUrls }) => {
             title: inputTitle
         }).then((response) => {
             if (response.status === 200) {
-                setEditUrls(!editUrls);
+                setUpdateUrls(!updateUrls);
                 setInputUrl("");
                 setInputTitle("");
             } else {

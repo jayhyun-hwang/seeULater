@@ -25,7 +25,8 @@ function Main() {
   const [page, setPage] = useState(1);
   const [directoryID, setDirectoryID] = useState(0);
   const [directoryList, setDirectoryList] = useState([]);
-  const [editUrls, setEditUrls] = useState(false);
+  const [updateDirectories, setUpdateDirectories] = useState(false);
+  const [updateUrls, setUpdateUrls] = useState(false);
 
   const [status, setStatus] = useState("all");
   const [filteredUrls, setFilteredUrls] = useState([]);
@@ -47,14 +48,23 @@ function Main() {
   useEffect(() => {
     console.log("getDirectories")
     getDirectories();
-  }, []);
+  }, [updateDirectories]);
 
   //page 이동 시 실행
   useEffect(() => {
     // console.log('hey getUrls()');
-    console.log("editUrls, ", editUrls)
+    console.log("updateUrls, ", updateUrls)
     getUrls();
-  }, [page, editUrls]);
+  }, [page]);
+
+  // 목록 업데이트 필요할 시, page 초기화, 또는 조회
+  useEffect(() => {
+    if (page !== 1) {
+      setPage(1)
+    } else {
+      getUrls()
+    }
+  }, [updateUrls]);
 
   //Functions
   const filterHandler = () => {
@@ -118,16 +128,19 @@ function Main() {
     <div>
       <Directories
          directoryList = {directoryList}
-         setDirectoryList = {setDirectoryList}
          directoryID={directoryID}
          setDirectoryID={setDirectoryID}
+         updateDirectories = {updateDirectories}
+         setUpdateDirectories = {setUpdateDirectories}
+         updateUrls = {updateUrls}
+         setUpdateUrls = {setUpdateUrls}
       />
       <div className="Main">
         <MainHeader />
         <div className="Body">
           <Form
-            editUrls={editUrls}
-            setEditUrls={setEditUrls}
+            updateUrls={updateUrls}
+            setUpdateUrls={setUpdateUrls}
           // inputText={inputText}
           // urls={urls}
           // setUrls={setUrls}
@@ -137,6 +150,7 @@ function Main() {
           {/* <img id="img-tutorial" src={seeulater_demo} alt="seeulater demo" /> */}
           <UrlList key="url list"
             count={count}
+            setCount = {setCount}
             page={page}
             setPage={setPage}
             filteredUrls={filteredUrls}
