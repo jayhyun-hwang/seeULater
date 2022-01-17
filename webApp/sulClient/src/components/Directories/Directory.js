@@ -16,7 +16,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
                 return
             }
             setUpdateDirectories(!updateDirectories)
-            setUpdateUrls(!updateUrls)
+            // setUpdateUrls(!updateUrls)
         }).catch((err) => {
             if (err) {
                 console.log(err)
@@ -27,7 +27,12 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
     }
     const selectDirectoryID = () => {
         setDirectoryID(directory.id)
-        setUpdateUrls(!updateUrls)
+        // console.log(updateUrls)
+        setUpdateUrls(val => !val)
+        // setUpdateUrls(!updateUrls)
+        setTimeout(() => {
+            // console.log(updateUrls)
+        }, 1000);
     }
     const editDirectoryName = (e) => {
         e.preventDefault()
@@ -45,8 +50,11 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         // })
     };
     return (
-        <div className={`div-directory${directory.id == selectedID ? "-selected" : ""}`}>
-            <div className="div-directory-name" onClick={selectDirectoryID}>
+        <div className={
+            `${directory.id == selectedID
+                ? "div-directory-selected" : ""} div-directory `
+        } onClick={selectDirectoryID}>
+            <div className="div-directory-name">
                 <p className="p-directory-name">
                     {directory.name}
                 </p>

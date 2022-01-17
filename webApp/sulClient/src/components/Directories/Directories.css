@@ -23,6 +23,7 @@
 }
 
 .div-directory {
+    cursor: pointer;
     background: white;
     font-size: 1.2rem;
     color: #808080;
@@ -39,24 +40,23 @@
 
 .div-directory-selected {
     background: #0bd4a2;
-    font-size: 1.2rem;
+    /* font-size: 1.2rem; */
     color: white;
     font-weight: bold;
-    margin-top: 1rem;
-    padding: 0.8rem;
-    width: 100%;
-    word-break: break-all;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    /* margin-top: 1rem; */
+    /* padding: 0.8rem; */
+    /* width: 100%; */
+    /* word-break: break-all; */
+    /* border-radius: 10px; */
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* justify-content: space-between; */
 }
 .div-directory-selected > div > button{
     color: white;
 }
 
 .div-directory-name {
-    cursor: pointer;
     width: 70%;
 }
 
@@ -88,19 +88,6 @@
 }
 
 .directory-edit-btn:hover {
-    color: #005963;
-}
-
-.directory-selected-edit-btn {
-    background: none;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.directory-selected-edit-btn:hover {
     color: #005963;
 }
 
