@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import '../../App.css';
 import Axios from 'axios';
 //Importing Componentssrc/components
@@ -52,19 +52,25 @@ function Main() {
 
   //page 이동 시 실행
   useEffect(() => {
-    // console.log('hey getUrls()');
-    console.log("updateUrls, ", updateUrls)
-    getUrls();
+    getUrls()
   }, [page]);
-
+  
   // 목록 업데이트 필요할 시, page 초기화, 또는 조회
+  const isMounted = useRef(false)
   useEffect(() => {
-    if (page !== 1) {
+    // 마운트 시(처음 로드 시), 실행 막기
+    if (!isMounted.current) {
+      // console.log("마운트 시점!")
+      isMounted.current = true
+      return
+    }
+    // console.log("마운트 X!")
+    if (page > 1) {
       setPage(1)
     } else {
       getUrls()
     }
-  }, [updateUrls]);
+  }, [updateUrls])
 
   //Functions
   const filterHandler = () => {
@@ -127,13 +133,13 @@ function Main() {
   return (
     <div>
       <Directories
-         directoryList = {directoryList}
-         directoryID={directoryID}
-         setDirectoryID={setDirectoryID}
-         updateDirectories = {updateDirectories}
-         setUpdateDirectories = {setUpdateDirectories}
-         updateUrls = {updateUrls}
-         setUpdateUrls = {setUpdateUrls}
+        directoryList={directoryList}
+        directoryID={directoryID}
+        setDirectoryID={setDirectoryID}
+        updateDirectories={updateDirectories}
+        setUpdateDirectories={setUpdateDirectories}
+        updateUrls={updateUrls}
+        setUpdateUrls={setUpdateUrls}
       />
       <div className="Main">
         <MainHeader />
@@ -150,7 +156,7 @@ function Main() {
           {/* <img id="img-tutorial" src={seeulater_demo} alt="seeulater demo" /> */}
           <UrlList key="url list"
             count={count}
-            setCount = {setCount}
+            setCount={setCount}
             page={page}
             setPage={setPage}
             filteredUrls={filteredUrls}

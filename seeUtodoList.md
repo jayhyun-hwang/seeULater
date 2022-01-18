@@ -2,6 +2,10 @@
  - directory 컬럼 directory_id로 바꾸기(directory가 keyword이기 때문)
   - https://dev.mysql.com/doc/refman/8.0/en/keywords.html 에서 확인해보고 이름 정할 것
 # Major(step)
+- directories 테이블의 idx 컬럼 directory_after로 변경, 리스트 형태로 index 구성하기.(끼워넣기 용이)
+- url_after도 구성
+- drag and drop으로 urls directory 변경
+ - https://codesandbox.io/s/github/react-dnd/react-dnd/tree/gh-pages/examples_hooks_js/00-chessboard?from-embed=&file=/src/Board.jsx
 - 확장 프로그램 Manifest V3로 포팅
 - Locale 넘겨서 지역에 맞는 시간 입력
 - ~~**계정기능**~~

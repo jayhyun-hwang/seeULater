@@ -1,10 +1,23 @@
 import "./Directories.css";
 import Axios from 'axios';
 import define from "../../define/define";
+import React, { useState, useEffect } from "react";
 
 const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirectories, setUpdateDirectories, updateUrls, setUpdateUrls }) => {
+    const [directoryName, setdirectoryName] = useState(directory.name)
+    const [isEditingDirectoryName, setisEditingDirectoryName] = useState(false)
+    
+    // 이벤트 전파 막기위해
+    const inputDirectoryNameClick = e => {
+        e.stopPropagation()
+        // event 일 시, this 대신 e.target을 사용하자
+        e.target.select()
+        // document.querySelector(".input-directory-name").select()
+    }
     const deleteDirectory = (e) => {
         e.preventDefault()
+        // 부모의 이벤트 실행을 막아준다.
+        e.stopPropagation()
         if (window.confirm("All bookmarks in this folder will be deleted. Are you sure you want to delete?") == false) {
             return;
         }
@@ -25,21 +38,16 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
             }
         });
     }
-    const selectDirectoryID = () => {
+    const selectDirectoryID = (e) => {
+        e.preventDefault()
         setDirectoryID(directory.id)
-        // console.log(updateUrls)
         setUpdateUrls(val => !val)
-        // setUpdateUrls(!updateUrls)
-        setTimeout(() => {
-            // console.log(updateUrls)
-        }, 1000);
     }
     const editDirectoryName = (e) => {
         e.preventDefault()
-        return (
-            <input>
-            </input>
-        )
+        e.stopPropagation()
+        setdirectoryName(directory.name)
+        setisEditingDirectoryName(!isEditingDirectoryName)
         // Axios.post(`${define.URL}/directories`, {
         //     directoryName: `dir${directoryCount}`
         // }).then((response) => {
@@ -55,9 +63,19 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
                 ? "div-directory-selected" : ""} div-directory `
         } onClick={selectDirectoryID}>
             <div className="div-directory-name">
-                <p className="p-directory-name">
+                {isEditingDirectoryName
+                    ? (
+                        <input className="input-directory-name" onClick={inputDirectoryNameClick} defaultValue={directory.name}>
+                        </input>
+                    ) :
+                    (
+                        <p className="p-directory-name">
+                            {directory.name}
+                        </p>
+                    )}
+                {/* <p className="p-directory-name">
                     {directory.name}
-                </p>
+                </p> */}
             </div>
             <div className="div-directory-edit-btn-wrapper">
                 <button onClick={editDirectoryName} className="directory-edit-btn">
@@ -67,7 +85,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
                     <i className="fas fa-trash"></i>
                 </button>
             </div>
-        </div>
+        </div >
     );
 };
 
