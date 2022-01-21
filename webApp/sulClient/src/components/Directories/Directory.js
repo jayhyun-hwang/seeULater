@@ -2,7 +2,6 @@ import "./Directories.css";
 import Axios from 'axios';
 import define from "../../define/define";
 import React, { useState, useEffect } from "react";
-import { useDrag } from 'react-dnd'
 
 const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirectories, setUpdateDirectories, updateUrls, setUpdateUrls }) => {
     const [directoryName, setdirectoryName] = useState(directory.name)
