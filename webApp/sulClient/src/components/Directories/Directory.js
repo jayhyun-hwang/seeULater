@@ -57,11 +57,18 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         //     }
         // })
     };
+    const allowUrlDragDrop = (e) => {
+        e.preventDefault()
+    }
+    const urlDrop = (e) => {
+        e.preventDefault()
+        alert(e.dataTransfer.getData("urlID"))
+    }
     return (
         <div className={
             `${directory.id == selectedID
                 ? "div-directory-selected" : ""} div-directory `
-        } onClick={selectDirectoryID}>
+        } onClick={selectDirectoryID} onDragOver={allowUrlDragDrop} onDrop={urlDrop}>
             <div className="div-directory-name">
                 {isEditingDirectoryName
                     ? (

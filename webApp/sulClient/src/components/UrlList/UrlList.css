@@ -35,3 +35,8 @@
     font-size: 1.3rem;
     font-weight: 900;
 }
+
+.urlDragging {
+    opacity: 0.95;
+    background-color: brown;
+}

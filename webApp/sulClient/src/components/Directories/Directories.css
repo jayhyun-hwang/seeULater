@@ -9,6 +9,7 @@
     padding: 1rem;
     width: 16vw;
     max-width: 390px;
+    transition: all 0.3s ease;
 }
 
 @media (max-width: 1250px), (max-height: 550px) {
@@ -38,19 +39,24 @@
     justify-content: space-between;
 }
 
+.div-directory:hover {
+    background-color: #0bd4a2;
+    color: white;
+}
+
+.div-directory:hover > div > button{
+    color: white;
+}
 .div-directory-selected {
-    background: #0bd4a2;
-    /* font-size: 1.2rem; */
+    background: #005963;
     color: white;
     font-weight: bold;
-    /* margin-top: 1rem; */
-    /* padding: 0.8rem; */
-    /* width: 100%; */
-    /* word-break: break-all; */
-    /* border-radius: 10px; */
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: space-between; */
+}
+
+.div-directory-selected:hover {
+    background: #005963;
+    color: white;
+    font-weight: bold;
 }
 .div-directory-selected > div > button{
     color: white;
