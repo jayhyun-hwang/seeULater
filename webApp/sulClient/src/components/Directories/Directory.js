@@ -6,9 +6,9 @@ import React, { useState, useEffect } from "react";
 const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirectories, setUpdateDirectories, updateUrls, setUpdateUrls }) => {
     const [directoryName, setdirectoryName] = useState(directory.name)
     const [isEditingDirectoryName, setisEditingDirectoryName] = useState(false)
-    
-    // 이벤트 전파 막기위해
+
     const inputDirectoryNameClick = e => {
+        // 이벤트 전파 막기위해
         e.stopPropagation()
         // event 일 시, this 대신 e.target을 사용하자
         e.target.select()

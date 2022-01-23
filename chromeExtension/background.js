@@ -67,7 +67,19 @@ function submitPostUrls(tab) {
   req.onreadystatechange = function () { // Call a function when the state changes.
     // if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
     if (this.readyState === XMLHttpRequest.DONE) {
-      alert("Got response " + this.status + ": " + this.statusText);
+      switch (this.status) {
+        case 200:
+          alert("Store Success!\ntitle: " + title);
+          break;
+        case 401:
+          if (window.confirm('Please Login first. Do you want to go to SeeULater main page?\n\n Go to SeeULater')) {
+            window.open('https://www.seeulater.site', '_blank', 'noopener, noreferrer')
+          }
+          break;
+        default:
+          alert("Please try a minute later. : " + this.status)
+          break;
+      }
     }
   }
 }
