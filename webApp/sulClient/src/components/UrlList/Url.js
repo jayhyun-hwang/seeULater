@@ -78,11 +78,16 @@ const Url = ({ index, url, setUrls, urls, count, setCount }) => {
     };
 
     const urlDragStart = (event) => {
+        event.target.style.opacity = '0.4'
         event.dataTransfer.setData("urlID", url.url_id)
+    }
+    const urlDragEnd = (event) => {
+        event.target.style.opacity = '1'
+        // event.dataTransfer.setData("urlID", url.url_id)
     }
 
     return (
-        <div className="url" draggable="true" onDragStart={urlDragStart}>
+        <div className="url" draggable="true" onDragStart={urlDragStart} onDragEnd={urlDragEnd} >
             <div className='url-upper'>
                 <p className="url_a-index">{index + 1}</p>
                 <a className={`url_a ${url.completed ? "completed" : ""}`} href={url.url} target="_blank" rel="noreferrer">{url.title ? url.title : url.url}

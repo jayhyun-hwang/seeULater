@@ -9,14 +9,15 @@
     padding: 1rem;
     width: 16vw;
     max-width: 390px;
-    transition: all 0.3s ease;
+    min-width: 200px;
+    /* transition: all 0.3s ease; */
 }
 
-@media (max-width: 1250px), (max-height: 550px) {
+/* @media (max-width: 1250px), (max-height: 550px) {
     .div-directories {
         display: none;
     }
-}
+} */
 
 .p-directoryCount {
     color: #4d836b;
