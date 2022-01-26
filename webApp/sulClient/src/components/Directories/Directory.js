@@ -14,6 +14,9 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         e.target.select()
         // document.querySelector(".input-directory-name").select()
     }
+    const inputDirectoryNameFocusOut = e => {
+        // alert("no!")
+    }
     const deleteDirectory = (e) => {
         e.preventDefault()
         // 부모의 이벤트 실행을 막아준다.
@@ -43,11 +46,14 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         setDirectoryID(directory.id)
         setUpdateUrls(val => !val)
     }
-    const editDirectoryName = (e) => {
+    const editDirectoryName = async (e) => {
         e.preventDefault()
         e.stopPropagation()
         setdirectoryName(directory.name)
-        setisEditingDirectoryName(!isEditingDirectoryName)
+        await setisEditingDirectoryName(!isEditingDirectoryName)
+        if (!isEditingDirectoryName){
+            document.querySelector(".input-directory-name").focus()
+        }
         // Axios.post(`${define.URL}/directories`, {
         //     directoryName: `dir${directoryCount}`
         // }).then((response) => {
@@ -88,7 +94,10 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
             <div className="div-directory-name">
                 {isEditingDirectoryName
                     ? (
-                        <input className="input-directory-name" onClick={inputDirectoryNameClick} defaultValue={directory.name}>
+                        <input className="input-directory-name"
+                            onClick={inputDirectoryNameClick}
+                            defaultValue={directory.name}
+                            onBlur={inputDirectoryNameFocusOut}>
                         </input>
                     ) :
                     (
