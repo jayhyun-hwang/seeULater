@@ -101,3 +101,7 @@
 .directory-delete-btn {
     margin-left: 10px;
 }
+.div-directory-dragEnter {
+    background-color: #0bd4a2;
+    color: white;
+}

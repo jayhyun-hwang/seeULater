@@ -40,3 +40,10 @@
     opacity: 0.95;
     background-color: brown;
 }
+
+.input-url-checkbox {
+    width: 1.2rem;
+    height: 1.2rem;
+    vertical-align: middle;
+    margin-right: 0.5vw;
+}

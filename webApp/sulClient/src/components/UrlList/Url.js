@@ -39,11 +39,16 @@ const getDateTime = (url) => {
     return url.regdate.slice(0, 16).replace("T", "\t")
 }
 
-const Url = ({ index, url, setUrls, urls, count, setCount }) => {
+const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks }) => {
     //Events
     const LinkHandler = () => {
         window.open(url.url, '_blank', 'noopener, noreferrer');
     }
+
+    const urlCheckBox = () => {
+        return 
+    }
+
     const deleteHandler = (e) => {
         // console.log("url= " + url.url);
         // console.log("url.urlID= " + url.url_id);
@@ -89,7 +94,7 @@ const Url = ({ index, url, setUrls, urls, count, setCount }) => {
     return (
         <div className="url" draggable="true" onDragStart={urlDragStart} onDragEnd={urlDragEnd} >
             <div className='url-upper'>
-                <p className="url_a-index">{index + 1}</p>
+                <p className="url_a-index"><input type={"checkbox"} className="input-url-checkbox"></input>{urlCheckBox}{index + 1}</p>
                 <a className={`url_a ${url.completed ? "completed" : ""}`} href={url.url} target="_blank" rel="noreferrer">{url.title ? url.title : url.url}
                 </a>
             </div>

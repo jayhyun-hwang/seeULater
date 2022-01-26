@@ -64,11 +64,27 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         e.preventDefault()
         alert(e.dataTransfer.getData("urlID"))
     }
+    const urlDragEnter = (e) => {
+        e.preventDefault()
+        console.log(e.target.className)
+        console.log(e.target.classList)
+        e.target.classList.add("div-directory-dragEnter")
+        e.stopPropagation()
+    }
+    const urlDragLeave = (e) => {
+        e.preventDefault()
+        console.log(e.target.className)
+        if (e.target.className != "div-directory") {
+            console.log("!!!!!!!!!!")
+        }
+        e.target.classList.remove("div-directory-dragEnter")
+        return
+    }
     return (
         <div className={
             `${directory.id == selectedID
                 ? "div-directory-selected" : ""} div-directory `
-        } onClick={selectDirectoryID} onDragOver={allowUrlDragDrop} onDrop={urlDrop}>
+        } onClick={selectDirectoryID} onDragOver={allowUrlDragDrop} onDrop={urlDrop} onDragEnter={urlDragEnter} onDragLeave={urlDragLeave}>
             <div className="div-directory-name">
                 {isEditingDirectoryName
                     ? (

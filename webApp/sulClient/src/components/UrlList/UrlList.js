@@ -32,11 +32,14 @@ const UrlList = ({ count, setCount, page, setPage, filteredUrls, setUrls, urls }
     //         null;
     //     return [close, more];
     // };
-
+    const enableCheckbox = (e) => {
+        alert(e.target.checked)
+    }
     return (
         <div className="url-container">
             <ul className="url-list">
                 <h2>Total &nbsp; {count}</h2>
+                {/* <input type={"checkbox"} className="input-urlList-checkbox" onChange={enableCheckbox} /> Check On */}
                 {filteredUrls.map((url, index) => (
                     <Url key={url.url_id}
                         index={index}
@@ -44,8 +47,8 @@ const UrlList = ({ count, setCount, page, setPage, filteredUrls, setUrls, urls }
                         urls={urls}
                         url={url}
                         urlID={url.url_id}
-                        count = {count}
-                        setCount = {setCount}
+                        count={count}
+                        setCount={setCount}
                     />
                 ))}
                 <div className="listButton-wrapper">
