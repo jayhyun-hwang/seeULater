@@ -1,11 +1,23 @@
 import "./Directories.css";
 import Axios from 'axios';
 import define from "../../define/define";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirectories, setUpdateDirectories, updateUrls, setUpdateUrls }) => {
     const [directoryName, setdirectoryName] = useState(directory.name)
     const [isEditingDirectoryName, setisEditingDirectoryName] = useState(false)
+    // useRef는 리엑트에서 this를 대체한다. jsx 태그에 ref={}로 참조할 변수를 입력 후, 코드에서 참조한다.
+    const inputDirectoryNameRef = useRef(null)
+    const btnEditRef = useRef(null)
+
+    useEffect(() => {
+        if (isEditingDirectoryName) {
+            // 클래스를 가진 첫 번째 요소가 focus 돼서 취소
+            // document.querySelector(".input-directory-name").focus()
+            inputDirectoryNameRef.current.select()
+        }
+    }, [isEditingDirectoryName]);
+
 
     const inputDirectoryNameClick = e => {
         // 이벤트 전파 막기위해
@@ -15,7 +27,13 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         // document.querySelector(".input-directory-name").select()
     }
     const inputDirectoryNameFocusOut = e => {
-        // alert("no!")
+        // 
+        e.preventDefault()
+        console.log("e.target", e.target)
+        console.log("ref.current", btnEditRef.current)
+        if (e.target !== btnEditRef.current) {
+            setisEditingDirectoryName(!isEditingDirectoryName)
+        }
     }
     const deleteDirectory = (e) => {
         e.preventDefault()
@@ -46,14 +64,16 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         setDirectoryID(directory.id)
         setUpdateUrls(val => !val)
     }
-    const editDirectoryName = async (e) => {
+    const editDirectoryName = (e) => {
         e.preventDefault()
         e.stopPropagation()
-        setdirectoryName(directory.name)
-        await setisEditingDirectoryName(!isEditingDirectoryName)
-        if (!isEditingDirectoryName){
-            document.querySelector(".input-directory-name").focus()
+        // 현재 dir를 지정
+        // setdirectoryName(directory.name)
+        if (isEditingDirectoryName) {
+            return
         }
+        setisEditingDirectoryName(!isEditingDirectoryName)
+
         // Axios.post(`${define.URL}/directories`, {
         //     directoryName: `dir${directoryCount}`
         // }).then((response) => {
@@ -95,6 +115,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
                 {isEditingDirectoryName
                     ? (
                         <input className="input-directory-name"
+                            ref={inputDirectoryNameRef}
                             onClick={inputDirectoryNameClick}
                             defaultValue={directory.name}
                             onBlur={inputDirectoryNameFocusOut}>
@@ -110,9 +131,17 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
                 </p> */}
             </div>
             <div className="div-directory-edit-btn-wrapper">
-                <button onClick={editDirectoryName} className="directory-edit-btn">
-                    <i className="fas fa-edit"></i>
-                </button>
+                {isEditingDirectoryName
+                    ?
+                    (null)
+                    :
+                    (
+                        <button onClick={editDirectoryName} className="directory-edit-btn"
+                            ref={btnEditRef}>
+                            <i className="fas fa-edit"></i>
+                        </button>
+                    )
+                }
                 <button onClick={deleteDirectory} className="directory-delete-btn directory-edit-btn">
                     <i className="fas fa-trash"></i>
                 </button>
