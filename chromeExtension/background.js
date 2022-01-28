@@ -58,11 +58,21 @@ function submitPostUrls(tab) {
 
   req.open("POST", baseUrl + "/urls", true);
   req.setRequestHeader("Content-type", "application/json");
-  req.send(JSON.stringify({
-    url: url,
-    iconImg: iconImg,
-    title: title
-  }));
+  req.timeout = 5000
+
+  console.log(req.HEADERS_RECEIVED)
+  // console.log(req.getAllResponseHeaders())
+  // console.log(req.getResponseHeader())
+  try {
+    req.send(JSON.stringify({
+      url: url,
+      iconImg: iconImg,
+      title: title
+    }));
+  } catch (error) {
+    alert("2 Please change the extension’s site access to [On all sites].")
+    return
+  }
 
   req.onreadystatechange = function () { // Call a function when the state changes.
     // if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {

@@ -58,15 +58,32 @@ function submitPostUrls(tab) {
 
   req.open("POST", baseUrl + "/urls", true);
   req.setRequestHeader("Content-type", "application/json");
-  req.onerror = function () {
-    alert("Please try a minute later.")
+  try {
+    req.setRequestHeader("Sec-Fetch-Site", "none");
+  } catch (error) {
+    alert("1 Please change the extension’s site access to [On all sites].")
+    return
   }
+  // req.onerror = function () {
+  //   alert("Please try a minute later.")
+  // }
+
+  //--------
   req.timeout = 5000
-  req.send(JSON.stringify({
-    url: url,
-    iconImg: iconImg,
-    title: title
-  }));
+
+  console.log(req.HEADERS_RECEIVED)
+  console.log(req.getAllResponseHeaders())
+  // console.log(req.getResponseHeader())
+  try {
+    req.send(JSON.stringify({
+      url: url,
+      iconImg: iconImg,
+      title: title
+    }));
+  } catch (error) {
+    alert("2 Please change the extension’s site access to [On all sites].")
+    return
+  }
 
   req.onreadystatechange = function () { // Call a function when the state changes.
     // if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
