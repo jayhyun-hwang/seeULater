@@ -41,7 +41,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         }
         if (e.target.value.length > 20) {
             alert("Please enter a folder name within 20 characters.")
-            e.target.value = e.target.value.slice(0,20)
+            e.target.value = e.target.value.slice(0, 20)
         }
     }
     const submitPutDirectoryName = () => {
@@ -52,7 +52,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
             directoryName: updatedDirectoryName
         }).then((response) => {
             if (response.status !== 200) {
-                alert("oops, error. status: ",response.status);
+                alert("oops, error. status: ", response.status);
                 return
             }
             setisEditingDirectoryName(false)
@@ -156,16 +156,19 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         } onClick={selectDirectoryID} onDragOver={allowUrlDragDrop} onDrop={urlDrop} onDragEnter={urlDragEnter} onDragLeave={urlDragLeave}>
             <div className="div-directory-name">
                 {isEditingDirectoryName
-                    ? (
+                    ? (<div className="div-input-directory-name">
                         <input className="input-directory-name"
                             ref={inputDirectoryNameRef}
                             onClick={inputDirectoryNameClick}
                             defaultValue={directoryName}
                             onKeyUp={inputDirectoryKeyUp}
-                            >
-                            
+                        >
                             {/*onBlur={inputDirectoryNameFocusOut}>*/}
                         </input>
+                        <button onClick={cancelEditDirectoryName} className="directory-cancel-btn">
+                            <i className="fa fa-times"></i>
+                        </button>
+                    </div>
                     ) :
                     (
                         <p className="p-directory-name">
