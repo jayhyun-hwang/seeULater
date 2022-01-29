@@ -1,7 +1,7 @@
 const define = {
-  URL: "http://localhost",
-  id: "storePage_DEV",
-  title: "Store this page_DEV",
+  URL: "https://www.seeulater.site",
+  id: "storePage",
+  title: "Store this page",
   // URL : "http://127.0.0.1",
   // id: "storePage_dev",
   // title: "Store this page_dev",
@@ -58,17 +58,8 @@ function submitPostUrls(tab) {
 
   req.open("POST", baseUrl + "/urls", true);
   req.setRequestHeader("Content-type", "application/json");
-
-  // req.onerror = function () {
-  //   alert("Please try a minute later.")
-  // }
-
-  //--------
   req.timeout = 5000
 
-  console.log(req.HEADERS_RECEIVED)
-  console.log(req.withCredentials)
-  // console.log(req.getResponseHeader())
   req.send(JSON.stringify({
     url: url,
     iconImg: iconImg,
@@ -79,14 +70,13 @@ function submitPostUrls(tab) {
     alert("request failed")
     return
   }
-  // 모든 사이트에서 사용을 허용 안 한 경우
+  // access On all sites not allowed
   req.onerror = function () {
     console.log("onerror!!")
     alert("Please change the extension’s site access to [On all sites].")
     return
   }
   req.onreadystatechange = function () { // Call a function when the state changes.
-    // if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
     if (this.readyState === XMLHttpRequest.DONE) {
       switch (this.status) {
         case 200: // success

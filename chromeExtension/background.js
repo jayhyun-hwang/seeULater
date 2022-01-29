@@ -1,7 +1,13 @@
+/* 배포 시 해야할 일
+1. copy chromeExtention's files to chromeExtention_RELEASE
+2. check this define
+3. check manifest.json
+*/
+
 const define = {
   URL: "https://www.seeulater.site",
   id: "storePage",
-  title: "Store this page",
+  title: "Store this page2",
   // URL : "http://127.0.0.1",
   // id: "storePage_dev",
   // title: "Store this page_dev",
@@ -60,31 +66,34 @@ function submitPostUrls(tab) {
   req.setRequestHeader("Content-type", "application/json");
   req.timeout = 5000
 
-  console.log(req.HEADERS_RECEIVED)
-  // console.log(req.getAllResponseHeaders())
-  // console.log(req.getResponseHeader())
-  try {
-    req.send(JSON.stringify({
-      url: url,
-      iconImg: iconImg,
-      title: title
-    }));
-  } catch (error) {
-    alert("2 Please change the extension’s site access to [On all sites].")
+  req.send(JSON.stringify({
+    url: url,
+    iconImg: iconImg,
+    title: title
+  }));
+  req.onabort = function () {
+    console.log("onabort!!")
+    alert("request failed")
     return
   }
-
+  // access On all sites not allowed
+  req.onerror = function () {
+    console.log("onerror!!")
+    alert("Please change the extension’s site access to [On all sites].")
+    return
+  }
   req.onreadystatechange = function () { // Call a function when the state changes.
-    // if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
     if (this.readyState === XMLHttpRequest.DONE) {
       switch (this.status) {
-        case 200:
+        case 200: // success
           alert("Store Success!\ntitle: " + title);
           break;
-        case 401:
+        case 401: // not login
           if (window.confirm('Please Login first. Do you want to go to SeeULater main page?\n\n Go to SeeULater')) {
             window.open('https://www.seeulater.site', '_blank', 'noopener, noreferrer')
           }
+          break;
+        case 0: // request failed - change to On all sites
           break;
         default:
           alert("Please try a minute later. : " + this.status)
