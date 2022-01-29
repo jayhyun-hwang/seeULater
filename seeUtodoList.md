@@ -1,6 +1,7 @@
 # Critical
- - directory 컬럼 directory_id로 바꾸기(directory가 keyword이기 때문)
-  - https://dev.mysql.com/doc/refman/8.0/en/keywords.html 에서 확인해보고 이름 정할 것
+- 서버 실행 시, 디비 버전 관리하기
+- directory 컬럼 directory_id로 바꾸기(directory가 keyword이기 때문)
+ - https://dev.mysql.com/doc/refman/8.0/en/keywords.html 에서 확인해보고 이름 정할 것
 # Major(step)
 - directories 테이블의 idx 컬럼 directory_after로 변경, 리스트 형태로 index 구성하기.(끼워넣기 용이)
 - url_after도 구성
@@ -15,6 +16,7 @@
   - 가이드 gif 넣기
 - 로그인 없이 조회 가능하게 만들기(public folders)
 - 404페이지 만들기
+- ~~크롬 확장프로그램 권한 없을 시, 모든 사이트 권한 허용 권장 알림 띄우기~~
 - ~~certbot 자동갱신 예약~~
 - ~~**더보기 구현(15개)**~~
   - 10, 20, 30개씩 보기 옵션 추가(15를 변수화)

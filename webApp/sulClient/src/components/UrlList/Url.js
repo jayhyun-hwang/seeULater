@@ -5,6 +5,7 @@ import LoadingImg from '../img/loading.png';
 import NoImg from '../img/no-image-icon.png';
 import Axios from 'axios';
 import define from "../../define/define";
+import timeUtils from "../../utils/timeUtils"
 
 
 // function CustomComponent({ loading, preview }) {
@@ -35,8 +36,11 @@ import define from "../../define/define";
 //         )
 // }
 
-const getDateTime = (url) => {
-    return url.regdate.slice(0, 16).replace("T", "\t")
+// utc 시간을 local시간으로 변환
+const getLocalDateTime = (regdate) => {
+    let localDate = new Date(regdate)
+    const timeString = timeUtils.dateToLocalTimeString(localDate)
+    return timeString
 }
 
 const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks }) => {
@@ -46,7 +50,7 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks }) => {
     }
 
     const urlCheckBox = () => {
-        return 
+        return
     }
 
     const deleteHandler = (e) => {
@@ -94,7 +98,12 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks }) => {
     return (
         <div className="url" draggable="true" onDragStart={urlDragStart} onDragEnd={urlDragEnd} >
             <div className='url-upper'>
-                <p className="url_a-index"><input type={"checkbox"} className="input-url-checkbox"></input>{urlCheckBox}{index + 1}</p>
+                <p className="url_a-index">
+                    {/* todo 체크박스로 일괄처리 */}
+                    {/* <input type={"checkbox"} className="input-url-checkbox">
+                    </input> */}
+                    {urlCheckBox}{index + 1}
+                </p>
                 <a className={`url_a ${url.completed ? "completed" : ""}`} href={url.url} target="_blank" rel="noreferrer">{url.title ? url.title : url.url}
                 </a>
             </div>
@@ -112,7 +121,7 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks }) => {
                                 <p className="url-description-p"></p>
                             </div>
                             <div>
-                                <p className="url-regist-p">{getDateTime(url)}</p>
+                                <p className="url-regist-p">{getLocalDateTime(url.regdate)}</p>
                             </div>
                         </div>
                     </div>

@@ -9,7 +9,7 @@
     padding: 1rem;
     width: 16vw;
     max-width: 390px;
-    min-width: 200px;
+    min-width: 220px;
     /* transition: all 0.3s ease; */
 }
 
@@ -45,9 +45,10 @@
     color: white;
 }
 
-.div-directory:hover > div > button{
+.div-directory:hover>div>button {
     color: white;
 }
+
 .div-directory-selected {
     background: #005963;
     color: white;
@@ -59,7 +60,8 @@
     color: white;
     font-weight: bold;
 }
-.div-directory-selected > div > button{
+
+.div-directory-selected>div>button {
     color: white;
 }
 
@@ -97,11 +99,32 @@
 .directory-edit-btn:hover {
     color: #005963;
 }
+.directory-cancel-btn {
+    background: none;
+    color: orangered !important;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    vertical-align: text-bottom;
+}
+
+.directory-cancel-btn:hover {
+    color: #005963;
+}
 
 .directory-delete-btn {
     margin-left: 10px;
 }
+
 .div-directory-dragEnter {
     background-color: #0bd4a2;
     color: white;
+}
+
+.input-directory-name {
+    font-size: 1.3rem;
+    border: solid #cacaca 1px;
+    border-radius: 3px;
+    width: 90%;
 }

@@ -26,15 +26,53 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         e.target.select()
         // document.querySelector(".input-directory-name").select()
     }
-    const inputDirectoryNameFocusOut = e => {
-        // 
+    const inputDirectoryKeyUp = e => {
         e.preventDefault()
-        console.log("e.target", e.target)
-        console.log("ref.current", btnEditRef.current)
-        if (e.target !== btnEditRef.current) {
-            setisEditingDirectoryName(!isEditingDirectoryName)
+        console.log(e.key)
+        switch (e.key) {
+            case "Escape":
+                cancelEditDirectoryName(e)
+                break;
+            case "Enter":
+                submitPutDirectoryName()
+                break;
+            default:
+                break;
+        }
+        if (e.target.value.length > 20) {
+            alert("Please enter a folder name within 20 characters.")
+            e.target.value = e.target.value.slice(0,20)
         }
     }
+    const submitPutDirectoryName = () => {
+        console.log(inputDirectoryNameRef.current.value)
+        const updatedDirectoryName = inputDirectoryNameRef.current.value
+        Axios.put(`${define.URL}/directories`, {
+            directoryID: directory.id,
+            directoryName: updatedDirectoryName
+        }).then((response) => {
+            if (response.status !== 200) {
+                alert("oops, error. status: ",response.status);
+                return
+            }
+            setisEditingDirectoryName(false)
+            setdirectoryName(updatedDirectoryName)
+        }).catch((err) => {
+            if (err) {
+                console.log(err)
+                alert("oops, error");
+                return
+            }
+        });
+    }
+    // 포커스 아웃
+    // const inputDirectoryNameFocusOut = e => {
+    //     return
+    //     e.preventDefault()
+    //     if (isEditingDirectoryName) {
+    //         setisEditingDirectoryName(false)
+    //     }
+    // }
     const deleteDirectory = (e) => {
         e.preventDefault()
         // 부모의 이벤트 실행을 막아준다.
@@ -64,6 +102,11 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         setDirectoryID(directory.id)
         setUpdateUrls(val => !val)
     }
+    const cancelEditDirectoryName = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        setisEditingDirectoryName(false)
+    }
     const editDirectoryName = (e) => {
         e.preventDefault()
         e.stopPropagation()
@@ -72,7 +115,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         if (isEditingDirectoryName) {
             return
         }
-        setisEditingDirectoryName(!isEditingDirectoryName)
+        setisEditingDirectoryName(true)
 
         // Axios.post(`${define.URL}/directories`, {
         //     directoryName: `dir${directoryCount}`
@@ -117,13 +160,16 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
                         <input className="input-directory-name"
                             ref={inputDirectoryNameRef}
                             onClick={inputDirectoryNameClick}
-                            defaultValue={directory.name}
-                            onBlur={inputDirectoryNameFocusOut}>
+                            defaultValue={directoryName}
+                            onKeyUp={inputDirectoryKeyUp}
+                            >
+                            
+                            {/*onBlur={inputDirectoryNameFocusOut}>*/}
                         </input>
                     ) :
                     (
                         <p className="p-directory-name">
-                            {directory.name}
+                            {directoryName}
                         </p>
                     )}
                 {/* <p className="p-directory-name">
@@ -133,7 +179,12 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
             <div className="div-directory-edit-btn-wrapper">
                 {isEditingDirectoryName
                     ?
-                    (null)
+                    (
+                        <button onClick={cancelEditDirectoryName} className="directory-cancel-btn">
+                            <i className="fa fa-times"></i>
+                        </button>
+                        // null
+                    )
                     :
                     (
                         <button onClick={editDirectoryName} className="directory-edit-btn"
