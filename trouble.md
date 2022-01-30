@@ -106,3 +106,8 @@ Origin Host를 설정할 때, localhost와 127.0.0.1(loopback)는 다르다...
 1. copy chromeExtention\'s files to chromeExtention_RELEASE
 2. check this define
 3. check manifest.json
+---
+node 에러
+port 3000 aleady running
+- 해결법
+ - 다른 와이파이로 연결했다가 끊고 다시 인터넷 연결 후, 재실행
