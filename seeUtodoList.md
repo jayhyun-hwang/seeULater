@@ -62,6 +62,8 @@
   - ~~Store this url (when the page blocked using right click)~~
 
 # minor
+- commonHeader에서 글자들 span으로 바꾸기, @media max width 설정해서 display: none; 로 하기
+- urlList에서 Total 옆 끝에 refresh icon button 만들기(새로고침)
 - to top, to bottom
    - ~~사이즈 작아질 시(1050px, 화살표 색깔 바꾸기(흰색과 구분))~~
 - alert 창 react코드레벨로 전환

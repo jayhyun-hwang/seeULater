@@ -40,6 +40,12 @@
     justify-content: space-between;
 }
 
+@media (max-height: 700px) {
+    .div-directory {
+        font-size: 0.8rem;
+    }
+}
+
 .div-directory:hover {
     background-color: #0bd4a2;
     color: white;
@@ -106,7 +112,7 @@
     cursor: pointer;
     font-size: 1.3rem;
     transition: all 0.3s ease;
-    vertical-align: text-bottom;
+    margin-left: 5px;
 }
 
 .directory-cancel-btn:hover {
@@ -128,6 +134,19 @@
     border-radius: 3px;
     width: 90%;
 }
-.div-input-directory-name{
-    
+
+.directory-check-btn {
+    background: none;
+    color: #7aff00 !important;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.div-directory-edit-btn-wrapper {
+    display: flex;
+}
+.div-directory-check-btn {
+    display: flex;
 }

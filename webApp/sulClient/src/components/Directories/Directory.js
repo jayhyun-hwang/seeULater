@@ -40,13 +40,23 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
                 break;
         }
         if (e.target.value.length > 20) {
-            alert("Please enter a folder name within 20 characters.")
+            alert("Enter the folder name within 20 characters.")
             e.target.value = e.target.value.slice(0, 20)
         }
     }
     const submitPutDirectoryName = () => {
-        console.log(inputDirectoryNameRef.current.value)
         const updatedDirectoryName = inputDirectoryNameRef.current.value
+        if (!updatedDirectoryName || updatedDirectoryName.length < 1) {
+            alert("Enter the folder name.")
+            return
+        }
+        if (updatedDirectoryName.length > 20) {
+            alert("Enter the folder name within 20 characters.")
+            return
+        }
+        if (window.confirm(`Do you want to change [${directoryName}] to [${updatedDirectoryName}]`) === false) {
+            return
+        }
         Axios.put(`${define.URL}/directories`, {
             directoryID: directory.id,
             directoryName: updatedDirectoryName
@@ -156,7 +166,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         } onClick={selectDirectoryID} onDragOver={allowUrlDragDrop} onDrop={urlDrop} onDragEnter={urlDragEnter} onDragLeave={urlDragLeave}>
             <div className="div-directory-name">
                 {isEditingDirectoryName
-                    ? (<div className="div-input-directory-name">
+                    ? (
                         <input className="input-directory-name"
                             ref={inputDirectoryNameRef}
                             onClick={inputDirectoryNameClick}
@@ -165,10 +175,6 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
                         >
                             {/*onBlur={inputDirectoryNameFocusOut}>*/}
                         </input>
-                        <button onClick={cancelEditDirectoryName} className="directory-cancel-btn">
-                            <i className="fa fa-times"></i>
-                        </button>
-                    </div>
                     ) :
                     (
                         <p className="p-directory-name">
@@ -183,9 +189,14 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
                 {isEditingDirectoryName
                     ?
                     (
-                        <button onClick={cancelEditDirectoryName} className="directory-cancel-btn">
-                            <i className="fa fa-times"></i>
-                        </button>
+                        <div className="div-directory-check-btn">
+                            <button onClick={cancelEditDirectoryName} className="directory-check-btn">
+                                <i className="fa fa-check"></i>
+                            </button>
+                            <button onClick={cancelEditDirectoryName} className="directory-cancel-btn">
+                                <i className="fa fa-times"></i>
+                            </button>
+                        </div>
                         // null
                     )
                     :
