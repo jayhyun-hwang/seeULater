@@ -168,7 +168,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
     }
     const urlDragLeave = (e) => {
         e.preventDefault()
-        setisDragEnter(false)
+        // setisDragEnter(false)
         return
     }
     return (
