@@ -6,6 +6,8 @@ import React, { useState, useEffect, useRef } from "react";
 const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirectories, setUpdateDirectories, updateUrls, setUpdateUrls }) => {
     const [directoryName, setdirectoryName] = useState(directory.name)
     const [isEditingDirectoryName, setisEditingDirectoryName] = useState(false)
+    const [isDragEnter, setisDragEnter] = useState(false)
+
     // useRef는 리엑트에서 this를 대체한다. jsx 태그에 ref={}로 참조할 변수를 입력 후, 코드에서 참조한다.
     const inputDirectoryNameRef = useRef(null)
     const btnEditRef = useRef(null)
@@ -46,12 +48,19 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
     }
     const submitPutDirectoryName = () => {
         const updatedDirectoryName = inputDirectoryNameRef.current.value
+        // 유효성, 글자 제한 확인 !
         if (!updatedDirectoryName || updatedDirectoryName.length < 1) {
             alert("Enter the folder name.")
             return
         }
+        // 글자 제한 확인
         if (updatedDirectoryName.length > 20) {
             alert("Enter the folder name within 20 characters.")
+            return
+        }
+        // 이름 같으면 return
+        if (directoryName === updatedDirectoryName) {
+            setisEditingDirectoryName(false)
             return
         }
         if (window.confirm(`Do you want to change [${directoryName}] to [${updatedDirectoryName}]`) === false) {
@@ -117,6 +126,11 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         e.stopPropagation()
         setisEditingDirectoryName(false)
     }
+    const checkEditDirectoryName = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        submitPutDirectoryName()
+    }
     const editDirectoryName = (e) => {
         e.preventDefault()
         e.stopPropagation()
@@ -141,29 +155,33 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
     }
     const urlDrop = (e) => {
         e.preventDefault()
-        alert(e.dataTransfer.getData("urlID"))
+        const dataUrlID = e.dataTransfer.getData("urlID")
+        // dir끼리 drop할 때, return
+        if (!dataUrlID) {
+            return
+        }
+        alert(dataUrlID)
     }
     const urlDragEnter = (e) => {
         e.preventDefault()
-        console.log(e.target.className)
-        console.log(e.target.classList)
-        e.target.classList.add("div-directory-dragEnter")
-        e.stopPropagation()
+        setisDragEnter(true)
     }
     const urlDragLeave = (e) => {
         e.preventDefault()
-        console.log(e.target.className)
-        if (e.target.className != "div-directory") {
-            console.log("!!!!!!!!!!")
-        }
-        e.target.classList.remove("div-directory-dragEnter")
+        setisDragEnter(false)
         return
     }
     return (
         <div className={
             `${directory.id == selectedID
-                ? "div-directory-selected" : ""} div-directory `
-        } onClick={selectDirectoryID} onDragOver={allowUrlDragDrop} onDrop={urlDrop} onDragEnter={urlDragEnter} onDragLeave={urlDragLeave}>
+                ? "div-directory-selected" : ""} ${isDragEnter ? "div-directory-dragEnter" : ""} div-directory` 
+        }
+            onClick={selectDirectoryID}
+            onDragOver={allowUrlDragDrop}
+            onDrop={urlDrop}
+            onDragEnter={urlDragEnter}
+            onDragLeave={urlDragLeave}
+            >
             <div className="div-directory-name">
                 {isEditingDirectoryName
                     ? (
@@ -190,7 +208,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
                     ?
                     (
                         <div className="div-directory-check-btn">
-                            <button onClick={cancelEditDirectoryName} className="directory-check-btn">
+                            <button onClick={checkEditDirectoryName} className="directory-check-btn">
                                 <i className="fa fa-check"></i>
                             </button>
                             <button onClick={cancelEditDirectoryName} className="directory-cancel-btn">
