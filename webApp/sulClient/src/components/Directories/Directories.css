@@ -103,7 +103,8 @@
 }
 
 .directory-edit-btn:hover {
-    color: #005963;
+    color: #ffeb3b !important;
+    /* color: #005963; */
 }
 .directory-cancel-btn {
     background: none;
@@ -126,6 +127,14 @@
 .div-directory-dragEnter {
     background-color: #0bd4a2;
     color: white;
+}
+
+/* 
+클래스의 모든 자식: .클래스명 *
+ */
+.div-directory-dragEnter * {
+    /* 마우스 올렸을 때, 이벤트 X */
+    pointer-events: none;
 }
 
 .input-directory-name {

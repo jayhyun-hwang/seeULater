@@ -43,7 +43,7 @@ const getLocalDateTime = (regdate) => {
     return timeString
 }
 
-const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks }) => {
+const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDragging }) => {
     //Events
     const LinkHandler = () => {
         window.open(url.url, '_blank', 'noopener, noreferrer');
@@ -88,10 +88,12 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks }) => {
 
     const urlDragStart = (event) => {
         event.target.style.opacity = '0.4'
+        setisDragging(true)
         event.dataTransfer.setData("urlID", url.url_id)
     }
     const urlDragEnd = (event) => {
         event.target.style.opacity = '1'
+        setisDragging(false)
         // event.dataTransfer.setData("urlID", url.url_id)
     }
 

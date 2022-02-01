@@ -27,6 +27,7 @@ function Main() {
   const [directoryList, setDirectoryList] = useState([]);
   const [updateDirectories, setUpdateDirectories] = useState(false);
   const [updateUrls, setUpdateUrls] = useState(false);
+  const [isDragging, setisDragging] = useState(false);
 
   const [status, setStatus] = useState("all");
   const [filteredUrls, setFilteredUrls] = useState([]);
@@ -140,6 +141,8 @@ function Main() {
         setUpdateDirectories={setUpdateDirectories}
         updateUrls={updateUrls}
         setUpdateUrls={setUpdateUrls}
+        isDragging = {isDragging}
+        setisDragging = {setisDragging}
       />
       <div className="Main">
         <MainHeader />
@@ -162,6 +165,8 @@ function Main() {
             filteredUrls={filteredUrls}
             setUrls={setUrls}
             urls={urls}
+            isDragging = {isDragging}
+            setisDragging = {setisDragging}
           />
         </div>
       </div>

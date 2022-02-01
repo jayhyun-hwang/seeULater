@@ -3,7 +3,7 @@ import Axios from 'axios';
 import define from "../../define/define";
 import React, { useState, useEffect, useRef } from "react";
 
-const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirectories, setUpdateDirectories, updateUrls, setUpdateUrls }) => {
+const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirectories, setUpdateDirectories, updateUrls, setUpdateUrls, isDragging, setisDragging }) => {
     const [directoryName, setdirectoryName] = useState(directory.name)
     const [isEditingDirectoryName, setisEditingDirectoryName] = useState(false)
     const [isDragEnter, setisDragEnter] = useState(false)
@@ -155,33 +155,43 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
     }
     const urlDrop = (e) => {
         e.preventDefault()
+        // 현재 dir 일 때
+        if (directory.id === selectedID) {
+            return
+        }
         const dataUrlID = e.dataTransfer.getData("urlID")
         // dir끼리 drop할 때, return
         if (!dataUrlID) {
             return
         }
         alert(dataUrlID)
+        setisDragEnter(false)
     }
     const urlDragEnter = (e) => {
+        e.stopPropagation()
         e.preventDefault()
+        // 현재 dir 일 때
+        if (directory.id === selectedID) {
+            return
+        }
         setisDragEnter(true)
     }
     const urlDragLeave = (e) => {
         e.preventDefault()
-        // setisDragEnter(false)
+        setisDragEnter(false)
         return
     }
     return (
         <div className={
             `${directory.id == selectedID
-                ? "div-directory-selected" : ""} ${isDragEnter ? "div-directory-dragEnter" : ""} div-directory` 
+                ? "div-directory-selected" : ""} ${isDragEnter ? "div-directory-dragEnter" : ""} div-directory`
         }
             onClick={selectDirectoryID}
             onDragOver={allowUrlDragDrop}
             onDrop={urlDrop}
             onDragEnter={urlDragEnter}
             onDragLeave={urlDragLeave}
-            >
+        >
             <div className="div-directory-name">
                 {isEditingDirectoryName
                     ? (
