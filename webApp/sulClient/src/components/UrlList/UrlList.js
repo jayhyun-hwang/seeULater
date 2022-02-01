@@ -2,8 +2,9 @@ import "./UrlList.css";
 //Import components
 import Url from './Url';
 import ListButton from './ListButton';
+import { MdRefresh } from 'react-icons/md';
 
-const UrlList = ({ count, setCount, page, setPage, filteredUrls, setUrls, urls, isDragging, setisDragging }) => {
+const UrlList = ({ count, setCount, page, setPage, filteredUrls, setUrls, urls, isDragging, setisDragging, setUpdateUrls }) => {
     // const clickCloseHandler = () => {
     //     if (page < 1) {
     //         return;
@@ -35,10 +36,18 @@ const UrlList = ({ count, setCount, page, setPage, filteredUrls, setUrls, urls, 
     const enableCheckbox = (e) => {
         alert(e.target.checked)
     }
+    const refreshOnClick = (e) => {
+        setUpdateUrls(val => !val)
+    }
     return (
         <div className="url-container">
             <ul className="url-list">
-                <h2>Total &nbsp; {count}</h2>
+                <div className="div-total-refresh">
+                    <h2>Total &nbsp; {count}</h2>
+                    <button className="btn-refresh" onClick={refreshOnClick}>
+                        <MdRefresh></MdRefresh>
+                    </button>
+                </div>
                 {/* <input type={"checkbox"} className="input-urlList-checkbox" onChange={enableCheckbox} /> Check On */}
                 {filteredUrls.map((url, index) => (
                     <Url key={url.url_id}
@@ -49,7 +58,7 @@ const UrlList = ({ count, setCount, page, setPage, filteredUrls, setUrls, urls, 
                         urlID={url.url_id}
                         count={count}
                         setCount={setCount}
-                        setisDragging = {setisDragging}
+                        setisDragging={setisDragging}
                     />
                 ))}
                 <div className="listButton-wrapper">

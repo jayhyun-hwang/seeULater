@@ -56,6 +56,9 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
     const deleteHandler = (e) => {
         // console.log("url= " + url.url);
         // console.log("url.urlID= " + url.url_id);
+        if (window.confirm(`Are you sure you want to delete this bookmark?`) === false) {
+            return
+        }
         Axios.delete(`${define.URL}/urls/${url.url_id}`
             // , { withCredentials: true }
         )
@@ -75,7 +78,7 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
     const completeHandler = () => {
         setUrls(
             urls.map((item) => {
-                if (item.id === url.id) {
+                if (item.user_id === url.user_id) {
                     return {
                         ...item,
                         completed: !item.completed,

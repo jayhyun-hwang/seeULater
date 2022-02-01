@@ -16,9 +16,9 @@ async function smsRegisterUser(userInfo) {
     });
 }
 
-async function smsCheckDuplicateID(userID) {
+async function smsCheckDuplicateID(userUniqueID) {
     return Axios.post(define.URL + "/checkDuplicateID", {
-        userID
+        userUniqueID
     }).then((response) => {
         if (response.data.count === 0) {
             return true;
@@ -31,7 +31,7 @@ async function smsCheckDuplicateID(userID) {
 
 export default function Register() {
 
-    const [userID, setUserID] = useState("");
+    const [userUniqueID, setuserUniqueID] = useState("");
     const [password, setPassword] = useState("");
     const [rePassword, setRePassword] = useState("");
     const [email, setEmail] = useState("");
@@ -40,12 +40,18 @@ export default function Register() {
     //아이디가 바뀔 때 마다 valid 여부 초기화
     useEffect(() => {
         setIDValid(false);
-    }, [userID]);
+    }, [userUniqueID]);
 
     const IDOnChange = (e) => {
+        if (e.target.value === '') {
+            setuserUniqueID(e.target.value);
+            return
+        }
         const re = /^[A-Za-z0-9-_]+$/;
-        if (e.target.value === '' || re.test(e.target.value)) {
-            setUserID(e.target.value);
+        if (re.test(e.target.value)) {
+            setuserUniqueID(e.target.value);
+        } else {
+            alert("Only letters, numbers, - and _ are allowed.")
         }
     }
     const onClickCheckDuplicateID = async (e) => {
@@ -53,11 +59,11 @@ export default function Register() {
         if (IDValid) {
             return;
         }
-        if (!userID || userID.length < 4) {
+        if (!userUniqueID || userUniqueID.length < 4) {
             alert("Please enter more than 4 characters.");
             return;
         }
-        const isValid = await smsCheckDuplicateID(userID);
+        const isValid = await smsCheckDuplicateID(userUniqueID);
         setIDValid(isValid);
         if (!isValid) {
             alert("This ID already exists. Please use another ID.");
@@ -83,7 +89,7 @@ export default function Register() {
             return;
         }
         const res = await smsRegisterUser({
-            userID,
+            userUniqueID: userUniqueID,
             password,
             email
         });
@@ -111,14 +117,14 @@ export default function Register() {
                         </i>
                     </p>
                     <ReactTooltip id="IDTooltip" place="right" effect="solid">
-                        <span>User ID must contain 4 to 20 characters.<br />Only letters, numbers, -, _ are allowed.</span>
+                        <span>User ID must contain 4 to 20 characters.<br />Only letters, numbers, - and _ are allowed.</span>
                     </ReactTooltip>
                     <input type="text"
                         className="input-register"
                         placeholder="4 ~ 20 characters"
-                        data-tip="User ID must contain 4 to 20 characters. Only letter, number, -, _ are allowed"
+                        data-tip="User ID must contain 4 to 20 characters. Only letters, numbers, - and _ are allowed."
                         maxLength="20"
-                        value={userID}
+                        value={userUniqueID}
                         autoFocus
                         onChange={e => IDOnChange(e)} />
                 </label>
@@ -160,11 +166,11 @@ export default function Register() {
                 <br />
                 <label>
                     <p>E-mail(Optional)</p>
-                    <input type="email" 
-                    className="input-register" 
-                    placeholder="email@address.com"
-                    maxLength="255"
-                    onChange={e => setEmail(e.target.value)} />
+                    <input type="email"
+                        className="input-register"
+                        placeholder="email@address.com"
+                        maxLength="255"
+                        onChange={e => setEmail(e.target.value)} />
                 </label>
                 <div className="login-button">
                     <button type="submit" className="button-login">Register</button>

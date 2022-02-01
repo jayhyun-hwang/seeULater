@@ -3,7 +3,8 @@ import Axios from 'axios';
 import define from "../../define/define";
 import React, { useState, useEffect, useRef } from "react";
 
-const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirectories, setUpdateDirectories, updateUrls, setUpdateUrls, isDragging, setisDragging }) => {
+const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirectories, setUpdateDirectories, updateUrls, setUpdateUrls, isDragging, setisDragging
+    , setCount, setUrls, urls }) => {
     const [directoryName, setdirectoryName] = useState(directory.name)
     const [isEditingDirectoryName, setisEditingDirectoryName] = useState(false)
     const [isDragEnter, setisDragEnter] = useState(false)
@@ -67,7 +68,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
             return
         }
         Axios.put(`${define.URL}/directories`, {
-            directoryID: directory.id,
+            directoryID: directory.directory_id,
             directoryName: updatedDirectoryName
         }).then((response) => {
             if (response.status !== 200) {
@@ -96,18 +97,26 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         e.preventDefault()
         // 부모의 이벤트 실행을 막아준다.
         e.stopPropagation()
+        if (directory.directory_after === 0) {
+            alert("Default folders cannot be deleted.")
+            return
+        }
         if (window.confirm("All bookmarks in this folder will be deleted. Are you sure you want to delete?") == false) {
             return;
         }
-        Axios.delete(`${define.URL}/directories/${directory.id}`
+        Axios.delete(`${define.URL}/directories/${directory.directory_id}`
         ).then((response) => {
-            console.log("에러확인", response.status)
-            if (response.status !== 200) {
-                alert("oops, error");
-                return
+            switch (response.status) {
+                case 200:
+                    setUpdateDirectories(!updateDirectories)
+                    break;
+                case 403:
+                    alert("Default folders cannot be deleted.")
+                    return
+                default:
+                    alert("oops, error");
+                    return
             }
-            setUpdateDirectories(!updateDirectories)
-            // setUpdateUrls(!updateUrls)
         }).catch((err) => {
             if (err) {
                 console.log(err)
@@ -118,7 +127,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
     }
     const selectDirectoryID = (e) => {
         e.preventDefault()
-        setDirectoryID(directory.id)
+        setDirectoryID(directory.directory_id)
         setUpdateUrls(val => !val)
     }
     const cancelEditDirectoryName = (e) => {
@@ -156,7 +165,11 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
     const urlDrop = (e) => {
         e.preventDefault()
         // 현재 dir 일 때
-        if (directory.id === selectedID) {
+        // alert(typeof directory.directory_id, directory.directory_id)
+        // alert(typeof selectedID, selectedID)
+        if (directory.directory_id === Number(selectedID)) {
+            alert("Same folder.")
+            setisDragEnter(false)
             return
         }
         const dataUrlID = e.dataTransfer.getData("urlID")
@@ -164,14 +177,34 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         if (!dataUrlID) {
             return
         }
-        alert(dataUrlID)
+
+        Axios.put(`${define.URL}/urls`, {
+            urlID: dataUrlID,
+            directoryID: directory.directory_id,
+        }).then((response) => {
+            if (response.status !== 200) {
+                alert("oops, error. status: ", response.status);
+                return
+            }
+            setUrls(urls.filter((val) => {
+                return val.url_id !== Number(dataUrlID)
+            }))
+            setCount(val => val - 1)
+            setisEditingDirectoryName(false)
+        }).catch((err) => {
+            if (err) {
+                console.log(err)
+                alert("oops, error");
+                return
+            }
+        });
         setisDragEnter(false)
     }
     const urlDragEnter = (e) => {
         e.stopPropagation()
         e.preventDefault()
         // 현재 dir 일 때
-        if (directory.id === selectedID) {
+        if (directory.directory_id === selectedID) {
             return
         }
         setisDragEnter(true)
@@ -183,7 +216,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
     }
     return (
         <div className={
-            `${directory.id == selectedID
+            `${directory.directory_id == selectedID
                 ? "div-directory-selected" : ""} ${isDragEnter ? "div-directory-dragEnter" : ""} div-directory`
         }
             onClick={selectDirectoryID}

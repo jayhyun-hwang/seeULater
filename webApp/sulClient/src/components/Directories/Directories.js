@@ -2,7 +2,8 @@ import "./Directories.css";
 import Directory from "src/components/Directories/Directory";
 import Axios from 'axios';
 import define from "../../define/define";
-const Directories = ({ directoryList, directoryID, setDirectoryID, updateDirectories, setUpdateDirectories, updateUrls, setUpdateUrls }) => {
+const Directories = ({ directoryList, directoryID, setDirectoryID, updateDirectories, setUpdateDirectories, updateUrls, setUpdateUrls
+    , setCount, setUrls, urls }) => {
     const directoryCount = directoryList ? directoryList.length : 0
 
     const createFolderHandler = (e) => {
@@ -23,15 +24,18 @@ const Directories = ({ directoryList, directoryID, setDirectoryID, updateDirecto
                 {directoryCount} Folder{directoryCount > 1 ? "s" : null}
             </p>
             {directoryList.map((directory, index) => (
-                <Directory key={directory.id}
+                <Directory key={directory.directory_id}
                     index={index}
                     selectedID={directoryID}
                     directory={directory}
                     setDirectoryID={setDirectoryID}
-                    updateDirectories = {updateDirectories}
-                    setUpdateDirectories = {setUpdateDirectories}
-                    updateUrls = {updateUrls}
-                    setUpdateUrls = {setUpdateUrls}
+                    updateDirectories={updateDirectories}
+                    setUpdateDirectories={setUpdateDirectories}
+                    updateUrls={updateUrls}
+                    setUpdateUrls={setUpdateUrls}
+                    setCount={setCount}
+                    setUrls={setUrls}
+                    urls={urls}
                 />
             ))}
             <div className="div-directory-plus-btn-wrapper">

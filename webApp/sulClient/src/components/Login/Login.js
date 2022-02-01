@@ -12,13 +12,13 @@ async function smsLoginUser(loginInfo) {
 }
 
 export default function Login({ setToken }) {
-    const [userID, setUserID] = useState();
+    const [userUniqueID, setuserUniqueID] = useState();
     const [password, setPassword] = useState();
 
     const onSubmitLogin = async (e) => {
         e.preventDefault();
         const res = await smsLoginUser({
-            userID,
+            userUniqueID: userUniqueID,
             password
         });
         // console.log(res)
@@ -38,7 +38,7 @@ export default function Login({ setToken }) {
             <form className="login-form" onSubmit={onSubmitLogin}>
                 <label>
                     <p>ID</p>
-                    <input type="text" onChange={e => setUserID(e.target.value)} />
+                    <input type="text" onChange={e => setuserUniqueID(e.target.value)} />
                 </label>
                 <label>
                     <p>Password</p>

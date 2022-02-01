@@ -55,7 +55,7 @@ function Main() {
   useEffect(() => {
     getUrls()
   }, [page]);
-  
+
   // 목록 업데이트 필요할 시, page 초기화, 또는 조회
   const isMounted = useRef(false)
   useEffect(() => {
@@ -141,8 +141,11 @@ function Main() {
         setUpdateDirectories={setUpdateDirectories}
         updateUrls={updateUrls}
         setUpdateUrls={setUpdateUrls}
-        isDragging = {isDragging}
-        setisDragging = {setisDragging}
+        isDragging={isDragging}
+        setisDragging={setisDragging}
+        setCount={setCount}
+        setUrls={setUrls}
+        urls={urls}
       />
       <div className="Main">
         <MainHeader />
@@ -150,11 +153,7 @@ function Main() {
           <Form
             updateUrls={updateUrls}
             setUpdateUrls={setUpdateUrls}
-          // inputText={inputText}
-          // urls={urls}
-          // setUrls={setUrls}
-          // setInputText={setInputText}
-          // setStatus={setStatus}
+            directoryID={directoryID}
           />
           {/* <img id="img-tutorial" src={seeulater_demo} alt="seeulater demo" /> */}
           <UrlList key="url list"
@@ -165,8 +164,9 @@ function Main() {
             filteredUrls={filteredUrls}
             setUrls={setUrls}
             urls={urls}
-            isDragging = {isDragging}
-            setisDragging = {setisDragging}
+            isDragging={isDragging}
+            setisDragging={setisDragging}
+            setUpdateUrls={setUpdateUrls}
           />
         </div>
       </div>

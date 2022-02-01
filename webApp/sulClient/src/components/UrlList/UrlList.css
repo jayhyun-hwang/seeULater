@@ -47,3 +47,25 @@
     vertical-align: middle;
     margin-right: 0.8vw;
 }
+
+.div-total-refresh {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-refresh {
+    background: none;
+    color: #005963;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    margin-left: 5px;
+}
+.btn-refresh:hover {
+    color: orange;
+}
+
+.btn-refresh * {
+    vertical-align: text-bottom;
+}

@@ -3,7 +3,7 @@ import "./Form.css";
 import React, { useState } from "react";
 import define from '../../define/define';
 
-const Form = ({ updateUrls, setUpdateUrls }) => {
+const Form = ({ updateUrls, setUpdateUrls, directoryID }) => {
     //Here I can write javascript code and function
     const [inputUrl, setInputUrl] = useState()
     const [inputTitle, setInputTitle] = useState()
@@ -31,7 +31,8 @@ const Form = ({ updateUrls, setUpdateUrls }) => {
 
         Axios.post(define.URL + "/urls", {
             url: urlVal,
-            title: inputTitle
+            title: inputTitle,
+            directoryID: directoryID
         }).then((response) => {
             if (response.status === 200) {
                 setUpdateUrls(!updateUrls);
