@@ -3,7 +3,8 @@
 - directory 컬럼 directory_id로 바꾸기(directory가 keyword이기 때문)
  - https://dev.mysql.com/doc/refman/8.0/en/keywords.html 에서 확인해보고 이름 정할 것
 # Major(step)
-- 폴더 이름 중복 불가
+- 폴더 개수 10개 제한
+- 폴더 이름 중복 불가: 이름 중복 시, (1)
 - url_after도 구성
 - drag and drop으로 urls directory 변경
  - https://codesandbox.io/s/github/react-dnd/react-dnd/tree/gh-pages/examples_hooks_js/00-chessboard?from-embed=&file=/src/Board.jsx
