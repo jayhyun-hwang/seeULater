@@ -97,6 +97,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         e.preventDefault()
         // 부모의 이벤트 실행을 막아준다.
         e.stopPropagation()
+        const directoryID = directory.directory_id
         if (directory.directory_after === 0) {
             alert("Default folders cannot be deleted.")
             return
@@ -104,11 +105,14 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         if (window.confirm("All bookmarks in this folder will be deleted. Are you sure you want to delete?") == false) {
             return;
         }
-        Axios.delete(`${define.URL}/directories/${directory.directory_id}`
+        Axios.delete(`${define.URL}/directories/${directoryID}`
         ).then((response) => {
             switch (response.status) {
                 case 200:
                     setUpdateDirectories(!updateDirectories)
+                    if (directoryID == selectedID){
+                        setUpdateUrls(val => !val)
+                    }
                     break;
                 case 403:
                     alert("Default folders cannot be deleted.")

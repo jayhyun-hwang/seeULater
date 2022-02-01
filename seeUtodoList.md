@@ -3,7 +3,7 @@
 - directory 컬럼 directory_id로 바꾸기(directory가 keyword이기 때문)
  - https://dev.mysql.com/doc/refman/8.0/en/keywords.html 에서 확인해보고 이름 정할 것
 # Major(step)
-- directories 테이블의 idx 컬럼 directory_after로 변경, 리스트 형태로 index 구성하기.(끼워넣기 용이)
+- 폴더 이름 중복 불가
 - url_after도 구성
 - drag and drop으로 urls directory 변경
  - https://codesandbox.io/s/github/react-dnd/react-dnd/tree/gh-pages/examples_hooks_js/00-chessboard?from-embed=&file=/src/Board.jsx
@@ -16,6 +16,7 @@
   - 가이드 gif 넣기
 - 로그인 없이 조회 가능하게 만들기(public folders)
 - 404페이지 만들기
+- ~~directories 테이블의 idx 컬럼 directory_after로 변경, 리스트 형태로 index 구성하기.(끼워넣기 용이)~~
 - ~~크롬 확장프로그램 권한 없을 시, 모든 사이트 권한 허용 권장 알림 띄우기~~
 - ~~certbot 자동갱신 예약~~
 - ~~**더보기 구현(15개)**~~
@@ -68,6 +69,7 @@
    - ~~사이즈 작아질 시(1050px, 화살표 색깔 바꾸기(흰색과 구분))~~
 - alert 창 react코드레벨로 전환
   - when stored, popup at right bottom of the page(tab) - instead alert
+- ~~폴더 삭제 시, 새로고침~~
 - ~~클릭 시 새 탭으로 여는 이벤트 수정. div 이벤트 제거. img, title 클릭 이벤트 추가~~
 - ~~포트 변수화, url 변수화~~
   - ~~node server~~
