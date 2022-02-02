@@ -1,15 +1,14 @@
 # Critical
-- 서버 실행 시, 디비 버전 관리하기
-- directory 컬럼 directory_id로 바꾸기(directory가 keyword이기 때문)
- - https://dev.mysql.com/doc/refman/8.0/en/keywords.html 에서 확인해보고 이름 정할 것
+- ~~서버 실행 시, 디비 버전 관리하기~~
+- ~~directory 컬럼 directory_id로 바꾸기(directory가 keyword이기 때문)~~
+ - ~~https://dev.mysql.com/doc/refman/8.0/en/keywords.html 에서 확인해보고 이름 정할 것~~
 # Major(step)
 - ~~폴더 개수 10개 제한~~
 - 폴더 이름 중복 불가: 이름 중복 시, (1)
 - url_after도 구성
-- drag and drop으로 urls directory 변경
- - https://codesandbox.io/s/github/react-dnd/react-dnd/tree/gh-pages/examples_hooks_js/00-chessboard?from-embed=&file=/src/Board.jsx
+- ~~drag and drop으로 urls directory 변경~~
 - 확장 프로그램 Manifest V3로 포팅
-- Locale 넘겨서 지역에 맞는 시간 입력
+- ~~Locale 넘겨서 지역에 맞는 시간 입력~~
 - ~~**계정기능**~~
 - **그룹기능**
 - 메인 페이지
@@ -65,7 +64,7 @@
 
 # minor
 - commonHeader에서 글자들 span으로 바꾸기, @media max width 설정해서 display: none; 로 하기
-- urlList에서 Total 옆 끝에 refresh icon button 만들기(새로고침)
+- ~~urlList에서 Total 옆 끝에 refresh icon button 만들기(새로고침)~~
 - to top, to bottom
    - ~~사이즈 작아질 시(1050px, 화살표 색깔 바꾸기(흰색과 구분))~~
 - alert 창 react코드레벨로 전환
