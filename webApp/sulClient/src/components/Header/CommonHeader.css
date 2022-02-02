@@ -39,6 +39,11 @@
     margin-right: 2rem;
     align-items: center;
 }
+#div-extension-pre {
+    cursor: pointer;
+    /* margin-right: 2rem; */
+    align-items: center;
+}
 #img-extension {
     margin-right: 0.1rem;
 }

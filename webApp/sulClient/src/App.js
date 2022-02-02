@@ -3,6 +3,7 @@ import './App.css';
 import useToken from "./components/useToken";
 import Router from "./components/Router";
 import PreRouter from "./components/preRouter";
+import PreHeader from "./components/Header/PreHeader";
 import CommonHeader from "./components/Header/CommonHeader";
 
 function App() {
@@ -11,13 +12,16 @@ function App() {
 
   if (!token) {
     return (
-      <PreRouter setToken={setToken}/>
+      <>
+        <PreHeader />
+        <PreRouter setToken={setToken} />
+      </>
     )
   }
 
   return (
     <div className="wrapper">
-      <CommonHeader/>
+      <CommonHeader />
       <Router />
     </div>
   );
