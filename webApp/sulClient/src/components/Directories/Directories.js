@@ -8,6 +8,10 @@ const Directories = ({ directoryList, directoryID, setDirectoryID, updateDirecto
 
     const createFolderHandler = (e) => {
         e.preventDefault();
+        if (directoryCount >= 10) {
+            alert("Cannot create more than 10 folders.")
+            return
+        }
         Axios.post(`${define.URL}/directories`, {
             directoryName: `dir${directoryCount}`
         }).then((response) => {
