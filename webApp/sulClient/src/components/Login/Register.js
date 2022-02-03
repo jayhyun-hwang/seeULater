@@ -54,8 +54,7 @@ export default function Register() {
             alert("Only letters, numbers, - and _ are allowed.")
         }
     }
-    const onClickCheckDuplicateID = async (e) => {
-        e.preventDefault();
+    const checkIDValidBtn = async () => {
         if (IDValid) {
             return;
         }
@@ -69,14 +68,16 @@ export default function Register() {
             alert("This ID already exists. Please use another ID.");
         }
     }
+    const onClickCheckDuplicateID = async (e) => {
+        e.preventDefault();
+        checkIDValidBtn()
+    }
 
     const handlerSubmit = async (e) => {
         e.preventDefault();
         // check id
-        if (IDValid === false) {
-            alert("Please Check your ID.\nClick [Check ID] button.");
-            return;
-        }
+        checkIDValidBtn()
+
         // check password
         // check length
         if (!password || password.length < 4) {
@@ -96,7 +97,9 @@ export default function Register() {
 
         //show result alert
         //go to main
-        alert(res.data);
+        if (IDValid) {
+            alert(res.data);
+        }
         if (res.status === 200) {
             window.location.replace("/");
         }

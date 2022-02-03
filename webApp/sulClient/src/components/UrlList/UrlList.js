@@ -2,7 +2,8 @@ import "./UrlList.css";
 //Import components
 import Url from './Url';
 import ListButton from './ListButton';
-import { MdRefresh } from 'react-icons/md';
+import { MdRefresh, MdRotate90DegreesCcw } from 'react-icons/md';
+import { useState } from "react";
 
 const UrlList = ({ count, setCount, page, setPage, filteredUrls, setUrls, urls, isDragging, setisDragging, setUpdateUrls }) => {
     // const clickCloseHandler = () => {
@@ -35,9 +36,19 @@ const UrlList = ({ count, setCount, page, setPage, filteredUrls, setUrls, urls, 
     // };
     const enableCheckbox = (e) => {
         alert(e.target.checked)
+
     }
+    
+    //리렌더를 위해서는 useState 필요
+    const [rotateRefresh, setrotateRefresh] = useState(false);
     const refreshOnClick = (e) => {
+        // e.preventDefault()
         setUpdateUrls(val => !val)
+        // 스타일을 통해 새로고침 rotate 애니메이션
+        setrotateRefresh(true)
+        setTimeout(() => {
+            setrotateRefresh(false)
+        }, 500);
     }
     return (
         <div className="url-container">
@@ -45,7 +56,12 @@ const UrlList = ({ count, setCount, page, setPage, filteredUrls, setUrls, urls, 
                 <div className="div-total-refresh">
                     <h2>Total &nbsp; {count}</h2>
                     <button className="btn-refresh" onClick={refreshOnClick}>
-                        <MdRefresh></MdRefresh>
+                        <MdRefresh
+                            // 스타일을 통해 새로고침 rotate 애니메이션
+                            style={rotateRefresh ? { transform: "rotate(360deg)", transition: "transform 500ms ease" }
+                            : 
+                            { transform: "rotate(0deg)", transition: "transform 0ms ease" }
+                            }></MdRefresh>
                     </button>
                 </div>
                 {/* <input type={"checkbox"} className="input-urlList-checkbox" onChange={enableCheckbox} /> Check On */}

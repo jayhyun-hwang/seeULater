@@ -34,7 +34,7 @@ export default function Login({ setToken }) {
     }
     return (
         <div className="login-wrapper">
-            <h1>Please Log In</h1>
+            <h1>Log In</h1>
             <form className="login-form" onSubmit={onSubmitLogin}>
                 <label>
                     <p>ID</p>
@@ -47,7 +47,7 @@ export default function Login({ setToken }) {
                 <div className="login-button">
                     <button type="submit" className="button-login">Log In</button>
                     <Link to="/register">
-                        <button type="submit" className="button-regist">Register</button>
+                        <button type="submit" className="button-regist">Quick Register</button>
                     </Link>
                 </div>
             </form>

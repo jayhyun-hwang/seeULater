@@ -48,7 +48,7 @@ form button {
     color: white;
     border-radius: 5px;
     height: 4vh;
-    padding: 1vh;
+    padding: 0 10px 0 10px;
     font-size: 1rem;
 }
 .button-checkduplicate-false:hover{
@@ -59,7 +59,7 @@ form button {
     color: white;
     border-radius: 5px;
     height: 4vh;
-    padding: 1vh;
+    padding: 0 10px 0 10px;
     font-size: 1rem;
 }
 .div-checkduplicate{
