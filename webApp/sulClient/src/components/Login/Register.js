@@ -9,7 +9,7 @@ async function smsRegisterUser(userInfo) {
     return Axios.post(define.URL + "/register/user", {
         userInfo
     }).then((response) => {
-        console.log(response);
+        // console.log(response);
         return response;
     }).catch((error) => {
         return error.response;

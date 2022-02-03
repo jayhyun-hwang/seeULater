@@ -31,7 +31,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
     }
     const inputDirectoryKeyUp = e => {
         e.preventDefault()
-        console.log(e.key)
+        // console.log(e.key)
         switch (e.key) {
             case "Escape":
                 cancelEditDirectoryName(e)
@@ -79,7 +79,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
             setdirectoryName(updatedDirectoryName)
         }).catch((err) => {
             if (err) {
-                console.log(err)
+                // console.log(err)
                 alert("oops, error");
                 return
             }
@@ -123,7 +123,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
             }
         }).catch((err) => {
             if (err) {
-                console.log(err)
+                // console.log(err)
                 alert("oops, error");
                 return
             }
@@ -197,7 +197,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
             setisEditingDirectoryName(false)
         }).catch((err) => {
             if (err) {
-                console.log(err)
+                // console.log(err)
                 alert("oops, error");
                 return
             }

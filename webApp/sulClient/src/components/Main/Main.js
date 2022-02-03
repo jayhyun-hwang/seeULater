@@ -47,7 +47,7 @@ function Main() {
 
   // dir 리스트 받아오기
   useEffect(() => {
-    console.log("getDirectories")
+    // console.log("getDirectories")
     getDirectories();
   }, [updateDirectories]);
 
@@ -108,7 +108,7 @@ function Main() {
     //   setUrls(urlLocal);
     // }
     // console.log(define.URL);
-    console.log("getUrls 실행!")
+    // console.log("getUrls 실행!")
     Axios.get(`${define.URL}/urls/${directoryID}?page=${page}`
       // , { withCredentials: true }
     ).then((response) => {
