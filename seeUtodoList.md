@@ -3,6 +3,9 @@
 - ~~directory 컬럼 directory_id로 바꾸기(directory가 keyword이기 때문)~~
  - ~~https://dev.mysql.com/doc/refman/8.0/en/keywords.html 에서 확인해보고 이름 정할 것~~
 # Major(step)
+- first 페이지 매뉴얼로 꾸미기: preRouter 수정
+- 로드마스크 구현
+- 폴더 리모컨 div로 래핑해서 middle로
 - ~~폴더 개수 10개 제한~~
 - 폴더 이름 중복 불가: 이름 중복 시, (1)
 - url_after도 구성
@@ -12,7 +15,7 @@
 - ~~**계정기능**~~
 - **그룹기능**
 - 메인 페이지
-  - 헤더 만들기
+  - ~~헤더 만들기~~
   - 가이드 gif 넣기
 - 로그인 없이 조회 가능하게 만들기(public folders)
 - 404페이지 만들기
