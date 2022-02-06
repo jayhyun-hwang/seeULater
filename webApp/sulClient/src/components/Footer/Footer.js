@@ -39,8 +39,8 @@ function Footer() {
                     Issues
                 </a>
                 <span> · </span>
-                <a className='a-footer' href='https://github.com/jayhyun-hwang/seeULater/issues' target="_blank">
-                    Chrome Web Stroe
+                <a className='a-footer' href='https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp' target="_blank">
+                    Chrome Web Store
                 </a>
             </div>
         </footer>
