@@ -18,11 +18,11 @@ Inspired by the lack of good book mark manager with having remote stores, now we
 * Add interesting pages URL
 * View your favorites
 * Delete contents in your list
+* Create folders, and add contents to folder
 
 ### Todo
 
 * Add a memo to content
-* Create folders, and add contents to folder
 * Share folders
 * Login with Google, Facebook and Github accounts(Oauth2)
 
