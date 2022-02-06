@@ -45,13 +45,17 @@ function CommonHeader() {
         <div className="common-header-div">
             <header className="common-header">
                 <div id="div-header-home" onClick={handlerClick}>
-                    {argMode} seeULater&nbsp;
+                    <span className='span-commonHeader-title'>
+                        {argMode} seeULater&nbsp;
+                    </span>
                     <img id="home-img" src={LogoAlligator} alt="seeULater" />
                 </div>
                 <div className='div-header-menu'>
                     <div id="div-extension" onClick={extensionClick}>
+                        <span className='span-commonHeader-title'>
+                            Chrome Web Store&nbsp;
+                        </span>
                         <img id="img-extension" src={chrome_web_store} alt="chrome extension" />
-                        chrome Ex&nbsp;
                     </div>
                     <div id="div-logout" onClick={logoutClick}>
                         Logout&nbsp;

@@ -23,29 +23,31 @@ const Directories = ({ directoryList, directoryID, setDirectoryID, updateDirecto
         })
     };
     return (
-        <div className="div-directories">
-            <p className="p-directoryCount">
-                {directoryCount} Folder{directoryCount > 1 ? "s" : null}
-            </p>
-            {directoryList.map((directory, index) => (
-                <Directory key={directory.directory_id}
-                    index={index}
-                    selectedID={directoryID}
-                    directory={directory}
-                    setDirectoryID={setDirectoryID}
-                    updateDirectories={updateDirectories}
-                    setUpdateDirectories={setUpdateDirectories}
-                    updateUrls={updateUrls}
-                    setUpdateUrls={setUpdateUrls}
-                    setCount={setCount}
-                    setUrls={setUrls}
-                    urls={urls}
-                />
-            ))}
-            <div className="div-directory-plus-btn-wrapper">
-                <button onClick={createFolderHandler} className="directory-plus-btn">
-                    <i className="fas fa-plus-circle"></i>
-                </button>
+        <div className="div-directories-wrapper">
+            <div className="div-directories">
+                <p className="p-directoryCount">
+                    {directoryCount} Folder{directoryCount > 1 ? "s" : null}
+                </p>
+                {directoryList.map((directory, index) => (
+                    <Directory key={directory.directory_id}
+                        index={index}
+                        selectedID={directoryID}
+                        directory={directory}
+                        setDirectoryID={setDirectoryID}
+                        updateDirectories={updateDirectories}
+                        setUpdateDirectories={setUpdateDirectories}
+                        updateUrls={updateUrls}
+                        setUpdateUrls={setUpdateUrls}
+                        setCount={setCount}
+                        setUrls={setUrls}
+                        urls={urls}
+                    />
+                ))}
+                <div className="div-directory-plus-btn-wrapper">
+                    <button onClick={createFolderHandler} className="directory-plus-btn">
+                        <i className="fas fa-plus-circle"></i>
+                    </button>
+                </div>
             </div>
         </div>
     );

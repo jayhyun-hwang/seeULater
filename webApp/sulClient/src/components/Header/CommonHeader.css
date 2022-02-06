@@ -18,6 +18,7 @@
     width: 100%;
     background: #0ac294;
     padding: 1vh 2vh;
+    z-index: 10;
 }
 
 #div-logout {
@@ -64,5 +65,8 @@
 @media (max-width: 1050px), (max-height: 400px) {
     .btn-toTop {
         color: #4d836b;
+    }
+    .span-commonHeader-title {
+        display: none;
     }
 }

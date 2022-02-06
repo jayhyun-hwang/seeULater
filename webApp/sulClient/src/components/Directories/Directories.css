@@ -1,10 +1,16 @@
-.div-directories {
+.div-directories-wrapper {
     position: fixed;
-    /* background-color: #ffffff00; */
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    justify-content: center;
+    top: 12%;
+}
+.div-directories {
+    background-color: #aecdc4;
     border-radius: 10px;
-    margin: 30vh 3vh;
     font-size: 1.5rem;
-    max-height: 68vh;
+    max-height: 90%;
     overflow-y: auto;
     padding: 1rem;
     width: 16vw;

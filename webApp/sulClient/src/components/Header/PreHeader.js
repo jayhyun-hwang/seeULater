@@ -22,8 +22,8 @@ function CommonHeader() {
                 </div>
                 <div className='div-header-menu'>
                     <div id="div-extension-pre" onClick={extensionClick}>
+                        Chrome Web Store&nbsp;
                         <img id="img-extension" src={chrome_web_store} alt="chrome extension" />
-                        chrome Ex&nbsp;
                     </div>
                 </div>
             </header>
