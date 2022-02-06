@@ -17,5 +17,6 @@ getUrl();
 module.exports = {
     URL: baseurl,
     // URL: "http://127.0.0.1",
-    PORT: 80
+    PORT: 80,
+    VERSION: "1.0.3",
 }

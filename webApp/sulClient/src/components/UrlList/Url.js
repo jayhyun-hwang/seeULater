@@ -46,7 +46,8 @@ const getLocalDateTime = (regdate) => {
 const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDragging }) => {
     //Events
     const LinkHandler = () => {
-        window.open(url.url, '_blank', 'noopener, noreferrer');
+        // window.open(url.url, '_blank', 'noopener, noreferrer');
+        window.open(url.url, '_blank');
     }
 
     const urlCheckBox = () => {
@@ -109,7 +110,8 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
                     </input> */}
                     {urlCheckBox}{index + 1}
                 </p>
-                <a className={`url_a ${url.completed ? "completed" : ""}`} href={url.url} target="_blank" rel="noreferrer">{url.title ? url.title : url.url}
+                {/* <a className={`url_a ${url.completed ? "completed" : ""}`} href={url.url} target="_blank" rel="noreferrer">{url.title ? url.title : url.url} */}
+                <a className={`url_a ${url.completed ? "completed" : ""}`} href={url.url} target="_blank">{url.title ? url.title : url.url}
                 </a>
             </div>
             <div className="url-preview-and-button">

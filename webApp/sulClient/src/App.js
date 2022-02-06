@@ -5,6 +5,7 @@ import Router from "./components/Router";
 import PreRouter from "./components/preRouter";
 import PreHeader from "./components/Header/PreHeader";
 import CommonHeader from "./components/Header/CommonHeader";
+import Footer from "./components/Footer/Footer";
 
 function App() {
 
@@ -15,14 +16,16 @@ function App() {
       <>
         <PreHeader />
         <PreRouter setToken={setToken} />
+        <Footer/>
       </>
     )
   }
-
+  
   return (
     <div className="wrapper">
       <CommonHeader />
       <Router />
+      <Footer/>
     </div>
   );
 }
