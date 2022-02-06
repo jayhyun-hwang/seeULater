@@ -3,7 +3,7 @@ seeULater
 
 
 
-![seeulater_demo.gif](https://github.com/jayhyun-hwang/seeULater/blob/main/seeulater_demo.gif)
+![seeulater_demo.gif](https://github.com/jayhyun-hwang/seeULater/blob/main/seeulater_demo_220207.gif)
 
 Description
 -----------
