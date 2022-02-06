@@ -112,3 +112,5 @@ port 3000 aleady running
 - 해결법
  - 다른 와이파이로 연결했다가 끊고 다시 인터넷 연결 후, 재실행
 - npx kill-port 3000 &&
+---
+- footer가 directories div의 높이 때문에 바닥에서 떠 있어서 Main 컴포넌트의 최소 길이를 vh로 정해둠

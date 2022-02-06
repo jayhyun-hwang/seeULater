@@ -13,7 +13,7 @@ const Directories = ({ directoryList, directoryID, setDirectoryID, updateDirecto
             return
         }
         Axios.post(`${define.URL}/directories`, {
-            directoryName: `dir${directoryCount}`
+            directoryName: `Dir${directoryCount}`
         }).then((response) => {
             if (response.status !== 200) {
                 alert("oops, error");

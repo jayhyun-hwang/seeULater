@@ -1,5 +1,3 @@
-import LogoAlligator from '../img/alligator.png';
-import chrome_web_store from '../img/chrome_web_store-32.png';
 import define from '../../define/define'
 import "./Footer.css";
 
@@ -8,12 +6,6 @@ import "./Footer.css";
 const argMode = process.env.REACT_APP_MODE;
 
 function Footer() {
-    const handlerClick = () => {
-        window.location.href = "/";
-    }
-    const extensionClick = () => {
-        window.open("https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp", '_blank');
-    }
     return (
         <footer className="footer-common-footer">
             <div className='div-footer'>

@@ -5,16 +5,16 @@
 # Major(step)
 - first 페이지 매뉴얼로 꾸미기: preRouter 수정
 - 로드마스크 구현
-- 폴더 리모컨 div로 래핑해서 middle로
+- 폴더 이름 중복 불가: 이름 중복 시, (1)
+- ~~폴더 리모컨 div로 래핑해서 middle로~~
 - ~~테마 색 수정~~
 - ~~폴더 개수 10개 제한~~
-- 폴더 이름 중복 불가: 이름 중복 시, (1)
 - url_after도 구성
 - ~~drag and drop으로 urls directory 변경~~
 - 확장 프로그램 Manifest V3로 포팅
 - ~~Locale 넘겨서 지역에 맞는 시간 입력~~
 - ~~**계정기능**~~
-- **그룹기능**
+- ~~**그룹기능**~~
 - 메인 페이지
   - ~~헤더 만들기~~
   - 가이드 gif 넣기
@@ -67,7 +67,7 @@
   - ~~Store this url (when the page blocked using right click)~~
 
 # minor
-- commonHeader에서 글자들 span으로 바꾸기, @media max width 설정해서 display: none; 로 하기
+- ~~commonHeader에서 글자들 span으로 바꾸기, @media max width 설정해서 display: none; 로 하기~~
 - ~~urlList에서 Total 옆 끝에 refresh icon button 만들기(새로고침)~~
 - to top, to bottom
    - ~~사이즈 작아질 시(1050px, 화살표 색깔 바꾸기(흰색과 구분))~~
