@@ -15,7 +15,7 @@
   }
 }
 body {
-  background-color: #92e7c2e0;
+  background-color: #aecdc4;
   color: #ffffff;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
@@ -99,7 +99,7 @@ form button:hover {
 
 .url {
   margin: 1vh;
-  background: white;
+  background: #f2f2ea;
   font-size: 1.5rem;
   color: grey;
   border-radius: 10px;
@@ -125,7 +125,7 @@ form button:hover {
 }
 
 .complete-btn {
-  background: #0bd4a2;
+  background: #0ac294;
 }
 
 .url_a {

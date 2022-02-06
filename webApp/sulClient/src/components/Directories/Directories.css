@@ -1,6 +1,6 @@
 .div-directories {
     position: fixed;
-    background-color: #9fe9c9;
+    /* background-color: #ffffff00; */
     border-radius: 10px;
     margin: 30vh 3vh;
     font-size: 1.5rem;
@@ -20,7 +20,7 @@
 } */
 
 .p-directoryCount {
-    color: #4d836b;
+    color: #ffffff;
     font-weight: bold;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .div-directory:hover {
-    background-color: #0bd4a2;
+    background-color: #0ac294;
     color: white;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .directory-plus-btn:hover {
-    color: #0bd4a2;
+    color: #0ac294;
 }
 
 .div-directory-plus-btn-wrapper {
@@ -125,7 +125,7 @@
 }
 
 .div-directory-dragEnter {
-    background-color: #0bd4a2;
+    background-color: #0ac294;
     color: white;
 }
 

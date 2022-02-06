@@ -111,3 +111,4 @@ node 에러
 port 3000 aleady running
 - 해결법
  - 다른 와이파이로 연결했다가 끊고 다시 인터넷 연결 후, 재실행
+- npx kill-port 3000 &&
