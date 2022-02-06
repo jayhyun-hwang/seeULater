@@ -24,7 +24,7 @@ function Footer() {
             </div>
             <div className='div-footer'>
                 <a className='a-footer' href='https://github.com/jayhyun-hwang/seeULater' target="_blank">
-                <i class="fa fa-github" aria-hidden="true"></i>GitHub Project
+                    GitHub Project
                 </a>
                 <span> · </span>
                 <a className='a-footer' href='https://github.com/jayhyun-hwang/seeULater/issues' target="_blank">
