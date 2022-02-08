@@ -114,3 +114,4 @@ port 3000 aleady running
 - npx kill-port 3000 &&
 ---
 - footer가 directories div의 높이 때문에 바닥에서 떠 있어서 Main 컴포넌트의 최소 길이를 vh로 정해둠
+- 버튼 클릭 이벤트 후, event.currentTarget.blur()로 엔터로 재실행하는것을 막아준다.

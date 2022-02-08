@@ -3,6 +3,7 @@
 - ~~directory 컬럼 directory_id로 바꾸기(directory가 keyword이기 때문)~~
  - ~~https://dev.mysql.com/doc/refman/8.0/en/keywords.html 에서 확인해보고 이름 정할 것~~
 # Major(step)
+- Main 로드 시, userInfo, version 받아오기(global로 설정)
 - first 페이지 매뉴얼로 꾸미기: preRouter 수정
 - edit titles
 - 로드마스크 구현
