@@ -2,9 +2,6 @@ const define = {
   URL: "https://www.seeulater.site",
   id: "storePage",
   title: "Store this page",
-  // URL : "http://127.0.0.1",
-  // id: "storePage_dev",
-  // title: "Store this page_dev",
   PORT: 80
 };
 //----------------------------------------set mode-----------------------------------------------
@@ -47,15 +44,20 @@ function submitPostUrls(tab) {
 
   let inputTitle
   let promptTitle = prompt("Enter title (within 100 characters)", tab.title)
+  //cancel
+  if (promptTitle === null) {
+    return
+  }
+  //trim
   if (promptTitle) {
     promptTitle = promptTitle.trim()
   }
-  // 글자 수 제한 100
+  //check valid and length
   if (!promptTitle) {
     inputTitle = tab.title
   } else {
     if (promptTitle.length > 100) {
-      alert("Enter the title name within 100 characters.\nPlease try again.")
+      alert("Enter the title within 100 characters.\nPlease try again.")
       return
     }
     inputTitle = promptTitle
@@ -82,7 +84,6 @@ function submitPostUrls(tab) {
     alert("request failed")
     return
   }
-  // 모든 사이트에서 사용을 허용 안 한 경우
   req.onerror = function () {
     console.log("onerror!!")
     alert("Please change the extension’s site access to [On all sites].")

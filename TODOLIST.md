@@ -4,6 +4,7 @@
  - ~~https://dev.mysql.com/doc/refman/8.0/en/keywords.html 에서 확인해보고 이름 정할 것~~
 # Major(step)
 - first 페이지 매뉴얼로 꾸미기: preRouter 수정
+- edit titles
 - 로드마스크 구현
 - 폴더 이름 중복 불가: 이름 중복 시, (1)
 - ~~폴더 리모컨 div로 래핑해서 middle로~~

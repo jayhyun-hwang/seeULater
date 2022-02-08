@@ -5,7 +5,7 @@ import ListButton from './ListButton';
 import { MdRefresh, MdRotate90DegreesCcw } from 'react-icons/md';
 import { useState } from "react";
 
-const UrlList = ({ count, setCount, page, setPage, filteredUrls, setUrls, urls, isDragging, setisDragging, setUpdateUrls }) => {
+const UrlList = ({ count, setCount, page, setPage, filteredUrls, setUrls, urls, isDragging, setisDragging, setUpdateUrls, setUpdateDirectories }) => {
     // const clickCloseHandler = () => {
     //     if (page < 1) {
     //         return;
@@ -44,6 +44,7 @@ const UrlList = ({ count, setCount, page, setPage, filteredUrls, setUrls, urls, 
     const refreshOnClick = (e) => {
         // e.preventDefault()
         setUpdateUrls(val => !val)
+        setUpdateDirectories(val => !val)
         // 스타일을 통해 새로고침 rotate 애니메이션
         setrotateRefresh(true)
         setTimeout(() => {

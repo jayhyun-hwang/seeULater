@@ -167,6 +167,7 @@ function Main() {
             isDragging={isDragging}
             setisDragging={setisDragging}
             setUpdateUrls={setUpdateUrls}
+            setUpdateDirectories={setUpdateDirectories}
           />
         </div>
       </div>

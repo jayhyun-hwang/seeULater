@@ -52,15 +52,20 @@ function submitPostUrls(tab) {
 
   let inputTitle
   let promptTitle = prompt("Enter title (within 100 characters)", tab.title)
+  //cancel
+  if(promptTitle === null) {
+    return
+  }
+  //trim
   if (promptTitle) {
     promptTitle = promptTitle.trim()
   }
-
+  //check valid and length
   if (!promptTitle) {
     inputTitle = tab.title
   } else {
     if (promptTitle.length > 100) {
-      alert("Enter the title name within 100 characters.\nPlease try again.")
+      alert("Enter the title within 100 characters.\nPlease try again.")
       return
     }
     inputTitle = promptTitle

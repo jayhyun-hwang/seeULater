@@ -113,6 +113,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
                     if (directoryID == selectedID){
                         setUpdateUrls(val => !val)
                     }
+                    alert(`delete!`)
                     break;
                 case 403:
                     alert("Default folders cannot be deleted.")
