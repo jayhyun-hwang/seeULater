@@ -22,6 +22,7 @@ const Directories = ({ directoryList, directoryID, setDirectoryID, updateDirecto
             }
             setUpdateDirectories(!updateDirectories)
         })
+        e.currentTarget.blur()
     };
     return (
         <div className="div-directories-wrapper">
