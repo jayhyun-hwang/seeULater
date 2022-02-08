@@ -9,7 +9,6 @@ const define = {
 };
 //----------------------------------------set mode-----------------------------------------------
 
-// const baseUrl = "http://www.seeulater.site";
 const baseUrl = define.URL // + ':' + define.PORT;
 // Copyright (c) 2011 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
@@ -21,10 +20,6 @@ const baseUrl = define.URL // + ':' + define.PORT;
 function getStoreClickHandler() {
   return function (info, tab) {
 
-    // The srcUrl property is only available for image elements.
-    //var url = 'info.html#' + info.srcUrl;
-    // //object 확인
-    // // alert(JSON.stringify(tab));
     submitPostUrls(tab);
   };
 };
@@ -50,14 +45,31 @@ chrome.commands.onCommand.addListener(function (command, tab) {
 
 function submitPostUrls(tab) {
 
+  let inputTitle
+  let promptTitle = prompt("Enter title (within 100 characters)", tab.title)
+  if (promptTitle) {
+    promptTitle = promptTitle.trim()
+  }
+  // 글자 수 제한 100
+  if (!promptTitle) {
+    inputTitle = tab.title
+  } else {
+    if (promptTitle.length > 100) {
+      alert("Enter the title name within 100 characters.\nPlease try again.")
+      return
+    }
+    inputTitle = promptTitle
+  }
+
   let req = new XMLHttpRequest();
 
-  const title = tab.title;
+  const title = inputTitle;
   const url = tab.url;
   const iconImg = tab.favIconUrl;
 
   req.open("POST", baseUrl + "/urls", true);
   req.setRequestHeader("Content-type", "application/json");
+
   req.timeout = 5000
 
   req.send(JSON.stringify({
@@ -70,7 +82,7 @@ function submitPostUrls(tab) {
     alert("request failed")
     return
   }
-  // access On all sites not allowed
+  // 모든 사이트에서 사용을 허용 안 한 경우
   req.onerror = function () {
     console.log("onerror!!")
     alert("Please change the extension’s site access to [On all sites].")

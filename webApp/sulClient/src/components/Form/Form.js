@@ -2,6 +2,7 @@ import Axios from 'axios';
 import "./Form.css";
 import React, { useState } from "react";
 import define from '../../define/define';
+import defineConstraint from 'src/define/defineConstraint';
 
 const Form = ({ updateUrls, setUpdateUrls, directoryID }) => {
     //Here I can write javascript code and function
@@ -13,6 +14,11 @@ const Form = ({ updateUrls, setUpdateUrls, directoryID }) => {
         setInputUrl(e.target.value);
     };
     const onChangeInputTitle = (e) => {
+        // title 글자 수 제한
+        if (e.target.value.length > defineConstraint.TITLELIMIT) {
+            alert(`Enter the title name within ${defineConstraint.TITLELIMIT} characters.`)
+            return
+        }
         setInputTitle(e.target.value);
     };
     const submitUrlHandler = (e) => {
@@ -28,10 +34,20 @@ const Form = ({ updateUrls, setUpdateUrls, directoryID }) => {
         } else {
             urlVal = inputUrl
         }
+        let postTitle;
+        postTitle = inputTitle.trim()
+        if (!postTitle) {
+            postTitle = urlVal
+        } else {
+            if (postTitle.length > defineConstraint.TITLELIMIT) {
+                alert(`Enter the title name within ${defineConstraint.TITLELIMIT} characters.`)
+                return
+            }
+        }
 
         Axios.post(define.URL + "/urls", {
             url: urlVal,
-            title: inputTitle,
+            title: postTitle,
             directoryID: directoryID
         }).then((response) => {
             if (response.status === 200) {

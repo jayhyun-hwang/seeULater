@@ -30,7 +30,7 @@
         "mac": "MacCtrl+Shift+F"
       }
     },
-    "store_page_DEV": {
+    "store_page": {
       "suggested_key": {
         "default": "Ctrl+Shift+S",
         "mac": "MacCtrl+Shift+S"

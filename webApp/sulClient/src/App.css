@@ -260,3 +260,16 @@ img.main-logo-img {
   width: 100%;
   justify-content: space-between;
 }
+
+/* 스크롤 스타일 적용, 메인(.vsc-initialized) 이하 모든 스크롤에 적용 */
+.vsc-initialized ::-webkit-scrollbar {
+  width: 10px;
+}
+.vsc-initialized ::-webkit-scrollbar-thumb {
+  background: #5d957c;
+  border-radius: 10px;
+}
+.vsc-initialized ::-webkit-scrollbar-track {
+  background: #82b9a1;
+  border-radius: 10px;
+}

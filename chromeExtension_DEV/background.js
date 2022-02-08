@@ -50,9 +50,25 @@ chrome.commands.onCommand.addListener(function (command, tab) {
 
 function submitPostUrls(tab) {
 
+  let inputTitle
+  let promptTitle = prompt("Enter title (within 100 characters)", tab.title)
+  if (promptTitle) {
+    promptTitle = promptTitle.trim()
+  }
+
+  if (!promptTitle) {
+    inputTitle = tab.title
+  } else {
+    if (promptTitle.length > 100) {
+      alert("Enter the title name within 100 characters.\nPlease try again.")
+      return
+    }
+    inputTitle = promptTitle
+  }
+
   let req = new XMLHttpRequest();
 
-  const title = tab.title;
+  const title = inputTitle;
   const url = tab.url;
   const iconImg = tab.favIconUrl;
 

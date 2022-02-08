@@ -2,14 +2,15 @@ import "./Directories.css";
 import Directory from "src/components/Directories/Directory";
 import Axios from 'axios';
 import define from "../../define/define";
+import { FOLDERSLIMIT } from "src/define/defineConstraint";
 const Directories = ({ directoryList, directoryID, setDirectoryID, updateDirectories, setUpdateDirectories, updateUrls, setUpdateUrls
     , setCount, setUrls, urls }) => {
     const directoryCount = directoryList ? directoryList.length : 0
 
     const createFolderHandler = (e) => {
         e.preventDefault();
-        if (directoryCount >= 10) {
-            alert("Cannot create more than 10 folders.")
+        if (directoryCount >= FOLDERSLIMIT) {
+            alert(`Cannot create more than ${FOLDERSLIMIT} folders.`)
             return
         }
         Axios.post(`${define.URL}/directories`, {
