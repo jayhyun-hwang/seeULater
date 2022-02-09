@@ -11,7 +11,6 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
 
     // useRef는 리엑트에서 this를 대체한다. jsx 태그에 ref={}로 참조할 변수를 입력 후, 코드에서 참조한다.
     const inputDirectoryNameRef = useRef(null)
-    const btnEditRef = useRef(null)
 
     useEffect(() => {
         if (isEditingDirectoryName) {
@@ -267,8 +266,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
                     )
                     :
                     (
-                        <button onClick={editDirectoryName} className="directory-edit-btn"
-                            ref={btnEditRef}>
+                        <button onClick={editDirectoryName} className="directory-edit-btn">
                             <i className="fas fa-edit"></i>
                         </button>
                     )
