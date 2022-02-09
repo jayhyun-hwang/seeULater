@@ -182,7 +182,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
             return
         }
 
-        Axios.put(`${define.URL}/urls`, {
+        Axios.put(`${define.URL}/urls/directory`, {
             urlID: dataUrlID,
             directoryID: directory.directory_id,
         }).then((response) => {

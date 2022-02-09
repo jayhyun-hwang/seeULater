@@ -39,7 +39,11 @@ function CommonHeader() {
         window.open("https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp", '_blank');
     }
     const toTopHandler = () => {
-        window.scrollTo(0, 0);
+        window.scrollTo({
+            top: 0,//top: 999999
+            left: 0,
+            behavior: 'smooth'
+        });
     };
     return (
         <div className="common-header-div">

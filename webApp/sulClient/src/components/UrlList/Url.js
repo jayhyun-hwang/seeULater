@@ -43,35 +43,15 @@ const getLocalDateTime = (regdate) => {
     return timeString
 }
 
-function submitPutUrlTitle(inputTitle) {
-
-    const updatedUrlTitle = inputTitle
-    // 이름 같으면 return
-    //wogus
-    if (directoryName === updatedUrlTitle) {
-        setisEditingUrlTitle(false)
-        return
-    }
-    if (window.confirm(`Do you want to change [${directoryName}] to [${updatedDirectoryName}]`) === false) {
-        return
-    }
-    Axios.put(`${define.URL}/directories`, {
-        directoryID: directory.directory_id,
-        directoryName: updatedDirectoryName
+async function submitPutUrlTitle(url_id, newTitle) {
+    return Axios.put(`${define.URL}/urls/title`, {
+        urlID: url_id,
+        urlTitle: newTitle
     }).then((response) => {
-        if (response.status !== 200) {
-            alert("oops, error. status: ", response.status);
-            return
-        }
-        setisEditingUrlTitle(false)
-        seturlTitle(updatedDirectoryName)
+        return response
     }).catch((err) => {
-        if (err) {
-            // console.log(err)
-            alert("oops, error");
-            return
-        }
-    });
+        return err.response
+    })
 }
 
 const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDragging }) => {
@@ -136,18 +116,25 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
         // event.dataTransfer.setData("urlID", url.url_id)
     }
 
-    const inputDirectoryNameClick = e => {
+    const inputUrlTitleClick = e => {
         // 이벤트 전파 막기위해
         e.stopPropagation()
         // event 일 시, this 대신 e.target을 사용하자
         e.target.select()
         // document.querySelector(".input-directory-name").select()
     }
-    const checkeditUrlTitle = (e) => {
+    const checkeditUrlTitle = async (e) => {
         e.preventDefault()
         e.stopPropagation()
         //유효성 검사
         let inputUrlTitle = inputUrlTitleRef.current.value
+        // 이름 같으면 return
+        const oldTitle = urlTitle
+        const newTitle = inputUrlTitle
+        if (oldTitle === newTitle) {
+            setisEditingUrlTitle(false)
+            return
+        }
         if (!inputUrlTitle) {
             alert("Enter the Title.")
             return
@@ -161,7 +148,19 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
             alert(`Enter the title within ${defineConstraint.TITLELIMIT} characters.`)
             return
         }
-        submitPutUrlTitle(inputUrlTitle)
+        if (window.confirm(`Do you want to change this title to [${newTitle}]`) === false) {
+            return
+        }
+        const response = await submitPutUrlTitle(url.url_id, newTitle)
+        switch (response.status) {
+            case 200:
+                break;
+            default:
+                alert(`oops, error: ${response}`)
+                return
+        }
+        seturlTitle(newTitle)
+        setisEditingUrlTitle(false)
     }
     const canceleditUrlTitle = (e) => {
         e.preventDefault()
@@ -178,6 +177,33 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
         }
         setisEditingUrlTitle(true)
     };
+    const inputUrlKeyUp = async (e) => {
+        e.preventDefault()
+        // console.log(e.key)
+        switch (e.key) {
+            case "Escape":
+                canceleditUrlTitle(e)
+                break;
+            case "Enter":
+                const newTitle = inputUrlTitleRef.current.value
+                if (window.confirm(`Do you want to change this title to [${newTitle}]`) === false) {
+                    return
+                }
+                const response = await submitPutUrlTitle(url.url_id, )
+                switch (response.status) {
+                    case 200:
+                        break;
+                    default:
+                        alert(`oops, error: ${response}`)
+                        return
+                }
+                seturlTitle(newTitle)
+                setisEditingUrlTitle(false)
+                break;
+            default:
+                break;
+        }
+    }
 
     return (
         <div className="url" draggable="true" onDragStart={urlDragStart} onDragEnd={urlDragEnd} >
@@ -191,16 +217,31 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
                 {/* <a className={`url_a ${url.completed ? "completed" : ""}`} href={url.url} target="_blank" rel="noreferrer">{url.title ? url.title : url.url} */}
                 {/* <a className={`url_a ${url.completed ? "completed" : ""}`} href={url.url} target="_blank">{url.title ? url.title : url.url} */}
                 <div className="div-url_a-wrapper">
-                    <a className="url_a" href={url.url} target="_blank">{url.title ? url.title : url.url}
-                    </a>
+                    {isEditingUrlTitle
+                        ? (
+                            <input className="input-directory-name input-url-title"
+                                ref={inputUrlTitleRef}
+                                onClick={inputUrlTitleClick}
+                                defaultValue={urlTitle}
+                                onKeyUp={inputUrlKeyUp}
+                            >
+                                {/*onBlur={inputDirectoryNameFocusOut}>*/}
+                            </input>
+                        ) :
+                        (
+                            <a className="url_a" href={url.url} target="_blank">{urlTitle ? urlTitle : url.url}
+                            </a>
+                        )}
+                    {/* <a className="url_a" href={url.url} target="_blank">{url.title ? url.title : url.url}
+                    </a> */}
                     {isEditingUrlTitle
                         ?
                         (
                             <div className="div-directory-check-btn">
-                                <button onClick={checkeditUrlTitle} className="directory-check-btn">
+                                <button onClick={checkeditUrlTitle} className="directory-check-btn input-edit-btn">
                                     <i className="fa fa-check"></i>
                                 </button>
-                                <button onClick={canceleditUrlTitle} className="directory-cancel-btn">
+                                <button onClick={canceleditUrlTitle} className="directory-cancel-btn input-edit-btn">
                                     <i className="fa fa-times"></i>
                                 </button>
                             </div>
@@ -208,7 +249,7 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
                         )
                         :
                         (
-                            <button onClick={editUrlTitle} className="directory-edit-btn">
+                            <button onClick={editUrlTitle} className="directory-edit-btn input-edit-btn">
                                 <i className="fas fa-edit"></i>
                             </button>
                         )

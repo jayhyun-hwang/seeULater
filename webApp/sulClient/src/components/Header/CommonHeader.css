@@ -61,6 +61,10 @@
     position: fixed;
     margin-top: 3vh;
 }
+.btn-toTop:hover {
+    color: orangered;
+    transition: all 0.5s ease;
+}
 
 @media (max-width: 1050px), (max-height: 400px) {
     .btn-toTop {

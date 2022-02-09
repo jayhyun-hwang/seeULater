@@ -69,3 +69,18 @@
 .btn-refresh * {
     vertical-align: text-bottom;
 }
+
+.div-url_a-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.input-edit-btn {
+    color: #949494;
+    margin: 0 0.5vw 0 0.5vw;
+    font-size: 1.3rem;
+}
+.input-url-title {
+    height: 2rem;
+}
