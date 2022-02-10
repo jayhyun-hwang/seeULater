@@ -59,6 +59,22 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
     const [isEditingUrlTitle, setisEditingUrlTitle] = useState(false)
     const inputUrlTitleRef = useRef(null)
 
+    const editUrlTitleReq = async (urlIDReq, newTitleReq) => {
+        const response = await submitPutUrlTitle(urlIDReq, newTitleReq)
+        if (!response) {
+            alert(`oops, error: time out\nPlease try a minute later.`)
+            return
+        }
+        switch (response.status) {
+            case 200:
+                break;
+            default:
+                alert(`oops, error: ${response.status}`)
+                return
+        }
+        seturlTitle(newTitleReq)
+        setisEditingUrlTitle(false)
+    }
     //Events
     const LinkHandler = () => {
         // window.open(url.url, '_blank', 'noopener, noreferrer');
@@ -108,6 +124,10 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
     const urlDragStart = (event) => {
         event.target.style.opacity = '0.4'
         setisDragging(true)
+        // 수정 중인 경우, 취소
+        if (isEditingUrlTitle) {
+            setisEditingUrlTitle(false)
+        }
         event.dataTransfer.setData("urlID", url.url_id)
     }
     const urlDragEnd = (event) => {
@@ -151,23 +171,14 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
         if (window.confirm(`Do you want to change this title to [${newTitle}]`) === false) {
             return
         }
-        const response = await submitPutUrlTitle(url.url_id, newTitle)
-        switch (response.status) {
-            case 200:
-                break;
-            default:
-                alert(`oops, error: ${response}`)
-                return
-        }
-        seturlTitle(newTitle)
-        setisEditingUrlTitle(false)
+        await editUrlTitleReq(url.url_id, newTitle)
     }
     const canceleditUrlTitle = (e) => {
         e.preventDefault()
         e.stopPropagation()
         setisEditingUrlTitle(false)
     }
-    const editUrlTitle = (e) => {
+    const editUrlTitleBtnOnClick = (e) => {
         e.preventDefault()
         e.stopPropagation()
         // 현재 dir를 지정
@@ -185,20 +196,7 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
                 canceleditUrlTitle(e)
                 break;
             case "Enter":
-                const newTitle = inputUrlTitleRef.current.value
-                if (window.confirm(`Do you want to change this title to [${newTitle}]`) === false) {
-                    return
-                }
-                const response = await submitPutUrlTitle(url.url_id, )
-                switch (response.status) {
-                    case 200:
-                        break;
-                    default:
-                        alert(`oops, error: ${response}`)
-                        return
-                }
-                seturlTitle(newTitle)
-                setisEditingUrlTitle(false)
+                await checkeditUrlTitle(e)
                 break;
             default:
                 break;
@@ -249,7 +247,7 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
                         )
                         :
                         (
-                            <button onClick={editUrlTitle} className="directory-edit-btn input-edit-btn">
+                            <button onClick={editUrlTitleBtnOnClick} className="directory-edit-btn input-edit-btn">
                                 <i className="fas fa-edit"></i>
                             </button>
                         )
