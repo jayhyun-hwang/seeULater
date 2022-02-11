@@ -59,22 +59,7 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
     const [isEditingUrlTitle, setisEditingUrlTitle] = useState(false)
     const inputUrlTitleRef = useRef(null)
 
-    const editUrlTitleReq = async (urlIDReq, newTitleReq) => {
-        const response = await submitPutUrlTitle(urlIDReq, newTitleReq)
-        if (!response) {
-            alert(`oops, error: time out\nPlease try a minute later.`)
-            return
-        }
-        switch (response.status) {
-            case 200:
-                break;
-            default:
-                alert(`oops, error: ${response.status}`)
-                return
-        }
-        seturlTitle(newTitleReq)
-        setisEditingUrlTitle(false)
-    }
+
     //Events
     const LinkHandler = () => {
         // window.open(url.url, '_blank', 'noopener, noreferrer');
@@ -172,6 +157,25 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
             return
         }
         await editUrlTitleReq(url.url_id, newTitle)
+    }
+    const editUrlTitleReq = async (urlIDReq, newTitleReq) => {
+        const response = await submitPutUrlTitle(urlIDReq, newTitleReq)
+        if (!response) {
+            alert(`oops, error: time out\nPlease try a minute later.`)
+            return
+        }
+        switch (response.status) {
+            case 200:
+                break;
+            case 410:
+                alert(`This page doesn't exist. It may be deleted.`)
+                return
+            default:
+                alert(`oops, error: ${response.status}`)
+                return
+        }
+        seturlTitle(newTitleReq)
+        setisEditingUrlTitle(false)
     }
     const canceleditUrlTitle = (e) => {
         e.preventDefault()

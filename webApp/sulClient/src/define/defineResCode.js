@@ -4,6 +4,7 @@ module.exports = {
     Unauthorized401: 401,
     Forbidden403: 403,
     NotFound404: 404,
+    Gone410: 410,
     InternalServerError500: 500,
     ServiceTemporarilyUnavailable503: 503,
 }
