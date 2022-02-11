@@ -57,6 +57,8 @@ async function submitPutUrlTitle(url_id, newTitle) {
 const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDragging }) => {
     const [urlTitle, seturlTitle] = useState(url.title)
     const [isEditingUrlTitle, setisEditingUrlTitle] = useState(false)
+    // 삭제되면 프론트에서 컴포넌트 삭제
+    const [isDeleted, setisDeleted] = useState(false)
     const inputUrlTitleRef = useRef(null)
 
 
@@ -169,6 +171,8 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
                 break;
             case 410:
                 alert(`This page doesn't exist. It may be deleted.`)
+                setCount(count - 1)
+                setisDeleted(true)
                 return
             default:
                 alert(`oops, error: ${response.status}`)
@@ -207,7 +211,7 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
         }
     }
 
-    return (
+    return isDeleted ? null : (
         <div className="url" draggable="true" onDragStart={urlDragStart} onDragEnd={urlDragEnd} >
             <div className='url-upper'>
                 <p className="url_a-index">
