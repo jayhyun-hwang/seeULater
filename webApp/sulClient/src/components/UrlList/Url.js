@@ -87,9 +87,10 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
                     alert("oops, error");
                     return
                 }
-                setUrls(urls.filter((val) => {
-                    return val.url_id !== url.url_id
-                }))
+                setisDeleted(true)
+                // setUrls(urls.filter((val) => {
+                //     return val.url_id !== url.url_id
+                // }))
                 setCount(count - 1)
                 alert("delete!");
             })
@@ -211,6 +212,7 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
         }
     }
 
+    // 삭제 된 페이지 일 때, 표시안함
     return isDeleted ? null : (
         <div className="url" draggable="true" onDragStart={urlDragStart} onDragEnd={urlDragEnd} >
             <div className='url-upper'>
