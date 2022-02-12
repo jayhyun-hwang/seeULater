@@ -4,30 +4,27 @@ This Privacy Policy explains the way of treatment of the information which is pr
 
 
 
-1. seeULater chrome extesion
+1. **seeULater chrome extesion**
 
 seeULater chrome extesion accesses current tab's information.
 
 seeULater chrome extension accesses and uses current tab's information: tabs' titles, urls and favIconUrls. This extension sends the information of the current tab to the seeULater website. No information is stored in the app.
 
-2. seeULater web site 
+2. **seeULater web site**
 
 Information to be collected and method of collection
 
 (1) Personal ID and password
-
 seeULater collects users' IDs and passwords to manage user accounts. Passwords are stored encrypted in the database so that no one can identify them.
 seeULater optionally collects emails.
 
 (2) Users' bookmark pages
-
 seeULater collects bookmark pages saved by users. Collected information: sites' URL, title, favIconUrl
 
 (3) Information Sharing Policy
-
 seeULater shares user-saved bookmarks with other users when the information provider user allow sharing.
 
-3. Contact
+3. **Contact**
 
 Please contact seeULater
 
