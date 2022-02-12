@@ -17,10 +17,12 @@ seeULater chrome extension accesses and uses current tab's information: tabs' ti
 **Information to be collected and method of collection**
 
 (1) Personal ID and password
+
 seeULater collects users' IDs and passwords to manage user accounts. Passwords are stored encrypted in the database so that no one can identify them.
 seeULater optionally collects emails.
 
 (2) Users' bookmark pages
+
 seeULater collects bookmark pages saved by users. Collected information: sites' URL, title, favIconUrl.
 
 
@@ -28,6 +30,7 @@ seeULater collects bookmark pages saved by users. Collected information: sites' 
 **Information Sharing Policy**
 
 (1) Sharing collected information
+
 seeULater shares user-saved bookmarks with other users when the information provider user allow sharing.
 
 
