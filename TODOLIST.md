@@ -42,10 +42,10 @@
 - **caching preview information to localstorage**
 - 크롬 확장기능을 통해 저장했을 때, 소켓으로 페이지 새로고침하기. (websocket 사용)
 - 파이어베이스 계정기능
-- 파일 디렉토리기능 구현, div 추가
 - 그룹 만들어 공동관리 가능
 - 간단한 메모 팝업 후 제출, UrlList에서도 메모 조회 가능
 - 메인 페이지, total count 0 일 때, 컨텐츠 만들기
+- ~~파일 디렉토리기능 구현, div 추가~~
 - ~~to top~~, to bottom
 - ~~헤더에 크롬 확장 스토어 페이지 바로가기 만들기~~
 - ~~도메인 주소 구입, https 등록~~
