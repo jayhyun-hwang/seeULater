@@ -6,13 +6,13 @@ This Privacy Policy explains the way of treatment of the information which is pr
 
 1. seeULater chrome extesion
 
-1) seeULater chrome extesion accesses current tab's information.
+seeULater chrome extesion accesses current tab's information.
 
 seeULater chrome extension accesses and uses current tab's information: tabs' titles, urls and favIconUrls. This extension sends the information of the current tab to the seeULater website. No information is stored in the app.
 
 2. seeULater web site 
 
-1) Information to be collected and method of collection
+Information to be collected and method of collection
 
 (1) Personal ID and password
 
