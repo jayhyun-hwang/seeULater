@@ -54,7 +54,7 @@
 }
 
 .div-directory:hover {
-    background-color: #0ac294;
+    background-color: #09b086;
     color: white;
 }
 
@@ -94,7 +94,7 @@
 }
 
 .directory-plus-btn:hover {
-    color: #0ac294;
+    color: #09b086;
 }
 
 .div-directory-plus-btn-wrapper {
@@ -133,7 +133,7 @@
 }
 
 .div-directory-dragEnter {
-    background-color: #0ac294;
+    background-color: #09b086;
     color: white;
 }
 

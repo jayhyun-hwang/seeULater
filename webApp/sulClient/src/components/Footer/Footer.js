@@ -34,6 +34,10 @@ function Footer() {
                 <a className='a-footer' href='https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp' target="_blank">
                     Chrome Web Store
                 </a>
+                <span> · </span>
+                <a className='a-footer' href='https://github.com/jayhyun-hwang/seeULater/blob/main/Privacy_Policy.md' target="_blank">
+                    Privacy Policy
+                </a>
             </div>
         </footer>
     );
