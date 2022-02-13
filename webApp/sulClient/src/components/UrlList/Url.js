@@ -61,6 +61,14 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
     const [isDeleted, setisDeleted] = useState(false)
     const inputUrlTitleRef = useRef(null)
 
+    useEffect(() => {
+        if (isEditingUrlTitle) {
+            // 클래스를 가진 첫 번째 요소가 focus 돼서 취소
+            // document.querySelector(".input-directory-name").focus()
+            inputUrlTitleRef.current.select()
+        }
+    }, [isEditingUrlTitle]);
+
 
     //Events
     const LinkHandler = () => {

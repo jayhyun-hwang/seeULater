@@ -47,6 +47,7 @@ export default function Login({ setToken }) {
                     </h2>
                 </div>
                 <div className='div-help'>
+                    <div className='div-help-paragraph'>
                         <h3 className='h3-help'>
                             📝 Save bookmarks with one click using &nbsp;
                             <a className='a-footer a-help' href='https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp' target="_blank">
@@ -64,6 +65,7 @@ export default function Login({ setToken }) {
                         <div className='div-img-help-wrapper'>
                             <img className="img-help" src={seeulater_write} alt="seeULater_write" />
                         </div>
+                    </div>
                     <div className='div-help-paragraph'>
                         <h3 className='h3-help'>
                             📁 Create folders and move bookmarks.

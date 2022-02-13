@@ -70,6 +70,7 @@
 
 # minor
 - directories 리팩토링.
+- ~~url titles도 수정 시 셀렉트~~
 - ~~버튼 생동감있게~~
 - ~~commonHeader에서 글자들 span으로 바꾸기, @media max width 설정해서 display: none; 로 하기~~
 - ~~urlList에서 Total 옆 끝에 refresh icon button 만들기(새로고침)~~
