@@ -35,7 +35,11 @@ const Form = ({ updateUrls, setUpdateUrls, directoryID }) => {
             urlVal = inputUrl
         }
         let postTitle;
-        postTitle = inputTitle.trim()
+        if (inputTitle) {
+            postTitle = inputTitle.trim()
+        } else {
+            postTitle = inputTitle
+        }
         if (!postTitle) {
             postTitle = urlVal
         } else {
