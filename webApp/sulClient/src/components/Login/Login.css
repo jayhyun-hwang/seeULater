@@ -89,7 +89,7 @@ form button {
     color: #005963;
 }
 .div-help-title {
-    margin-bottom: 5vh;
+    margin-bottom: 4vh;
 }
 .button-regist {
     display: flex;
@@ -148,4 +148,8 @@ form button {
 }
 .a-help:hover {
     color: #ffffff !important;
+}
+.div-help-paragraph {
+    border-top: solid #ffffff80 2px;
+    padding-top: 2vh;
 }

@@ -4,7 +4,9 @@ import "./Login.css";
 import define from "../../define/define"
 import Axios from "axios";
 import { Link } from 'react-router-dom';
-import seeulater_save from './../img/seeulater_demo_220207.gif'
+import seeulater_save from './../img/seeulater_demo_220214.gif'
+import seeulater_write from './../img/seeulater_demo_write_220214.gif'
+import seeulater_folder from './../img/seeulater_demo_folder_220214.gif'
 
 async function smsLoginUser(loginInfo) {
     return Axios.post(define.URL + "/login", {
@@ -44,21 +46,31 @@ export default function Login({ setToken }) {
                         Easy and convenient bookmark manager
                     </h2>
                 </div>
-                <div className='div-help-1st'>
-                    <h3 className='h3-help'>
-                        📝 Save bookmarks with one click using &nbsp;
-                        <a className='a-footer a-help' href='https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp' target="_blank">
-                            Chrome extension
-                        </a>
-                    </h3>
-                    <div className='div-img-help-wrapper'>
-                        <img className="img-help" src={seeulater_save} alt="seeULater_save" />
-                    </div>
-                    <h3 className='h3-help'>
-                        You can also add the bookmark directly from seeULater website.
-                    </h3>
-                    <div className='div-img-help-wrapper'>
-                        <img className="img-help" src={seeulater_save} alt="seeULater_save" />
+                <div className='div-help'>
+                        <h3 className='h3-help'>
+                            📝 Save bookmarks with one click using &nbsp;
+                            <a className='a-footer a-help' href='https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp' target="_blank">
+                                Chrome extension.
+                            </a>
+                            <br></br>
+                            (Ctrl + Shift + S)
+                        </h3>
+                        <div className='div-img-help-wrapper'>
+                            <img className="img-help" src={seeulater_save} alt="seeULater_save" />
+                        </div>
+                        <h4 className='h3-help'>
+                            You can also add a bookmark directly from seeULater website.
+                        </h4 >
+                        <div className='div-img-help-wrapper'>
+                            <img className="img-help" src={seeulater_write} alt="seeULater_write" />
+                        </div>
+                    <div className='div-help-paragraph'>
+                        <h3 className='h3-help'>
+                            📁 Create folders and move bookmarks.
+                        </h3>
+                        <div className='div-img-help-wrapper'>
+                            <img className="img-help" src={seeulater_folder} alt="seeULater_folder" />
+                        </div>
                     </div>
                 </div>
             </div>
