@@ -33,7 +33,7 @@ export default function Login2({ setToken }) {
         }
     }
     return (
-        <div className="login-wrapper">
+        <div className="register-wrapper">
             <h1>Log In 2222</h1>
             <form className="login-form" onSubmit={onSubmitLogin}>
                 <label>

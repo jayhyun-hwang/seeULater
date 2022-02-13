@@ -2,6 +2,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 10vh 0 15vh 0;
+}
+.register-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 10%;
 }
 
@@ -71,4 +77,74 @@ form button {
 #ID-Exclamation{
     font-size: 1rem;
     margin-left: 0.5rem;
+}
+.div-whole-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 3rem;
+}
+.h1-login-title {
+    font-size: 3rem;
+    color: #005963;
+}
+.div-help-title {
+    margin-bottom: 5vh;
+}
+.button-regist {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10%;
+    color: #00d6c0;
+    background: #f7fffe;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-items: center;
+}
+.button-main-regist {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: #ffffff;
+    background: #005963;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-items: center;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+}
+.button-main-regist:hover {
+    color: #ffffff;
+    background-color: #00aabd;
+}
+.h3-register-desc {
+    margin-top: 1vh;
+    margin-bottom: 5vh;
+    color: #005963;
+}
+.div-help-wrapper {
+    width: 50%;
+    padding: 2rem;
+    /* max-height: 100vh;
+    overflow-y: scroll; */
+}
+.img-help {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+.div-img-help-wrapper {
+    text-align: center;
+}
+.h3-help {
+    color: #005963;
+}
+.a-help {
+    color: #005963 !important;
+}
+.a-help:hover {
+    color: #ffffff !important;
 }

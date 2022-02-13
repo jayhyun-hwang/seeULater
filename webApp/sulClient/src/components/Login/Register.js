@@ -105,7 +105,7 @@ export default function Register() {
         }
     }
     return (
-        <div className="login-wrapper">
+        <div className="register-wrapper">
             <h1>Register User</h1>
             <form className="login-form" onSubmit={handlerSubmit}>
                 <label>
