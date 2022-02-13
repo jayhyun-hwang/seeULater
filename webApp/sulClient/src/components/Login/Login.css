@@ -127,7 +127,7 @@ form button {
     color: #005963;
 }
 .div-help-wrapper {
-    width: 50%;
+    width: 45%;
     padding: 2rem;
     /* max-height: 100vh;
     overflow-y: scroll; */
@@ -135,6 +135,7 @@ form button {
 .img-help {
     margin-top: 1rem;
     margin-bottom: 2rem;
+    width: 100%;
 }
 .div-img-help-wrapper {
     text-align: center;

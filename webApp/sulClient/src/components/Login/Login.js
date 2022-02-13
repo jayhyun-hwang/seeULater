@@ -52,13 +52,13 @@ export default function Login({ setToken }) {
                         </a>
                     </h3>
                     <div className='div-img-help-wrapper'>
-                        <img className="img-help" src={seeulater_save} alt="seeULater_save" width={"90%"} />
+                        <img className="img-help" src={seeulater_save} alt="seeULater_save" />
                     </div>
                     <h3 className='h3-help'>
                         You can also add the bookmark directly from seeULater website.
                     </h3>
                     <div className='div-img-help-wrapper'>
-                        <img className="img-help" src={seeulater_save} alt="seeULater_save" width={"90%"} />
+                        <img className="img-help" src={seeulater_save} alt="seeULater_save" />
                     </div>
                 </div>
             </div>
