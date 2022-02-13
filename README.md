@@ -19,6 +19,7 @@ Inspired by the lack of good book mark manager with having remote stores, now we
 * View your favorites
 * Delete contents in your list
 * Create folders, and add contents to folder
+![seeulater_demo_folder.gif](https://github.com/jayhyun-hwang/seeULater/blob/main/seeulater_demo_folder_220214.gif)
 
 ### Todo
 
