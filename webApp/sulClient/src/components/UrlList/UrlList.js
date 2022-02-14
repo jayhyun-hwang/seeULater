@@ -43,6 +43,7 @@ const UrlList = ({ count, setCount, page, setPage, filteredUrls, setUrls, urls, 
     const [rotateRefresh, setrotateRefresh] = useState(false);
     const refreshOnClick = (e) => {
         // e.preventDefault()
+        e.currentTarget.blur()
         setUpdateUrls(val => !val)
         setUpdateDirectories(val => !val)
         // 스타일을 통해 새로고침 rotate 애니메이션

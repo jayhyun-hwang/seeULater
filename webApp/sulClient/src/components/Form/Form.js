@@ -23,6 +23,7 @@ const Form = ({ updateUrls, setUpdateUrls, directoryID }) => {
     };
     const submitUrlHandler = (e) => {
         e.preventDefault();
+        e.currentTarget.blur()
         if (!inputUrl || !inputUrl.match(/\./g) || inputUrl.match(/\./g).length < 1) {
             alert("Invalid URL.");
             return;

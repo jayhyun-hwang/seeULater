@@ -6,7 +6,6 @@ import MainHeader from "src/components/Main/MainHeader";
 import Directories from "src/components/Directories/Directories";
 import Form from "../Form/Form";
 import UrlList from "../UrlList/UrlList";
-import seeulater_demo from '../img/seeulater_demo.gif';
 import './Main.css'
 
 // const define = require("../../define/define");
@@ -34,9 +33,10 @@ function Main() {
   const [cookies, setCookie, removeCookie] = useCookies(['token'])
 
   //RUN ONCE when the app start 
-  // useEffect(() => {
-  //   getUrls();
-  // }, []); // , [] 컴포넌트가 마운트 될 때(렌더링) 한번 실행한다. 
+  //[] 컴포넌트가 마운트 될 때(렌더링) 한번 실행한다. 
+  useEffect(() => {
+  
+  }, [])
   //USE EFFECT
   //핸들러가 실행될 때 마다 실행하는 함수.
   useEffect(() => {

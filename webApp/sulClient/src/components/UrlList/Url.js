@@ -83,6 +83,8 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
     const deleteHandler = (e) => {
         // console.log("url= " + url.url);
         // console.log("url.urlID= " + url.url_id);
+        e.preventDefault()
+        e.currentTarget.blur()
         if (window.confirm(`Are you sure you want to delete this bookmark?`) === false) {
             return
         }
@@ -142,6 +144,7 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
     const checkeditUrlTitle = async (e) => {
         e.preventDefault()
         e.stopPropagation()
+        e.currentTarget.blur()
         //유효성 검사
         let inputUrlTitle = inputUrlTitleRef.current.value
         // 이름 같으면 return
@@ -193,10 +196,12 @@ const Url = ({ index, url, setUrls, urls, count, setCount, seturlChecks, setisDr
     const canceleditUrlTitle = (e) => {
         e.preventDefault()
         e.stopPropagation()
+        e.currentTarget.blur()
         setisEditingUrlTitle(false)
     }
     const editUrlTitleBtnOnClick = (e) => {
         e.preventDefault()
+        e.currentTarget.blur()
         e.stopPropagation()
         // 현재 dir를 지정
         // setdirectoryName(directory.name)

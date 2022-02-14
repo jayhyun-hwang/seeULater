@@ -96,6 +96,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         e.preventDefault()
         // 부모의 이벤트 실행을 막아준다.
         e.stopPropagation()
+        e.currentTarget.blur()
         const directoryID = directory.directory_id
         if (directory.directory_after === 0) {
             alert("Default folders cannot be deleted.")
@@ -137,16 +138,19 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
     const cancelEditDirectoryName = (e) => {
         e.preventDefault()
         e.stopPropagation()
+        e.currentTarget.blur()
         setisEditingDirectoryName(false)
     }
     const checkEditDirectoryName = (e) => {
         e.preventDefault()
         e.stopPropagation()
+        e.currentTarget.blur()
         submitPutDirectoryName()
     }
     const editDirectoryName = (e) => {
         e.preventDefault()
         e.stopPropagation()
+        e.currentTarget.blur()
         // 현재 dir를 지정
         // setdirectoryName(directory.name)
         if (isEditingDirectoryName) {

@@ -9,6 +9,7 @@ const Directories = ({ directoryList, directoryID, setDirectoryID, updateDirecto
 
     const createFolderHandler = (e) => {
         e.preventDefault();
+        e.currentTarget.blur()
         if (directoryCount >= FOLDERSLIMIT) {
             alert(`Cannot create more than ${FOLDERSLIMIT} folders.`)
             return
@@ -22,7 +23,6 @@ const Directories = ({ directoryList, directoryID, setDirectoryID, updateDirecto
             }
             setUpdateDirectories(!updateDirectories)
         })
-        e.currentTarget.blur()
     };
     return (
         <div className="div-directories-wrapper">
