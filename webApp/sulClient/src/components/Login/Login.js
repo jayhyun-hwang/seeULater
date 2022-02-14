@@ -51,7 +51,7 @@ export default function Login({ setToken }) {
                         Easy and convenient bookmark manager
                     </h2>
                     <h2>
-                        You can save and access your favorite pages everywhere
+                        Save and access your favorite pages from everywhere
                     </h2>
                 </div>
                 <div className='div-help'>
@@ -67,6 +67,19 @@ export default function Login({ setToken }) {
                         <div className='div-img-help-wrapper'>
                             <img className="img-help" src={seeulater_save} alt="seeULater_save" />
                         </div>
+                        <h4 className='h3-help'>
+                            1. Install seeULater extension in&nbsp;
+                            <a className='a-footer a-help' href='https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp' target="_blank">
+                            Chrome Web Store.
+                            </a>
+                        </h4 >
+                        <h4 className='h3-help'>
+                            2. Register your seeULater account and login.
+                        </h4 >
+                        <h4 className='h3-help'>
+                            3. Save your favorite pages by pressing [Ctrl+Shift+S] or opening the context menu.
+                        </h4 >
+                        <br></br>
                         <h4 className='h3-help'>
                             You can also add a bookmark directly from seeULater website.
                         </h4 >
