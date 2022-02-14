@@ -4,6 +4,7 @@ import "./Login.css";
 import define from "../../define/define"
 import Axios from "axios";
 import { Link } from 'react-router-dom';
+import LogoAlligator from '../img/alligator.png';
 import seeulater_save from './../img/seeulater_demo_220214.gif'
 import seeulater_write from './../img/seeulater_demo_write_220214.gif'
 import seeulater_folder from './../img/seeulater_demo_folder_220214.gif'
@@ -41,9 +42,16 @@ export default function Login({ setToken }) {
                 <div className='div-help-title'>
                     <h1 className='h1-login-title'>
                         seeULater
+                    <img className="login-logo-img" src={LogoAlligator} alt="seeULater" />
                     </h1>
                     <h2>
+                        See URLs Later!
+                    </h2>
+                    <h2>
                         Easy and convenient bookmark manager
+                    </h2>
+                    <h2>
+                        You can save and access your favorite pages everywhere
                     </h2>
                 </div>
                 <div className='div-help'>

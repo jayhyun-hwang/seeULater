@@ -153,3 +153,7 @@ form button {
     border-top: solid #ffffff80 2px;
     padding-top: 2vh;
 }
+img.login-logo-img {
+    height: 3rem;
+    margin-left: 0.5rem;
+}
