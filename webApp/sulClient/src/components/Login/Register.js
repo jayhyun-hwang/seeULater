@@ -97,11 +97,11 @@ export default function Register() {
 
         //show result alert
         //go to main
-        if (IDValid) {
-            alert(res.data);
-        }
         if (res.status === 200) {
+            alert(`Register Success!\nPlease log in with the ID: ${userUniqueID}`)
             window.location.replace("/");
+        } else {
+            alert(`Sorry, Please try a minute later.`)
         }
     }
     return (
