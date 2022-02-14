@@ -20,8 +20,8 @@ body {
   background-color: #aecdc4;
   color: #ffffff;
   font-family: "Poppins", sans-serif;
-  min-height: 100vh;
-  /* min-width: 60vh; */
+  min-height: 800px;
+  min-width: 1300px;
   max-width: 225vh;
 }
 

@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10vh 0 15vh 0;
+    margin-top: 2rem;
+    border-left: solid #ffffff80 2px;
+    padding: 2rem;
 }
 .register-wrapper {
     display: flex;
