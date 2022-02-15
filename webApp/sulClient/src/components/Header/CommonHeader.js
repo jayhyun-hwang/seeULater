@@ -74,7 +74,7 @@ function CommonHeader() {
                 </div>
                 <div className='div-userName'>
                     <span className='span-commonHeader-title'>
-                        👋Hello, {userName}&nbsp;
+                        👋 Hello, {userName}&nbsp;
                     </span>
                 </div>
                 <div className='div-header-menu'>
