@@ -5,6 +5,7 @@ import define from "../../define/define"
 import Logout from '../img/logout.png';
 import chrome_web_store from '../img/chrome_web_store-32.png';
 import "./CommonHeader.css";
+import { useEffect, useState } from 'react';
 
 
 // npm run start:dev로 실행 시 process.env.REACT_APP_MODE = dev
@@ -18,9 +19,26 @@ async function smsLogout() {
             return error.response;
         })
 }
+async function getUserInfo() {
+    return Axios.get(define.URL + "/user")
+        .then((response) => {
+            return response;
+        }).catch((error) => {
+            return error.response;
+        })
+}
 function CommonHeader() {
     const [cookies, setCookie, removeCookie] = useCookies(['token'])
+    const [userName, setuserName] = useState("")
 
+    useEffect(async () => {
+        const result = await getUserInfo()
+        if (result.status !== 200) {
+        } else {
+            setuserName(result.data[0].name)
+        }
+    }, [])
+    
     const handlerClick = () => {
         window.location.href = "/";
     }
@@ -56,7 +74,7 @@ function CommonHeader() {
                 </div>
                 <div className='div-userName'>
                     <span className='span-commonHeader-title'>
-                        👋🖐🤚✋ jayhyun&nbsp;
+                        👋Hello, {userName}&nbsp;
                     </span>
                 </div>
                 <div className='div-header-menu'>
