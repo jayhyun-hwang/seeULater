@@ -54,6 +54,11 @@ function CommonHeader() {
                     </span>
                     <img id="home-img" src={LogoAlligator} alt="seeULater" />
                 </div>
+                <div className='div-userName'>
+                    <span className='span-commonHeader-title'>
+                        👋🖐🤚✋ jayhyun&nbsp;
+                    </span>
+                </div>
                 <div className='div-header-menu'>
                     <div id="div-extension" onClick={extensionClick}>
                         <span className='span-commonHeader-title'>

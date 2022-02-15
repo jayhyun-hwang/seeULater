@@ -5,6 +5,7 @@
     align-items: flex-start;
     min-height: 0;
     width: 100%;
+    margin: 0 !important;
 }
 
 .common-header div {
@@ -50,6 +51,11 @@
 }
 .div-header-menu{
     cursor: default;
+    justify-content: right;
+}
+.div-userName {
+    cursor: default;
+    justify-content: center;
 }
 .btn-toTop {
     background: none;
@@ -73,4 +79,7 @@
     .span-commonHeader-title {
         display: none;
     }
+}
+.common-header > div {
+    width: 30%;
 }

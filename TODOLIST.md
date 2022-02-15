@@ -5,9 +5,9 @@
 # Major(step)
 - Main 로드 시, userInfo, version 받아오기(global로 설정)
 - first 페이지 매뉴얼로 꾸미기: preRouter 수정
-- edit titles
 - 로드마스크 구현
 - 폴더 이름 중복 불가: 이름 중복 시, (1)
+- ~~edit titles~~
 - ~~폴더 리모컨 div로 래핑해서 middle로~~
 - ~~테마 색 수정~~
 - ~~폴더 개수 10개 제한~~
