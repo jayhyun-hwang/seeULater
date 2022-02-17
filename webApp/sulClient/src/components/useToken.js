@@ -18,7 +18,14 @@ export default function useToken() {
 
         let expires = new Date();
         expires.setTime(expires.getTime() + userToken.expire);
-        setCookie('token', userToken.token, { path: '/', expires })
+        setCookie('token', userToken.token, {
+            path: '/', 
+            expires: expires,
+            // secure: true,
+            // httpOnly: true,
+            // sameSite?: boolean | 'none' | 'lax' | 'strict';
+            // encode?: (value: string) => string;
+        })
         setToken(userToken.token);
     };
 
