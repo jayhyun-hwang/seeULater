@@ -1,15 +1,32 @@
 import define from '../../define/define'
 import "./Footer.css";
+import Axios from "axios";
+import { useEffect, useState } from 'react';
 
 
 // npm run start:dev로 실행 시 process.env.REACT_APP_MODE = dev
 const argMode = process.env.REACT_APP_MODE;
-
+async function getVersion() {
+    return Axios.get(define.URL + "/server/version")
+        .then((response) => {
+            return response;
+        }).catch((error) => {
+            return error.response;
+        })
+}
 function Footer() {
+    const [version, setversion] = useState("")
+    useEffect(async () => {
+        const result = await getVersion()
+        if (result.status !== 200) {
+        } else {
+            setversion(result.data)
+        }
+    }, [])
     return (
         <footer className="footer-common-footer">
             <div className='div-footer'>
-                seeULater {define.VERSION} Created by&nbsp;
+                seeULater {version} Created by&nbsp;
                 <a className='a-footer' href='https://www.linkedin.com/in/jaehyun-hwang-344522201/' target="_blank">
                     Jayhyun-Hwang
                 </a>

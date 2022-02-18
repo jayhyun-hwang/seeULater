@@ -20,7 +20,7 @@ async function smsLogout() {
         })
 }
 async function getUserInfo() {
-    return Axios.get(define.URL + "/user")
+    return Axios.get(define.URL + "/user/name")
         .then((response) => {
             return response;
         }).catch((error) => {

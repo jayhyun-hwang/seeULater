@@ -22,7 +22,7 @@ body {
   font-family: "Poppins", sans-serif;
   min-height: 800px;
   min-width: 1300px;
-  max-width: 225vh;
+  /* max-width: 225vh; */
 }
 
 header, form {
@@ -68,13 +68,19 @@ form button:hover {
 }
 
 .url-list {
-  /* width: 100%; */
   width: 900px;
-  /* max-width: 900px; */
-  /* min-width: 470px; */
   list-style: none;
   margin-bottom: 10vh;
   word-break: break-all;
+}
+@media (max-width: 940px), (max-height: 400px) {
+  .url-list {
+    width: 100%;
+    max-width: 900px;
+    min-width: 470px;
+    /* display: block; */
+    min-height: 82vh;
+  }
 }
 
 .url-upper {
