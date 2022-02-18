@@ -5,7 +5,7 @@ import define from "../../define/define"
 import Axios from "axios";
 import { Link } from 'react-router-dom';
 import LogoAlligator from '../img/alligator.png';
-import seeulater_save from './../img/seeulater_demo_220214.gif'
+import seeulater_save from './../img/seeulater_demo_220219.gif'
 import seeulater_write from './../img/seeulater_demo_write_220214.gif'
 import seeulater_folder from './../img/seeulater_demo_folder_220214.gif'
 
