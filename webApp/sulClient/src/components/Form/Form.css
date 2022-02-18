@@ -1,8 +1,9 @@
 .inputForm {
     min-height: 80px;
-    width: 100%;
-    max-width: 913px;
-    min-width: 480px;
+    /* width: 100%; */
+    width: 900px;
+    /* max-width: 913px; */
+    /* min-width: 480px; */
     margin-left: 0px;
     padding: 0 1vh 0 1vh;
     /* display: flex;

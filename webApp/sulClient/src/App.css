@@ -68,9 +68,10 @@ form button:hover {
 }
 
 .url-list {
-  width: 100%;
-  max-width: 900px;
-  min-width: 470px;
+  /* width: 100%; */
+  width: 900px;
+  /* max-width: 900px; */
+  /* min-width: 470px; */
   list-style: none;
   margin-bottom: 10vh;
   word-break: break-all;
