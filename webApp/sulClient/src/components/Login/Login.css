@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
+    margin-bottom: 2rem;
     border-left: solid #ffffff80 2px;
     padding: 2rem;
 }
@@ -129,7 +130,7 @@ form button {
     color: #005963;
 }
 .div-help-wrapper {
-    width: 45%;
+    width: 50%;
     padding: 2rem;
     /* max-height: 100vh;
     overflow-y: scroll; */
