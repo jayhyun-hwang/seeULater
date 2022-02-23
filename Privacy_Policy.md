@@ -31,7 +31,7 @@ seeULater collects bookmark pages saved by users. Collected information: sites' 
 
 (1) Sharing collected information
 
-seeULater shares user-saved bookmarks with other users when the information provider user allow sharing.
+seeULater shares user-saved bookmarks with other users when the information provider user allows sharing.
 
 
 
