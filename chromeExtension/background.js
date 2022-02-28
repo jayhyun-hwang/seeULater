@@ -57,7 +57,11 @@ chrome.commands.onCommand.addListener(function (command, tab) {
 function submitPostUrls(tab) {
 
   let inputTitle
-  let promptTitle = prompt("Enter title (within 100 characters)", tab.title)
+  let tabTitle = ""
+  if (tab.title) {
+    tabTitle = tab.title.substring(0,100)
+  }
+  let promptTitle = prompt("Enter title (within 100 characters)", tabTitle)
   if (promptTitle) {
     promptTitle = promptTitle.trim()
   }
