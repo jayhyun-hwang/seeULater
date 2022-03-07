@@ -40,7 +40,17 @@ passwd –d root
       })
     );
   ```
+  
 - letsencrypt 자동갱신 crontab으로 등록
+  
+  - 포트 redirect 해제
+  
+    ```shell
+    sudo iptables -D PREROUTING -t nat -i -p tcp --dport 80 -j REDIRECT --to-port 3001
+    ```
+  
+    
+  
   ```shell
   sudo crontab -l
   sudo crontab -e
@@ -50,10 +60,12 @@ passwd –d root
   sudo crontab -l
   view /var/log/syslog
   ```
+  
 - git ignore가 안먹을 때
   ```shell
   git rm -r --cached .
   ```
+  
 - 새 로컬 환경에서 git auth 얻기, 저장
 ```bash
 git config --global user.name "{username}"
