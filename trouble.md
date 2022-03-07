@@ -47,6 +47,7 @@ passwd –d root
   
     ```shell
     sudo iptables -D PREROUTING -t nat -i -p tcp --dport 80 -j REDIRECT --to-port 3001
+
     ```
   
     
@@ -59,6 +60,10 @@ passwd –d root
   :wq
   sudo crontab -l
   view /var/log/syslog
+
+  # 수동으로 갱신
+  certbot certonly --standalone
+  # 도메인 www.seeulater.site 입력
   ```
   
 - git ignore가 안먹을 때
