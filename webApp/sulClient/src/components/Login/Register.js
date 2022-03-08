@@ -64,9 +64,10 @@ export default function Register() {
         }
         const isValid = await smsCheckDuplicateID(userUniqueID);
         setIDValid(isValid);
-        if (!isValid) {
+        if (isValid === false) {
             alert("This ID already exists. Please use another ID.");
         }
+        return isValid
     }
     const onClickCheckDuplicateID = async (e) => {
         e.preventDefault();
@@ -76,7 +77,10 @@ export default function Register() {
     const handlerSubmit = async (e) => {
         e.preventDefault();
         // check id
-        checkIDValidBtn()
+        const idvalid = await checkIDValidBtn()
+        if (idvalid === false) {
+            return
+        }
 
         // check password
         // check length
