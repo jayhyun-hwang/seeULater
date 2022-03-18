@@ -183,6 +183,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         const dataUrlID = e.dataTransfer.getData("urlID")
         // dir끼리 drop할 때, return
         if (!dataUrlID) {
+            setisDragEnter(false)
             return
         }
 
