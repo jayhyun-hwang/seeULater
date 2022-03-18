@@ -175,14 +175,14 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         // 현재 dir 일 때
         // alert(typeof directory.directory_id, directory.directory_id)
         // alert(typeof selectedID, selectedID)
-        if (directory.directory_id === Number(selectedID)) {
-            alert("Same folder.")
-            setisDragEnter(false)
-            return
-        }
         const dataUrlID = e.dataTransfer.getData("urlID")
         // dir끼리 drop할 때, return
         if (!dataUrlID) {
+            setisDragEnter(false)
+            return
+        }
+        if (directory.directory_id === Number(selectedID)) {
+            alert("Same folder.")
             setisDragEnter(false)
             return
         }

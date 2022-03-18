@@ -3,7 +3,6 @@
 - ~~directory 컬럼 directory_id로 바꾸기(directory가 keyword이기 때문)~~
  - ~~https://dev.mysql.com/doc/refman/8.0/en/keywords.html 에서 확인해보고 이름 정할 것~~
 # Major(step)
-- Main 로드 시, userInfo, version 받아오기(global로 설정)
 - first 페이지 매뉴얼로 꾸미기: preRouter 수정
 - 로드마스크 구현
 - 폴더 이름 중복 불가: 이름 중복 시, (1)
@@ -22,6 +21,7 @@
   - 가이드 gif 넣기
 - 로그인 없이 조회 가능하게 만들기(public folders)
 - 404페이지 만들기
+- ~~Main 로드 시, userInfo, version 받아오기(global로 설정)~~
 - ~~directories 테이블의 idx 컬럼 directory_after로 변경, 리스트 형태로 index 구성하기.(끼워넣기 용이)~~
 - ~~크롬 확장프로그램 권한 없을 시, 모든 사이트 권한 허용 권장 알림 띄우기~~
 - ~~certbot 자동갱신 예약~~
