@@ -110,7 +110,7 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
             switch (response.status) {
                 case 200:
                     setUpdateDirectories(!updateDirectories)
-                    if (directoryID == selectedID){
+                    if (directoryID == selectedID) {
                         setUpdateUrls(val => !val)
                     }
                     alert(`delete!`)
@@ -224,63 +224,69 @@ const Directory = ({ index, selectedID, directory, setDirectoryID, updateDirecto
         return
     }
     return (
-        <div className={
-            `${directory.directory_id == selectedID
-                ? "div-directory-selected" : ""} ${isDragEnter ? "div-directory-dragEnter" : ""} div-directory`
-        }
-            onClick={selectDirectoryID}
-            onDragOver={allowUrlDragDrop}
-            onDrop={urlDrop}
-            onDragEnter={urlDragEnter}
-            onDragLeave={urlDragLeave}
-        >
-            <div className="div-directory-name">
-                {isEditingDirectoryName
-                    ? (
-                        <input className="input-directory-name"
-                            ref={inputDirectoryNameRef}
-                            onClick={inputDirectoryNameClick}
-                            defaultValue={directoryName}
-                            onKeyUp={inputDirectoryKeyUp}
-                        >
-                            {/*onBlur={inputDirectoryNameFocusOut}>*/}
-                        </input>
-                    ) :
-                    (
-                        <p className="p-directory-name">
-                            {directoryName}
-                        </p>
-                    )}
-                {/* <p className="p-directory-name">
+        <div className="div-directory-wrapper">
+            <span className={`span-directory-index ${directory.directory_id == selectedID
+                ? "span-directory-index-selected" : ""}`}>
+                {index + 1}
+            </span>
+            <div className={
+                `${directory.directory_id == selectedID
+                    ? "div-directory-selected" : ""} ${isDragEnter ? "div-directory-dragEnter" : ""} div-directory`
+            }
+                onClick={selectDirectoryID}
+                onDragOver={allowUrlDragDrop}
+                onDrop={urlDrop}
+                onDragEnter={urlDragEnter}
+                onDragLeave={urlDragLeave}
+            >
+                <div className="div-directory-name">
+                    {isEditingDirectoryName
+                        ? (
+                            <input className="input-directory-name"
+                                ref={inputDirectoryNameRef}
+                                onClick={inputDirectoryNameClick}
+                                defaultValue={directoryName}
+                                onKeyUp={inputDirectoryKeyUp}
+                            >
+                                {/*onBlur={inputDirectoryNameFocusOut}>*/}
+                            </input>
+                        ) :
+                        (
+                            <p className="p-directory-name">
+                                {directoryName}
+                            </p>
+                        )}
+                    {/* <p className="p-directory-name">
                     {directory.name}
                 </p> */}
-            </div>
-            <div className="div-directory-edit-btn-wrapper">
-                {isEditingDirectoryName
-                    ?
-                    (
-                        <div className="div-directory-check-btn">
-                            <button onClick={checkEditDirectoryName} className="directory-check-btn">
-                                <i className="fa fa-check"></i>
+                </div>
+                <div className="div-directory-edit-btn-wrapper">
+                    {isEditingDirectoryName
+                        ?
+                        (
+                            <div className="div-directory-check-btn">
+                                <button onClick={checkEditDirectoryName} className="directory-check-btn">
+                                    <i className="fa fa-check"></i>
+                                </button>
+                                <button onClick={cancelEditDirectoryName} className="directory-cancel-btn">
+                                    <i className="fa fa-times"></i>
+                                </button>
+                            </div>
+                            // null
+                        )
+                        :
+                        (
+                            <button onClick={editDirectoryName} className="directory-edit-btn">
+                                <i className="fas fa-edit"></i>
                             </button>
-                            <button onClick={cancelEditDirectoryName} className="directory-cancel-btn">
-                                <i className="fa fa-times"></i>
-                            </button>
-                        </div>
-                        // null
-                    )
-                    :
-                    (
-                        <button onClick={editDirectoryName} className="directory-edit-btn">
-                            <i className="fas fa-edit"></i>
-                        </button>
-                    )
-                }
-                <button onClick={deleteDirectory} className="directory-delete-btn directory-edit-btn">
-                    <i className="fas fa-trash"></i>
-                </button>
-            </div>
-        </div >
+                        )
+                    }
+                    <button onClick={deleteDirectory} className="directory-delete-btn directory-edit-btn">
+                        <i className="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div >
+        </div>
     );
 };
 

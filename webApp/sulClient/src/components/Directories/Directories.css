@@ -6,6 +6,7 @@
     justify-content: center;
     top: 12%;
 }
+
 .div-directories {
     background-color: #aecdc4;
     border-radius: 10px;
@@ -27,6 +28,24 @@
 
 .p-directoryCount {
     color: #ffffff;
+    font-weight: bold;
+}
+
+.div-directory-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.span-directory-index {
+    color: #ffffff;
+    width: 2.5rem;
+    text-align: center;
+}
+
+.span-directory-index-selected {
+    color: #005963;
     font-weight: bold;
 }
 
@@ -114,6 +133,7 @@
     color: orangered !important;
     /* color: #005963; */
 }
+
 .directory-cancel-btn {
     background: none;
     color: orangered !important;
@@ -164,6 +184,7 @@
 .div-directory-edit-btn-wrapper {
     display: flex;
 }
+
 .div-directory-check-btn {
     display: flex;
 }
