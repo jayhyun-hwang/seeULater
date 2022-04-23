@@ -60,7 +60,7 @@ export default function Register() {
         }
         if (!userUniqueID || userUniqueID.length < 4) {
             alert("Please enter more than 4 characters.");
-            return;
+            return false;
         }
         const isValid = await smsCheckDuplicateID(userUniqueID);
         setIDValid(isValid);
