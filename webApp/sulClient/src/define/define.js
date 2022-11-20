@@ -7,7 +7,7 @@ function getUrl() {
   if (argMode === "dev") {
     baseurl = "http://localhost";
   } else {
-    baseurl = "https://www.seeulater.site";
+    baseurl = "https://www.seeulater.kr";
   }
   return baseurl;
 }
