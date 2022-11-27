@@ -2,7 +2,7 @@
   "name": "seeULater",
   "version": "1.0.1",
   "description": "have yourself",
-  "homepage_url": "https://www.seeulater.site/",
+  "homepage_url": "https://www.seeulater.kr/",
   "background": {
     "scripts": [
       "background.js"

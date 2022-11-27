@@ -63,7 +63,7 @@ passwd –d root
 
   # 수동으로 갱신
   certbot certonly --standalone
-  # 도메인 www.seeulater.site 입력
+  # 도메인 www.seeulater.kr 입력
   ```
   
 - git ignore가 안먹을 때
