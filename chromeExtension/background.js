@@ -5,7 +5,7 @@
 */
 
 const define = {
-  URL: "https://www.seeulater.site",
+  URL: "https://www.seeulater.kr",
   id: "storePage",
   title: "Store this page2",
   // URL : "http://127.0.0.1",
@@ -15,7 +15,7 @@ const define = {
 };
 //----------------------------------------set mode-----------------------------------------------
 
-// const baseUrl = "http://www.seeulater.site";
+// const baseUrl = "http://www.seeulater.kr";
 const baseUrl = define.URL // + ':' + define.PORT;
 // Copyright (c) 2011 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
@@ -120,7 +120,7 @@ function submitPostUrls(tab) {
           break;
         case 401: // not login
           if (window.confirm('Please Login first. Do you want to go to SeeULater main page?\n\n Go to SeeULater')) {
-            window.open('https://www.seeulater.site', '_blank', 'noopener, noreferrer')
+            window.open(baseUrl, '_blank', 'noopener, noreferrer')
           }
           break;
         case 0: // request failed - change to On all sites

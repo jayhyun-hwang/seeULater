@@ -1,8 +1,8 @@
 {
   "name": "seeULater",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "have yourself",
-  "homepage_url": "https://www.seeulater.site/",
+  "homepage_url": "https://www.seeulater.kr/",
   "background": {
     "scripts": [
       "background.js"
@@ -20,20 +20,20 @@
     "toggle-feature": {
       "suggested_key": {
         "default": "Ctrl+Shift+Y",
-        "mac": "MacCtrl+Shift+Y"
+        "mac": "Command+Shift+Y"
       },
       "description": "Send a 'toggle-feature' event to the extension"
     },
     "_execute_browser_action": {
       "suggested_key": {
         "default": "Ctrl+Shift+F",
-        "mac": "MacCtrl+Shift+F"
+        "mac": "Command+Shift+F"
       }
     },
     "store_page": {
       "suggested_key": {
         "default": "Ctrl+Shift+S",
-        "mac": "MacCtrl+Shift+S"
+        "mac": "Command+Shift+S"
       },
       "description": "Store this tab's url"
     }

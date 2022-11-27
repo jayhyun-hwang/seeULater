@@ -2,7 +2,7 @@
   "name": "seeULater_beta_DEV",
   "version": "1.0.5",
   "description": "have yourself_DEV",
-  "homepage_url": "https://www.seeulater.site/",
+  "homepage_url": "https://www.seeulater.kr/",
   "background": {
     "scripts": [
       "background.js"

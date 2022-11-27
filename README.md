@@ -8,7 +8,7 @@ seeULater
 Description
 -----------
 
-https://www.seeulater.site
+https://www.seeulater.kr
 
 [Chrome Web Store: seeULater](https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp/related?hl=ko)
 
