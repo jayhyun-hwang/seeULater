@@ -1,5 +1,5 @@
 const define = {
-  URL: "https://www.seeulater.site",
+  URL: "https://www.seeulater.kr",
   id: "storePage",
   title: "Store this page",
   PORT: 80
@@ -101,7 +101,7 @@ function submitPostUrls(tab) {
           break;
         case 401: // not login
           if (window.confirm('Please Login first. Do you want to go to SeeULater main page?\n\n Go to SeeULater')) {
-            window.open('https://www.seeulater.site', '_blank', 'noopener, noreferrer')
+            window.open(baseUrl, '_blank', 'noopener, noreferrer')
           }
           break;
         case 0: // request failed - change to On all sites
