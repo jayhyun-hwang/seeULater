@@ -4,18 +4,22 @@
   box-sizing: border-box;
 }
 
+.main-wrapper {
+  min-width: 1400px;
+}
+
 .Main {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 82vh;
 }
-@media (max-width: 940px), (max-height: 400px) {
+/* @media (max-width: 940px), (max-height: 400px) {
   .Main {
     display: block;
     min-height: 82vh;
   }
-}
+} */
 body {
   background-color: #aecdc4;
   color: #ffffff;
@@ -78,7 +82,6 @@ form button:hover {
     width: 100%;
     max-width: 900px;
     min-width: 470px;
-    /* display: block; */
     min-height: 82vh;
   }
 }
