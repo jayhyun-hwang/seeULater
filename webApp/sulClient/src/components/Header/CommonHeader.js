@@ -79,7 +79,7 @@ function CommonHeader() {
                 </div>
                 <div className='div-header-menu'>
                     <div id="div-extension" onClick={extensionClick}>
-                        <span className='span-commonHeader-title'>
+                        <span className='span-commonHeader-title span-chrome-web-store'>
                             Chrome Web Store&nbsp;
                         </span>
                         <img id="img-extension" src={chrome_web_store} alt="chrome extension" />

@@ -132,7 +132,7 @@ function Main() {
     });
   }
   return (
-    <div>
+    <div className="main-wrapper">
       <Directories
         directoryList={directoryList}
         directoryID={directoryID}
