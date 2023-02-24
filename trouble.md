@@ -2,7 +2,8 @@
   - .pem키로 private 키를 생성하고 연결에 사용
     - conversions - import key를 한 후에 save private key
   - windows의 경우, puttygen을 사용해 .ppk 포맷으로 변환이 필요함
-    - mobaxterm을 사용해 ssh와 ftps를 함께 사용하고 싶을 때는 key - parameters for key files에서 파라미터를 버전 2로 설정하고 진행한다
+    - ~~mobaxterm을 사용해 ssh와 ftps를 함께 사용하고 싶을 때는 key - parameters for key files에서 파라미터를 버전 2로 설정하고 진행한다~~
+    - mobaxterm을 최신버전으로 받고 .ppk 포맷 3버전으로 변환해서 사용한다.
 - [AWS] EC2에서 root 권한 사용하기
 
 1. 다음 명령어를 실행하여 루트 사용자 권한을 가정합니다.
