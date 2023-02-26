@@ -139,7 +139,7 @@ port 3000 aleady running
 - footer가 directories div의 높이 때문에 바닥에서 떠 있어서 Main 컴포넌트의 최소 길이를 vh로 정해둠
 - 버튼 클릭 이벤트 후, event.currentTarget.blur()로 엔터로 재실행하는것을 막아준다.
 ---
-- docker aws EC2에 설치
+- AWS EC2에 docker 설치
   ```bash
   # yum 패키지 업데이트
   sudo yum update
@@ -159,17 +159,17 @@ port 3000 aleady running
   id ec2-user
   # Reload a Linux user's group assignments to docker w/o logout
   newgrp docker
-
+  
   # docker 버전 확인
   docker version
-
+  
   # docker-compose 사용할 시, pip3을 통해 추가 설치
   # 미설치 시, pip3 설치
   sudo yum install python3-pip
-
+  
   # docker-compose 설치
   sudo pip3 install docker-compose
-
+  
   # docker-compose 버전 확인
   docker-compose version
   ```
