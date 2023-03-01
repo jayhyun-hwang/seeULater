@@ -14,6 +14,7 @@
   align-items: center;
   min-height: 82vh;
 }
+
 /* @media (max-width: 940px), (max-height: 400px) {
   .Main {
     display: block;
@@ -77,6 +78,7 @@ form button:hover {
   margin-bottom: 10vh;
   word-break: break-all;
 }
+
 @media (max-width: 940px), (max-height: 400px) {
   .url-list {
     width: 100%;
@@ -103,6 +105,7 @@ form button:hover {
   flex-direction: column;
   justify-content: space-between;
 }
+
 /* @media (max-width: 820px), (max-height: 400px) {
   .p-div {
     max-width: 30vh;
@@ -223,7 +226,7 @@ select {
 
 .url-regist-p {
   font-size: 0.6em;
-  color:#aaaaaa;
+  color: #aaaaaa;
 }
 
 .img-div {
@@ -259,12 +262,12 @@ img.main-logo-img {
   margin: 0 0 0.5em 0.5em;
 }
 
-.login-form{
+.login-form {
   display: flex;
   flex-direction: column;
 }
 
-.login-button{
+.login-button {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -275,10 +278,12 @@ img.main-logo-img {
 .vsc-initialized ::-webkit-scrollbar {
   width: 8px;
 }
+
 .vsc-initialized ::-webkit-scrollbar-thumb {
   background: #5d957c;
   border-radius: 5px;
 }
+
 .vsc-initialized ::-webkit-scrollbar-track {
   background: #82b9a1;
   border-radius: 5px;

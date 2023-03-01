@@ -1,91 +1,102 @@
 .common-header {
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    min-height: 0;
-    width: 100%;
-    margin: 0 !important;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 0;
+  width: 100%;
+  margin: 0 !important;
 }
 
 .common-header div {
-    /* cursor: pointer; */
-    display: flex;
-    font-weight: bold;
+  /* cursor: pointer; */
+  display: flex;
+  font-weight: bold;
 }
 
 .common-header-div {
-    position: fixed;
-    width: 100%;
-    background: #09b086;
-    padding: 1vh 2vh;
-    z-index: 10;
+  position: fixed;
+  width: 100%;
+  background: #09b086;
+  padding: 1vh 2vh;
+  z-index: 10;
 }
 
 #div-logout {
-    cursor: pointer;
-    align-items: center;
+  cursor: pointer;
+  align-items: center;
 }
-#div-header-home{
-    cursor: pointer;
+
+#div-header-home {
+  cursor: pointer;
 }
+
 #home-img {
-    height: 2rem;
+  height: 2rem;
 }
 
 #logout-img {
-    height: 1.5rem;
+  height: 1.5rem;
 }
+
 #div-extension {
-    cursor: pointer;
-    margin-right: 2rem;
-    align-items: center;
+  cursor: pointer;
+  margin-right: 2rem;
+  align-items: center;
 }
+
 #div-extension-pre {
-    cursor: pointer;
-    /* margin-right: 2rem; */
-    align-items: center;
+  cursor: pointer;
+  /* margin-right: 2rem; */
+  align-items: center;
 }
+
 #img-extension {
-    margin-right: 0.1rem;
+  margin-right: 0.1rem;
 }
-.div-header-menu{
-    cursor: default;
-    justify-content: right;
+
+.div-header-menu {
+  cursor: default;
+  justify-content: right;
 }
+
 .div-userName {
-    cursor: default;
-    justify-content: center;
+  cursor: default;
+  justify-content: center;
 }
+
 .btn-toTop {
-    background: none;
-    color: white;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-    font-size: 2rem;
-    position: fixed;
-    margin-top: 3vh;
+  background: none;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 2rem;
+  position: fixed;
+  margin-top: 3vh;
 }
+
 .btn-toTop:hover {
-    color: orangered;
-    transition: all 0.5s ease;
+  color: orangered;
+  transition: all 0.5s ease;
 }
 
 @media (max-width: 1050px), (max-height: 400px) {
-    .btn-toTop {
-        color: #4d836b;
-    }
-    .span-commonHeader-title {
-        display: none;
-    }
+  .btn-toTop {
+    color: #4d836b;
+  }
+
+  .span-commonHeader-title {
+    display: none;
+  }
 }
 
 @media (max-width: 1400px), (max-height: 400px) {
-    .span-chrome-web-store {
-        display: none;
-    }
+  .span-chrome-web-store {
+    display: none;
+  }
 }
-.common-header > div {
-    width: 30%;
+
+.common-header>div {
+  width: 30%;
 }

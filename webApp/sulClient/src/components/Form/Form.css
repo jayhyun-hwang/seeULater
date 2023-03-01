@@ -1,46 +1,48 @@
 .inputForm {
-    min-height: 80px;
-    /* width: 100%; */
-    width: 900px;
-    /* max-width: 913px; */
-    /* min-width: 480px; */
-    margin-left: 0px;
-    padding: 0 1vh 0 1vh;
-    /* display: flex;
+  min-height: 80px;
+  /* width: 100%; */
+  width: 900px;
+  /* max-width: 913px; */
+  /* min-width: 480px; */
+  margin-left: 0px;
+  padding: 0 1vh 0 1vh;
+  /* display: flex;
     flex-direction: column; */
 }
 
 .input-addbutton-wrapper {
-    min-width: 50%;
-    display: contents;
+  min-width: 50%;
+  display: contents;
 }
 
 .inputs-wrapper {
-    width: 100%;
+  width: 100%;
 }
 
 .url-url-input {
-    width: 100%;
+  width: 100%;
 }
 
 .url-title-input {
-    margin: 1vh 0 1vh 0;
-    width: 100%;
-    border-radius: 3px 0 0 3px;
+  margin: 1vh 0 1vh 0;
+  width: 100%;
+  border-radius: 3px 0 0 3px;
 }
 
 .url-url-input::placeholder, .url-title-input::placeholder {
-    color: #b9b9b9e0
+  color: #b9b9b9e0
 }
-.div-title-button{
-    display: flex;
-    align-items: baseline;
+
+.div-title-button {
+  display: flex;
+  align-items: baseline;
 }
+
 .url-button-div {
-    display: flex;
-    align-items: flex-end;
+  display: flex;
+  align-items: flex-end;
 }
 
 .url-button {
-    border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
 }

@@ -1,86 +1,89 @@
 .listButton-wrapper {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 1vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1vh;
 }
 
 .button-showMore {
-    width: 100%;
-    background-color: #005963;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    font-size: 1.2rem;
-    min-height: 2rem;
-    cursor: pointer;
-    font-weight: bold;
+  width: 100%;
+  background-color: #005963;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  min-height: 2rem;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .button-close {
-    width: 100%;
-    background-color: #09b086;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    font-size: 1.2rem;
-    min-height: 2rem;
-    cursor: pointer;
-    font-weight: bold;
-    margin-bottom: 0.5vh;
+  width: 100%;
+  background-color: #09b086;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  min-height: 2rem;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 0.5vh;
 }
 
 .url_a-index {
-    color: #003136;
-    font-size: 1.3rem;
-    font-weight: 900;
+  color: #003136;
+  font-size: 1.3rem;
+  font-weight: 900;
 }
 
 .urlDragging {
-    opacity: 0.95;
-    background-color: brown;
+  opacity: 0.95;
+  background-color: brown;
 }
 
 .input-url-checkbox {
-    width: 1.2rem;
-    height: 1.2rem;
-    vertical-align: middle;
-    margin-right: 0.8vw;
+  width: 1.2rem;
+  height: 1.2rem;
+  vertical-align: middle;
+  margin-right: 0.8vw;
 }
 
 .div-total-refresh {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .btn-refresh {
-    background: none;
-    color: #005963;
-    border: none;
-    cursor: pointer;
-    font-size: 2rem;
-    transition: all 0.3s ease;
-    margin-left: 5px;
+  background: none;
+  color: #005963;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+  margin-left: 5px;
 }
+
 .btn-refresh:hover {
-    color: orangered;
+  color: orangered;
 }
 
 .btn-refresh * {
-    vertical-align: text-bottom;
+  vertical-align: text-bottom;
 }
 
 .div-url_a-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }
+
 .input-edit-btn {
-    color: #949494;
-    margin: 0 0.5vw 0 0.5vw;
-    font-size: 1.3rem;
+  color: #949494;
+  margin: 0 0.5vw 0 0.5vw;
+  font-size: 1.3rem;
 }
+
 .input-url-title {
-    height: 2rem;
+  height: 2rem;
 }

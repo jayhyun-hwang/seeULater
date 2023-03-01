@@ -1,162 +1,182 @@
 .login-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    border-left: solid #ffffff80 2px;
-    padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-left: solid #ffffff80 2px;
+  padding: 2rem;
 }
+
 .register-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10%;
 }
 
 .login-form {
-    display: flex;
-    flex-direction: column;
-    margin: 3% 0 3% 0;
+  display: flex;
+  flex-direction: column;
+  margin: 3% 0 3% 0;
 }
 
 .login-button {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10%;
 }
 
 .login-button button {
-    margin-top: 5%;
+  margin-top: 5%;
 }
 
 .login-form label {
-    margin: 3% 0 3% 0;
+  margin: 3% 0 3% 0;
 }
 
 .login-form p {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .login-form input,
 button {
-    border-radius: 2px;
+  border-radius: 2px;
 }
 
 a {
-    display: contents;
-    text-decoration: none;
+  display: contents;
+  text-decoration: none;
 }
 
 form button {
-    font-weight: bold;
+  font-weight: bold;
 }
-.button-checkduplicate-false{
-    background: #ff8993;
-    color: white;
-    border-radius: 5px;
-    height: 4vh;
-    padding: 0 10px 0 10px;
-    font-size: 1rem;
+
+.button-checkduplicate-false {
+  background: #ff8993;
+  color: white;
+  border-radius: 5px;
+  height: 4vh;
+  padding: 0 10px 0 10px;
+  font-size: 1rem;
 }
-.button-checkduplicate-false:hover{
-    background: #ff1528;
+
+.button-checkduplicate-false:hover {
+  background: #ff1528;
 }
+
 .button-checkduplicate-true {
-    background: #00d6c0;
-    color: white;
-    border-radius: 5px;
-    height: 4vh;
-    padding: 0 10px 0 10px;
-    font-size: 1rem;
+  background: #00d6c0;
+  color: white;
+  border-radius: 5px;
+  height: 4vh;
+  padding: 0 10px 0 10px;
+  font-size: 1rem;
 }
-.div-checkduplicate{
-    margin-left: auto;
+
+.div-checkduplicate {
+  margin-left: auto;
 }
-.input-register::placeholder{
-    color: #afafaf;
+
+.input-register::placeholder {
+  color: #afafaf;
 }
-#ID-Exclamation{
-    font-size: 1rem;
-    margin-left: 0.5rem;
+
+#ID-Exclamation {
+  font-size: 1rem;
+  margin-left: 0.5rem;
 }
+
 .div-whole-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-top: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 3rem;
 }
+
 .h1-login-title {
-    font-size: 3rem;
-    color: #005963;
+  font-size: 3rem;
+  color: #005963;
 }
+
 .div-help-title {
-    margin-bottom: 4vh;
+  margin-bottom: 4vh;
 }
+
 .button-regist {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 10%;
-    color: #00d6c0;
-    background: #f7fffe;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10%;
+  color: #00d6c0;
+  background: #f7fffe;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-items: center;
 }
+
 .button-main-regist {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    color: #ffffff;
-    background: #005963;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    align-items: center;
-    padding: 1rem;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: #ffffff;
+  background: #005963;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
 }
+
 .button-main-regist:hover {
-    color: #ffffff;
-    background-color: #00aabd;
+  color: #ffffff;
+  background-color: #00aabd;
 }
+
 .h3-register-desc {
-    margin-top: 1vh;
-    margin-bottom: 5vh;
-    color: #005963;
+  margin-top: 1vh;
+  margin-bottom: 5vh;
+  color: #005963;
 }
+
 .div-help-wrapper {
-    width: 50%;
-    padding: 2rem;
-    /* max-height: 100vh;
-    overflow-y: scroll; */
+  width: 50%;
+  padding: 2rem;
 }
+
 .img-help {
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
 }
+
 .div-img-help-wrapper {
-    text-align: center;
+  text-align: center;
 }
+
 .h3-help {
-    color: #005963;
+  color: #005963;
 }
+
 .a-help {
-    color: #005963 !important;
+  color: #005963 !important;
 }
+
 .a-help:hover {
-    color: #ffffff !important;
+  color: #ffffff !important;
 }
+
 .div-help-paragraph {
-    border-top: solid #ffffff80 2px;
-    padding-top: 2vh;
+  border-top: solid #ffffff80 2px;
+  padding-top: 2vh;
 }
+
 img.login-logo-img {
-    height: 3rem;
-    margin-left: 0.5rem;
+  height: 3rem;
+  margin-left: 0.5rem;
 }

@@ -1,21 +1,24 @@
 .footer-common-footer {
-    background: #09b086;
-    height: 25vh;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
+  background: #09b086;
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
 }
+
 .a-footer {
-    color: white;
-    display: inline;
-    text-decoration: underline !important;
+  color: white;
+  display: inline;
+  text-decoration: underline !important;
 }
+
 .div-footer {
-    padding: 2px;
-    align-self: center;
+  padding: 2px;
+  align-self: center;
 }
+
 .div-footer a:hover {
-    font-weight: bold;
+  font-weight: bold;
 }
