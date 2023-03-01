@@ -5,7 +5,7 @@ let baseurl;
 // dev/prod 모드 설정
 function getUrl() {
   if (argMode === "dev") {
-    baseurl = "http://localhost";
+    baseurl = "http://local.seeulater.kr";
   } else {
     baseurl = "https://www.seeulater.kr";
   }

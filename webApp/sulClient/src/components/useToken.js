@@ -21,7 +21,7 @@ export default function useToken() {
         setCookie('token', userToken.token, {
             path: '/', 
             expires: expires,
-            secure: true,
+            secure: userToken.secure,
             // httpOnly: true,
             sameSite: 'strict'
             // sameSite?: boolean | 'none' | 'lax' | 'strict';
