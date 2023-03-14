@@ -51,7 +51,7 @@ export default function Register() {
         if (re.test(e.target.value)) {
             setuserUniqueID(e.target.value);
         } else {
-            alert("Only letters, numbers, - and _ are allowed.")
+            alert("Only alphanumeric characters, - and _ are allowed.")
         }
     }
     const checkIDValidBtn = async () => {
@@ -124,12 +124,12 @@ export default function Register() {
                         </i>
                     </p>
                     <ReactTooltip id="IDTooltip" place="right" effect="solid">
-                        <span>User ID must contain 4 to 20 characters.<br />Only letters, numbers, - and _ are allowed.</span>
+                        <span>User ID must contain 4 to 20 characters.<br />Only alphanumeric characters, - and _ are allowed.</span>
                     </ReactTooltip>
                     <input type="text"
                         className="input-register"
                         placeholder="4 ~ 20 characters"
-                        data-tip="User ID must contain 4 to 20 characters. Only letters, numbers, - and _ are allowed."
+                        data-tip="User ID must contain 4 to 20 characters. Only alphanumeric characters, - and _ are allowed."
                         maxLength="20"
                         value={userUniqueID}
                         autoFocus
