@@ -27,32 +27,32 @@ function Footer() {
         <footer className="footer-common-footer">
             <div className='div-footer'>
                 seeULater {version} Created by&nbsp;
-                <a className='a-footer' href='https://www.linkedin.com/in/jaehyun-hwang-344522201/' target="_blank">
+                <a className='a-footer' href='https://www.linkedin.com/in/jaehyun-hwang-344522201/' target="_blank" rel="noreferrer">
                     Jayhyun-Hwang
                 </a>
             </div>
             <div className='div-footer'>
                 <span>
                     contact email:&nbsp;
-                    <a className='a-footer' href='mailto:wogus0501@gmail.com' target="_blank">
+                    <a className='a-footer' href='mailto:wogus0501@gmail.com' target="_blank" rel="noreferrer">
                         wogus0501@gmail.com
                     </a>
                 </span>
             </div>
             <div className='div-footer'>
-                <a className='a-footer' href='https://github.com/jayhyun-hwang/seeULater' target="_blank">
+                <a className='a-footer' href='https://github.com/jayhyun-hwang/seeULater' target="_blank" rel="noreferrer">
                     GitHub Project
                 </a>
                 <span> · </span>
-                <a className='a-footer' href='https://github.com/jayhyun-hwang/seeULater/issues' target="_blank">
+                <a className='a-footer' href='https://github.com/jayhyun-hwang/seeULater/issues' target="_blank" rel="noreferrer">
                     Issues
                 </a>
                 <span> · </span>
-                <a className='a-footer' href='https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp' target="_blank">
+                <a className='a-footer' href='https://chromewebstore.google.com/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp' target="_blank" rel="noreferrer">
                     Chrome Web Store
                 </a>
                 <span> · </span>
-                <a className='a-footer' href='https://github.com/jayhyun-hwang/seeULater/blob/main/Privacy_Policy.md' target="_blank">
+                <a className='a-footer' href='https://github.com/jayhyun-hwang/seeULater/blob/main/Privacy_Policy.md' target="_blank" rel="noreferrer">
                     Privacy Policy
                 </a>
             </div>

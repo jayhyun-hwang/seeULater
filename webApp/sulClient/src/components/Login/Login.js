@@ -58,8 +58,8 @@ export default function Login({ setToken }) {
               📝 Save bookmarks with one click using &nbsp;
               <a
                 className="a-footer a-help"
-                href="https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp"
-                target="_blank"
+                href="https://chromewebstore.google.com/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp"
+                target="_blank" rel="noreferrer"
               >
                 Chrome extension.
               </a>
@@ -77,8 +77,8 @@ export default function Login({ setToken }) {
               1. Install seeULater extension in&nbsp;
               <a
                 className="a-footer a-help"
-                href="https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp"
-                target="_blank"
+                href="https://chromewebstore.google.com/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp"
+                target="_blank" rel="noreferrer"
               >
                 Chrome Web Store.
               </a>

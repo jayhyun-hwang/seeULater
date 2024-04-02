@@ -10,7 +10,7 @@ Description
 
 https://www.seeulater.kr
 
-[Chrome Web Store: seeULater](https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp/related?hl=ko)
+[Chrome Web Store: seeULater](https://chromewebstore.google.com/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp)
 
 seeULater is a book mark manager. You can add, delete, edit, add memos and share URLs you interested! 
 Inspired by the lack of good book mark manager with having remote stores, now we can store and manage favorite pages easily. This project uses a remote repository(AWS ec2 and RDS), so you can access your bookmark with your account from anywhere.
@@ -31,4 +31,4 @@ Inspired by the lack of good book mark manager with having remote stores, now we
 How to Install
 --------------
 
-Install it on Chrome. [here](https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp/related?hl=ko)
+Install it on Chrome. [here](https://chromewebstore.google.com/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp)

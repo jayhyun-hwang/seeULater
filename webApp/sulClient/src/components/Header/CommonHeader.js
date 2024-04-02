@@ -54,7 +54,7 @@ function CommonHeader() {
         window.location.href = "/";
     }
     const extensionClick = () => {
-        window.open("https://chrome.google.com/webstore/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp", '_blank');
+        window.open("https://chromewebstore.google.com/detail/seeulater/pemilclakldcfcijhimggelacjhkjogp", '_blank');
     }
     const toTopHandler = () => {
         window.scrollTo({
