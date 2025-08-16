@@ -1,6 +1,6 @@
 {
   "name": "seeULater_beta_DEV",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "description": "have yourself_DEV",
   "homepage_url": "https://www.seeulater.kr/",
   "background": {
@@ -33,7 +33,7 @@
     "store_page": {
       "suggested_key": {
         "default": "Ctrl+Shift+S",
-        "mac": "MacCtrl+Shift+S"
+        "mac": "Ctrl+Shift+S"
       },
       "description": "Store this tab's url"
     }

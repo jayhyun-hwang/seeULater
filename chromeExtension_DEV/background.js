@@ -9,7 +9,6 @@ const define = {
 };
 //----------------------------------------set mode-----------------------------------------------
 
-// const baseUrl = "http://www.seeulater.kr";
 const baseUrl = define.URL // + ':' + define.PORT;
 // Copyright (c) 2011 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
@@ -21,10 +20,6 @@ const baseUrl = define.URL // + ':' + define.PORT;
 function getStoreClickHandler() {
   return function (info, tab) {
 
-    // The srcUrl property is only available for image elements.
-    //var url = 'info.html#' + info.srcUrl;
-    // //object 확인
-    // // alert(JSON.stringify(tab));
     submitPostUrls(tab);
   };
 };
@@ -57,7 +52,7 @@ function submitPostUrls(tab) {
   }
   let promptTitle = prompt("Enter title (within 100 characters)", tabTitle)
   //cancel
-  if(promptTitle === null) {
+  if (promptTitle === null) {
     return
   }
   //trim
@@ -84,16 +79,8 @@ function submitPostUrls(tab) {
   req.open("POST", baseUrl + "/urls", true);
   req.setRequestHeader("Content-type", "application/json");
 
-  // req.onerror = function () {
-  //   alert("Please try a minute later.")
-  // }
-
-  //--------
   req.timeout = 5000
 
-  console.log(req.HEADERS_RECEIVED)
-  console.log(req.withCredentials)
-  // console.log(req.getResponseHeader())
   req.send(JSON.stringify({
     url: url,
     iconImg: iconImg,
@@ -104,14 +91,12 @@ function submitPostUrls(tab) {
     alert("request failed")
     return
   }
-  // 모든 사이트에서 사용을 허용 안 한 경우
   req.onerror = function () {
     console.log("onerror!!")
     alert("Please change the extension’s site access to [On all sites].")
     return
   }
   req.onreadystatechange = function () { // Call a function when the state changes.
-    // if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
     if (this.readyState === XMLHttpRequest.DONE) {
       switch (this.status) {
         case 200: // success
