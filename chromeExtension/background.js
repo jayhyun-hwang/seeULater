@@ -36,7 +36,7 @@ chrome.contextMenus.create({
   "contexts": ["all"]
 });
 
-chrome.contextMenus.onClicked.addListener(function(info, tab) {
+chrome.contextMenus.onClicked.addListener(function (info, tab) {
   if (info.menuItemId === define.id) {
     getStoreClickHandler()(info, tab);
   }
@@ -44,9 +44,18 @@ chrome.contextMenus.onClicked.addListener(function(info, tab) {
 
 chrome.commands.onCommand.addListener(function (command, tab) {
   console.log('onCommand event received for message: ', command);
-  if (command == "store_page") {
-    console.log('in', command);
-
+  if (command !== "store_page") return;
+  console.log('in', command);
+  // tab이 undefined일 수 있으므로, 활성 탭을 직접 가져옴
+  if (!tab || !tab.id) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      if (tabs && tabs.length > 0) {
+        submitPostUrls(tabs[0]);
+      } else {
+        console.log('No active tab found.');
+      }
+    });
+  } else {
     submitPostUrls(tab);
   }
 });
@@ -56,10 +65,14 @@ function submitPostUrls(tab) {
   if (tab.title) {
     tabTitle = tab.title.substring(0, 100);
   }
-  chrome.tabs.sendMessage(tab.id, { type: 'getTitlePrompt', tabTitle }, function(response) {
+  chrome.tabs.sendMessage(tab.id, { type: 'getTitlePrompt', tabTitle }, function (response) {
     let promptTitle = response && response.promptTitle;
     //cancel
     if (promptTitle === null) {
+      return;
+    }
+    // invalid tab
+    if (promptTitle == null) {
       return;
     }
     //trim
@@ -93,22 +106,22 @@ function submitPostUrls(tab) {
         title: title
       })
     })
-    .then(async (response) => {
-      if (response.status === 200) {
-        chrome.tabs.sendMessage(tab.id, { type: 'alert', message: 'Store Success!\ntitle: ' + title });
-      } else if (response.status === 401) {
-        chrome.tabs.sendMessage(tab.id, { type: 'confirm', message: 'Please Login first. Do you want to go to SeeULater main page?\n\n Go to SeeULater' }, function(resp) {
-          if (resp && resp.confirmed) {
-            chrome.tabs.create({ url: baseUrl });
-          }
-        });
-      } else {
-        chrome.tabs.sendMessage(tab.id, { type: 'alert', message: 'Please try a minute later. : ' + response.status });
-      }
-    })
-    .catch((error) => {
-      console.log("fetch error!!", error);
-      chrome.tabs.sendMessage(tab.id, { type: 'alert', message: 'request failed or Please change the extension’s site access to [On all sites].' });
-    });
+      .then(async (response) => {
+        if (response.status === 200) {
+          chrome.tabs.sendMessage(tab.id, { type: 'alert', message: 'Store Success!\ntitle: ' + title });
+        } else if (response.status === 401) {
+          chrome.tabs.sendMessage(tab.id, { type: 'confirm', message: 'Please Login first. Do you want to go to SeeULater main page?\n\n Go to SeeULater' }, function (resp) {
+            if (resp && resp.confirmed) {
+              chrome.tabs.create({ url: baseUrl });
+            }
+          });
+        } else {
+          chrome.tabs.sendMessage(tab.id, { type: 'alert', message: 'Please try a minute later. : ' + response.status });
+        }
+      })
+      .catch((error) => {
+        console.log("fetch error!!", error);
+        chrome.tabs.sendMessage(tab.id, { type: 'alert', message: 'request failed or Please change the extension’s site access to [On all sites].' });
+      });
   });
 }

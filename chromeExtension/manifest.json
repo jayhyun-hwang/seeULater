@@ -3,36 +3,45 @@
   "version": "1.0.8",
   "description": "have yourself",
   "homepage_url": "https://www.seeulater.kr/",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "browser_action.html"
+  },
   "background": {
     "service_worker": "background.js"
   },
   "permissions": [
-    "contextMenus"
+    "contextMenus",
+    "scripting",
+    "activeTab"
   ],
   "host_permissions": [
     "https://*/*",
     "http://*/*"
   ],
-  "action": {
-    "default_popup": "browser_action.html"
-  },
   "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "MacCtrl+Shift+F"
+      },
+      "description": "Open popup"
+    },
     "toggle-feature": {
       "suggested_key": {
-        "default": "Ctrl+Shift+Y",
-        "mac": "MacCtrl+Shift+Y"
+        "default": "Ctrl+Shift+T",
+        "mac": "MacCtrl+Shift+T"
       },
       "description": "Send a 'toggle-feature' event to the extension"
     },
     "store_page": {
       "suggested_key": {
         "default": "Ctrl+Shift+S",
-        "mac": "Ctrl+Shift+S"
+        "mac": "MacCtrl+Shift+S"
       },
       "description": "Store this tab's url"
     }
   },
-  "minimum_chrome_version": "6.0.0.0",
   "icons": {
     "16": "alligator_128.png",
     "32": "alligator_128.png",
@@ -41,9 +50,12 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["contentScript.js"]
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "contentScript.js"
+      ]
     }
-  ],
-  "manifest_version": 3
+  ]
 }
