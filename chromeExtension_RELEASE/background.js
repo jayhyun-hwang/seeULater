@@ -27,89 +27,95 @@ chrome.contextMenus.create({
   "id": define.id,
   "title": define.title,
   "type": "normal", //"normal", "checkbox", "radio", or "separator"
-  "onclick": getStoreClickHandler(),
   "contexts": ["all"]
+});
+
+chrome.contextMenus.onClicked.addListener(function (info, tab) {
+  if (info.menuItemId === define.id) {
+    getStoreClickHandler()(info, tab);
+  }
 });
 
 chrome.commands.onCommand.addListener(function (command, tab) {
   console.log('onCommand event received for message: ', command);
-  if (command == "store_page") {
-    console.log('in', command);
-
+  if (command !== "store_page") return;
+  console.log('in', command);
+  // tab이 undefined일 수 있으므로, 활성 탭을 직접 가져옴
+  if (!tab || !tab.id) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      if (tabs && tabs.length > 0) {
+        submitPostUrls(tabs[0]);
+      } else {
+        console.log('No active tab found.');
+      }
+    });
+  } else {
     submitPostUrls(tab);
   }
 });
 
 function submitPostUrls(tab) {
-
-  let inputTitle
-  let tabTitle = ""
+  let tabTitle = "";
   if (tab.title) {
-    tabTitle = tab.title.substring(0,100)
+    tabTitle = tab.title.substring(0, 100);
   }
-  let promptTitle = prompt("Enter title (within 100 characters)", tabTitle)
-  //cancel
-  if (promptTitle === null) {
-    return
-  }
-  //trim
-  if (promptTitle) {
-    promptTitle = promptTitle.trim()
-  }
-  //check valid and length
-  if (!promptTitle) {
-    inputTitle = tab.title
-  } else {
-    if (promptTitle.length > 100) {
-      alert("Enter the title within 100 characters.\nPlease try again.")
-      return
+  chrome.tabs.sendMessage(tab.id, { type: 'getTitlePrompt', tabTitle }, function (response) {
+    let promptTitle = response && response.promptTitle;
+    //cancel
+    if (promptTitle === null) {
+      return;
     }
-    inputTitle = promptTitle
-  }
-
-  let req = new XMLHttpRequest();
-
-  const title = inputTitle;
-  const url = tab.url;
-  const iconImg = tab.favIconUrl;
-
-  req.open("POST", baseUrl + "/urls", true);
-  req.setRequestHeader("Content-type", "application/json");
-
-  req.timeout = 5000
-
-  req.send(JSON.stringify({
-    url: url,
-    iconImg: iconImg,
-    title: title
-  }));
-  req.onabort = function () {
-    console.log("onabort!!")
-    alert("request failed")
-    return
-  }
-  req.onerror = function () {
-    console.log("onerror!!")
-    alert("Please change the extension’s site access to [On all sites].")
-    return
-  }
-  req.onreadystatechange = function () { // Call a function when the state changes.
-    if (this.readyState === XMLHttpRequest.DONE) {
-      switch (this.status) {
-        case 200: // success
-          alert("Store Success!\ntitle: " + title);
-          break;
-        case 401: // not login
-          if (window.confirm('Please Login first. Do you want to go to SeeULater main page?\n\n Go to SeeULater')) {
-            window.open(baseUrl, '_blank', 'noopener, noreferrer')
-          }
-          break;
-        case 0: // request failed - change to On all sites
-          break;
-        default:
-          alert("Please try a minute later. : " + this.status)
-          break;
+    // invalid tab
+    if (promptTitle == null) {
+      return;
+    }
+    //trim
+    if (promptTitle) {
+      promptTitle = promptTitle.trim();
+    }
+    let inputTitle;
+    //check valid and length
+    if (!promptTitle) {
+      inputTitle = tab.title;
+    } else {
+      if (promptTitle.length > 100) {
+        chrome.tabs.sendMessage(tab.id, { type: 'alert', message: 'Enter the title within 100 characters.\nPlease try again.' });
+        return;
       }
+      inputTitle = promptTitle;
     }
-  }
+
+    const title = inputTitle;
+    const url = tab.url;
+    const iconImg = tab.favIconUrl;
+
+    fetch(baseUrl + "/urls", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        url: url,
+        iconImg: iconImg,
+        title: title
+      })
+    })
+      .then(async (response) => {
+        if (response.status === 200) {
+          chrome.tabs.sendMessage(tab.id, { type: 'alert', message: 'Store Success!\ntitle: ' + title });
+        } else if (response.status === 401) {
+          chrome.tabs.sendMessage(tab.id, { type: 'confirm', message: 'Please Login first. Do you want to go to SeeULater main page?\n\n Go to SeeULater' }, function (resp) {
+            if (resp && resp.confirmed) {
+              chrome.tabs.create({ url: baseUrl });
+            }
+          });
+        } else {
+          chrome.tabs.sendMessage(tab.id, { type: 'alert', message: 'Please try a minute later. : ' + response.status });
+        }
+      })
+      .catch((error) => {
+        console.log("fetch error!!", error);
+        chrome.tabs.sendMessage(tab.id, { type: 'alert', message: 'request failed or Please change the extension’s site access to [On all sites].' });
+      });
+  });
 }
