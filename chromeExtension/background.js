@@ -7,15 +7,11 @@
 const define = {
   URL: "https://www.seeulater.kr",
   id: "storePage",
-  title: "Store this page2",
-  // URL : "http://127.0.0.1",
-  // id: "storePage_dev",
-  // title: "Store this page_dev",
+  title: "Store this page",
   PORT: 80
 };
 //----------------------------------------set mode-----------------------------------------------
 
-// const baseUrl = "http://www.seeulater.kr";
 const baseUrl = define.URL // + ':' + define.PORT;
 // Copyright (c) 2011 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
@@ -27,10 +23,6 @@ const baseUrl = define.URL // + ':' + define.PORT;
 function getStoreClickHandler() {
   return function (info, tab) {
 
-    // The srcUrl property is only available for image elements.
-    //var url = 'info.html#' + info.srcUrl;
-    // //object 확인
-    // // alert(JSON.stringify(tab));
     submitPostUrls(tab);
   };
 };
@@ -62,15 +54,20 @@ function submitPostUrls(tab) {
     tabTitle = tab.title.substring(0,100)
   }
   let promptTitle = prompt("Enter title (within 100 characters)", tabTitle)
+  //cancel
+  if (promptTitle === null) {
+    return
+  }
+  //trim
   if (promptTitle) {
     promptTitle = promptTitle.trim()
   }
-
+  //check valid and length
   if (!promptTitle) {
     inputTitle = tab.title
   } else {
     if (promptTitle.length > 100) {
-      alert("Enter the title name within 100 characters.\nPlease try again.")
+      alert("Enter the title within 100 characters.\nPlease try again.")
       return
     }
     inputTitle = promptTitle
@@ -85,16 +82,8 @@ function submitPostUrls(tab) {
   req.open("POST", baseUrl + "/urls", true);
   req.setRequestHeader("Content-type", "application/json");
 
-  // req.onerror = function () {
-  //   alert("Please try a minute later.")
-  // }
-
-  //--------
   req.timeout = 5000
 
-  console.log(req.HEADERS_RECEIVED)
-  console.log(req.withCredentials)
-  // console.log(req.getResponseHeader())
   req.send(JSON.stringify({
     url: url,
     iconImg: iconImg,
@@ -105,14 +94,12 @@ function submitPostUrls(tab) {
     alert("request failed")
     return
   }
-  // 모든 사이트에서 사용을 허용 안 한 경우
   req.onerror = function () {
     console.log("onerror!!")
     alert("Please change the extension’s site access to [On all sites].")
     return
   }
   req.onreadystatechange = function () { // Call a function when the state changes.
-    // if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
     if (this.readyState === XMLHttpRequest.DONE) {
       switch (this.status) {
         case 200: // success
