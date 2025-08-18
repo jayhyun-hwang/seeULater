@@ -12,7 +12,6 @@
   },
   "permissions": [
     "contextMenus",
-    "scripting",
     "activeTab"
   ],
   "host_permissions": [
